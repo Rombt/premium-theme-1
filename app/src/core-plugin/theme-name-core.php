@@ -7,7 +7,7 @@ Version: 1.0
 Author: Rombt
 Author URI: #
 License: Proprietary
-Text Domain: rmbt-premium-theme-1 //! you must use only chars those allow for url 
+Text Domain: rmbt-premium-theme-1 
 */
 
 

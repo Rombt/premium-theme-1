@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
@@ -18,5 +18,5 @@
 		<?php
 		// для стандартного WP виджета поиск файл searchform.php должен находится в корне темы
 		// для работоспособности поиска в целом searchform.php может быть где угодно
-		get_template_part('searchform');
+		// get_template_part('searchform');
 		?>

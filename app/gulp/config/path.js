@@ -22,7 +22,7 @@ export const path = {
   ThemeName: THEME_NAME,
   srcPluginName: 'core-plugin', // set name your plugin for development version
   RootPath: ROOT_PATH,
-  proxy: [`http://multisite/`, `http://multisite/`],
+  proxy: [`http://premium-theme-1.multisite/`, `http://premium-theme-1.multisite/`],
 
   get src() {
     return {

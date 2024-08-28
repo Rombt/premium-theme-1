@@ -40,7 +40,7 @@ function rmbt_theme_scripts() {
 		'before'
 	);
 }
-add_action( 'wp_enqueue_scripts', RMBT_TEXT_DOMAIN_THEME . '_scripts', 20 );
+add_action( 'wp_enqueue_scripts', 'rmbt_theme_scripts', 20 );
 
 function rmbt_site_setup() {
 

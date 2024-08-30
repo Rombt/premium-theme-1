@@ -117,6 +117,8 @@ export const path = {
             app.isSASS ? '.sass' : '.less'
           }`,
           `${this.src.php}/assets/styles/parts/**/*${app.isSASS ? '.sass' : '.less'}`,
+          // `!${this.src.php}/template-parts/_templates/**/}`,
+          // `!${this.src.php}/template-parts/_templates/**/*.*}`,
           `${this.src.php}/template-parts/**/*${app.isSASS ? '.sass' : '.less'}`,
         ],
         plug: [

@@ -5,9 +5,9 @@
 <main>
 
    <?php
-	get_template_part( 'template-parts/sections/header_1/header_1', );
+	get_template_part( 'template-parts/sections/simple-section/simple-section', );
 	?>
 </main>
 
 
-<?php  get_footer();
+<?php get_footer();

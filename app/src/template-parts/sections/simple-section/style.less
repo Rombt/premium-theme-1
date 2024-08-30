@@ -1,0 +1,37 @@
+.rmbt-simple-section-full-width {
+}
+.simple-section-full-width {
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background-color: rgba(172, 172, 172, 0.5);
+  }
+}
+.rmbt-simple-section {
+  &__row {
+    .row-flex();
+
+    background-color: rgba(243, 208, 9, 0.5);
+
+    .rmbt-simple-section-title {
+      width: 100%;
+      text-align: center;
+    }
+
+    .rmbt-simple-section-text {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  &__col {
+    .col();
+    .size(12);
+    margin: 0 auto;
+
+    background-color: rgba(76, 84, 104, 0.603);
+    height: 200px;
+  }
+}

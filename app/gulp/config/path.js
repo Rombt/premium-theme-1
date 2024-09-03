@@ -118,8 +118,10 @@ export const path = {
             app.isSASS ? '.sass' : '.less'
           }`,
           `${this.src.php}/assets/styles/parts/**/*${app.isSASS ? '.sass' : '.less'}`,
-          // `!${this.src.php}/template-parts/_templates/**/}`,
-          // `!${this.src.php}/template-parts/_templates/**/*.*}`,
+          // систем может быть несколько но подключатся к проекту должна только одна
+          `${this.src.php}/assets/styles/style-systems/simple_1/*${
+            app.isSASS ? '.sass' : '.less'
+          }`,
           `${this.src.php}/template-parts/**/*${app.isSASS ? '.sass' : '.less'}`,
         ],
         plug: [

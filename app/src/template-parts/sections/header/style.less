@@ -7,6 +7,9 @@
   }
   &__col {
     .col();
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
   }
 }
 .row-top-header {
@@ -15,11 +18,15 @@
   border: 1px solid #fd05aa;
 
   &__contacts {
-    display: flex;
-    column-gap: 30px;
-    align-items: center;
   }
   &__controls {
+    .wrap-img {
+      width: 20px;
+      height: 20px;
+      display: block;
+
+      border: 1px solid #0515fd;
+    }
   }
 }
 .rmbt-login-block {

@@ -1,30 +1,38 @@
-.rmbt-full-width {
-}
 .rmbt-header-full-width {
 }
-.rmbt-container {
-}
+
 .rmbt-header {
   &__row {
-    display: flex;
+    .row-flex();
   }
   &__col {
+    .col();
   }
 }
 .row-top-header {
-  height: 30px;
+  display: flex;
 
-  border: 1px solid #0515fd;
+  border: 1px solid #fd05aa;
 
   &__contacts {
     display: flex;
+    column-gap: 30px;
+    align-items: center;
   }
-
   &__controls {
-    background-color: #def7a6;
   }
+}
+.rmbt-login-block {
+}
+
+.rmbt-cart-icon-wrap {
+}
+.lang-switcher {
 }
 .row-bottom-header {
+  border: 1px solid #0515fd;
 }
 .cont-horizont-menu {
+}
+.call-to-action-button {
 }

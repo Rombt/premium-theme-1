@@ -5,9 +5,9 @@ defined( 'ABSPATH' ) || exit;
 Redux::set_section(
 	$opt_name,
 	array(
-		'title' => esc_html__( 'simple-section', 'restaurant-site' ),
+		'title' => esc_html__( 'simple-section', RMBT_TEXT_DOMAIN_THEME ),
 		'id' => 'settings_simple-section',
-		'desc' => esc_html__( 'Settings header site', 'restaurant-site' ),
+		'desc' => esc_html__( 'Settings header site', RMBT_TEXT_DOMAIN_THEME ),
 		'customizer_width' => '450',
 		'subsections' => true,
 		// 'icon'             => 'el el-home',
@@ -17,7 +17,7 @@ Redux::set_section(
 				'id' => 'rmbt-bg_section-img',
 				'type' => 'media',
 				'url' => true,
-				'title' => esc_html__( 'This picture will use for background section', RMBT_TEXT_DOMAIN_THEME ),
+				'title' => esc_html__( 'This picture will be used as the background for this block', RMBT_TEXT_DOMAIN_THEME ),
 				'compiler' => 'true',
 				'preview_size' => 'full',
 				'default' => array(

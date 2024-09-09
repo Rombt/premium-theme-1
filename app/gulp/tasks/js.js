@@ -47,19 +47,32 @@ export const js = () => {
 
   function getJsEntries(paths) {
     const jsFiles = [];
+    const excludeDirs = [];
+
+    let clearPaths = paths.filter(path => {
+      if (path !== 'null' && !path.startsWith('!')) {
+        return path;
+      } else {
+        excludeDirs.push(app.plugins.nodePath.normalize(path.replace(/^!/, '')));
+      }
+    });
 
     const findJsFiles = path => {
       const stat = app.plugins.fs.statSync(path);
 
       if (stat.isDirectory()) {
         const files = app.plugins.fs.readdirSync(path);
-        files.forEach(file => findJsFiles(app.plugins.nodePath.join(path, file))); // Рекурсивный поиск файлов
+        files.forEach(file => findJsFiles(app.plugins.nodePath.join(path, file)));
       } else if (stat.isFile() && app.plugins.nodePath.extname(path) === '.js') {
-        jsFiles.push(path); // Добавляем файл, если он JS
+        excludeDirs.forEach(excludeDir => {
+          if (!path.includes(excludeDir)) {
+            jsFiles.push(path);
+          }
+        });
       }
     };
 
-    paths.forEach(findJsFiles);
+    clearPaths.forEach(findJsFiles);
     return jsFiles;
   }
 };

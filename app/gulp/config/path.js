@@ -123,6 +123,7 @@ export const path = {
             app.isSASS ? '.sass' : '.less'
           }`,
           `${this.src.php}/template-parts/**/*${app.isSASS ? '.sass' : '.less'}`,
+          `${app.isProd ? `!${this.src.php}/**/_*/**` : null}`,
         ],
         plug: [
           `${this.src.plug}/assets/styles/main-style${app.isSASS ? '.sass' : '.less'}`,
@@ -192,7 +193,11 @@ export const path = {
     const path = {
       src: {
         html: [`${this.src.php}/assets/js/app.js`],
-        php: [`${this.src.php}/assets/js/app.js`, `${this.src.php}/template-parts/`],
+        php: [
+          `${this.src.php}/assets/js/app.js`,
+          `${this.src.php}/template-parts/`,
+          `${app.isProd ? `!${this.src.php}/template-parts/_templates/` : null}`,
+        ],
         plug: [`${this.src.plug}/assets/js/admin.js`],
       },
       prod: {

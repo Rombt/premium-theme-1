@@ -2,27 +2,27 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-   <meta charset="<?php bloginfo( 'charset' ); ?>">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-   <?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-   <?php wp_body_open(); ?>
-   <?php get_template_part( 'template-parts/components/debug-grid' );
+	<?php wp_body_open(); ?>
+	<?php // get_template_part( 'template-parts/components/debug-grid' );
 	?>
 
-   <div class="rmbt-page-wrap">
+	<div class="rmbt-page-wrap">
 
 
-      <?php
+		<?php
 		// для стандартного WP виджета поиск файл searchform.php должен находится в корне темы
 		// для работоспособности поиска в целом searchform.php может быть где угодно
 		// get_template_part('searchform');
 		?>
 
-      <?php
+		<?php
 		get_template_part( 'template-parts/sections/header_1/header_1', );
 		?>

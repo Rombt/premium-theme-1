@@ -2,7 +2,6 @@
 defined( 'ABSPATH' ) || exit;
 
 
-// Menu page sections start
 Redux::set_section(
 	$opt_name,
 	array(
@@ -13,18 +12,57 @@ Redux::set_section(
 		// 'subsection' => true,
 		// 'icon'             => 'el el-home',
 		'fields' => array(
+
 			array(
-				'id' => 'rmbt-address',
+				'id' => 'rmbt-title-section-1-start',
+				'type' => 'section',
+				'title' => esc_html__( 'First Title Section', RMBT_TEXT_DOMAIN_THEME ),
+				'indent' => true,
+			),
+			array(
+				'id' => 'rmbt-title-section-1',
+				'type' => 'text',
+				'title' => esc_html__( 'The title of the first section', RMBT_TEXT_DOMAIN_THEME ),
+			),
+			array(
+				'id' => 'rmbt-title-section-1-end',
+				'type' => 'section',
+				'indent' => false,
+			),
+
+
+			array(
+				'id' => 'rmbt-title-section-2-start',
+				'type' => 'section',
+				'title' => esc_html__( 'Second Title Section', RMBT_TEXT_DOMAIN_THEME ),
+				'indent' => true,
+			),
+			array(
+				'id' => 'rmbt-title-section-2',
+				'type' => 'text',
+				'title' => esc_html__( 'The title of the second section', RMBT_TEXT_DOMAIN_THEME ),
+			),
+			array(
+				'id' => 'rmbt-title-section-2-end',
+				'type' => 'section',
+				'indent' => false,
+			),
+
+
+
+			array(
+				'id' => 'rmbt-address_en',
 				'type' => 'textarea',
 				'title' => esc_html__( 'Enter Your Address', RMBT_TEXT_DOMAIN_THEME ),
 			),
+
 
 			//First Manager section start -----------------------------------
 			array(
 				'id' => 'rmbt-manager-1-section-start',
 				'type' => 'section',
 				'title' => esc_html__( 'First Manager contacts', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
 
 			array(
@@ -32,6 +70,7 @@ Redux::set_section(
 				'type' => 'text',
 				'title' => esc_html__( 'Add first manager name ', RMBT_TEXT_DOMAIN_THEME ),
 			),
+
 			array(
 				'id' => 'rmbt-manager-1-phone',
 				'type' => 'text',
@@ -55,13 +94,15 @@ Redux::set_section(
 				'id' => 'rmbt-manager-2-section-start',
 				'type' => 'section',
 				'title' => esc_html__( 'Second  Manager contacts', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
+
 			array(
 				'id' => 'rmbt-manager-2-name',
 				'type' => 'text',
 				'title' => esc_html__( 'Add second manager name', RMBT_TEXT_DOMAIN_THEME ),
 			),
+
 			array(
 				'id' => 'rmbt-manager-2-phone',
 				'type' => 'text',
@@ -85,8 +126,9 @@ Redux::set_section(
 				'id' => 'rmbt-manager-3-section-start',
 				'type' => 'section',
 				'title' => esc_html__( 'Third  Manager contacts', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
+
 			array(
 				'id' => 'rmbt-manager-3-name',
 				'type' => 'text',
@@ -115,13 +157,15 @@ Redux::set_section(
 				'id' => 'rmbt-manager-4-section-start',
 				'type' => 'section',
 				'title' => esc_html__( 'Fourth  Manager contacts', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
+
 			array(
-				'id' => 'rmbt-manager-4-name',
+				'id' => 'rmbt-manager-4-name_en',
 				'type' => 'text',
 				'title' => esc_html__( 'Add fourth manager name', RMBT_TEXT_DOMAIN_THEME ),
 			),
+
 			array(
 				'id' => 'rmbt-manager-4-phone',
 				'type' => 'text',
@@ -146,13 +190,15 @@ Redux::set_section(
 				'id' => 'rmbt-manager-5-section-start',
 				'type' => 'section',
 				'title' => esc_html__( 'Fifth  Manager contacts', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
+
 			array(
-				'id' => 'rmbt-manager-5-name',
+				'id' => 'rmbt-manager-5-name_en',
 				'type' => 'text',
 				'title' => esc_html__( 'Add fifth manager name', RMBT_TEXT_DOMAIN_THEME ),
 			),
+
 			array(
 				'id' => 'rmbt-manager-5-phone',
 				'type' => 'text',
@@ -177,13 +223,15 @@ Redux::set_section(
 				'id' => 'rmbt-manager-6-section-start',
 				'type' => 'section',
 				'title' => esc_html__( 'Sixth  Manager contacts', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
+
 			array(
-				'id' => 'rmbt-manager-6-name',
+				'id' => 'rmbt-manager-6-name_en',
 				'type' => 'text',
 				'title' => esc_html__( 'Add sixth manager name', RMBT_TEXT_DOMAIN_THEME ),
 			),
+
 			array(
 				'id' => 'rmbt-manager-6-phone',
 				'type' => 'text',
@@ -208,7 +256,7 @@ Redux::set_section(
 				'type' => 'section',
 				'title' => esc_html__( 'Email 1', RMBT_TEXT_DOMAIN_THEME ),
 				'subtitle' => esc_html__( 'Enter email and set his name', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
 
 			array(
@@ -234,7 +282,7 @@ Redux::set_section(
 				'type' => 'section',
 				'title' => esc_html__( 'Email 2', RMBT_TEXT_DOMAIN_THEME ),
 				'subtitle' => esc_html__( 'Enter email and set his name', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
 
 			array(
@@ -260,7 +308,7 @@ Redux::set_section(
 				'type' => 'section',
 				'title' => esc_html__( 'Email 3', RMBT_TEXT_DOMAIN_THEME ),
 				'subtitle' => esc_html__( 'Enter email and set his name', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
 
 			array(
@@ -286,7 +334,7 @@ Redux::set_section(
 				'type' => 'section',
 				'title' => esc_html__( 'Email 4', RMBT_TEXT_DOMAIN_THEME ),
 				'subtitle' => esc_html__( 'Enter email and set his name', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true
+				'indent' => true,
 			),
 
 			array(

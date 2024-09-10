@@ -9,6 +9,12 @@ require_once get_template_directory() . '/inc/functions/general-front.php';
 // require_once get_template_directory() . '/inc/functions/comment_default.php';
 // require_once get_template_directory() . '/inc/functions/ajax.php';
 
+if ( file_exists( get_template_directory() . '/template-parts/_templates' ) ) {
+	require_once get_template_directory() . '/inc/functions/templates_page.php';
+}
+
+
+
 if ( class_exists( 'ReduxFramework' ) ) {
 	define( 'RMBT_PATH_REDUX_SECTIONS', array(
 		'/app/src/inc/Redux/sections',

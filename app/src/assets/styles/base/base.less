@@ -42,7 +42,7 @@ a {
 .debug-grid {
   z-index: 100;
   pointer-events: none;
-  .debug(#b2bdfa1a, 1px rgba(6, 235, 197, 0.5) solid);
+  .debug(#d0d6f81a, 1px rgba(6, 235, 197, 0.4) dashed);
 }
 
 .wrap-img {
@@ -212,4 +212,48 @@ for display results work function in the process of develope
   font-size: 18px;
   height: 90vh;
   overflow: auto;
+}
+
+.block-details {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+  text-align: center;
+
+  font-family: Arial;
+  font-size: 14px;
+  text-transform: lowercase;
+  font-weight: 200;
+  font-style: italic;
+  color: @font-color-block-details;
+
+  &:hover {
+    p.description {
+      display: block;
+    }
+  }
+
+  p.description {
+    position: absolute;
+    right: -10px;
+    bottom: 80%;
+    transform: translate(-0%, 0%);
+    width: max-content;
+    max-width: 80%;
+    height: auto;
+
+    background-color: #fff7e0;
+    border: 1px solid @border-color-wireframe-inner;
+    padding: 15px;
+
+    font-size: 12px;
+
+    text-align: center;
+    font-style: italic;
+    color: #858585;
+    display: none;
+  }
 }

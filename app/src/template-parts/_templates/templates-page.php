@@ -3,43 +3,126 @@
 
 
 <main>
-   <style>
-   .templates-page-section-title {
-      width: 100%;
-   }
+	<style>
+		.templates-page-section-title {
+			width: 100%;
+		}
 
-   .templates-page-section-title h2 {
-      margin-top: 0px;
-      margin-bottom: 0px;
-   }
+		.templates-page-section-title h2 {
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
 
-   .templates-page-section-title h2 span {
-      color: blue;
-   }
-   </style>
+		.templates-page-section p {
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
 
-   <?php
+		.templates-page-components {}
 
-	$arr_dir = scandir( rmbt_PATH_THEME . '/template-parts/_templates' );
+		.templates-page-components p {
+			margin-bottom: 30px;
 
-	foreach ( $arr_dir as $dir ) {
-		if ( is_dir( rmbt_PATH_THEME . '/template-parts/_templates/' . $dir ) ) {
+		}
 
-			if ( file_exists( rmbt_PATH_THEME . '/template-parts/_templates/' . $dir . '/' . $dir . '.php' ) ) { ?>
-   <div class="rmbt-container templates-page-section-title"">
-		<h2>section name <span style=" width: 100%;"><?php echo $dir; ?> </span> </h2>
-      <p>get_template_part( 'template-parts/_templates/<?php echo $dir; ?>/<?php echo $dir; ?>' );</p>
-   </div>
+		.templates-page-components__body {
 
-   <?php get_template_part( 'template-parts/_templates/' . $dir . '/' . $dir );
+			/* padding: 20px 20px 20px 20px; */
+			display: flex;
+			row-gap: 15px;
+
+			/* border: 1px solid #0515fd; */
+
+		}
+	</style>
+
+
+	<?php $arr_dirs = scandir( __DIR__, SCANDIR_SORT_DESCENDING );
+
+	$templates_types = [];
+	$number_active_tab = 0;
+	foreach ( $arr_dirs as $dir ) {
+		if ( $dir !== '.' && $dir !== '..' && is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir ) ) {
+			$templates_types[ $dir ] = [];
+			$arr_sub_dirs = scandir( __DIR__ . DIRECTORY_SEPARATOR . $dir );
+			foreach ( $arr_sub_dirs as $sub_dir ) {
+				if ( is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $sub_dir ) ) {
+					if ( file_exists( __DIR__ . DIRECTORY_SEPARATOR . $dir . DIRECTORY_SEPARATOR . $sub_dir . DIRECTORY_SEPARATOR . $sub_dir . '.php' ) ) {
+						$templates_types[ $dir ][] = $sub_dir;
+					}
+				}
 			}
 		}
 	}
+
 	?>
 
 
 
-</main>
+	<div class="tabs rmbt-templates-page-tabs">
+		<nav data-tabs-titles class="tabs__nav">
+			<?php
+			$i = 0;
+			foreach ( $templates_types as $template_type_name => $template_type_value ) : ?>
+				<?php if ( $i === $number_active_tab ) : ?>
+					<button type="button" class="tabs__title tabs__title-active"
+						data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?>
+					</button>
+				<?php else : ?>
+					<button type="button" class="tabs__title"
+						data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?></button>
+				<?php endif ?>
+				<?php $i++; ?>
+			<?php endforeach ?>
+		</nav>
 
+		<div class="tabs__content">
+			<?php $i = 0;
+			foreach ( $templates_types as $template_type => $arr_templates ) {
+				if ( $i === $number_active_tab ) { ?>
+					<div class="tabs__body tabs__body-active" data-tab-name="<?php echo $template_type ?>">
+					<?php } else { ?>
+						<div class="tabs__body" data-tab-name="<?php echo $template_type ?>">
+						<?php } ?>
+
+						<?php foreach ( $arr_templates as $template ) { ?>
+
+
+							<?php if ( $template_type === 'components' ) : ?>
+								<div class="rmbt-container templates-page-components">
+									<h2><?php echo $template; ?></h2>
+									<p>get_template_part('<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template ?>');
+									</p>
+
+									<div class="templates-page-components__body">
+
+										<?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template ); ?>
+									</div>
+								</div>
+
+
+							<?php else : ?>
+
+
+								<div class="rmbt-container templates-page-section-title">
+									<h2><?php echo $template; ?></h2>
+									<p>get_template_part('<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template ?>');
+									</p>
+								</div>
+
+								<?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template ); ?>
+							<?php endif ?>
+
+
+						<?php } ?>
+					</div>
+					<?php $i++;
+			} ?>
+			</div>
+		</div>
+
+
+
+</main>
 
 <?php get_footer();

@@ -71,6 +71,7 @@ function rmbt_site_setup() {
 		array(
 			'header_nav' => esc_html__( 'rmbt_Header Navigation', RMBT_TEXT_DOMAIN_THEME ),
 			'footer_nav' => esc_html__( 'rmbt_Footer Navigation', RMBT_TEXT_DOMAIN_THEME ),
+			'rmbt-vertical-nav-0' => esc_html__( 'rmbt Vertical Navigation 0', RMBT_TEXT_DOMAIN_THEME ),
 		)
 	);
 

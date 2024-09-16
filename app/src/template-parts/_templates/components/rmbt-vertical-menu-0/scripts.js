@@ -10,6 +10,7 @@ class VerticalMenu {
   menuItemOverflow;
   menuOverflow;
   iconMenuOverflow;
+  overflowItemsLength;
 
   constructor(contVerticalMenu, param) {
     this.contVerticalMenu = contVerticalMenu;
@@ -25,6 +26,7 @@ class VerticalMenu {
     this.textMenuItemOverflow = param.textMenuItemOverflow;
 
     this.processingPressKeys();
+    this.processingClick();
 
     const observer = new ResizeObserver(entries => {
       this.nl_menuItems = this.contVerticalMenu.querySelectorAll('nav > ul > li');
@@ -66,10 +68,14 @@ class VerticalMenu {
             }
           }
         }
+
         this.menuOverflow.append(menuItem);
       }
     });
+    if (!this.menuItemOverflow) this.addItemMenuOverflow();
+  }
 
+  addItemMenuOverflow() {
     if (this.nl_menuItems[this.numberLastItem - 1]) {
       this.menuItemOverflow = document.createElement('div');
       this.menuItemOverflow.classList.add(this.classMenuItemOverflow);
@@ -135,7 +141,7 @@ class VerticalMenu {
       return;
     }
     this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
-    for (let i = overflowItemsLength; i > 0; i--) {
+    for (let i = this.overflowItemsLength; i > 0; i--) {
       this.menuOverflow.append(this.nl_menuItems[this.nl_menuItems.length - i]);
     }
     this.contVerticalMenu.style.height = this.heightContVerticalMenu + 'px';
@@ -158,6 +164,54 @@ class VerticalMenu {
     [...this.contVerticalMenu.querySelectorAll(`.${this.classSubMenuIOpen}`)]
       .reverse()
       .forEach(this.closeSubMenu.bind(this));
+  }
+
+  processingClick() {
+    // const nl_overflowItems = this.contVerticalMenu.querySelectorAll(
+    //   `.${this.classMenuOverflow} > li`
+    // );
+    const nl_overflowItems = this.contVerticalMenu.querySelectorAll(`.menu-overflow`);
+
+    console.log('this.contVerticalMenu = ', this.contVerticalMenu);
+    console.log('nl_overflowItems = ', nl_overflowItems);
+
+    this.overflowItemsLength = nl_overflowItems.length;
+
+    document.addEventListener('click', e => {
+      if (e.target === this.menuItemOverflow) {
+        const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
+        let heightContVerticalMenuOpen;
+
+        if (!this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
+          this.contVerticalMenu.classList.add(this.classVerticalMenuOpen);
+          contVerticalMenuUl.style.position = 'relative';
+          nl_overflowItems.forEach((overflowItem, i) => {
+            overflowItem.style.top =
+              this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
+            contVerticalMenuUl.append(overflowItem);
+
+            if (i === this.overflowItemsLength - 1) {
+              heightContVerticalMenuOpen =
+                overflowItem.getBoundingClientRect().bottom -
+                this.contVerticalMenu.getBoundingClientRect().top;
+            }
+          });
+
+          this.contVerticalMenu.style.height = heightContVerticalMenuOpen + 'px';
+          this.menuItemOverflow.style.bottom = 'auto';
+          this.menuItemOverflow.style.top = heightContVerticalMenuOpen + 'px';
+        } else {
+          this.closeVerticalMenu();
+        }
+      } else if (
+        e.target !== this.contVerticalMenu &&
+        !e.target.classList.contains(this.classMenuItemDropIcon) &&
+        !e.target.classList.contains(this.classMenuItemDropIconOpen)
+      ) {
+        this.closeVerticalMenu();
+        this.closeAllSubMenus();
+      }
+    });
   }
 
   processingPressKeys() {

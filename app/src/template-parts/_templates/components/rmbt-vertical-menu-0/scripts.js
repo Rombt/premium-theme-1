@@ -113,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
   document.addEventListener('click', e => {
     if (e.target === menuItemOverflow) {
       const contVerticalMenuUl = contVerticalMenu.querySelector('nav > ul');
-
       let heightContVerticalMenuOpen;
 
       if (!contVerticalMenu.classList.contains(classVerticalMenuOpen)) {

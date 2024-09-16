@@ -32,7 +32,7 @@ class VerticalMenu {
 
       this.addIconsSubMenu();
     });
-    observer.observe(contVerticalMenu);
+    observer.observe(this.contVerticalMenu);
   }
 
   addIconsSubMenu() {
@@ -60,12 +60,14 @@ class VerticalMenu {
                 `li .${this.classSubMenuIOpen}`
               );
               if (nl_otherSubMenusOpened.length > 0) {
-                [...nl_otherSubMenusOpened].reverse().forEach(closeSubMenu);
+                [...nl_otherSubMenusOpened]
+                  .reverse()
+                  .forEach(this.closeSubMenu.bind(this));
               }
               subMenu.classList.add(this.classSubMenuIOpen);
               iconDrop.classList.add(this.classMenuItemDropIconOpen);
             } else {
-              closeSubMenu(subMenu);
+              this.closeSubMenu(subMenu);
             }
           });
           closestLi.closest('li').append(iconDrop);
@@ -98,6 +100,22 @@ class VerticalMenu {
         this.menuOverflow.append(menuItem);
       }
     });
+  }
+
+  closeSubMenu(menu) {
+    console.log('menu = ', menu);
+    let dropIconOpen = menu
+      .closest('li')
+      .querySelector(`.${this.classMenuItemDropIconOpen}`);
+
+    dropIconOpen.classList.remove(this.classMenuItemDropIconOpen);
+    menu.classList.remove(this.classSubMenuIOpen);
+  }
+
+  closeAllSubMenus() {
+    [...this.contVerticalMenu.querySelectorAll(`.${classSubMenuIOpen}`)]
+      .reverse()
+      .forEach(this.closeSubMenu);
   }
 }
 document.addEventListener('DOMContentLoaded', function () {

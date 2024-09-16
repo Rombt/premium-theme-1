@@ -18,7 +18,10 @@
 			margin-bottom: 5px;
 		}
 
-		.templates-page-components {}
+		.templates-page-components {
+
+			width: 100%;
+		}
 
 		.templates-page-components p {
 			margin-bottom: 30px;
@@ -27,11 +30,20 @@
 
 		.templates-page-components__body {
 
-			/* padding: 20px 20px 20px 20px; */
 			display: flex;
 			row-gap: 15px;
 
-			/* border: 1px solid #0515fd; */
+			height: 250px;
+			border: 1px solid #9c9c9c;
+
+
+		}
+
+		.tabs__content {
+
+			/* min-height: 100vh; */
+			padding-bottom: 200px;
+
 
 		}
 	</style>
@@ -39,8 +51,8 @@
 
 	<?php $arr_dirs = scandir( __DIR__, SCANDIR_SORT_DESCENDING );
 
-	$templates_types = [];
 	$number_active_tab = 0;
+	$templates_types = [];
 	foreach ( $arr_dirs as $dir ) {
 		if ( $dir !== '.' && $dir !== '..' && is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir ) ) {
 			$templates_types[ $dir ] = [];

@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
       let iconMenuOverflow;
 
       console.log('------------- contVerticalMenu = ', contVerticalMenu);
-      console.log('00 menuOverflow = ', menuOverflow);
-      console.log('   nl_menuItems = ', nl_menuItems);
+      // console.log('00 menuOverflow = ', menuOverflow);
+      // console.log('   nl_menuItems = ', nl_menuItems);
 
       nl_menuItems.forEach((menuItem, indexMenuItem) => {
         let bottomMenuItem = menuItem.getBoundingClientRect().bottom;
@@ -68,8 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
           });
         }
 
-        console.log('bottomMenuItem = ', bottomMenuItem);
-        console.log('bottomContVerticalMenu = ', bottomContVerticalMenu);
         if (bottomMenuItem > bottomContVerticalMenu) {
           console.log('11 menuOverflow = ', menuOverflow);
 
@@ -80,6 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             contVerticalMenu.prepend(menuOverflow);
           }
+
+          console.log(
+            'nl_menuItems[indexMenuItem - 1] = ',
+            nl_menuItems[indexMenuItem - 1]
+          );
+
           if (remainingHeight === 0) {
             remainingHeight =
               (bottomContVerticalMenu -

@@ -42,8 +42,8 @@
 
 	<?php $arr_dirs = scandir( __DIR__, SCANDIR_SORT_DESCENDING );
 
+	$number_active_tab = 1;
 	$templates_types = [];
-	$number_active_tab = 0;
 	foreach ( $arr_dirs as $dir ) {
 		if ( $dir !== '.' && $dir !== '..' && is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir ) ) {
 			$templates_types[ $dir ] = [];

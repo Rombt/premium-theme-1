@@ -6,6 +6,6 @@
 				'container' => 'nav',
 			)
 		); ?>
-		<div class="menu-icon-other"></div>
+		<!-- <div class="menu-overflow"></div> -->
 	</div>
 <?php } ?>

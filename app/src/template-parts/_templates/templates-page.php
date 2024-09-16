@@ -31,7 +31,10 @@
 			display: flex;
 			row-gap: 15px;
 
-			/* border: 1px solid #0515fd; */
+			height: 200px;
+			border: 1px solid #0515fd;
+
+
 
 		}
 	</style>

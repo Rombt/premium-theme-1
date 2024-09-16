@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
   nl_menuItems.forEach((menuItem, indexMenuItem) => {
     let bottomMenuItem = menuItem.getBoundingClientRect().bottom;
     menuItem.style.position = 'relative';
-
     let nl_menuItemUls = menuItem.querySelectorAll('ul');
     if (nl_menuItemUls.length > 0) {
       nl_menuItemUls.forEach(menuItemUl => {
@@ -34,10 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let closestLi = menuItemUl.closest('li');
         closestLi.style.position = 'relative';
         iconDrop.classList.add(classMenuItemDropIcon);
-
         iconDrop.addEventListener('click', e => {
           let subMenu = closestLi.querySelector('ul');
-
           if (
             !e.target.classList.contains(classMenuItemDropIconOpen) &&
             !subMenu.classList.contains(classSubMenuIOpen)
@@ -54,11 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
             closeSubMenu(subMenu);
           }
         });
-
         closestLi.closest('li').append(iconDrop);
       });
     }
-
     if (bottomMenuItem > bottomContVerticalMenu) {
       if (!menuOverflow) {
         menuOverflow = document.createElement('div');
@@ -66,13 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
         menuOverflow.style.display = 'none';
         contVerticalMenu.prepend(menuOverflow);
       }
-
       if (remainingHeight === 0) {
         remainingHeight =
           (bottomContVerticalMenu -
             nl_menuItems[indexMenuItem - 1].getBoundingClientRect().bottom) /
           indexMenuItem;
-
         for (let i = 0; i < nl_menuItems.length; i++) {
           if (i < indexMenuItem) {
             nl_menuItems[i].style.top = remainingHeight * (i + 1) + 'px';
@@ -98,12 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const heightMenuItemOverflow =
       contVerticalMenu.getBoundingClientRect().bottom -
-      nl_menuItems[numberLastItem - 1]?.getBoundingClientRect().bottom +
-      'px';
+      nl_menuItems[numberLastItem - 1]?.getBoundingClientRect().bottom;
 
     menuItemOverflow.style.position = 'absolute';
-    menuItemOverflow.style.height = heightMenuItemOverflow;
-    menuItemOverflow.style.lineHeight = heightMenuItemOverflow;
+    menuItemOverflow.style.height = heightMenuItemOverflow + 'px';
+    menuItemOverflow.style.lineHeight = heightMenuItemOverflow + 'px';
     menuItemOverflow.style.bottom = '0px';
     menuItemOverflow.style.left = '0px';
     menuItemOverflow.style.right = '0px';
@@ -115,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const nl_overflowItems = contVerticalMenu.querySelectorAll(
     `.${classMenuOverflow} > li`
-  ); //!
+  );
   const overflowItemsLength = nl_overflowItems.length;
 
   document.addEventListener('click', e => {
@@ -123,9 +115,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const contVerticalMenuUl = contVerticalMenu.querySelector('nav > ul');
 
       let heightContVerticalMenuOpen;
-      contVerticalMenu.classList.toggle(classVerticalMenuOpen);
 
-      if (contVerticalMenu.classList.contains(classVerticalMenuOpen)) {
+      if (!contVerticalMenu.classList.contains(classVerticalMenuOpen)) {
+        contVerticalMenu.classList.add(classVerticalMenuOpen);
+
         contVerticalMenuUl.style.position = 'relative';
 
         nl_overflowItems.forEach((overflowItem, i) => {
@@ -156,9 +149,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function closeVerticalMenu() {
-    if (contVerticalMenu.classList.contains(classVerticalMenuOpen)) {
-      contVerticalMenu.classList.remove(classVerticalMenuOpen);
+    console.log('11 contVerticalMenu = ', contVerticalMenu);
+    if (!contVerticalMenu.classList.contains(classVerticalMenuOpen)) {
+      return;
     }
+    contVerticalMenu.classList.remove(classVerticalMenuOpen);
 
     for (let i = overflowItemsLength; i > 0; i--) {
       menuOverflow.append(nl_menuItems[nl_menuItems.length - i]);

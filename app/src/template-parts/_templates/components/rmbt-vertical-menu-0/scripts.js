@@ -170,7 +170,7 @@ class VerticalMenu {
     // const nl_overflowItems = this.contVerticalMenu.querySelectorAll(
     //   `.${this.classMenuOverflow} > li`
     // );
-    const nl_overflowItems = this.contVerticalMenu.querySelectorAll(`.menu-overflow`);
+    const nl_overflowItems = this.contVerticalMenu.querySelectorAll('.menu-overflow'); //!!!!!!!!!!!!!!!!!!!!!
 
     console.log('this.contVerticalMenu = ', this.contVerticalMenu);
     console.log('nl_overflowItems = ', nl_overflowItems);

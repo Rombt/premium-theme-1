@@ -118,9 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!contVerticalMenu.classList.contains(classVerticalMenuOpen)) {
         contVerticalMenu.classList.add(classVerticalMenuOpen);
-
         contVerticalMenuUl.style.position = 'relative';
-
         nl_overflowItems.forEach((overflowItem, i) => {
           overflowItem.style.top = remainingHeight * (numberLastItem + i + 1) + 'px';
           contVerticalMenuUl.append(overflowItem);

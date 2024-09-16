@@ -146,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function closeVerticalMenu() {
-    console.log('11 contVerticalMenu = ', contVerticalMenu);
     if (!contVerticalMenu.classList.contains(classVerticalMenuOpen)) {
       return;
     }

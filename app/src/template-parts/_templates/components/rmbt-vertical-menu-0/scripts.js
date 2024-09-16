@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
   let menuOverflow;
   let iconMenuOverflow;
 
+  // contVerticalMenu.style.height =
+  //   contVerticalMenu.parentNode.getBoundingClientRect().height;
+
   nl_menuItems.forEach((menuItem, indexMenuItem) => {
     let bottomMenuItem = menuItem.getBoundingClientRect().bottom;
     menuItem.style.position = 'relative';

@@ -26,7 +26,6 @@ class VerticalMenu {
     this.textMenuItemOverflow = param.textMenuItemOverflow;
 
     this.processingPressKeys();
-    this.processingClick();
 
     const observer = new ResizeObserver(entries => {
       this.nl_menuItems = this.contVerticalMenu.querySelectorAll('nav > ul > li');
@@ -35,6 +34,7 @@ class VerticalMenu {
       this.heightContVerticalMenu = this.rectContVerticalMenu.height;
 
       this.buildOverflowMenu();
+      this.processingClick();
     });
     observer.observe(this.contVerticalMenu);
   }
@@ -167,10 +167,9 @@ class VerticalMenu {
   }
 
   processingClick() {
-    // const nl_overflowItems = this.contVerticalMenu.querySelectorAll(
-    //   `.${this.classMenuOverflow} > li`
-    // );
-    const nl_overflowItems = this.contVerticalMenu.querySelectorAll('.menu-overflow'); //!!!!!!!!!!!!!!!!!!!!!
+    const nl_overflowItems = this.contVerticalMenu.querySelectorAll(
+      `.${this.classMenuOverflow} > li`
+    );
 
     console.log('this.contVerticalMenu = ', this.contVerticalMenu);
     console.log('nl_overflowItems = ', nl_overflowItems);
@@ -178,6 +177,8 @@ class VerticalMenu {
     this.overflowItemsLength = nl_overflowItems.length;
 
     document.addEventListener('click', e => {
+      console.log('this.menuItemOverflow = ', this.menuItemOverflow);
+
       if (e.target === this.menuItemOverflow) {
         const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
         let heightContVerticalMenuOpen;

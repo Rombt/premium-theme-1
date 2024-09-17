@@ -171,15 +171,17 @@ class VerticalMenu {
       `.${this.classMenuOverflow} > li`
     );
 
-    console.log('this.contVerticalMenu = ', this.contVerticalMenu);
-    console.log('nl_overflowItems = ', nl_overflowItems);
+    // console.log('this.contVerticalMenu = ', this.contVerticalMenu);
+    // console.log('nl_overflowItems = ', nl_overflowItems);
 
     this.overflowItemsLength = nl_overflowItems.length;
 
     document.addEventListener('click', e => {
       console.log('this.menuItemOverflow = ', this.menuItemOverflow);
 
-      if (e.target === this.menuItemOverflow) {
+      if (e.target.classList.contains(this.classMenuItemOverflow)) {
+        console.log(' this.contVerticalMenu = ', this.contVerticalMenu);
+
         const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
         let heightContVerticalMenuOpen;
 

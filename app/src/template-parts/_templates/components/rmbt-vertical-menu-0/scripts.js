@@ -25,22 +25,22 @@ class VerticalMenu {
     this.classMenuItemOverflow = param.classMenuItemOverflow;
     this.textMenuItemOverflow = param.textMenuItemOverflow;
 
-    const observer = new ResizeObserver(entries => {
-      this.nl_menuItems = this.contVerticalMenu.querySelectorAll('nav > ul > li');
-      this.rectContVerticalMenu = this.contVerticalMenu.getBoundingClientRect();
-      this.bottomContVerticalMenu = this.rectContVerticalMenu.bottom;
-      this.heightContVerticalMenu = this.rectContVerticalMenu.height;
+    // const observer = new ResizeObserver(entries => {
+    this.nl_menuItems = this.contVerticalMenu.querySelectorAll('nav > ul > li');
+    this.rectContVerticalMenu = this.contVerticalMenu.getBoundingClientRect();
+    this.bottomContVerticalMenu = this.rectContVerticalMenu.bottom;
+    this.heightContVerticalMenu = this.rectContVerticalMenu.height;
 
-      this.buildOverflowMenu();
+    this.buildOverflowMenu();
+    // });
+    // observer.observe(this.contVerticalMenu);
 
-      // this.processingClick();
-    });
-    observer.observe(this.contVerticalMenu);
-
+    this.processingClick();
     this.processingPressKeys();
   }
 
   processingClick() {
+    console.log('00   this.menuItemOverflow =', this.menuItemOverflow);
     if (!this.menuItemOverflow) return;
 
     console.log('11');
@@ -196,7 +196,7 @@ class VerticalMenu {
       this.menuItemOverflow.style.bottom = '0px';
     }
 
-    // this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
+    this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
   }
 
   closeSubMenu(menu) {

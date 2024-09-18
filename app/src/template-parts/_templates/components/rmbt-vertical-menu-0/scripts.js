@@ -9,6 +9,7 @@ class VerticalMenu {
   remainingHeight = 0;
   numberLastItem = 0;
   menuItemOverflow;
+  heightMenuItemOverflow;
   menuOverflow;
   iconMenuOverflow;
   overflowItemsLength;
@@ -26,8 +27,6 @@ class VerticalMenu {
     this.classMenuItemOverflow = param.classMenuItemOverflow;
     this.textMenuItemOverflow = param.textMenuItemOverflow;
     this.individualParamsContMenu = param.individualParamsContMenu;
-
-    // this.contVerticalMenu.style.transition = 'height 0.5s ease';
 
     this.initParamMenus();
 
@@ -83,13 +82,12 @@ class VerticalMenu {
         if (i === this.overflowItemsLength - 1) {
           heightContVerticalMenuOpen =
             overflowItem.getBoundingClientRect().bottom -
-            this.contVerticalMenu.getBoundingClientRect().top;
+            this.contVerticalMenu.getBoundingClientRect().top +
+            this.heightMenuItemOverflow;
         }
       });
 
       this.contVerticalMenu.style.height = heightContVerticalMenuOpen + 'px';
-      // this.menuItemOverflow.style.bottom = 'auto';
-      // this.menuItemOverflow.style.top = heightContVerticalMenuOpen + 'px';
     } else {
       this.closeVerticalMenu();
     }
@@ -105,10 +103,6 @@ class VerticalMenu {
     }
 
     this.contVerticalMenu.style.height = this.heightContVerticalMenuClose + 'px';
-    // if (this.menuItemOverflow) {
-    //   this.menuItemOverflow.style.top = 'auto';
-    //   this.menuItemOverflow.style.bottom = '0px';
-    // }
 
     this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
   }
@@ -165,13 +159,13 @@ class VerticalMenu {
       this.iconMenuOverflow.classList.add(this.classIconMenuOverflow);
       this.menuItemOverflow.append(this.iconMenuOverflow);
 
-      const heightMenuItemOverflow =
+      this.heightMenuItemOverflow =
         this.contVerticalMenu.getBoundingClientRect().bottom -
         this.nl_menuItems[this.numberLastItem - 1]?.getBoundingClientRect().bottom;
 
       this.menuItemOverflow.style.position = 'absolute';
-      this.menuItemOverflow.style.height = heightMenuItemOverflow + 'px';
-      this.menuItemOverflow.style.lineHeight = heightMenuItemOverflow + 'px';
+      this.menuItemOverflow.style.height = this.heightMenuItemOverflow + 'px';
+      this.menuItemOverflow.style.lineHeight = this.heightMenuItemOverflow + 'px';
       this.menuItemOverflow.style.bottom = '0px';
       this.menuItemOverflow.style.left = '0px';
       this.menuItemOverflow.style.right = '0px';

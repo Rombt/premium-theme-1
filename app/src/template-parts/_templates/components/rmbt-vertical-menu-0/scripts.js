@@ -25,8 +25,9 @@ class VerticalMenu {
     this.classIconMenuOverflow = param.classIconMenuOverflow;
     this.classMenuItemOverflow = param.classMenuItemOverflow;
     this.textMenuItemOverflow = param.textMenuItemOverflow;
-
     this.individualParamsContMenu = param.individualParamsContMenu;
+
+    // this.contVerticalMenu.style.transition = 'height 0.5s ease';
 
     this.initParamMenus();
 
@@ -87,8 +88,8 @@ class VerticalMenu {
       });
 
       this.contVerticalMenu.style.height = heightContVerticalMenuOpen + 'px';
-      this.menuItemOverflow.style.bottom = 'auto';
-      this.menuItemOverflow.style.top = heightContVerticalMenuOpen + 'px';
+      // this.menuItemOverflow.style.bottom = 'auto';
+      // this.menuItemOverflow.style.top = heightContVerticalMenuOpen + 'px';
     } else {
       this.closeVerticalMenu();
     }
@@ -104,10 +105,10 @@ class VerticalMenu {
     }
 
     this.contVerticalMenu.style.height = this.heightContVerticalMenuClose + 'px';
-    if (this.menuItemOverflow) {
-      this.menuItemOverflow.style.top = 'auto';
-      this.menuItemOverflow.style.bottom = '0px';
-    }
+    // if (this.menuItemOverflow) {
+    //   this.menuItemOverflow.style.top = 'auto';
+    //   this.menuItemOverflow.style.bottom = '0px';
+    // }
 
     this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
   }

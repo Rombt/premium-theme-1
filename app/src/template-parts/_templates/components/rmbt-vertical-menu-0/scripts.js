@@ -26,6 +26,10 @@ class VerticalMenu {
     this.classMenuItemOverflow = param.classMenuItemOverflow;
     this.textMenuItemOverflow = param.textMenuItemOverflow;
 
+    this.individualParamsContMenu = param.individualParamsContMenu;
+
+    this.initParamMenus();
+
     this.buildOverflowMenu();
     this.processingPressKeys();
     this.clickOutside();
@@ -34,6 +38,25 @@ class VerticalMenu {
       this.buildOverflowMenu();
     });
     observer.observe(this.contVerticalMenu);
+  }
+
+  initParamMenus() {
+    this.individualParamsContMenu.forEach(obj_paramsMenu => {
+      const arr_properties = Object.entries(obj_paramsMenu);
+      let classMenu;
+
+      if (arr_properties.length === 0) return;
+      arr_properties.forEach(([propertyKey, propertyValue]) => {
+        if (propertyKey === 'class') classMenu = propertyValue;
+        if (!this.contVerticalMenu.classList.contains(`${classMenu}`)) return;
+
+        if (propertyKey in this.contVerticalMenu.style) {
+          this.contVerticalMenu.style[propertyKey] = propertyValue;
+        } else {
+          //
+        }
+      });
+    });
   }
 
   clickMenuItemOverflow(e) {
@@ -237,6 +260,7 @@ class VerticalMenu {
 document.addEventListener('DOMContentLoaded', function () {
   const param = {
     classesContVerticalMenu: 'rmbt-cont-vertical-menu-0',
+    heightContVerticalMenu: '150px',
     classVerticalMenuOpen: 'vertical-menu-open',
     classMenuItemDropIcon: 'drop-icon',
     classMenuItemDropIconOpen: 'drop-icon-open',
@@ -245,15 +269,16 @@ document.addEventListener('DOMContentLoaded', function () {
     classIconMenuOverflow: 'icon-menu-overflow',
     classMenuItemOverflow: 'menu-item-other',
     textMenuItemOverflow: 'other',
+
+    individualParamsContMenu: [
+      {
+        class: 'right-top-menu',
+        height: '150px',
+      },
+    ],
   };
 
-  const arr_VerticalMenu = [];
-
   document.querySelectorAll(`.${param.classesContVerticalMenu}`).forEach(menu => {
-    // new VerticalMenu(menu, param);
-
-    arr_VerticalMenu.push(new VerticalMenu(menu, param));
+    new VerticalMenu(menu, param);
   });
-
-  // console.log('arr_VerticalMenu = ', arr_VerticalMenu);
 });

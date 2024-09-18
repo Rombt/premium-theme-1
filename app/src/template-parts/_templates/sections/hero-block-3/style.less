@@ -108,8 +108,7 @@
   position: relative;
   .size(3);
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   row-gap: 15px;
 
   // padding-top: @padding-top-section;
@@ -142,6 +141,7 @@
   &__top {
     width: 100%;
     position: relative;
+    flex-basis: 50%;
 
     border: 1px solid @border-color-wireframe-inner;
   }
@@ -149,6 +149,7 @@
   &__bottom {
     width: 100%;
     position: relative;
+    flex-basis: 50%;
 
     border: 1px solid @border-color-wireframe-inner;
   }

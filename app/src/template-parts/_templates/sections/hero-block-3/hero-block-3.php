@@ -4,7 +4,7 @@
       <div class="rmbt-hero-block-3__row">
 
          <div class='rmbt-hero-block-3__col rmbt-hero-block-3-col-left'>
-            <?php   get_template_part( 'template-parts/_templates/components/rmbt-vertical-menu-0/rmbt-vertical-menu-0' ); ?>
+            <?php get_template_part( 'template-parts/_templates/components/rmbt-vertical-menu-0/rmbt-vertical-menu-0' ); ?>
          </div>
 
          <div class='rmbt-hero-block-3__col rmbt-hero-block-3-col-center'>
@@ -39,6 +39,8 @@
 							alt="hero-block-bg">
 					</div> -->
                </div>
+               <?php get_template_part( 'template-parts/_templates/components/rmbt-vertical-menu-0/rmbt-vertical-menu-0', null, [ 'additional_class_menu'=>'right-top-menu' ] ); ?>
+
             </div>
             <div class="rmbt-hero-block-3-col-right__bottom">
                <div class="rmbt-hero-block-3-col-right__bg">

@@ -79,18 +79,30 @@ class VerticalMenu {
       this.contVerticalMenu.classList.add(this.classVerticalMenuOpen);
       contVerticalMenuUl.style.position = 'relative';
 
-      nl_overflowItems.forEach((overflowItem, i) => {
-        overflowItem.style.top =
-          this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
-        contVerticalMenuUl.append(overflowItem);
+      console.log('00 = ');
+      console.log('this.heightContVerticalMenu = ', this.heightContVerticalMenu);
+      console.log('      this.entriesBlockSize = ', this.entriesBlockSize);
+      if (
+        Math.round(this.heightContVerticalMenu) === Math.round(this.entriesBlockSize) ||
+        !this.entriesBlockSize
+      ) {
+        console.log('5 = ');
 
-        if (i === this.overflowItemsLength - 1) {
-          heightContVerticalMenuOpen =
-            overflowItem.getBoundingClientRect().bottom -
-            this.contVerticalMenu.getBoundingClientRect().top +
-            this.heightMenuItemOverflow;
-        }
-      });
+        nl_overflowItems.forEach((overflowItem, i) => {
+          overflowItem.style.top =
+            this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
+          contVerticalMenuUl.append(overflowItem);
+
+          console.log('10 = ');
+
+          if (i === this.overflowItemsLength - 1) {
+            heightContVerticalMenuOpen =
+              overflowItem.getBoundingClientRect().bottom -
+              this.contVerticalMenu.getBoundingClientRect().top +
+              this.heightMenuItemOverflow;
+          }
+        });
+      }
 
       this.contVerticalMenu.style.height = heightContVerticalMenuOpen + 'px';
     } else {

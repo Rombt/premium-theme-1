@@ -35,6 +35,11 @@ class VerticalMenu {
     this.clickOutside();
 
     const observer = new ResizeObserver(entries => {
+      console.log('-----  this.contVerticalMenu = ', this.contVerticalMenu);
+      // console.log('heightContVerticalMenuClose = ', this.heightContVerticalMenuClose);
+      console.log('heightContVerticalMenu = ', this.heightContVerticalMenu);
+      console.log('               entries = ', entries);
+
       this.buildOverflowMenu();
     });
     observer.observe(this.contVerticalMenu);
@@ -61,6 +66,8 @@ class VerticalMenu {
 
   clickMenuItemOverflow(e) {
     if (!this.menuItemOverflow) return;
+
+    console.log('==================');
 
     const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
     let heightContVerticalMenuOpen;

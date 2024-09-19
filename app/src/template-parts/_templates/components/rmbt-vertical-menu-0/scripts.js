@@ -36,9 +36,10 @@ class VerticalMenu {
 
     const observer = new ResizeObserver(entries => {
       console.log('-----  this.contVerticalMenu = ', this.contVerticalMenu);
-      console.log('               entries = ', entries);
 
-      this.buildOverflowMenu();
+      // console.log('               entries = ', entries);
+
+      this.buildOverflowMenu(entries[0].contentBoxSize[0].blockSize);
     });
     observer.observe(this.contVerticalMenu);
   }
@@ -112,7 +113,7 @@ class VerticalMenu {
     this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
   }
 
-  buildOverflowMenu() {
+  buildOverflowMenu(entriesBlockSize) {
     this.nl_menuItems = this.contVerticalMenu.querySelectorAll('nav > ul > li');
     this.rectContVerticalMenu = this.contVerticalMenu.getBoundingClientRect();
 
@@ -120,7 +121,6 @@ class VerticalMenu {
     this.heightContVerticalMenu = this.rectContVerticalMenu.height;
 
     if (this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
-      // console.log('00');
       return;
     }
 
@@ -128,8 +128,6 @@ class VerticalMenu {
       let bottomMenuItem = menuItem.getBoundingClientRect().bottom;
       menuItem.style.position = 'relative';
       this.addIconsSubMenu(menuItem);
-
-      // console.log('5');
 
       if (bottomMenuItem > this.bottomContVerticalMenu) {
         if (!this.menuOverflow) {
@@ -139,9 +137,6 @@ class VerticalMenu {
 
           this.contVerticalMenu.prepend(this.menuOverflow);
         }
-
-        // console.log('10');
-
         if (this.remainingHeight === 0) {
           this.remainingHeight =
             (this.bottomContVerticalMenu -
@@ -157,10 +152,16 @@ class VerticalMenu {
           }
         }
 
-        this.menuOverflow.append(menuItem);
+        console.log('00');
+        console.log('heightContVerticalMenu = ', Math.round(this.heightContVerticalMenu));
+        console.log('        contentBoxSize = ', Math.round(entriesBlockSize));
+        if (
+          Math.round(this.heightContVerticalMenu) <= Math.round(entriesBlockSize) ||
+          !entriesBlockSize
+        ) {
+          this.menuOverflow.append(menuItem); //!-----------------------------------
+        }
       }
-
-      // console.log('15');
     });
     if (!this.menuItemOverflow) this.addItemMenuOverflow();
   }

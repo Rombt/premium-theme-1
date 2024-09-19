@@ -36,8 +36,6 @@ class VerticalMenu {
 
     const observer = new ResizeObserver(entries => {
       console.log('-----  this.contVerticalMenu = ', this.contVerticalMenu);
-      // console.log('heightContVerticalMenuClose = ', this.heightContVerticalMenuClose);
-      console.log('heightContVerticalMenu = ', this.heightContVerticalMenu);
       console.log('               entries = ', entries);
 
       this.buildOverflowMenu();
@@ -117,13 +115,21 @@ class VerticalMenu {
   buildOverflowMenu() {
     this.nl_menuItems = this.contVerticalMenu.querySelectorAll('nav > ul > li');
     this.rectContVerticalMenu = this.contVerticalMenu.getBoundingClientRect();
+
     this.bottomContVerticalMenu = this.rectContVerticalMenu.bottom;
     this.heightContVerticalMenu = this.rectContVerticalMenu.height;
+
+    if (this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
+      // console.log('00');
+      return;
+    }
 
     this.nl_menuItems.forEach((menuItem, indexMenuItem) => {
       let bottomMenuItem = menuItem.getBoundingClientRect().bottom;
       menuItem.style.position = 'relative';
       this.addIconsSubMenu(menuItem);
+
+      // console.log('5');
 
       if (bottomMenuItem > this.bottomContVerticalMenu) {
         if (!this.menuOverflow) {
@@ -133,6 +139,8 @@ class VerticalMenu {
 
           this.contVerticalMenu.prepend(this.menuOverflow);
         }
+
+        // console.log('10');
 
         if (this.remainingHeight === 0) {
           this.remainingHeight =
@@ -151,6 +159,8 @@ class VerticalMenu {
 
         this.menuOverflow.append(menuItem);
       }
+
+      // console.log('15');
     });
     if (!this.menuItemOverflow) this.addItemMenuOverflow();
   }

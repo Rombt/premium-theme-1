@@ -96,7 +96,10 @@ class VerticalMenu {
           console.log('10 = ');
 
           if (i === this.overflowItemsLength - 1) {
-            heightContVerticalMenuOpen =
+            heightContVerticalMenuOpen = //!** рассчитывать до входа в условие (
+              //!*   Math.round(this.heightContVerticalMenu) === Math.round(this.entriesBlockSize) ||
+              //!*   !this.entriesBlockSize
+              //!* )
               overflowItem.getBoundingClientRect().bottom -
               this.contVerticalMenu.getBoundingClientRect().top +
               this.heightMenuItemOverflow;

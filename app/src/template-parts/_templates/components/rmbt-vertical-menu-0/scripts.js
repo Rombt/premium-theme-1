@@ -5,6 +5,8 @@ class VerticalMenu {
   bottomContVerticalMenu;
   heightContVerticalMenu;
   heightContVerticalMenuClose;
+  heightContVerticalMenuOpen;
+  entriesBlockSize;
 
   remainingHeight = 0;
   numberLastItem = 0;
@@ -14,7 +16,7 @@ class VerticalMenu {
   iconMenuOverflow;
   overflowItemsLength;
 
-  entriesBlockSize;
+  nl_overflowItems;
 
   constructor(contVerticalMenu, param) {
     this.contVerticalMenu = contVerticalMenu;
@@ -40,6 +42,15 @@ class VerticalMenu {
       this.entriesBlockSize = entries[0].contentBoxSize[0].blockSize;
 
       this.buildOverflowMenu();
+      if (
+        Math.round(this.heightContVerticalMenuOpen) === Math.round(this.entriesBlockSize)
+        // || !this.entriesBlockSize
+      ) {
+        this.contVerticalMenu.style.backgroundColor = 'red';
+        this.nl_overflowItems.forEach(overflowItem => {
+          overflowItem.style.visibility = 'visible';
+        });
+      }
     });
     observer.observe(this.contVerticalMenu);
   }
@@ -66,48 +77,37 @@ class VerticalMenu {
   clickMenuItemOverflow(e) {
     if (!this.menuItemOverflow) return;
 
+    this.contVerticalMenu.style.backgroundColor = '#fff'; //!!!!
+
     const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
     let heightContVerticalMenuOpen;
+    let _heightContVerticalMenuOpen;
 
     if (!this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
-      const nl_overflowItems = this.contVerticalMenu.querySelectorAll(
+      this.nl_overflowItems = this.contVerticalMenu.querySelectorAll(
         `.${this.classMenuOverflow} > li`
       );
-      this.overflowItemsLength = nl_overflowItems.length;
+      this.overflowItemsLength = this.nl_overflowItems.length;
       this.heightContVerticalMenuClose = this.rectContVerticalMenu.height;
 
       this.contVerticalMenu.classList.add(this.classVerticalMenuOpen);
       contVerticalMenuUl.style.position = 'relative';
 
-      console.log('00 = ');
-      console.log('this.heightContVerticalMenu = ', this.heightContVerticalMenu);
-      console.log('      this.entriesBlockSize = ', this.entriesBlockSize);
-      if (
-        Math.round(this.heightContVerticalMenu) === Math.round(this.entriesBlockSize) ||
-        !this.entriesBlockSize
-      ) {
-        console.log('5 = ');
+      this.nl_overflowItems.forEach((overflowItem, i) => {
+        overflowItem.style.visibility = 'hidden';
+        overflowItem.style.top =
+          this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
+        contVerticalMenuUl.append(overflowItem);
 
-        nl_overflowItems.forEach((overflowItem, i) => {
-          overflowItem.style.top =
-            this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
-          contVerticalMenuUl.append(overflowItem);
+        if (i === this.overflowItemsLength - 1) {
+          this.heightContVerticalMenuOpen =
+            overflowItem.getBoundingClientRect().bottom -
+            this.contVerticalMenu.getBoundingClientRect().top +
+            this.heightMenuItemOverflow;
+        }
+      });
 
-          console.log('10 = ');
-
-          if (i === this.overflowItemsLength - 1) {
-            heightContVerticalMenuOpen = //!** рассчитывать до входа в условие (
-              //!*   Math.round(this.heightContVerticalMenu) === Math.round(this.entriesBlockSize) ||
-              //!*   !this.entriesBlockSize
-              //!* )
-              overflowItem.getBoundingClientRect().bottom -
-              this.contVerticalMenu.getBoundingClientRect().top +
-              this.heightMenuItemOverflow;
-          }
-        });
-      }
-
-      this.contVerticalMenu.style.height = heightContVerticalMenuOpen + 'px';
+      this.contVerticalMenu.style.height = this.heightContVerticalMenuOpen + 'px';
     } else {
       this.closeVerticalMenu();
     }

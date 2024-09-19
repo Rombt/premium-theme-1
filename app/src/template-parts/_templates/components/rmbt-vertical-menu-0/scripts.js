@@ -45,28 +45,28 @@ class VerticalMenu {
 
       this.buildOverflowMenu();
 
+      console.log('      this.entriesBlockSize = ', Math.round(this.entriesBlockSize)); //*************************************** */
+      console.log('heightContVerticalMenuClose = ', this.heightContVerticalMenuClose);
+      console.log('----------- count_nl_overflowItems = ', count_nl_overflowItems);
       console.log(
-        ' --  heightMenuItemOverflow = ',
-        Math.round(this.heightMenuItemOverflow)
-      );
-      console.log('        entriesBlockSizeOld = ', Math.round(entriesBlockSizeOld));
-      console.log('      this.entriesBlockSize = ', Math.round(this.entriesBlockSize));
-      console.log(
-        'this.heightContVerticalMenu = ',
-        Math.round(this.heightContVerticalMenu)
+        'Math.round(this.entriesBlockSize) - Math.round(entriesBlockSizeOld) = ',
+        Math.round(this.entriesBlockSize) - Math.round(entriesBlockSizeOld)
       );
 
       if (
-        Math.round(this.entriesBlockSize) - Math.round(entriesBlockSizeOld) >
+        Math.abs(Math.round(this.entriesBlockSize) - Math.round(entriesBlockSizeOld)) >
         this.heightMenuItemOverflow / 2
       ) {
+        console.log('55 = ');
         entriesBlockSizeOld = this.entriesBlockSize + this.heightMenuItemOverflow / 2;
         this.nl_overflowItems[count_nl_overflowItems].style.visibility = 'visible';
         count_nl_overflowItems++;
-        console.log(
-          'this.nl_overflowItems[count_nl_overflowItems] = ',
-          this.nl_overflowItems[count_nl_overflowItems]
-        );
+
+        if (count_nl_overflowItems === this.nl_overflowItems?.length) {
+          count_nl_overflowItems = 0;
+          entriesBlockSizeOld = this.heightContVerticalMenu;
+          console.log('----00------- count_nl_overflowItems = ', count_nl_overflowItems);
+        }
       }
     });
     observer.observe(this.contVerticalMenu);

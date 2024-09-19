@@ -38,18 +38,35 @@ class VerticalMenu {
     this.processingPressKeys();
     this.clickOutside();
 
+    let entriesBlockSizeOld = this.heightContVerticalMenu;
+    let count_nl_overflowItems = 0;
     const observer = new ResizeObserver(entries => {
       this.entriesBlockSize = entries[0].contentBoxSize[0].blockSize;
 
       this.buildOverflowMenu();
+
+      console.log(
+        ' --  heightMenuItemOverflow = ',
+        Math.round(this.heightMenuItemOverflow)
+      );
+      console.log('        entriesBlockSizeOld = ', Math.round(entriesBlockSizeOld));
+      console.log('      this.entriesBlockSize = ', Math.round(this.entriesBlockSize));
+      console.log(
+        'this.heightContVerticalMenu = ',
+        Math.round(this.heightContVerticalMenu)
+      );
+
       if (
-        Math.round(this.heightContVerticalMenuOpen) === Math.round(this.entriesBlockSize)
-        // || !this.entriesBlockSize
+        Math.round(this.entriesBlockSize) - Math.round(entriesBlockSizeOld) >
+        this.heightMenuItemOverflow / 2
       ) {
-        this.contVerticalMenu.style.backgroundColor = 'red';
-        this.nl_overflowItems.forEach(overflowItem => {
-          overflowItem.style.visibility = 'visible';
-        });
+        entriesBlockSizeOld = this.entriesBlockSize + this.heightMenuItemOverflow / 2;
+        this.nl_overflowItems[count_nl_overflowItems].style.visibility = 'visible';
+        count_nl_overflowItems++;
+        console.log(
+          'this.nl_overflowItems[count_nl_overflowItems] = ',
+          this.nl_overflowItems[count_nl_overflowItems]
+        );
       }
     });
     observer.observe(this.contVerticalMenu);

@@ -89,8 +89,8 @@ class VerticalMenu {
     this.contVerticalMenu.style.backgroundColor = '#fff'; //!!!!
 
     const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
-    let heightContVerticalMenuOpen;
-    let _heightContVerticalMenuOpen;
+    // let heightContVerticalMenuOpen;
+    // let _heightContVerticalMenuOpen;
 
     if (!this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
       this.nl_overflowItems = this.contVerticalMenu.querySelectorAll(
@@ -106,7 +106,7 @@ class VerticalMenu {
         overflowItem.style.visibility = 'hidden';
         overflowItem.style.top =
           this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
-        contVerticalMenuUl.append(overflowItem);
+        contVerticalMenuUl.append(overflowItem); //?222222222222222222222222222222222
 
         if (i === this.overflowItemsLength - 1) {
           this.heightContVerticalMenuOpen =
@@ -126,16 +126,19 @@ class VerticalMenu {
     if (!this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
       return;
     }
+
+    console.log('this.nl_menuItems = ', this.nl_menuItems);
+
     if (
       Math.round(this.heightContVerticalMenuClose) === Math.round(this.entriesBlockSize)
     ) {
       // for (let i = this.overflowItemsLength; i > 0; i--) {
       //   this.menuOverflow.append(this.nl_menuItems[this.nl_menuItems.length - i]);
       // }
-
-      this.nl_menuItems.forEach(menuItem => {
-        this.menuOverflow.append(menuItem);
-      });
+      // this.nl_menuItems.forEach(menuItem => {
+      //   console.log('menuItem = ', menuItem);
+      //   this.menuOverflow.append(menuItem);
+      // });
     }
 
     this.contVerticalMenu.style.height = this.heightContVerticalMenuClose + 'px';
@@ -181,7 +184,8 @@ class VerticalMenu {
           }
         }
 
-        this.menuOverflow.append(menuItem); //?-----------------------------------
+        console.log('menuItem = ', menuItem);
+        this.menuOverflow.append(menuItem); //?1111111111111111111111111
       }
     });
     if (!this.menuItemOverflow) this.addItemMenuOverflow();
@@ -209,7 +213,11 @@ class VerticalMenu {
       this.menuItemOverflow.style.left = '0px';
       this.menuItemOverflow.style.right = '0px';
 
-      this.menuOverflow.prepend(this.nl_menuItems[this.numberLastItem]);
+      console.log(
+        'this.nl_menuItems[this.numberLastItem] = ',
+        this.nl_menuItems[this.numberLastItem]
+      );
+      this.menuOverflow.prepend(this.nl_menuItems[this.numberLastItem]); //?33333333333333333333333333333333333333333
 
       this.contVerticalMenu.append(this.menuItemOverflow);
       this.menuItemOverflow.addEventListener(

@@ -52,6 +52,13 @@ class VerticalMenu {
 
       this.buildOverflowMenu();
       this.showItemsOpenedVerticalMenu();
+
+      if (
+        Math.round(this.entriesBlockSize) === Math.round(this.heightContVerticalMenuClose)
+      ) {
+        this.contVerticalMenu.style.width = this.widthContVerticalMenu;
+        this.contVerticalMenu.style.position = this.positionContVerticalMenu;
+      }
     });
     observer.observe(this.contVerticalMenu);
   }
@@ -69,7 +76,7 @@ class VerticalMenu {
         if (propertyKey in this.contVerticalMenu.style) {
           this.contVerticalMenu.style[propertyKey] = propertyValue;
         } else {
-          //
+          /* */
         }
       });
     });
@@ -147,9 +154,6 @@ class VerticalMenu {
 
     this.contVerticalMenu.style.height = this.heightContVerticalMenuClose + 'px';
     this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
-
-    this.contVerticalMenu.style.position = this.positionContVerticalMenu;
-    this.contVerticalMenu.style.width = this.widthContVerticalMenu;
   }
 
   buildOverflowMenu() {
@@ -191,10 +195,10 @@ class VerticalMenu {
         }
 
         if (this.heightContVerticalMenuOpen) {
-          // building overflow menu during closing vertical menu
+          /* building overflow menu during closing vertical menu*/
           this.menuOverflow.prepend(menuItem);
         } else {
-          // first building overflow menu during download page
+          /* first building overflow menu during download page*/
           this.menuOverflow.append(menuItem);
         }
       }

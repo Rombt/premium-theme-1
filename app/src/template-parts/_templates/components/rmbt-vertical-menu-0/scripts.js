@@ -7,6 +7,8 @@ class VerticalMenu {
   heightContVerticalMenuClose;
   heightContVerticalMenuOpen;
   entriesBlockSize;
+  positionContVerticalMenu;
+  widthContVerticalMenu;
 
   remainingHeight = 0;
   numberLastItem = 0;
@@ -35,8 +37,10 @@ class VerticalMenu {
     this.textMenuItemOverflow = param.textMenuItemOverflow;
     this.individualParamsContMenu = param.individualParamsContMenu;
 
-    this.initParamMenus();
+    this.positionContVerticalMenu = this.contVerticalMenu.style.position;
+    this.widthContVerticalMenu = this.contVerticalMenu.style.width;
 
+    this.initParamMenus();
     this.buildOverflowMenu();
     this.processingPressKeys();
     this.clickOutside();
@@ -92,6 +96,9 @@ class VerticalMenu {
     this.contVerticalMenu.classList.add(this.classVerticalMenuOpen);
     contVerticalMenuUl.style.position = 'relative';
 
+    this.contVerticalMenu.style.position = 'absolute';
+    this.contVerticalMenu.style.width = this.rectContVerticalMenu.width + 'px';
+
     this.nl_overflowItems.forEach((overflowItem, i) => {
       overflowItem.style.visibility = 'hidden';
       overflowItem.style.pointerEvents = 'none';
@@ -140,6 +147,9 @@ class VerticalMenu {
 
     this.contVerticalMenu.style.height = this.heightContVerticalMenuClose + 'px';
     this.contVerticalMenu.classList.remove(this.classVerticalMenuOpen);
+
+    this.contVerticalMenu.style.position = this.positionContVerticalMenu;
+    this.contVerticalMenu.style.width = this.widthContVerticalMenu;
   }
 
   buildOverflowMenu() {

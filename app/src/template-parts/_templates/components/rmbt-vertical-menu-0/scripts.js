@@ -194,11 +194,6 @@ class VerticalMenu {
           }
         }
 
-        console.log('this.contVerticalMenu = ', this.contVerticalMenu);
-        console.log(
-          'this.heightContVerticalMenuOpen = ',
-          this.heightContVerticalMenuOpen
-        );
         if (this.heightContVerticalMenuOpen) {
           /* building overflow menu during closing vertical menu*/
           this.menuOverflow.prepend(menuItem);
@@ -221,6 +216,11 @@ class VerticalMenu {
       this.iconMenuOverflow = document.createElement('div');
       this.iconMenuOverflow.classList.add(this.classIconMenuOverflow);
       this.menuItemOverflow.append(this.iconMenuOverflow);
+
+      console.log(
+        'this.nl_menuItems[this.numberLastItem - 1] = ',
+        this.nl_menuItems[this.numberLastItem - 1]
+      );
 
       this.heightMenuItemOverflow =
         this.contVerticalMenu.getBoundingClientRect().bottom -

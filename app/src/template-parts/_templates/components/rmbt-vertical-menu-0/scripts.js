@@ -82,6 +82,8 @@ class VerticalMenu {
         }
       });
     });
+
+    this.contVerticalMenu.style.display = 'block';
   }
 
   clickMenuItemOverflow(e) {
@@ -219,11 +221,6 @@ class VerticalMenu {
       this.iconMenuOverflow.classList.add(this.classIconMenuOverflow);
       this.menuItemOverflow.append(this.iconMenuOverflow);
 
-      console.log(
-        'this.nl_menuItems[this.numberLastItem - 1] = ',
-        this.nl_menuItems[this.numberLastItem - 1]
-      );
-
       this.heightMenuItemOverflow =
         this.contVerticalMenu.getBoundingClientRect().bottom -
         this.nl_menuItems[this.numberLastItem - 1]?.getBoundingClientRect().bottom;
@@ -332,7 +329,6 @@ document.addEventListener('DOMContentLoaded', function () {
       {
         class: 'right-top-menu',
         height: '150px',
-        // width: '270px',
         width: '100%',
         maxWidth: '100%',
       },

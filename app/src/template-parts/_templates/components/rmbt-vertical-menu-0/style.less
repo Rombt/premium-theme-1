@@ -2,17 +2,12 @@
   width: 100%;
   max-width: 170px;
   height: 100%;
-
   background-color: #fff;
   position: relative;
   z-index: 1;
-
-  // background-color: #fff;
-
-  border-bottom: 1px solid #fd051a;
-
-  // overflow-x: hidden;
   transition: height 0.5s ease;
+
+  display: none; //! показываю после формирования в js!!
 
   ul {
     padding: 0px 0px 0px 0px;
@@ -95,8 +90,7 @@
 }
 
 .vertical-menu-open {
-  // border: 1px solid #0515fd;
-
+  border: 1px solid @border-color-wireframe-inner;
   transition: height 0.5s ease;
 }
 

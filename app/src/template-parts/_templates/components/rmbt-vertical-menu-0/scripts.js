@@ -45,8 +45,6 @@ class VerticalMenu {
     this.processingPressKeys();
     this.clickOutside();
 
-    this.showItemsOpenedVerticalMenu();
-
     this.entriesBlockSizeOld = this.heightContVerticalMenu;
     this.count_nl_overflowItems = 0;
     const observer = new ResizeObserver(entries => {
@@ -82,6 +80,11 @@ class VerticalMenu {
         }
       });
     });
+
+    if (this.contVerticalMenu.style.height === '') {
+      this.contVerticalMenu.style.height =
+        this.contVerticalMenu.parentNode.getBoundingClientRect().height + 'px';
+    }
 
     this.contVerticalMenu.style.display = 'block';
   }
@@ -184,6 +187,12 @@ class VerticalMenu {
           this.contVerticalMenu.prepend(this.menuOverflow);
         }
         if (this.remainingHeight === 0) {
+          console.log(
+            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            'this.nl_menuItems[indexMenuItem - 1] = ',
+            this.nl_menuItems[indexMenuItem - 1]
+          );
+
           this.remainingHeight =
             (this.bottomContVerticalMenu -
               this.nl_menuItems[indexMenuItem - 1].getBoundingClientRect().bottom) /

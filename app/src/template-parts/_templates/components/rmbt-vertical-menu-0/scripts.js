@@ -1,4 +1,6 @@
 class VerticalMenu {
+  // todo если меню перестраивается в методе initParamMenus() меню нужно скрыть и показывать только после окончания построения
+
   contVerticalMenu;
   nl_menuItems;
   rectContVerticalMenu;

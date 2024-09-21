@@ -50,6 +50,16 @@ class VerticalMenu {
     const observer = new ResizeObserver(entries => {
       this.entriesBlockSize = entries[0].contentBoxSize[0].blockSize;
 
+      console.log('====> ', this.contVerticalMenu);
+      console.log('entries = ', entries);
+      console.log(
+        'this.contVerticalMenu.parentNode.getBoundingClientRect().height = ',
+        this.contVerticalMenu.parentNode.getBoundingClientRect()
+      );
+      if (this.contVerticalMenu.style.height === '' && this.entriesBlockSize > 0) {
+        this.contVerticalMenu.style.height = this.entriesBlockSize + 'px';
+      }
+
       this.buildOverflowMenu();
       this.showItemsOpenedVerticalMenu();
 
@@ -80,11 +90,6 @@ class VerticalMenu {
         }
       });
     });
-
-    if (this.contVerticalMenu.style.height === '') {
-      this.contVerticalMenu.style.height =
-        this.contVerticalMenu.parentNode.getBoundingClientRect().height + 'px';
-    }
 
     this.contVerticalMenu.style.display = 'block';
   }
@@ -186,13 +191,7 @@ class VerticalMenu {
           this.menuOverflow.style.display = 'none';
           this.contVerticalMenu.prepend(this.menuOverflow);
         }
-        if (this.remainingHeight === 0) {
-          console.log(
-            //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            'this.nl_menuItems[indexMenuItem - 1] = ',
-            this.nl_menuItems[indexMenuItem - 1]
-          );
-
+        if (this.remainingHeight === 0 && indexMenuItem > 0) {
           this.remainingHeight =
             (this.bottomContVerticalMenu -
               this.nl_menuItems[indexMenuItem - 1].getBoundingClientRect().bottom) /

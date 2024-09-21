@@ -40,7 +40,7 @@ class VerticalMenu {
     this.positionContVerticalMenu = this.contVerticalMenu.style.position;
     this.widthContVerticalMenu = this.contVerticalMenu.style.width;
 
-    this.initParamMenus();
+    this.individualParamMenus();
     this.buildOverflowMenu();
     this.processingPressKeys();
     this.clickOutside();
@@ -50,15 +50,10 @@ class VerticalMenu {
     const observer = new ResizeObserver(entries => {
       this.entriesBlockSize = entries[0].contentBoxSize[0].blockSize;
 
-      console.log('====> ', this.contVerticalMenu);
-      console.log('entries = ', entries);
-      console.log(
-        'this.contVerticalMenu.parentNode.getBoundingClientRect().height = ',
-        this.contVerticalMenu.parentNode.getBoundingClientRect()
-      );
       if (this.contVerticalMenu.style.height === '' && this.entriesBlockSize > 0) {
         this.contVerticalMenu.style.height = this.entriesBlockSize + 'px';
       }
+      this.contVerticalMenu.style.display = 'block';
 
       this.buildOverflowMenu();
       this.showItemsOpenedVerticalMenu();
@@ -73,7 +68,7 @@ class VerticalMenu {
     observer.observe(this.contVerticalMenu);
   }
 
-  initParamMenus() {
+  individualParamMenus() {
     this.individualParamsContMenu.forEach(obj_paramsMenu => {
       const arr_properties = Object.entries(obj_paramsMenu);
       let classMenu;
@@ -90,8 +85,6 @@ class VerticalMenu {
         }
       });
     });
-
-    this.contVerticalMenu.style.display = 'block';
   }
 
   clickMenuItemOverflow(e) {

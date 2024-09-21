@@ -45,6 +45,8 @@ class VerticalMenu {
     this.processingPressKeys();
     this.clickOutside();
 
+    this.showItemsOpenedVerticalMenu();
+
     this.entriesBlockSizeOld = this.heightContVerticalMenu;
     this.count_nl_overflowItems = 0;
     const observer = new ResizeObserver(entries => {

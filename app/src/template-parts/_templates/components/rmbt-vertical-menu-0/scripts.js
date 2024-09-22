@@ -59,7 +59,9 @@ class VerticalMenu {
       this.contVerticalMenu.style.display = 'block';
 
       if (
-        Math.round(this.entriesBlockSize) === Math.round(this.heightContVerticalMenuClose)
+        Math.round(this.entriesBlockSize) ===
+          Math.round(this.heightContVerticalMenuClose) &&
+        !this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)
       ) {
         this.contVerticalMenu.style.width = this.widthContVerticalMenu;
         this.contVerticalMenu.style.position = this.positionContVerticalMenu;
@@ -109,6 +111,8 @@ class VerticalMenu {
     contVerticalMenuUl.style.position = 'relative';
 
     this.contVerticalMenu.style.position = 'absolute';
+    this.contVerticalMenu.style.top = '0px';
+    this.contVerticalMenu.style.left = '0px';
     this.contVerticalMenu.style.width = this.rectContVerticalMenu.width + 'px';
 
     this.nl_overflowItems.forEach((overflowItem, i) => {

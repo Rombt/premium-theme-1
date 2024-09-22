@@ -128,6 +128,7 @@ class VerticalMenu {
     });
 
     this.contVerticalMenu.style.height = this.heightContVerticalMenuOpen + 'px';
+    this.count_nl_overflowItems = 0;
   }
 
   showItemsOpenedVerticalMenu() {
@@ -138,15 +139,12 @@ class VerticalMenu {
     if (!this.nl_overflowItems) {
       return;
     }
-
     if (
       this.menuItemOverflow?.getBoundingClientRect().bottom >
         this.nl_overflowItems[this.count_nl_overflowItems].getBoundingClientRect()
           .bottom &&
       this.nl_overflowItems
     ) {
-      this.entriesBlockSizeOld = this.entriesBlockSize + this.heightMenuItemOverflow / 2;
-
       this.nl_overflowItems[this.count_nl_overflowItems].style.visibility = 'visible';
       this.nl_overflowItems[this.count_nl_overflowItems].style.pointerEvents = 'auto';
       this.count_nl_overflowItems++;

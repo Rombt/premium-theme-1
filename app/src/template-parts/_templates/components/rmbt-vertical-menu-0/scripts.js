@@ -138,16 +138,6 @@ class VerticalMenu {
     if (!this.nl_overflowItems) {
       return;
     }
-    console.log('====> ');
-    console.log(
-      'this.menuItemOverflow = ',
-      this.menuItemOverflow?.getBoundingClientRect().bottom
-    );
-
-    console.log(
-      'this.nl_overflowItems = ',
-      this.nl_overflowItems[this.count_nl_overflowItems].getBoundingClientRect().bottom
-    );
 
     if (
       this.menuItemOverflow?.getBoundingClientRect().bottom >

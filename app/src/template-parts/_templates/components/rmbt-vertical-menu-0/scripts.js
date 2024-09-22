@@ -53,10 +53,10 @@ class VerticalMenu {
       if (this.contVerticalMenu.style.height === '' && this.entriesBlockSize > 0) {
         this.contVerticalMenu.style.height = this.entriesBlockSize + 'px';
       }
-      this.contVerticalMenu.style.display = 'block';
 
       this.buildOverflowMenu();
       this.showItemsOpenedVerticalMenu();
+      this.contVerticalMenu.style.display = 'block';
 
       if (
         Math.round(this.entriesBlockSize) === Math.round(this.heightContVerticalMenuClose)
@@ -134,9 +134,25 @@ class VerticalMenu {
     /**
      * for gradual display vertical menu items during animation
      */
+
+    if (!this.nl_overflowItems) {
+      return;
+    }
+    console.log('====> ');
+    console.log(
+      'this.menuItemOverflow = ',
+      this.menuItemOverflow?.getBoundingClientRect().bottom
+    );
+
+    console.log(
+      'this.nl_overflowItems = ',
+      this.nl_overflowItems[this.count_nl_overflowItems].getBoundingClientRect().bottom
+    );
+
     if (
-      Math.abs(Math.round(this.entriesBlockSize) - Math.round(this.entriesBlockSizeOld)) >
-        this.heightMenuItemOverflow / 2 &&
+      this.menuItemOverflow?.getBoundingClientRect().bottom >
+        this.nl_overflowItems[this.count_nl_overflowItems].getBoundingClientRect()
+          .bottom &&
       this.nl_overflowItems
     ) {
       this.entriesBlockSizeOld = this.entriesBlockSize + this.heightMenuItemOverflow / 2;

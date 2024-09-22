@@ -172,6 +172,10 @@ class VerticalMenu {
       return;
     }
 
+    if (this.heightMenuItemOverflow && !this.heightContVerticalMenuClose) {
+      return;
+    }
+
     this.nl_menuItems.forEach((menuItem, indexMenuItem) => {
       let bottomMenuItem = menuItem.getBoundingClientRect().bottom;
       menuItem.style.position = 'relative';
@@ -201,13 +205,9 @@ class VerticalMenu {
 
         if (this.heightContVerticalMenuOpen) {
           /* building overflow menu during closing vertical menu*/
-          console.log('indexMenuItem = ', indexMenuItem); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          console.log('00 menuItem = ', menuItem);
           this.menuOverflow.prepend(menuItem);
         } else {
           /* first building overflow menu during download page*/
-          console.log('indexMenuItem = ', indexMenuItem); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-          console.log(' menuItem = ', menuItem);
           this.menuOverflow.append(menuItem);
         }
       }
@@ -236,8 +236,8 @@ class VerticalMenu {
       this.menuItemOverflow.style.bottom = '0px';
       this.menuItemOverflow.style.left = '0px';
       this.menuItemOverflow.style.right = '0px';
-
       this.contVerticalMenu.append(this.menuItemOverflow);
+
       this.menuItemOverflow.addEventListener(
         'click',
         this.clickMenuItemOverflow.bind(this)

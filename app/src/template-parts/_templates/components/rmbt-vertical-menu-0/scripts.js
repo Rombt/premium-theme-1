@@ -18,6 +18,9 @@ class VerticalMenu {
 
   nl_overflowItems;
 
+  entriesBlockSizeOld;
+  count_nl_overflowItems;
+
   constructor(contVerticalMenu, param) {
     this.contVerticalMenu = contVerticalMenu;
 
@@ -38,28 +41,13 @@ class VerticalMenu {
     this.processingPressKeys();
     this.clickOutside();
 
-    let entriesBlockSizeOld = this.heightContVerticalMenu;
-    let count_nl_overflowItems = 0;
+    this.entriesBlockSizeOld = this.heightContVerticalMenu;
+    this.count_nl_overflowItems = 0;
     const observer = new ResizeObserver(entries => {
       this.entriesBlockSize = entries[0].contentBoxSize[0].blockSize;
 
       this.buildOverflowMenu();
-
-      if (
-        Math.abs(Math.round(this.entriesBlockSize) - Math.round(entriesBlockSizeOld)) >
-          this.heightMenuItemOverflow / 2 &&
-        this.nl_overflowItems
-      ) {
-        entriesBlockSizeOld = this.entriesBlockSize + this.heightMenuItemOverflow / 2;
-
-        this.nl_overflowItems[count_nl_overflowItems].style.visibility = 'visible';
-        count_nl_overflowItems++;
-
-        if (count_nl_overflowItems === this.nl_overflowItems?.length) {
-          count_nl_overflowItems = 0;
-          entriesBlockSizeOld = this.heightContVerticalMenu;
-        }
-      }
+      this.showItemsOpenedVerticalMenu();
     });
     observer.observe(this.contVerticalMenu);
   }
@@ -86,59 +74,68 @@ class VerticalMenu {
   clickMenuItemOverflow(e) {
     if (!this.menuItemOverflow) return;
 
-    this.contVerticalMenu.style.backgroundColor = '#fff'; //!!!!
-
-    const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
-    // let heightContVerticalMenuOpen;
-    // let _heightContVerticalMenuOpen;
-
     if (!this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
-      this.nl_overflowItems = this.contVerticalMenu.querySelectorAll(
-        `.${this.classMenuOverflow} > li`
-      );
-      this.overflowItemsLength = this.nl_overflowItems.length;
-      this.heightContVerticalMenuClose = this.rectContVerticalMenu.height;
-
-      this.contVerticalMenu.classList.add(this.classVerticalMenuOpen);
-      contVerticalMenuUl.style.position = 'relative';
-
-      this.nl_overflowItems.forEach((overflowItem, i) => {
-        overflowItem.style.visibility = 'hidden';
-        overflowItem.style.top =
-          this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
-        contVerticalMenuUl.append(overflowItem); //?222222222222222222222222222222222
-
-        if (i === this.overflowItemsLength - 1) {
-          this.heightContVerticalMenuOpen =
-            overflowItem.getBoundingClientRect().bottom -
-            this.contVerticalMenu.getBoundingClientRect().top +
-            this.heightMenuItemOverflow;
-        }
-      });
-
-      this.contVerticalMenu.style.height = this.heightContVerticalMenuOpen + 'px';
+      this.openVerticalMenu();
     } else {
       this.closeVerticalMenu();
+    }
+  }
+
+  openVerticalMenu() {
+    const contVerticalMenuUl = this.contVerticalMenu.querySelector('nav > ul');
+    this.nl_overflowItems = this.contVerticalMenu.querySelectorAll(
+      `.${this.classMenuOverflow} > li`
+    );
+    this.overflowItemsLength = this.nl_overflowItems.length;
+    this.heightContVerticalMenuClose = this.rectContVerticalMenu.height;
+
+    this.contVerticalMenu.classList.add(this.classVerticalMenuOpen);
+    contVerticalMenuUl.style.position = 'relative';
+
+    this.nl_overflowItems.forEach((overflowItem, i) => {
+      overflowItem.style.visibility = 'hidden';
+      overflowItem.style.pointerEvents = 'none';
+      overflowItem.style.top =
+        this.remainingHeight * (this.numberLastItem + i + 1) + 'px';
+
+      contVerticalMenuUl.append(overflowItem);
+
+      if (i === this.overflowItemsLength - 1) {
+        this.heightContVerticalMenuOpen =
+          overflowItem.getBoundingClientRect().bottom -
+          this.contVerticalMenu.getBoundingClientRect().top +
+          this.heightMenuItemOverflow;
+      }
+    });
+
+    this.contVerticalMenu.style.height = this.heightContVerticalMenuOpen + 'px';
+  }
+
+  showItemsOpenedVerticalMenu() {
+    /**
+     * for gradual display vertical menu items during animation
+     */
+    if (
+      Math.abs(Math.round(this.entriesBlockSize) - Math.round(this.entriesBlockSizeOld)) >
+        this.heightMenuItemOverflow / 2 &&
+      this.nl_overflowItems
+    ) {
+      this.entriesBlockSizeOld = this.entriesBlockSize + this.heightMenuItemOverflow / 2;
+
+      this.nl_overflowItems[this.count_nl_overflowItems].style.visibility = 'visible';
+      this.nl_overflowItems[this.count_nl_overflowItems].style.pointerEvents = 'auto';
+      this.count_nl_overflowItems++;
+
+      if (this.count_nl_overflowItems === this.nl_overflowItems?.length) {
+        this.count_nl_overflowItems = 0;
+        this.entriesBlockSizeOld = this.heightContVerticalMenu;
+      }
     }
   }
 
   closeVerticalMenu() {
     if (!this.contVerticalMenu.classList.contains(this.classVerticalMenuOpen)) {
       return;
-    }
-
-    console.log('this.nl_menuItems = ', this.nl_menuItems);
-
-    if (
-      Math.round(this.heightContVerticalMenuClose) === Math.round(this.entriesBlockSize)
-    ) {
-      // for (let i = this.overflowItemsLength; i > 0; i--) {
-      //   this.menuOverflow.append(this.nl_menuItems[this.nl_menuItems.length - i]);
-      // }
-      // this.nl_menuItems.forEach(menuItem => {
-      //   console.log('menuItem = ', menuItem);
-      //   this.menuOverflow.append(menuItem);
-      // });
     }
 
     this.contVerticalMenu.style.height = this.heightContVerticalMenuClose + 'px';
@@ -166,7 +163,6 @@ class VerticalMenu {
           this.menuOverflow = document.createElement('div');
           this.menuOverflow.classList.add(this.classMenuOverflow);
           this.menuOverflow.style.display = 'none';
-
           this.contVerticalMenu.prepend(this.menuOverflow);
         }
         if (this.remainingHeight === 0) {
@@ -184,8 +180,13 @@ class VerticalMenu {
           }
         }
 
-        console.log('menuItem = ', menuItem);
-        this.menuOverflow.append(menuItem); //?1111111111111111111111111
+        if (this.heightContVerticalMenuOpen) {
+          // building overflow menu during closing vertical menu
+          this.menuOverflow.prepend(menuItem);
+        } else {
+          // first building overflow menu during download page
+          this.menuOverflow.append(menuItem);
+        }
       }
     });
     if (!this.menuItemOverflow) this.addItemMenuOverflow();
@@ -212,12 +213,6 @@ class VerticalMenu {
       this.menuItemOverflow.style.bottom = '0px';
       this.menuItemOverflow.style.left = '0px';
       this.menuItemOverflow.style.right = '0px';
-
-      console.log(
-        'this.nl_menuItems[this.numberLastItem] = ',
-        this.nl_menuItems[this.numberLastItem]
-      );
-      this.menuOverflow.prepend(this.nl_menuItems[this.numberLastItem]); //?33333333333333333333333333333333333333333
 
       this.contVerticalMenu.append(this.menuItemOverflow);
       this.menuItemOverflow.addEventListener(

@@ -1,3 +1,3 @@
 <a href="#" class='rmbt-button-0'>
-   cal-to-action-bottom
+   simple button
 </a>

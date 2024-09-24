@@ -8,15 +8,16 @@
   position: relative;
   top: 0px;
   left: 0px;
-  // transition: all 0.5s ease-out;
-  transition: top 0.8s, left 0.5s, color 0.3s, background-color 0.3s;
+
+  text-transform: uppercase;
+  color: @font-color-button;
+  font-weight: 600;
 
   background-color: @background-button;
-
   border-radius: @border-radius-button;
   border: 1px solid @border-color-wireframe-inner;
 
-  color: @font-color-button;
+  transition: top 0.8s, left 0.5s, color 0.3s, background-color 0.3s;
 
   &:hover {
     background-color: @background-button-hover;

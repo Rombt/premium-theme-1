@@ -84,10 +84,10 @@
                   <h2><?php echo $template; ?></h2>
                   <p>
                      get_template_part(
-                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? $specifier : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
+                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
                   </p>
                   <div class="templates-page-components__body">
-                     <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? $specifier : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
+                     <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
                   </div>
                </div>
 
@@ -99,11 +99,11 @@
                   <h2><?php echo $template; ?></h2>
                   <p>
                      get_template_part(
-                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? $specifier : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
+                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
                   </p>
                </div>
 
-               <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? $specifier : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
+               <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
                <?php endif ?>
 
 

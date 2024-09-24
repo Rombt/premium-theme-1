@@ -54,34 +54,34 @@
 
                <?php foreach ( $arr_templates as $template ) { ?>
 
+               <?php
+							$content = file_get_contents( get_template_directory() . '/template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '.php' );
+							preg_match_all( '/\$args\[\s*\'([^\']*)\'\s*\]/', $content, $results );
+							$arr_args = [];
+							$str_args = '';
+							if ( count( $results[1] ) > 0 ) {
+								$str_args = '[';
+								foreach ( $results[1] as $value ) {
+									$arr_args[ $value ] = '';
+									$str_args .= '\'' . $value . '\' => \' \',';
+								}
+								$str_args .= ']';
+							}
+							?>
+
 
                <?php if ( $template_type === 'components' ) : ?>
                <div class="rmbt-container templates-page-components">
                   <h2><?php echo $template; ?></h2>
 
-                  <?php $content = file_get_contents( get_template_directory() . '/template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '.php' ); ?>
-
-                  <?php $pattern = '/\$args\[\s*\'([^\']*)\'\s*\]/';
-									preg_match_all( $pattern, $content, $results );
-
-									$arr_args = [];
-									$str_args = '[';
-									foreach ( $results[1] as $value ) {
-
-										$arr_args[ $value ] = '';
-										$str_args .= '\'' . $value . '\' => \' \',';
-									}
-									$str_args .= ']';
-
-
-									?>
-
-                  <p>get_template_part('<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',null,' . $str_args ?>);
+                  <p>
+                     get_template_part(
+                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',null' . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
                   </p>
 
 
                   <div class="templates-page-components__body">
-                     <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, 'null', $arr_args ); ?>
+                     <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
                   </div>
                </div>
 
@@ -91,11 +91,13 @@
 
                <div class="rmbt-container templates-page-section-title">
                   <h2><?php echo $template; ?></h2>
-                  <p>get_template_part('<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template ?>');
+                  <p>
+                     get_template_part(
+                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',null' . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
                   </p>
                </div>
 
-               <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template ); ?>
+               <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
                <?php endif ?>
 
 

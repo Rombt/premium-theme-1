@@ -38,7 +38,17 @@
     &__content {
       .col();
       .size(10);
-      border: 2px solid #068368;
+      // border: 2px solid #068368;
+
+      [data-tab-name='tab-1'] {
+        background-color: #e5eaf1;
+      }
+      [data-tab-name='tab-2'] {
+        background-color: #e5f1e8;
+      }
+      [data-tab-name='tab-3'] {
+        background-color: #f1f1e5;
+      }
     }
     &__body {
       height: 500px;
@@ -49,48 +59,3 @@
   .rmbt-section-tabs-1-tabs {
   }
 }
-
-// .rmbt-section-tabs-1 {
-//   &__row {
-//     .row-flex();
-//     justify-content: center;
-//     padding-top: @padding-top-section;
-//     padding-bottom: @padding-bottom-section;
-//     padding-left: @padding-left-section;
-//     padding-right: @padding-right-section;
-
-//     margin-bottom: @margin-bottom-block;
-
-//     border: 1px solid @border-color-wireframe-external;
-//   }
-// }
-
-// .rmbt-section-tabs-1-head {
-//   border: 1px solid @border-color-wireframe-inner;
-//   .row-flex();
-//   justify-content: center;
-
-//   &__title {
-//     .col();
-//     .size(8);
-//     text-align: center;
-//     margin-top: 0px;
-//     margin-bottom: @margin-bottom-title;
-//     height: 30px;
-//     border: 1px solid @border-color-wireframe-inner;
-//   }
-
-//   &__subtitle {
-//     .col();
-//     .size(10);
-//     text-align: center;
-//     margin-top: 0px;
-//     margin-bottom: 0px;
-//     height: 40px;
-//     border: 1px solid @border-color-wireframe-inner;
-//   }
-// }
-
-// .rmbt-section-tabs-1-body {
-//   height: 200px;
-// }

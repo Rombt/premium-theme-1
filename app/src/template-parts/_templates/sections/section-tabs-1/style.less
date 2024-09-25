@@ -3,24 +3,21 @@
 .rmbt-section-tabs-1 {
   &__row {
     .row-flex();
-    // height: 500px;
     position: relative;
+    height: 500px;
 
-    border: 1px solid #000000;
+    border: 1px solid #0515fd;
   }
 
   .tabs {
     position: relative;
-    height: 500px;
     width: 100%;
 
     display: flex;
 
-    border: 1px solid #0515fd;
-
     &__nav {
       .col();
-      .size(12);
+      .size(2);
       height: 100%;
       width: 160px;
 
@@ -29,17 +26,18 @@
       row-gap: 30px;
 
       background-color: #fff;
-      border: 1px solid #fd0505;
       border-bottom: auto;
     }
     &__title {
       width: 100%;
-      background-color: #fff;
-      // height: 200px;
+      cursor: pointer;
+      background-color: #8f9baa;
     }
     &__title-active {
     }
     &__content {
+      .col();
+      .size(10);
       border: 2px solid #068368;
     }
     &__body {

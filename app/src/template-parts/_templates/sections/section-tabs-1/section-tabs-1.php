@@ -6,19 +6,19 @@
 
 			<div class="tabs rmbt-section-tabs-1-tabs">
 				<nav data-tabs-titles class="tabs__nav">
-					<button type="button" class="tabs__title tabs__title-active" data-tab="tab-1"></button>
-					<button type="button" class="tabs__title" data-tab="tab-2"></button>
-					<button type="button" class="tabs__title" data-tab="tab-3"></button>
+					<div class="tabs__title tabs__title-active" data-tab="tab-1"></div>
+					<div class="tabs__title" data-tab="tab-2"></div>
+					<div class="tabs__title" data-tab="tab-3"></div>
 				</nav>
 				<div class="tabs__content">
 					<div class="tabs__body tabs__body-active" data-tab-name="tab-1">
-
+						11111111111111111111111
 					</div>
 					<div class="tabs__body" data-tab-name="tab-2">
-
+						222222222222222222222222
 					</div>
 					<div class="tabs__body" data-tab-name="tab-3">
-
+						333333333333333333333333333
 					</div>
 				</div>
 			</div>

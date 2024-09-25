@@ -23,10 +23,49 @@
 .templates-page-components__body {
   display: flex;
   row-gap: 15px;
+  padding: 20px 0px 20px 0px;
 
   height: 250px;
   // border: 1px solid #9c9c9c;
   position: relative;
+}
+
+.get-template-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+.text-to-copy {
+  font-family: Raleway;
+  font-size: 14px;
+  margin: 0px 0px 10px 0px;
+}
+.copy-button {
+  width: 80px;
+  height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #6c6c6c;
+  background-color: #e7e6e6;
+  transition: all 0.75s;
+  letter-spacing: 1px;
+}
+
+.success-to-copy {
+  background-color: #61c11c;
+  border: 2px solid #59a820;
+  color: #e3fde0;
+  transition: all 0.75s;
+}
+
+.error-to-copy {
+  background-color: #f67777;
+  border: 2px solid #d26e6e;
+  color: #f6dcdc;
 }
 
 /*---- tabs ----*/
@@ -34,6 +73,8 @@
 .tabs__content {
   /* min-height: 100vh; */
   padding-bottom: 1000px;
+
+  font-family: RobotoFlex;
 }
 
 .rmbt-templates-page-tabs {

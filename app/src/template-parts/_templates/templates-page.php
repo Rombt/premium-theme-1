@@ -6,7 +6,7 @@
 
    <?php $arr_dirs = scandir( __DIR__, SCANDIR_SORT_DESCENDING );
 
-	$number_active_tab = 1;
+	$number_active_tab = 0;
 	$templates_types = [];
 	foreach ( $arr_dirs as $dir ) {
 		if ( $dir !== '.' && $dir !== '..' && is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir ) ) {
@@ -74,18 +74,17 @@
 							if ( $pos = strpos( $template, '-' ) ) {
 								$specifier = substr( $template, $pos + 1 );
 							}
-
 							?>
 
-
+               <?php $str_get_template_part = 'get_template_part(\'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) . ');'; ?>
 
                <?php if ( $template_type === 'components' ) : ?>
                <div class="rmbt-container templates-page-components">
                   <h2><?php echo $template; ?></h2>
-                  <p>
-                     get_template_part(
-                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
-                  </p>
+                  <div class="get-template-part">
+                     <p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
+                     <button class='copy-button'>copy</button>
+                  </div>
                   <div class="templates-page-components__body">
                      <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
                   </div>
@@ -94,18 +93,16 @@
 
                <?php else : ?>
 
-
                <div class="rmbt-container templates-page-section-title">
                   <h2><?php echo $template; ?></h2>
-                  <p>
-                     get_template_part(
-                     '<?php echo 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) ?>);
-                  </p>
+                  <div class="get-template-part">
+                     <p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
+                     <button class='copy-button'>copy</button>
+                  </div>
                </div>
 
                <?php get_template_part( 'template-parts/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
                <?php endif ?>
-
 
                <?php } ?>
             </div>
@@ -113,8 +110,29 @@
 			} ?>
          </div>
       </div>
+   </div>
 
+   <script>
+   const nl_getTemplatePart = document.querySelectorAll('.get-template-part')
 
+   nl_getTemplatePart.forEach(getTemplatePart => {
+
+      getTemplatePart.querySelector('.copy-button').addEventListener('click', function(e) {
+         const text = getTemplatePart.querySelector('.text-to-copy').innerText;
+         navigator.clipboard.writeText(text).then(() => {
+            e.target.classList.add('success-to-copy');
+            e.target.innerText = 'copied';
+            setTimeout(() => {
+               e.target.classList.remove('success-to-copy');
+               e.target.innerText = 'Copy';
+            }, 2000);
+         }).catch(err => {
+            e.target.classList.add('error-to-copy');
+            e.target.innerText = 'error';
+         });
+      });
+   })
+   </script>
 
 </main>
 

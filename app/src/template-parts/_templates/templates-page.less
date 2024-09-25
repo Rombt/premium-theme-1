@@ -1,0 +1,112 @@
+.templates-page-section-title {
+  width: 100%;
+}
+
+.templates-page-section-title h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.templates-page-section p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.templates-page-components {
+  width: 100%;
+}
+
+.templates-page-components p {
+  margin-bottom: 30px;
+}
+
+.templates-page-components__body {
+  display: flex;
+  row-gap: 15px;
+  padding: 20px 0px 20px 0px;
+
+  // height: 250px;
+  // border: 1px solid #9c9c9c;
+  position: relative;
+}
+
+.get-template-part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+.text-to-copy {
+  font-family: Raleway;
+  font-size: 14px;
+  margin: 0px 0px 10px 0px;
+}
+.copy-button {
+  width: 80px;
+  height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #6c6c6c;
+  background-color: #e7e6e6;
+  transition: all 0.75s;
+  letter-spacing: 1px;
+}
+
+.success-to-copy {
+  background-color: #61c11c;
+  border: 2px solid #59a820;
+  color: #e3fde0;
+  transition: all 0.75s;
+}
+
+.error-to-copy {
+  background-color: #f67777;
+  border: 2px solid #d26e6e;
+  color: #f6dcdc;
+}
+
+/*---- tabs ----*/
+
+.tabs__content {
+  /* min-height: 100vh; */
+  padding-bottom: 1000px;
+
+  font-family: RobotoFlex;
+}
+
+.rmbt-templates-page-tabs {
+  position: relative;
+
+  .tabs__nav {
+    position: fixed;
+    left: 0px;
+    top: 50%;
+    transform: rotate(-90deg) translate(-50%, 0%);
+    transform-origin: left top;
+    width: 100%;
+    height: 65px;
+    z-index: 1;
+    border-bottom: 2px solid #a1a1a1;
+  }
+
+  .tabs__content {
+    position: relative;
+    border-top: none;
+    top: 0px;
+  }
+
+  .tabs__title {
+    position: relative;
+    top: 2px;
+    background-color: #fff;
+    border-bottom: 2px solid #a1a1a1;
+  }
+
+  .tabs__title-active {
+    z-index: 1;
+    border-bottom: none;
+  }
+}

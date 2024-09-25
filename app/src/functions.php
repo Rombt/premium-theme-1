@@ -50,7 +50,6 @@ add_action( 'wp_enqueue_scripts', 'rmbt_theme_scripts', 20 );
 
 function rmbt_site_setup() {
 
-
 	add_theme_support( 'custom-logo' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );

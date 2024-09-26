@@ -19,13 +19,10 @@
     padding-right: @padding-right-section;
 
     margin-bottom: @margin-bottom-block;
-
-    border: 1px solid @border-color-wireframe-external;
   }
 }
 
 .rmbt-simple-section-head {
-  border: 1px solid @border-color-wireframe-inner;
   .row-flex();
   justify-content: center;
 
@@ -36,7 +33,7 @@
     margin-top: 0px;
     margin-bottom: @margin-bottom-title;
     height: 30px;
-    border: 1px solid @border-color-wireframe-inner;
+    border: 1px dashed @border-color-wireframe-inner;
   }
 
   &__subtitle {
@@ -46,10 +43,11 @@
     margin-top: 0px;
     margin-bottom: 0px;
     height: 40px;
-    border: 1px solid @border-color-wireframe-inner;
+    border: 1px dashed @border-color-wireframe-inner;
   }
 }
 
 .rmbt-simple-section-body {
-  height: 200px;
+  height: 300px;
+  border: 1px solid @border-color-wireframe-external;
 }

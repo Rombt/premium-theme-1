@@ -1,0 +1,123 @@
+.rmbt-section-2-full-width {
+  .to(1024px,{
+    
+    margin-bottom: 50px;
+  });
+}
+.rmbt-section-2 {
+  // * {
+  //   box-sizing: border-box;
+  // }
+  &__row {
+    .row-flex();
+    padding-top: @padding-top-section;
+    padding-bottom: @padding-bottom-section;
+    padding-left: @padding-left-section;
+    padding-right: @padding-right-section;
+
+    // border: 1px dashed @border-color-wireframe-external;
+  }
+  &__col {
+    .col();
+    .size(10);
+    position: relative;
+    height: 600px;
+    margin: 0 auto;
+    // border: 1px dashed @border-color-wireframe-inner;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    .rmbt-section-2-head {
+      flex-grow: 1;
+      flex-basis: 60%;
+      // border: 1px solid #0515fd;
+
+      &__title {
+        margin: 20px auto 5px auto;
+        width: 60%;
+        height: 80px;
+        border: 1px dashed @border-color-wireframe-inner;
+      }
+      &__subtitle {
+        margin: 0px auto 0px auto;
+        width: 80%;
+        border: 1px dashed @border-color-wireframe-inner;
+        height: 50px;
+      }
+    }
+  }
+  &__text-block {
+    position: absolute;
+    left: 0px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 380px;
+    height: 280px;
+    background-color: #fff;
+    border: 1px solid @border-color-wireframe-inner;
+    z-index: 1;
+  }
+  &__content {
+    width: 92%;
+    height: 65%;
+    margin: 0 auto 0 auto;
+    position: relative;
+    border: 1px solid @border-color-wireframe-inner;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(245, 245, 245, 0.8);
+      z-index: -1;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translate(0%, -50%);
+    width: 360px;
+    height: 260px;
+
+    border: 1px solid @border-color-wireframe-inner;
+    background-color: #fff;
+    z-index: 1;
+
+    .to(1024px,{
+      left: 50%;
+      top:100%;
+      transform: translate(-50%, -50px);
+
+          width: 80%;
+    height: 150px;
+    });
+  }
+  &__author {
+  }
+  .block-details {
+  }
+  .wrap-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.block-details {
+}
+.text-block {
+  &__text {
+  }
+  &__author {
+  }
+}

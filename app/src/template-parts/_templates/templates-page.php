@@ -119,7 +119,7 @@
 
       getTemplatePart.querySelector('.copy-button').addEventListener('click', function(e) {
          const text = getTemplatePart.querySelector('.text-to-copy').innerText;
-         navigator.clipboard.writeText(text).then(() => {
+         navigator.clipboard?.writeText(text).then(() => {
             e.target.classList.add('success-to-copy');
             e.target.innerText = 'copied';
             setTimeout(() => {

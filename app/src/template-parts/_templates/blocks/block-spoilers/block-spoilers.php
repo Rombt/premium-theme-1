@@ -11,6 +11,14 @@
             <button type="button" data-spoiler class="spoilers__title">Spoiler Title 1</button>
             <div class="spoilers__body">Spoiler content 1</div>
          </div>
+         <div class="spoilers__item">
+            <button type="button" data-spoiler class="spoilers__title">Spoiler Title 1</button>
+            <div class="spoilers__body">Spoiler content 1</div>
+         </div>
+         <div class="spoilers__item">
+            <button type="button" data-spoiler class="spoilers__title">Spoiler Title 1</button>
+            <div class="spoilers__body">Spoiler content 1</div>
+         </div>
       </div>
 
    </div>

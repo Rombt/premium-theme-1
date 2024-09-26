@@ -14,7 +14,6 @@ function spoiler() {
         .closest('.spoilers__item')
         .querySelector('.spoilers__body');
 
-      console.log('spoilerBody = ', spoilerBody);
       spoilerBody.classList.toggle('spoilers__body_open');
       e.target.classList.toggle('spoilers__title_open');
 

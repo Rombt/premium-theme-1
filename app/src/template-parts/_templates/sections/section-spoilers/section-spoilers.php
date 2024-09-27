@@ -17,7 +17,9 @@
          <div class='spoilers rmbt-section-spoilers__left-col'>
             <div class='spoilers__item'>
                <div class='spoilers__title'>Spoiler Title 1</div>
-               <div class='spoilers__body'>Spoiler content 1</div>
+               <div class='spoilers__body'>Spoiler content 1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Architecto ad culpa aspernatur, fuga cum quibusdam omnis animi voluptatibus est, laborum iste
+                  nesciunt. Maxime veniam repellat rerum libero dolore mollitia tenetur.</div>
             </div>
             <div class='spoilers__item'>
                <div class='spoilers__title'>Spoiler Title 2</div>

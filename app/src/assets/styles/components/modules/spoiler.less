@@ -1,4 +1,4 @@
-.spoilers {
+.spoiler {
   &__title {
     position: relative;
     cursor: pointer;
@@ -53,10 +53,15 @@
     opacity: 0;
     pointer-events: none;
 
-    &_open {
-      height: auto;
-      opacity: 1;
-      pointer-events: auto;
-    }
+    // &_open {
+    //   // height: auto;
+    //   opacity: 1;
+    //   pointer-events: auto;
+    // }
+  }
+
+  ._open-body {
+    opacity: 1;
+    pointer-events: auto;
   }
 }

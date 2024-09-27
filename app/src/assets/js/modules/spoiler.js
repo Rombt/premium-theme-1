@@ -5,23 +5,49 @@
  */
 
 class Spoiler {
+  heightSpoilersBlock;
+  marginBottomSpoiler;
+
   constructor(spoilersBlock, param) {
     this.spoilersBlock = spoilersBlock;
 
     this.classSpoiler = param.classSpoiler;
-    this.classSpoilersTitle = param.classSpoilersTitle;
+    this.classSpoilerTitle = param.classSpoilerTitle;
     this.classSpoilerBody = param.classSpoilerBody;
     this.classSpoilerOpen = param.classSpoilerOpen;
     this.classSpoilersTitleOpen = param.classSpoilersTitleOpen;
     this.classSpoilerBodyOpen = param.classSpoilerBodyOpen;
 
-    console.log('this.spoilersBlock = ', this.spoilersBlock);
+    this.getHeightSpoilersBlock();
+    this.spoilers = this.spoilersBlock.querySelectorAll(`.${this.classSpoiler}`);
 
-    this.spoilersBlock.forEach(spoilerBlock => {
-      const spoilers = spoilerBlock.querySelectorAll(`.${this.classSpoiler}`);
-
-      spoilers.forEach(spoiler);
+    this.getSpoilerMarginBottom();
+    [...this.spoilers].map((spoiler, index) => {
+      spoiler.style.marginBottom = this.marginBottomSpoiler + 'px';
     });
+
+    this.spoilers.forEach(spoiler => {});
+  }
+
+  getHeightSpoilersBlock() {
+    // this.heightSpoilersBlock = this.spoilersBlock.getBoundingClientRect().height;
+    this.heightSpoilersBlock = this.spoilersBlock.offsetHeight;
+  }
+
+  getSpoilerMarginBottom() {
+    const sumHeightSpoilers = [...this.spoilers].reduce((sumHeight, spoiler) => {
+      const heightSpoiler = spoiler.getBoundingClientRect().height;
+      // const heightSpoiler = spoiler.offsetHeight;
+      console.log('heightSpoiler = ', heightSpoiler);
+
+      spoiler.querySelector(`.${this.classSpoilerTitle}`).style.height =
+        heightSpoiler + 'px';
+
+      return sumHeight + heightSpoiler;
+    }, 0);
+
+    this.marginBottomSpoiler =
+      (this.heightSpoilersBlock - sumHeightSpoilers) / (this.spoilers.length - 1);
   }
 
   //   nl_parentSpoilers.forEach(parentSpoiler => {

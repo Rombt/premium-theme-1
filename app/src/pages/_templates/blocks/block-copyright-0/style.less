@@ -2,10 +2,11 @@
   width: 100%;
   color: @font-color-block-details;
 
-  border: 1px dashed @border-color-wireframe-external;
+  // border: 1px dashed @border-color-wireframe-external;
 
   &__body {
     box-sizing: border-box;
+    position: relative;
     margin: 0px 0px 0px 0px;
     padding-top: @padding-top-block;
     padding-bottom: @padding-bottom-block;
@@ -18,48 +19,30 @@
 
     text-transform: capitalize;
     svg {
-      width: 22px;
-      height: 22px;
+      width: 23px;
+      height: 23px;
 
       fill: @font-color-block-details;
       border-radius: 50%;
     }
+
+    &::before,
+    &:after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 30%;
+      height: 1px;
+      background-color: @font-color-block-details;
+    }
+
+    &:after {
+      left: 0;
+    }
+    &::before {
+      right: 0;
+    }
   }
 }
-
-// .block-details {
-// }
-
-// .rmbt-block-copyright-0 {
-//   min-width: 50px;
-//   min-height: 200px;
-//   max-width: 250px;
-//   max-height: 400px;
-//   border: 1px dashed @border-color-wireframe-inner;
-
-//   padding-top: @padding-top-block;
-//   padding-bottom: @padding-bottom-block;
-//   padding-left: @padding-left-block;
-//   padding-right: @padding-right-block;
-
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   row-gap: @row-gap-block;
-
-//   &__head {
-//     width: 100%;
-//     flex-grow: 1;
-//     border: 1px dashed @border-color-wireframe-inner;
-//     margin: 0px 0px 0px 0px;
-//   }
-//   &__body {
-//     width: 100%;
-//     flex-basis: 60%;
-//     flex-grow: 4;
-//     border: 1px dashed @border-color-wireframe-inner;
-//     margin: 0px 0px 0px 0px;
-//   }
-// }
-// .block-details {
-// }

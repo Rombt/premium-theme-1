@@ -3,11 +3,11 @@
 
 
 <main>
+	<?php
 
-   <?php
-	get_template_part( 'template-parts/sections/header_wireframes-1/header_wireframes-1' );
-	// get_template_part( 'template-parts/sections/header/header' );
-	// get_template_part( 'template-parts/sections/hero_block/hero_block' );
+	get_template_part( 'template-parts/_templates/headers\header-2\header-2', '2' );
+	get_template_part( 'template-parts/_templates/sections\hero_block_1\hero_block_1', null );
+	get_template_part( 'template-parts/_templates/sections\section-spoilers\section-spoilers', 'spoilers' );
 	?>
 </main>
 

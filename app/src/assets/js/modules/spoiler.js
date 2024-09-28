@@ -22,8 +22,6 @@ class Spoiler {
     this.setPositionSpoilers();
 
     this.spoilers.forEach(spoiler => {
-      // const startHeightSpoiler = spoiler.offsetHeight;
-      // let finishHeightSpoiler;
       spoiler.addEventListener('click', e => {
         const spoiler = e.target.closest(`.${this.classSpoiler}`);
         const spoilerTitle = spoiler.querySelector(`.${this.classSpoilerTitle}`);
@@ -35,14 +33,9 @@ class Spoiler {
 
         if (spoilerBody) {
           if (spoilerBody.classList.contains(this.classSpoilerBodyOpen)) {
-            // spoiler.style.height = spoiler.offsetHeight - spoilerBody.offsetHeight + 'px';
-
             spoilerBody.style.height = 'auto';
             const autoHeightSpoilerBody = spoilerBody.scrollHeight;
             spoilerBody.style.height = '0px';
-
-            // spoiler.style.height = 'auto';
-
             spoilerBody.getBoundingClientRect();
             spoilerBody.style.height = autoHeightSpoilerBody + 'px';
           } else {
@@ -90,7 +83,6 @@ class Spoiler {
 
 document.addEventListener('DOMContentLoaded', function () {
   const param = {
-    // classesContVerticalMenu: 'rmbt-cont-vertical-menu-0',
     classSpoilersBlock: 'spoilers-block',
     classSpoiler: 'spoiler',
     classSpoilerTitle: 'spoiler__title',

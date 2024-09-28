@@ -17,6 +17,7 @@ const srcFolder = `${ROOT_PATH}/src`;
 const prodFolder = `${ROOT_PATH}/..`;
 const prodPluginName = `${THEME_NAME}-core`; // set name your plugin for production version
 const prodPlugFolder = `${ROOT_PATH}/../../../plugins/${prodPluginName}`;
+const templateParts = `${srcFolder}/pages`;
 
 export const path = {
   ThemeName: THEME_NAME,
@@ -110,7 +111,7 @@ export const path = {
             app.isSASS ? '.sass' : '.less'
           }`,
           `${this.src.php}/assets/styles/parts/**/*${app.isSASS ? '.sass' : '.less'}`,
-          `${this.src.php}/html/template-parts/**/*${app.isSASS ? '.sass' : '.less'}`,
+          `${templateParts}/**/*${app.isSASS ? '.sass' : '.less'}`,
         ],
         php: [
           `${this.src.php}/assets/styles/main-style${app.isSASS ? '.sass' : '.less'}`,
@@ -122,7 +123,7 @@ export const path = {
           `${this.src.php}/assets/styles/style-systems/simple_1/*${
             app.isSASS ? '.sass' : '.less'
           }`,
-          `${this.src.php}/template-parts/**/*${app.isSASS ? '.sass' : '.less'}`,
+          `${templateParts}/**/*${app.isSASS ? '.sass' : '.less'}`,
           `${app.isProd ? `!${this.src.php}/**/_*/**` : null}`,
         ],
         plug: [
@@ -195,8 +196,8 @@ export const path = {
         html: [`${this.src.php}/assets/js/app.js`],
         php: [
           `${this.src.php}/assets/js/app.js`,
-          `${this.src.php}/template-parts/`,
-          `${app.isProd ? `!${this.src.php}/template-parts/_templates/` : null}`,
+          `${templateParts}/`,
+          `${app.isProd ? `!${templateParts}/_templates/` : null}`,
         ],
         plug: [`${this.src.plug}/assets/js/admin.js`],
       },

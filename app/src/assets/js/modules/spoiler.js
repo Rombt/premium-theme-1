@@ -7,6 +7,9 @@
 class Spoiler {
   heightSpoilersBlock;
   marginBottomSpoiler;
+  heightParentBlock;
+
+  flagSpoilerOpen = false;
 
   constructor(spoilersBlock, param) {
     this.spoilersBlock = spoilersBlock;
@@ -17,15 +20,22 @@ class Spoiler {
     this.classSpoilerOpen = param.classSpoilerOpen;
     this.classSpoilerTitleOpen = param.classSpoilerTitleOpen;
     this.classSpoilerBodyOpen = param.classSpoilerBodyOpen;
+    this.parentBlock = this.spoilersBlock.parentElement;
 
     this.spoilers = this.spoilersBlock.querySelectorAll(`.${this.classSpoiler}`);
     this.setPositionSpoilers();
     this.clickProcessing();
 
     const observer = new ResizeObserver(entries => {
-      this.setPositionSpoilers();
+      if (!this.heightParentBlock) {
+        this.getHeightSpoilersBlockParent();
+      }
+
+      if (!this.flagSpoilerOpen) {
+        this.setPositionSpoilers();
+      }
     });
-    observer.observe(this.spoilersBlock);
+    observer.observe(this.parentBlock);
   }
 
   clickProcessing() {
@@ -45,10 +55,16 @@ class Spoiler {
             const autoHeightSpoilerBody = spoilerBody.scrollHeight;
             spoilerBody.style.height = '0px';
             spoilerBody.getBoundingClientRect();
+            this.spoilersBlock.style.maxHeight =
+              this.heightParentBlock + autoHeightSpoilerBody + 'px'; //!!
             spoilerBody.style.height = autoHeightSpoilerBody + 'px';
+
+            this.flagSpoilerOpen = true;
           } else {
             spoilerBody.getBoundingClientRect();
             spoilerBody.style.height = '0px';
+            this.spoilersBlock.style.maxHeight = this.heightParentBlock + 'px';
+            this.flagSpoilerOpen = false;
           }
         }
       });
@@ -61,6 +77,11 @@ class Spoiler {
     [...this.spoilers].map((spoiler, index) => {
       spoiler.style.marginBottom = this.marginBottomSpoiler + 'px';
     });
+  }
+
+  getHeightSpoilersBlockParent() {
+    this.heightParentBlock = this.parentBlock.getBoundingClientRect().height;
+    this.spoilersBlock.style.maxHeight = this.heightParentBlock + 'px';
   }
 
   getHeightSpoilersBlock() {

@@ -10,7 +10,7 @@
   }
 
   .rmbt-footer-1-row-content {
-    height: 300px;
+    min-height: 300px;
     margin-bottom: @margin-bottom-block;
 
     padding-top: @padding-top-section*3;
@@ -46,7 +46,9 @@
       position: relative;
       border: 1px dashed @border-color-wireframe-inner;
 
-      // height: 240px;
+      .spoiler {
+        min-height: 45px;
+      }
     }
     &__right-col {
       .size(4);

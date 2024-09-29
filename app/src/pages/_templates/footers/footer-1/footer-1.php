@@ -6,9 +6,11 @@
 			</div>
 			<div class="rmbt-footer-1__col rmbt-footer-1-row-content__center-col">
 				<div class="block-details"> footer content</div>
+				<?php get_template_part( 'pages\_templates\blocks\copyright_block-1\copyright_block-1', '1' ); ?>
+
 			</div>
 			<div class="rmbt-footer-1__col rmbt-footer-1-row-content__right-col">
-				<!-- <div class="block-details"> footer content</div> -->
+				<div class="block-details"> footer content</div>
 				<div class="rmbt-footer-1-copyright">
 					<?php get_template_part( 'pages\_templates\blocks\copyright_block-1\copyright_block-1', '1' ); ?>
 				</div>

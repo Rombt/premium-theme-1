@@ -16,7 +16,7 @@
 
          <div class='rmbt-section-spoilers__left-col'>
 
-            <div class="spoilers-block">
+            <!-- <div class="spoilers-block">
                <div class='spoiler'>
                   <div class='spoiler__title'>Spoiler Title 1</div>
                   <div class='spoiler__body'>Spoiler content 1 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -35,7 +35,11 @@
                   <div class='spoiler__title'>Spoiler Title 4</div>
                   <div class='spoiler__body'>Spoiler content 4</div>
                </div>
-            </div>
+            </div> -->
+
+            <?php get_template_part( 'pages\_templates\components\spoilers-block\spoilers-block', 'block' ); ?>
+
+
          </div>
 
          <div class='rmbt-section-spoilers__right-col '>

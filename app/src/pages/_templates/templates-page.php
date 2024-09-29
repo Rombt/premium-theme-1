@@ -2,27 +2,27 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-   <meta charset="<?php bloginfo( 'charset' ); ?>">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="profile" href="https://gmpg.org/xfn/11">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-   <?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-   <?php wp_body_open(); ?>
-   <?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
+	<?php wp_body_open(); ?>
+	<?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
 
-   <div class="rmbt-page-wrap">
-
-
+	<div class="rmbt-page-wrap">
 
 
-      <main>
 
-         <?php $arr_dirs = scandir( __DIR__, SCANDIR_SORT_DESCENDING );
 
-			$number_active_tab = 0;
+		<main>
+
+			<?php $arr_dirs = scandir( __DIR__, SCANDIR_SORT_DESCENDING );
+
+			$number_active_tab = 3;
 			$templates_types = [];
 			foreach ( $arr_dirs as $dir ) {
 				if ( $dir !== '.' && $dir !== '..' && is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir ) ) {
@@ -38,39 +38,39 @@
 				}
 			}
 			?>
-         <div class="wrapper-section templates-page-wrapper-section">
-            <div class="rmbt-full-width rmbt-templates-page-full-width">
-               <section class="rmbt-container rmbt-templates-page">
-                  <div class="rmbt-templates-page__row">
-                     <div class="tabs rmbt-templates-page-tabs">
-                        <nav data-tabs-titles class="tabs__nav rmbt-templates-page-tabs__nav">
-                           <?php
+			<div class="wrapper-section templates-page-wrapper-section">
+				<div class="rmbt-full-width rmbt-templates-page-full-width">
+					<section class="rmbt-container rmbt-templates-page">
+						<div class="rmbt-templates-page__row">
+							<div class="tabs rmbt-templates-page-tabs">
+								<nav data-tabs-titles class="tabs__nav rmbt-templates-page-tabs__nav">
+									<?php
 									$i = 0;
 									foreach ( $templates_types as $template_type_name => $template_type_value ) : ?>
-                           <?php if ( $i === $number_active_tab ) : ?>
-                           <button type="button" class="tabs__title tabs__title-active"
-                              data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?>
-                           </button>
-                           <?php else : ?>
-                           <button type="button" class="tabs__title"
-                              data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?></button>
-                           <?php endif ?>
-                           <?php $i++; ?>
-                           <?php endforeach ?>
-                        </nav>
+										<?php if ( $i === $number_active_tab ) : ?>
+											<button type="button" class="tabs__title tabs__title-active"
+												data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?>
+											</button>
+										<?php else : ?>
+											<button type="button" class="tabs__title"
+												data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?></button>
+										<?php endif ?>
+										<?php $i++; ?>
+									<?php endforeach ?>
+								</nav>
 
-                        <div class="tabs__content rmbt-templates-page-tabs__content">
-                           <?php $i = 0;
+								<div class="tabs__content rmbt-templates-page-tabs__content">
+									<?php $i = 0;
 									foreach ( $templates_types as $template_type => $arr_templates ) {
 										if ( $i === $number_active_tab ) { ?>
-                           <div class="tabs__body tabs__body-active" data-tab-name="<?php echo $template_type ?>">
-                              <?php } else { ?>
-                              <div class="tabs__body" data-tab-name="<?php echo $template_type ?>">
-                                 <?php } ?>
+											<div class="tabs__body tabs__body-active" data-tab-name="<?php echo $template_type ?>">
+											<?php } else { ?>
+												<div class="tabs__body" data-tab-name="<?php echo $template_type ?>">
+												<?php } ?>
 
-                                 <?php foreach ( $arr_templates as $template ) { ?>
+												<?php foreach ( $arr_templates as $template ) { ?>
 
-                                 <?php
+													<?php
 													$content = file_get_contents( get_template_directory() . rmbt_DIR_TEMPLATE_PARTS . '/_templates/' . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '.php' );
 													preg_match_all( '/\$args\[\s*\'([^\']*)\'\s*\]/', $content, $results );
 													$arr_args = [];
@@ -85,82 +85,82 @@
 													}
 													?>
 
-                                 <?php
+													<?php
 													$specifier = '';
 													if ( $pos = strpos( $template, '-' ) ) {
 														$specifier = substr( $template, $pos + 1 );
 													}
 													?>
 
-                                 <?php $str_get_template_part = 'get_template_part(\'' . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) . ');'; ?>
+													<?php $str_get_template_part = 'get_template_part(\'' . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) . ');'; ?>
 
-                                 <?php if ( $template_type === 'components' ) : ?>
-                                 <div class="rmbt-container templates-page-components">
-                                    <h2><?php echo $template; ?></h2>
-                                    <div class="get-template-part">
-                                       <p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
-                                       <button class='copy-button'>copy</button>
-                                    </div>
-                                    <div class="templates-page-components__body">
-                                       <?php get_template_part( rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
-                                    </div>
-                                 </div>
+													<?php if ( $template_type === 'components' ) : ?>
+														<div class="rmbt-container templates-page-components">
+															<h2><?php echo $template; ?></h2>
+															<div class="get-template-part">
+																<p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
+																<button class='copy-button'>copy</button>
+															</div>
+															<div class="templates-page-components__body">
+																<?php get_template_part( rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
+															</div>
+														</div>
 
 
-                                 <?php else : ?>
+													<?php else : ?>
 
-                                 <div class="rmbt-container templates-page-section-title">
-                                    <h2><?php echo $template; ?></h2>
-                                    <div class="get-template-part">
-                                       <p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
-                                       <button class='copy-button'>copy</button>
-                                    </div>
-                                 </div>
+														<div class="rmbt-container templates-page-section-title">
+															<h2><?php echo $template; ?></h2>
+															<div class="get-template-part">
+																<p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
+																<button class='copy-button'>copy</button>
+															</div>
+														</div>
 
-                                 <?php get_template_part( rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
-                                 <?php endif ?>
+														<?php get_template_part( rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
+													<?php endif ?>
 
-                                 <?php } ?>
-                              </div>
-                              <?php $i++;
+												<?php } ?>
+											</div>
+											<?php $i++;
 									} ?>
-                           </div>
-                        </div>
-                     </div>
+									</div>
+								</div>
+							</div>
 
-                  </div>
-               </section>
-            </div>
-         </div>
+						</div>
+					</section>
+				</div>
+			</div>
 
 
-         <script>
-         const nl_getTemplatePart = document.querySelectorAll('.get-template-part')
+			<script>
+				const nl_getTemplatePart = document.querySelectorAll('.get-template-part')
 
-         nl_getTemplatePart.forEach(getTemplatePart => {
+				nl_getTemplatePart.forEach(getTemplatePart => {
 
-            getTemplatePart.querySelector('.copy-button').addEventListener('click', function(e) {
-               const text = getTemplatePart.querySelector('.text-to-copy').innerText;
-               navigator.clipboard?.writeText(text).then(() => {
-                  e.target.classList.add('success-to-copy');
-                  e.target.innerText = 'copied';
-                  setTimeout(() => {
-                     e.target.classList.remove('success-to-copy');
-                     e.target.innerText = 'Copy';
-                  }, 2000);
-               }).catch(err => {
-                  e.target.classList.add('error-to-copy');
-                  e.target.innerText = 'error';
-               });
-            });
-         })
-         </script>
+					getTemplatePart.querySelector('.copy-button').addEventListener('click', function (e) {
+						const text = getTemplatePart.querySelector('.text-to-copy').innerText;
+						navigator.clipboard?.writeText(text).then(() => {
+							e.target.classList.add('success-to-copy');
+							e.target.innerText = 'copied';
+							setTimeout(() => {
+								e.target.classList.remove('success-to-copy');
+								e.target.innerText = 'Copy';
+							}, 2000);
+						}).catch(err => {
+							e.target.classList.add('error-to-copy');
+							e.target.innerText = 'error';
+						});
+					});
+				})
+			</script>
 
-      </main>
+		</main>
 
-      <?php wp_footer(); ?>
+		<?php wp_footer(); ?>
 
-   </div> <!--  end rmbt-page-wrap  -->
+	</div> <!--  end rmbt-page-wrap  -->
 
 </body>
 

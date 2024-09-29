@@ -20,7 +20,15 @@ class Spoiler {
 
     this.spoilers = this.spoilersBlock.querySelectorAll(`.${this.classSpoiler}`);
     this.setPositionSpoilers();
+    this.clickProcessing();
 
+    const observer = new ResizeObserver(entries => {
+      this.setPositionSpoilers();
+    });
+    observer.observe(this.spoilersBlock);
+  }
+
+  clickProcessing() {
     this.spoilers.forEach(spoiler => {
       spoiler.addEventListener('click', e => {
         const spoiler = e.target.closest(`.${this.classSpoiler}`);

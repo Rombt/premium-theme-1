@@ -2,10 +2,7 @@
   width: 100%;
   color: @font-color-block-details;
 
-  border-top: 1px solid @border-color-wireframe-inner;
-  padding-top: @padding-top-block;
-
-  // border: 1px dashed @border-color-wireframe-external;
+  // border-top: 1px solid @border-color-wireframe-inner;
 
   &__body {
     box-sizing: border-box;
@@ -14,19 +11,30 @@
     padding-top: @padding-top-block;
     padding-bottom: @padding-bottom-block;
 
-    height: 20px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    column-gap: 35px;
+    column-gap: 20px;
 
     text-transform: capitalize;
     svg {
-      width: 23px;
-      height: 23px;
+      width: 30px;
+      height: 30px;
 
       fill: @font-color-block-details;
       border-radius: 50%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, 0);
+      width: 80%;
+      height: 1px;
+      background-color: @border-color-wireframe-inner;
     }
   }
 }

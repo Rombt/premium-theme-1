@@ -3,12 +3,14 @@
 
 function create_custom_page() {
 
+
+
 	$page_title = 'Страница шаблонов';
 	$page_content = '';
 	$page_status = 'publish';
 	$page_author = 1;
 	$page_type = 'page';
-	$page_template = 'template-parts/_templates/templates-page.php';
+	$page_template = rmbt_DIR_TEMPLATE_PARTS . '/_templates/templates-page.php';
 
 	$query = new WP_Query( array(
 		'post_type' => $page_type,
@@ -16,7 +18,6 @@ function create_custom_page() {
 		'post_status' => 'any',
 		'posts_per_page' => 1,
 	) );
-
 
 	if ( ! $query->have_posts() ) {
 

@@ -1,0 +1,48 @@
+.rmbt-copyright-block-0 {
+  width: 100%;
+  color: @font-color-block-details;
+
+  // border: 1px dashed @border-color-wireframe-external;
+
+  &__body {
+    box-sizing: border-box;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding-top: @padding-top-block;
+    padding-bottom: @padding-bottom-block;
+
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 35px;
+
+    text-transform: capitalize;
+    svg {
+      width: 23px;
+      height: 23px;
+
+      fill: @font-color-block-details;
+      border-radius: 50%;
+    }
+
+    &::before,
+    &:after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 30%;
+      height: 1px;
+      background-color: @font-color-block-details;
+    }
+
+    &:after {
+      left: 0;
+    }
+    &::before {
+      right: 0;
+    }
+  }
+}

@@ -3,13 +3,14 @@
 define( 'RMBT_TEXT_DOMAIN_THEME', 'rmbt-premium-theme-1' );		//! you must use only chars those allow for url 
 define( 'rmbt_PATH_THEME', get_template_directory() );
 define( 'rmbt_URL_THEME', esc_url( get_template_directory_uri() ) );
+define( 'rmbt_DIR_TEMPLATE_PARTS', 'pages' );
 
 require_once get_template_directory() . '/inc/functions/class-tgm-plugin-activation.php';
 require_once get_template_directory() . '/inc/functions/general-front.php';
 // require_once get_template_directory() . '/inc/functions/comment_default.php';
 // require_once get_template_directory() . '/inc/functions/ajax.php';
 
-if ( file_exists( get_template_directory() . '/template-parts/_templates' ) ) {
+if ( file_exists( get_template_directory() . DIRECTORY_SEPARATOR . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR .'_templates' ) ) {
 	require_once get_template_directory() . '/inc/functions/templates_page.php';
 }
 
@@ -18,7 +19,7 @@ if ( file_exists( get_template_directory() . '/template-parts/_templates' ) ) {
 if ( class_exists( 'ReduxFramework' ) ) {
 	define( 'RMBT_PATH_REDUX_SECTIONS', array(
 		'/app/src/inc/Redux/sections',
-		'/app/src/template-parts',
+		'/app/src/' . DIRECTORY_SEPARATOR,
 	) );
 	require_once get_template_directory() . '/inc/Redux/redux-options.php';
 }

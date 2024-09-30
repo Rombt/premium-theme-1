@@ -1,0 +1,60 @@
+.spoilers-block {
+  width: 100%;
+  height: 100%;
+}
+.spoiler {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 60px;
+  border: 1px solid @border-color-wireframe-inner;
+
+  &__title {
+    width: 100%;
+    padding-left: @padding-left-block;
+    position: relative;
+
+    text-transform: capitalize;
+    color: @font-color-block-title;
+    font-weight: 600;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translate(0%, -50%);
+      width: 15px;
+      height: 2px;
+
+      background-color: @font-color-block-title;
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+  }
+  &__body {
+    width: 100%;
+
+    padding-left: @padding-left-block;
+    padding-right: @padding-right-block;
+
+    color: @font-color-block-text;
+
+    transition: height 0.7s ease, opacity 2s ease;
+  }
+
+  ._open-spoiler {
+  }
+  ._open-title {
+    &::after {
+      width: 0px;
+    }
+  }
+  ._open-body {
+    transition: all 0.7s ease;
+
+    margin-bottom: @padding-bottom-block; // потому что padding не участвует в анимации
+  }
+}

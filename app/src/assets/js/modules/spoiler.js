@@ -7,6 +7,9 @@
 class Spoiler {
   heightSpoilersBlock;
   marginBottomSpoiler;
+  heightParentBlock;
+
+  flagSpoilerOpen = false;
 
   constructor(spoilersBlock, param) {
     this.spoilersBlock = spoilersBlock;
@@ -15,160 +18,108 @@ class Spoiler {
     this.classSpoilerTitle = param.classSpoilerTitle;
     this.classSpoilerBody = param.classSpoilerBody;
     this.classSpoilerOpen = param.classSpoilerOpen;
-    this.classSpoilersTitleOpen = param.classSpoilersTitleOpen;
+    this.classSpoilerTitleOpen = param.classSpoilerTitleOpen;
     this.classSpoilerBodyOpen = param.classSpoilerBodyOpen;
+    this.parentBlock = this.spoilersBlock.parentElement;
 
-    this.getHeightSpoilersBlock();
     this.spoilers = this.spoilersBlock.querySelectorAll(`.${this.classSpoiler}`);
+    this.setPositionSpoilers();
+    this.clickProcessing();
 
+    const observer = new ResizeObserver(entries => {
+      if (!this.heightParentBlock) {
+        this.getHeightSpoilersBlockParent();
+      }
+
+      if (!this.flagSpoilerOpen) {
+        this.setPositionSpoilers();
+      }
+    });
+    observer.observe(this.parentBlock);
+  }
+
+  clickProcessing() {
+    this.spoilers.forEach(spoiler => {
+      spoiler.addEventListener('click', e => {
+        const spoiler = e.target.closest(`.${this.classSpoiler}`);
+        const spoilerTitle = spoiler.querySelector(`.${this.classSpoilerTitle}`);
+        const spoilerBody = spoiler.querySelector(`.${this.classSpoilerBody}`);
+
+        spoiler.classList.toggle(this.classSpoilerOpen);
+        spoilerTitle.classList.toggle(this.classSpoilerTitleOpen);
+        spoilerBody.classList.toggle(this.classSpoilerBodyOpen);
+
+        if (spoilerBody) {
+          if (spoilerBody.classList.contains(this.classSpoilerBodyOpen)) {
+            spoilerBody.style.height = 'auto';
+            const autoHeightSpoilerBody = spoilerBody.scrollHeight;
+            spoilerBody.style.height = '0px';
+            spoilerBody.getBoundingClientRect();
+            this.spoilersBlock.style.maxHeight =
+              this.heightParentBlock + autoHeightSpoilerBody + 'px'; //!!
+            spoilerBody.style.height = autoHeightSpoilerBody + 'px';
+
+            this.flagSpoilerOpen = true;
+          } else {
+            spoilerBody.getBoundingClientRect();
+            spoilerBody.style.height = '0px';
+            this.spoilersBlock.style.maxHeight = this.heightParentBlock + 'px';
+            this.flagSpoilerOpen = false;
+          }
+        }
+      });
+    });
+  }
+
+  setPositionSpoilers() {
+    this.getHeightSpoilersBlock();
     this.getSpoilerMarginBottom();
     [...this.spoilers].map((spoiler, index) => {
       spoiler.style.marginBottom = this.marginBottomSpoiler + 'px';
     });
+  }
 
-    this.spoilers.forEach(spoiler => {});
+  getHeightSpoilersBlockParent() {
+    this.heightParentBlock = this.parentBlock.getBoundingClientRect().height;
+    this.spoilersBlock.style.maxHeight = this.heightParentBlock + 'px';
   }
 
   getHeightSpoilersBlock() {
-    // this.heightSpoilersBlock = this.spoilersBlock.getBoundingClientRect().height;
-    this.heightSpoilersBlock = this.spoilersBlock.offsetHeight;
+    const style = window.getComputedStyle(this.spoilersBlock);
+    const paddingTop = parseFloat(style.paddingTop);
+    const paddingBottom = parseFloat(style.paddingBottom);
+    this.heightSpoilersBlock =
+      this.spoilersBlock.clientHeight - paddingTop - paddingBottom;
   }
 
   getSpoilerMarginBottom() {
     const sumHeightSpoilers = [...this.spoilers].reduce((sumHeight, spoiler) => {
-      const heightSpoiler = spoiler.getBoundingClientRect().height;
-      // const heightSpoiler = spoiler.offsetHeight;
-      console.log('heightSpoiler = ', heightSpoiler);
+      const heightSpoiler = spoiler.clientHeight;
+      const spoilerTitle = spoiler.querySelector(`.${this.classSpoilerTitle}`);
+      const spoilerBody = spoiler.querySelector(`.${this.classSpoilerBody}`);
+      const heightSpoilerBody = spoilerBody.offsetHeight;
+      const heightSpoilerWithBorder = spoiler.offsetHeight - heightSpoilerBody;
 
-      spoiler.querySelector(`.${this.classSpoilerTitle}`).style.height =
-        heightSpoiler + 'px';
-
-      return sumHeight + heightSpoiler;
+      spoilerTitle.style.height = heightSpoiler - heightSpoilerBody + 'px';
+      spoilerTitle.style.lineHeight = heightSpoiler - heightSpoilerBody + 'px';
+      return sumHeight + heightSpoilerWithBorder;
     }, 0);
 
     this.marginBottomSpoiler =
       (this.heightSpoilersBlock - sumHeightSpoilers) / (this.spoilers.length - 1);
   }
-
-  //   nl_parentSpoilers.forEach(parentSpoiler => {
-  //     const spoilers = parentSpoiler.querySelectorAll(`.${classSpoiler}`);
-
-  //   const classParentSpoilers = 'spoilers-block';
-  //   const classSpoiler = 'spoilers__item';
-  //   const classSpoilerOpen = '_open-item';
-
-  //   const classSpoilersTitle = 'spoilers__title';
-  //   const classSpoilersTitleOpen = '_open-title';
-
-  //   const classSpoilerBody = 'spoilers__body';
-  //   const classSpoilerBodyOpen = '_open-body';
-
-  //   const nl_parentSpoilers = document.querySelectorAll(`.${classParentSpoilers}`);
-
-  //   nl_parentSpoilers.forEach(parentSpoiler => {
-  //     const spoilers = parentSpoiler.querySelectorAll(`.${classSpoiler}`);
-
-  //     spoilers.forEach(spoiler => {
-  //       const spoilersTitle = spoiler.querySelector(`.${classSpoilersTitle}`);
-  //       const spoilerBody = spoiler.querySelector(`.${classSpoilerBody}`);
-
-  //       const startHeightSpoiler = spoiler.getBoundingClientRect().height;
-
-  //       spoiler.addEventListener('click', e => {
-  //         spoiler.classList.toggle(classSpoilerOpen);
-  //         spoilersTitle.classList.toggle(classSpoilersTitleOpen);
-  //         spoilerBody.classList.toggle(classSpoilerBodyOpen);
-
-  //         if (typeof anime !== 'undefined' && spoilerBody) {
-  //           const autoHeightSpoilerBody = spoilerBody.scrollHeight;
-  //           const autoHeightSpoiler = startHeightSpoiler + autoHeightSpoilerBody;
-
-  //           if (spoilerBody.classList.contains(classSpoilerBodyOpen)) {
-  //             spoilerBody.style.height = 'auto';
-  //             spoilerBody.style.height = '0';
-
-  //             // spoiler.style.height = 'auto';
-  //             // spoiler.style.height = '0';
-
-  //             console.log('startHeightSpoiler = ', startHeightSpoiler);
-  //             console.log('autoHeightSpoiler = ', autoHeightSpoiler);
-
-  //             anime({
-  //               targets: spoiler,
-  //               height: autoHeightSpoiler,
-  //             });
-
-  //             anime({
-  //               targets: spoilerBody,
-  //               height: [0, autoHeightSpoilerBody],
-  //               opacity: 1,
-  //               duration: 2000,
-  //               // easing: 'easeInOutQuad',
-  //               complete: () => {
-  //                 spoilerBody.style.height = 'auto';
-  //               },
-  //             });
-  //           } else {
-  //             const currentHeight = spoilerBody.scrollHeight + 'px';
-
-  //             console.log('*++* = ');
-
-  //             anime({
-  //               targets: spoiler,
-  //               height: startHeightSpoiler,
-  //             });
-
-  //             anime({
-  //               targets: spoilerBody,
-  //               height: [currentHeight, 0],
-  //               opacity: 0,
-  //               duration: 2000,
-  //               // easing: 'easeInOutQuad',
-  //               complete: () => {
-  //                 // spoiler.classList.remove();
-  //                 // spoilerBody.classList.remove();
-  //                 // spoilersTitle.classList.remove(classSpoilersTitleOpen);
-
-  //                 spoilerBody.style.height = 'auto';
-  //               },
-  //             });
-  //           }
-  //         }
-  //       });
-  //     });
-  //   });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   const param = {
-    // classesContVerticalMenu: 'rmbt-cont-vertical-menu-0',
     classSpoilersBlock: 'spoilers-block',
     classSpoiler: 'spoiler',
     classSpoilerTitle: 'spoiler__title',
     classSpoilerBody: 'spoiler__body',
 
-    classSpoilerOpen: '_open-item',
+    classSpoilerOpen: '_open-spoiler',
     classSpoilerTitleOpen: '_open-title',
     classSpoilerBodyOpen: '_open-body',
-
-    // heightContVerticalMenu: '150px',
-    // classVerticalMenuOpen: 'vertical-menu-open',
-    // classMenuItemDropIcon: 'drop-icon',
-    // classMenuItemDropIconOpen: 'drop-icon-open',
-    // classSubMenuIOpen: 'submenu-open',
-    // classMenuOverflow: 'menu-overflow',
-    // classIconMenuOverflow: 'icon-menu-overflow',
-    // classMenuItemOverflow: 'menu-item-other',
-    // textMenuItemOverflow: 'other',
-
-    // individualParamsContMenu: [
-    //   {
-    //     class: 'right-top-menu',
-    //     height: '150px',
-    //     width: '100%',
-    //     maxWidth: '100%',
-    //   },
-    // ],
   };
 
   document.querySelectorAll(`.${param.classSpoilersBlock}`).forEach(spoilersBlock => {

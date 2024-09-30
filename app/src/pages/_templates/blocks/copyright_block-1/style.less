@@ -1,0 +1,43 @@
+.rmbt-copyright-block-1 {
+  width: 100%;
+  color: @font-color-block-details;
+
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  &__body {
+    box-sizing: border-box;
+    position: relative;
+    margin: 0px 0px 0px 0px;
+    padding-top: @padding-top-block;
+    padding-bottom: @padding-bottom-block;
+
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+
+    text-transform: capitalize;
+    svg {
+      width: 30px;
+      height: 30px;
+
+      fill: @font-color-block-details;
+      border-radius: 50%;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, 0);
+      width: 80%;
+      height: 1px;
+      background-color: @border-color-wireframe-inner;
+    }
+  }
+}

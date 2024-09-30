@@ -1,1 +1,0 @@
-<a href="#" class="rmbt-button call-to-action-button">Buy premium-theme-1</a>

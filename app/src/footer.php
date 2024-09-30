@@ -1,7 +1,11 @@
 <?php wp_footer(); ?>
 
-<?php // get_template_part( 'pages\_templates\footers\footer-0\footer-0', '0' ); ?>
+
+<?php if ( !is_page( 'Страница шаблонов' ) ) : ?>
 <?php get_template_part( 'pages\_templates\footers\footer-1\footer-1', '1' ); ?>
+<?php endif ?>
+
+
 
 </div> <!--  end rmbt-page-wrap  -->
 

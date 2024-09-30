@@ -11,19 +11,12 @@
 
 <body <?php body_class(); ?>>
    <?php wp_body_open(); ?>
+
    <?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
 
-   <div class="rmbt-page-wrap">
-
-
-      <?php
-		// для стандартного WP виджета поиск файл searchform.php должен находится в корне темы
-		// для работоспособности поиска в целом searchform.php может быть где угодно
-		// get_template_part('searchform');
-		?>
-
-
-
-      <?php
-		get_template_part( 'pages\_templates\headers\header-0\header-0', '0' );
-		?>
+   <?php if ( is_page( 'Страница шаблонов' ) ) : ?>
+   <div class="rmbt-page-wrap templates-page-wrap">
+      <?php elseif(is_front_page()): ?>
+      <div class="rmbt-page-wrap front-page-wrap">
+         <?php get_template_part( 'pages\_templates\headers\header-0\header-0', '0' ); ?>
+         <?php endif ?>

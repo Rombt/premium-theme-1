@@ -16,7 +16,7 @@
 
    <?php if ( is_page( 'Страница шаблонов' ) ) : ?>
    <div class="rmbt-page-wrap templates-page-wrap">
-      <?php elseif(is_front_page()): ?>
+      <?php elseif ( is_front_page() ) : ?>
       <div class="rmbt-page-wrap front-page-wrap">
-         <?php get_template_part( 'pages\_templates\headers\header-0\header-0', '0' ); ?>
+         <?php get_template_part( 'pages\_templates\headers\header-2\header-2', '0' ); ?>
          <?php endif ?>

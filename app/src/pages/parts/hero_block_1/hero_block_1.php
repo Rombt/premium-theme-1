@@ -23,9 +23,9 @@
 				</div>
 
 			</div>
-			<div class="rmbt-hero-block-1__title-block rmbt-title-block">
+			<!-- <div class="rmbt-hero-block-1__title-block rmbt-title-block">
 
-				<!-- <div class="rmbt-title-block__decor"></div> -->
+				<div class="rmbt-title-block__decor"></div>
 				<div class="rmbt-title-block__icon"></div>
 				<div class="rmbt-title-block__subtitle">
 					<div class="block-details">
@@ -37,15 +37,15 @@
 						title
 					</div>
 				</div>
-				<!-- <a href="#" class='rmbt-title-block__button'>
+				<a href="#" class='rmbt-title-block__button'>
 					<div class="block-details">
 						cal-to-action-bottom
 					</div>
-				</a> -->
+				</a>
 				<?php get_template_part( 'template-parts/_templates/components\button-0\button-0' ); ?>
 
 
-			</div>
+			</div> -->
 			<div class="rmbt-hero-block-1__right-text">
 				<div class="block-details">
 					текстовой нюанс

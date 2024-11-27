@@ -1,6 +1,6 @@
-<div class="rmbt-full-width rmbt-header-2-full-width">
+<div class="rmbt-full-width rmbt-header-2-top-row-full-width">
 
-	<section class="rmbt-container rmbt-header-2">
+	<section class="rmbt-container rmbt-header-2-top-row">
 
 		<div class="rmbt-header-2__row rmbt-header-2-top-row">
 
@@ -18,6 +18,18 @@
 				</div>
 			</div>
 		</div>
+
+	</section>
+
+
+</div>
+
+
+<div class="rmbt-full-width rmbt-header-2-full-width">
+
+	<section class="rmbt-container rmbt-header-2">
+
+
 		<div class="rmbt-header-2__row rmbt-header-2-bottom-row">
 
 			<div class="rmbt-header-2__col rmbt-header-2-bottom-col-left">

@@ -1,6 +1,5 @@
 <div class="rmbt-full-width rmbt-hero-block-1-full-width">
 	<section class="rmbt-container rmbt-hero-block-1">
-
 		<div class="rmbt-hero-block-1__row">
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-right'>
 

@@ -1,9 +1,12 @@
 .rmbt-hero-block-1-full-width {
   margin-top: -30px;
+
+  background-color: @color_background_header;
 }
 
 .rmbt-hero-block-1 {
   position: relative;
+  padding-bottom: 30px;
 
   &__row {
     display: flex;
@@ -13,8 +16,8 @@
   }
 
   &__col {
-    height: 400px;
-    border: 1px solid @border-color-wireframe-external;
+    height: 300px;
+    // border: 1px solid @border-color-wireframe-external;
   }
 
   &__title-block {
@@ -62,13 +65,15 @@
       width: 100%;
       height: 100%;
 
-      background-color: rgba(245, 245, 245, 0.8);
+      background-color: @color_background_col;
     }
   }
 }
 .rmbt-hero-block-1-col-left {
   flex-grow: 1;
   position: relative;
+
+  background-color: @color_background_header;
 
   &__bg {
     position: absolute;
@@ -85,14 +90,15 @@
       width: 100%;
       height: 100%;
 
-      background-color: rgba(245, 245, 245, 0.8);
+      // background-color: rgba(245, 245, 245, 0.8);
+      background-color: @color_background_col;
     }
   }
 }
 
 .rmbt-title-block {
   width: 400px;
-  height: 300px;
+  height: 240px;
 
   box-sizing: border-box;
   display: flex;

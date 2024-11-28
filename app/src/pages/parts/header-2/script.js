@@ -9,6 +9,26 @@
     }
 
     ul.classList.add('drop_ul');
+    const icon_drop = document.createElement('div');
+    icon_drop.classList.add('icon_drop');
+    ul.prepend(icon_drop);
+
+    icon_drop.addEventListener('click', e => {
+      if (icon_drop.classList.contains('open')) {
+        arr_li[i].forEach((li, i) => {
+          if (i == 0) return;
+          li.classList.add('hidden');
+        });
+      } else {
+        arr_li[i].forEach(li => {
+          li.classList.remove('hidden');
+        });
+      }
+
+      icon_drop.classList.toggle('open');
+
+      console.log('e = ', e);
+    });
   });
 
   arr_li.forEach(nl_li => {

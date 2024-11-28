@@ -18,10 +18,15 @@
         arr_li[i].forEach((li, i) => {
           if (i == 0) return;
           li.classList.add('hidden');
+          li.classList.remove('visible');
+          li.style.top = 0;
         });
       } else {
-        arr_li[i].forEach(li => {
+        arr_li[i].forEach((li, i) => {
+          if (i == 0) return;
           li.classList.remove('hidden');
+          li.classList.add('visible');
+          li.style.top = i * 140 + '%';
         });
       }
 

@@ -14,9 +14,39 @@
     padding-left: 0px;
     margin: 0px 0px 0px 0px;
 
-    border: 1px solid #0515fd;
-
     li {
+      height: 16px;
+    }
+  }
+
+  .hidden {
+    height: 0px;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    width: 0px;
+    z-index: 0;
+  }
+
+  .drop_ul {
+    position: relative;
+    padding-right: 18px;
+
+    &:after {
+      content: '';
+
+      position: absolute;
+      right: 0%;
+      top: 50%;
+      transform: translate(0%, -50%);
+
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 8px solid #fff;
+
+      cursor: pointer;
     }
   }
 }
@@ -30,11 +60,16 @@
   align-items: center;
   column-gap: 20px;
 
-  border: 1px solid #0515fd;
-
   .to(1024px,{
     .size(6);
   });
+
+  &__phones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+  }
 }
 .rmbt-header-2-top-col-left {
 }

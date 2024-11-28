@@ -17,17 +17,16 @@
     position: relative;
 
     li {
+      line-height: 160%;
     }
   }
 
   .hidden {
     position: absolute;
     top: 0%;
-    // height: 0px;
     overflow: hidden;
     pointer-events: none;
     opacity: 0;
-    // width: 0px;
     z-index: 0;
 
     transition: z-index 1s, top 1s, opacity 1s;
@@ -36,7 +35,6 @@
   .visible {
     position: absolute;
     left: 0%;
-    // top: 140%;
     width: 100%;
     z-index: 1;
     opacity: 1;

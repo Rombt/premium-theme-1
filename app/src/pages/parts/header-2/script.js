@@ -26,7 +26,7 @@
           if (i == 0) return;
           li.classList.remove('hidden');
           li.classList.add('visible');
-          li.style.top = i * 140 + '%';
+          li.style.top = i * li.offsetHeight + 'px';
         });
       }
 

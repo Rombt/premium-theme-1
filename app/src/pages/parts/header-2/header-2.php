@@ -5,11 +5,12 @@
 		<div class="rmbt-header-2__row rmbt-header-2-top-row">
 
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-left">
-				<div class="block-details">
-					phones
+				<div class="rmbt-header-2-top-col-left__phones">
+					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-phone' ); ?>
+					<?php echo rmbt_redux_field_to_ul( 'rmbt-m_reger-2-phone' ); ?>
 				</div>
-				<div class="block-details">
-					emails
+				<div class=rmbt-header-2-top-col-left__email">
+					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-email', 'mailto' ); ?>
 				</div>
 			</div>
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-right">

@@ -9,8 +9,6 @@ Redux::set_section(
 		'title' => esc_html__( 'Contacts settings', RMBT_TEXT_DOMAIN_THEME ),
 		'desc' => esc_html__( 'Contacts', RMBT_TEXT_DOMAIN_THEME ),
 		'customizer_width' => '450',
-		// 'subsection' => true,
-		// 'icon'             => 'el el-home',
 		'fields' => array(
 
 			array(

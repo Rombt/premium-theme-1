@@ -1,7 +1,13 @@
+@height_top_row: 40px;
+
 .rmbt-header-2-top-row-full-width {
   background-color: #222322;
-
-  // position: fixed;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  height: @height_top_row;
 }
 
 .rmbt-header-2-top-row {
@@ -87,17 +93,9 @@
     column-gap: 20px;
   }
 }
-.rmbt-header-2-top-col-left {
-}
-.block-details {
-}
-.rmbt-header-2-top-col-right {
-}
-.description {
-}
 
-.rmbt-header-2-full-width {
-  margin-top: -30px;
+.rmbt-header-2-bottom-row-full-width {
+  margin-top: @height_top_row;
   background-color: @color_background_header;
 }
 .rmbt-header-2 {

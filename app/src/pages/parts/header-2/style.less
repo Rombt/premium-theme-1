@@ -7,12 +7,12 @@
   top: 0;
   width: 100%;
   z-index: 5;
-  height: @height_top_row;
 }
 
 .rmbt-header-2-top-row {
   justify-content: space-between;
   color: #fff;
+  height: @height_top_row;
 
   ul {
     list-style: none;
@@ -102,10 +102,6 @@
   background-color: @color_background_header;
   &__row {
     .row-flex();
-    // padding-top: @padding-top-section;
-    // padding-bottom: @padding-bottom-section;
-    padding-top: 10px;
-    padding-bottom: 10px;
   }
   &__col {
     .col();
@@ -114,12 +110,11 @@
 
 .rmbt-header-2-bottom-row {
   height: 65px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 .rmbt-header-2-bottom-col-left {
   .size(3);
-  .wrap-img {
-    padding-left: 7px;
-  }
 }
 .rmbt-header-2-bottom-col-center {
   .size(7);

@@ -34,12 +34,9 @@
 		<div class="rmbt-header-2__row rmbt-header-2-bottom-row">
 
 			<div class="rmbt-header-2__col rmbt-header-2-bottom-col-left">
-				<div class="wrap-img">
-					<!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/Logo_3_1.png" alt="site logo"> -->
-					<!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/Logo_5.png" alt="site logo"> -->
-					<img src="<?php echo get_template_directory_uri() ?>/assets/img/Logo_6_1.png" alt="site logo">
-					<!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/Logo_3_1.jpg" alt="site logo"> -->
-				</div>
+				<?php if ( has_custom_logo() ) : ?>
+					<?php the_custom_logo(); ?>
+				<?php endif ?>
 			</div>
 			<div class="rmbt-header-2__col rmbt-header-2-bottom-col-center">
 				<div class="block-details block-details-main-header-menu">main header menu</div>

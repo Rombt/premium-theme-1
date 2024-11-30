@@ -1,10 +1,35 @@
 <div class="rmbt-full-width rmbt-hero-block-1-full-width">
-	<div class="wrap-img">
-		<img src="<?php echo get_template_directory_uri() ?>/assets/img/hero_1 1.jpg" alt="hero-block-bg">
-	</div>
 
-	<div class="rmbt-hero-block-1-full-width__bg">
-	</div>
+	<!-- <div class="rmbt-hero-block-1-full-width__bg">
+		<div class="wrap-img">
+			<img src="<?php echo get_template_directory_uri() ?>/assets/img/hero_1 1.jpg" alt="hero-block-bg">
+		</div>
+	</div> -->
+
+
+	<section class="rmbt-container rmbt-hero-block-1-top-row">
+		<div class="rmbt-hero-block-1-top-row__row rmbt-hero-block-1-top-row-bottom-row">
+
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-left">
+				<?php if ( has_custom_logo() ) : ?>
+					<?php the_custom_logo(); ?>
+				<?php endif ?>
+			</div>
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-center">
+				<div class="block-details block-details-main-header-menu">main header menu</div>
+				<div class="block-details block-details-search">search field</div>
+			</div>
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-burger">
+				<div class="block-details">burger</div>
+			</div>
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-right">
+				<div class="block-details">call-to-action button</div>
+			</div>
+		</div>
+	</section>
+
+
+
 
 
 	<section class="rmbt-container rmbt-hero-block-1">

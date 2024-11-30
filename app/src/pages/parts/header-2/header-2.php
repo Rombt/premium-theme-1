@@ -26,7 +26,7 @@
 </div>
 
 
-<div class="rmbt-full-width rmbt-header-2-bottom-row-full-width">
+<!-- <div class="rmbt-full-width rmbt-header-2-bottom-row-full-width">
 
 	<section class="rmbt-container rmbt-header-2">
 
@@ -50,4 +50,4 @@
 			</div>
 		</div>
 	</section>
-</div>
+</div> -->

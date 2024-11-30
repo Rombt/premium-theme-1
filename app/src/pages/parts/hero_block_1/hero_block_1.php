@@ -8,21 +8,21 @@
 
 
 	<section class="rmbt-container rmbt-hero-block-1-top-row">
-		<div class="rmbt-hero-block-1-top-row__row rmbt-hero-block-1-top-row-bottom-row">
+		<div class="rmbt-hero-block-1-top-row__row rmbt-hero-block-1-top-row">
 
-			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-left">
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-left">
 				<?php if ( has_custom_logo() ) : ?>
 					<?php the_custom_logo(); ?>
 				<?php endif ?>
 			</div>
-			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-center">
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-center">
 				<div class="block-details block-details-main-header-menu">main header menu</div>
 				<div class="block-details block-details-search">search field</div>
 			</div>
-			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-burger">
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-burger">
 				<div class="block-details">burger</div>
 			</div>
-			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-bottom-col-right">
+			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-right">
 				<div class="block-details">call-to-action button</div>
 			</div>
 		</div>

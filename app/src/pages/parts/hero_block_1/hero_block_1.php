@@ -1,4 +1,12 @@
 <div class="rmbt-full-width rmbt-hero-block-1-full-width">
+	<div class="wrap-img">
+		<img src="<?php echo get_template_directory_uri() ?>/assets/img/hero_1 1.jpg" alt="hero-block-bg">
+	</div>
+
+	<div class="rmbt-hero-block-1-full-width__bg">
+	</div>
+
+
 	<section class="rmbt-container rmbt-hero-block-1">
 		<div class="rmbt-hero-block-1__row">
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-right'>

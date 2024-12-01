@@ -19,7 +19,7 @@
 
 
 				<?php if ( has_nav_menu( 'header_nav' ) ) { ?>
-					<div class="cont-horizont-menu">
+					<div class="rmbt-menu-horizontal">
 						<?php wp_nav_menu(
 							array(
 								'theme_location' => 'header_nav',

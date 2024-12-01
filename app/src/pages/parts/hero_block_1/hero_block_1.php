@@ -50,8 +50,14 @@
 				<div class="rmbt-hero-block-1-col-right__bg">
 					<!-- <div class="wrap-img">
 						<img src="<?php echo get_template_directory_uri() ?>/assets/img/bg_transparent.jpg"
-							alt="hero-block-bg">
+						alt="hero-block-bg">
 					</div> -->
+				</div>
+
+
+				<div class="rmbt-hero-block-1-col-right__content">
+
+					привет Даня
 				</div>
 
 

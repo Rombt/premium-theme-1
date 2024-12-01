@@ -17,7 +17,6 @@
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-center">
 
-
 				<?php if ( has_nav_menu( 'header_nav' ) ) { ?>
 					<div class="rmbt-menu-horizontal">
 						<?php wp_nav_menu(
@@ -28,9 +27,6 @@
 						); ?>
 					</div>
 				<?php } ?>
-
-
-
 
 				<div class="block-details block-details-search">search field</div>
 			</div>

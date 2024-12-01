@@ -16,7 +16,22 @@
 				<?php endif ?>
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-center">
-				<div class="block-details block-details-main-header-menu">main header menu</div>
+
+
+				<?php if ( has_nav_menu( 'header_nav' ) ) { ?>
+					<div class="cont-horizont-menu">
+						<?php wp_nav_menu(
+							array(
+								'theme_location' => 'header_nav',
+								'container' => 'nav',
+							)
+						); ?>
+					</div>
+				<?php } ?>
+
+
+
+
 				<div class="block-details block-details-search">search field</div>
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-burger">

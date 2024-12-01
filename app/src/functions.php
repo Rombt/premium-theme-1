@@ -10,7 +10,7 @@ require_once get_template_directory() . '/inc/functions/general-front.php';
 // require_once get_template_directory() . '/inc/functions/comment_default.php';
 // require_once get_template_directory() . '/inc/functions/ajax.php';
 
-if ( file_exists( get_template_directory() . DIRECTORY_SEPARATOR . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR .'_templates' ) ) {
+if ( file_exists( get_template_directory() . DIRECTORY_SEPARATOR . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' ) ) {
 	require_once get_template_directory() . '/inc/functions/templates_page.php';
 }
 

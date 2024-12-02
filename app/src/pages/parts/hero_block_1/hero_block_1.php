@@ -1,9 +1,16 @@
 <div class="rmbt-full-width rmbt-hero-block-1-full-width">
 
 	<div class="rmbt-hero-block-1-full-width__bg">
+		<!-- <div class="wrap-img">
+			<img src="<?php // echo get_template_directory_uri() ?>/assets/img/hero_1 1.jpg" alt="hero-block-bg">
+		</div> -->
+
 		<div class="wrap-img">
-			<img src="<?php echo get_template_directory_uri() ?>/assets/img/hero_1 1.jpg" alt="hero-block-bg">
+			<?php echo rmbt_redux_img( 'rmbt-bg_section-img', 'rmbt-bg_section-img_alt' ) ?>
 		</div>
+
+
+
 	</div>
 
 
@@ -32,8 +39,10 @@
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-right">
 				<?php
 
+
 				get_template_part( 'pages/components/button-link/button', 'link', [ 
-					'title' => 'Get a quote',
+					// 'title' => 'Get a quote',
+					'title' => rmbt_get_redux_field( 'rmbt-call_to_action_button-text', 1 ),
 					'href' => '#',
 				] );
 

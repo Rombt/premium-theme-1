@@ -5,9 +5,9 @@ defined( 'ABSPATH' ) || exit;
 Redux::set_section(
 	$opt_name,
 	array(
-		'title' => esc_html__( 'simple-section', 'restaurant-site' ),
-		'id' => 'settings_simple-section',
-		'desc' => esc_html__( 'Settings header site', 'restaurant-site' ),
+		'title' => esc_html__( 'Hero Block', RMBT_TEXT_DOMAIN_THEME ),
+		'id' => 'settings_hero_block_1',
+		'desc' => esc_html__( 'Settings Hero Block', RMBT_TEXT_DOMAIN_THEME ),
 		'customizer_width' => '450',
 		'subsections' => true,
 		// 'icon'             => 'el el-home',
@@ -20,15 +20,11 @@ Redux::set_section(
 				'title' => esc_html__( 'This picture will use for background section', RMBT_TEXT_DOMAIN_THEME ),
 				'compiler' => 'true',
 				'preview_size' => 'full',
-				'default' => array(
-					'url' => '/assets/img/no-image.jpg',
-				),
 			),
 			array(
 				'id' => 'rmbt-bg_section-img_alt',
 				'type' => 'text',
 				'title' => esc_html__( 'Description for background section picture', RMBT_TEXT_DOMAIN_THEME ),
-				'default' => esc_html__( 'background section picture', RMBT_TEXT_DOMAIN_THEME ),
 			),
 
 			array(
@@ -43,17 +39,23 @@ Redux::set_section(
 				'title' => esc_html__( 'Text of Simple-Section', RMBT_TEXT_DOMAIN_THEME ),
 				// 'default' => esc_html__( '', RMBT_TEXT_DOMAIN_THEME ),
 			),
+			array(
+				'id' => 'rmbt-call_to_action_button-text',
+				'type' => 'text',
+				'title' => esc_html__( 'Text of call to action button', RMBT_TEXT_DOMAIN_THEME ),
+				'default' => esc_html__( 'Get a quote', RMBT_TEXT_DOMAIN_THEME ),
+			),
 
 
 
 			/*------------------ rmbt-simple-section accordion ------------------*/
-			array(
-				'id' => 'rmbt-simple-section-start',
-				'type' => 'accordion',
-				'title' => esc_html__( 'Title of Simple-Section', RMBT_TEXT_DOMAIN_THEME ),
-				'subtitle' => 'Add your content to the section \'Title\'',
-				'position' => 'start',
-			),
+			// array(
+			// 	'id' => 'rmbt-simple-section-start',
+			// 	'type' => 'accordion',
+			// 	'title' => esc_html__( 'Title of Simple-Section', RMBT_TEXT_DOMAIN_THEME ),
+			// 	'subtitle' => 'Add your content to the section \'Title\'',
+			// 	'position' => 'start',
+			// ),
 
 
 			// array(
@@ -77,11 +79,11 @@ Redux::set_section(
 			// ),
 
 
-			array(
-				'id' => 'rmbt-simple-section-end',
-				'type' => 'accordion',
-				'position' => 'end',
-			),
+			// array(
+			// 	'id' => 'rmbt-simple-section-end',
+			// 	'type' => 'accordion',
+			// 	'position' => 'end',
+			// ),
 			/*------------------ /rmbt-simple-section accordion ------------------*/
 
 

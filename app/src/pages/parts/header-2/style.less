@@ -31,6 +31,8 @@
     font-size: 14px;
     letter-spacing: 1px;
     font-weight: 200;
+    transition: all 0.35s ease-in-out;
+    display: block;
   }
 
   ul {
@@ -97,6 +99,13 @@
   align-items: center;
   column-gap: 20px;
 
+  a {
+    &:hover {
+      transform: scale(1.02);
+      transition: all 0.1s ease-in-out;
+    }
+  }
+
   .to(1024px,{
     .size(8);
   });
@@ -115,6 +124,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  a {
+    &:hover {
+      transform: scale(1.02);
+      transition: all 0.1s ease-in-out;
+    }
+  }
 }
 
 .rmbt-header-2-top-col-right {
@@ -130,7 +146,10 @@
     height: 22px;
 
     &:hover {
-      transform: scale(1.1);
+      &:hover {
+        transform: scale(1.15);
+        transition: all 0.1s ease-in-out;
+      }
     }
   }
 }

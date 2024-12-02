@@ -9,6 +9,8 @@
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-phone' ); ?>
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-2-phone' ); ?>
 				</div>
+			</div>
+			<div class="rmbt-header-2__col rmbt-header-2-top-col-center">
 				<div class=rmbt-header-2-top-col-left__email">
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-email', 'mailto' ); ?>
 				</div>

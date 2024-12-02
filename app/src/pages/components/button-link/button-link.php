@@ -1,1 +1,1 @@
-<a href="<?php echo $args['href'] ?>" class="rmbt-button-link"><?php echo $args['title'] ?></a>
+<a href="<?php echo $args['href'] ?>" class="rmbt-button-link"><span><?php echo $args['title'] ?></span></a>

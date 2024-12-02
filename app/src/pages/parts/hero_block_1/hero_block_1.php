@@ -28,13 +28,17 @@
 					</div>
 				<?php } ?>
 
-				<div class="block-details block-details-search">search field</div>
-			</div>
-			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-burger">
-				<div class="block-details">burger</div>
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-right">
-				<div class="block-details">call-to-action button</div>
+				<?php
+
+				get_template_part( 'pages/components/button-link/button', 'link', [ 
+					'title' => 'Get a quote',
+					'href' => '#',
+				] );
+
+				?>
+
 			</div>
 		</div>
 	</section>

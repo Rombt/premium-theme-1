@@ -1,0 +1,29 @@
+.rmbt-button-link {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 20px;
+
+  background-color: #0a7f6e;
+  color: #d5d5d5;
+  font-family: Podkova;
+  font-size: 18px;
+  font-weight: 300;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 93%;
+    height: 80%;
+    border: 1px solid #d5d5d5;
+    border-radius: 19px;
+  }
+}

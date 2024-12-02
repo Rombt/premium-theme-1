@@ -56,8 +56,6 @@
 
 
 				<div class="rmbt-hero-block-1-col-right__content">
-
-					привет Даня
 				</div>
 
 

@@ -1,6 +1,6 @@
 <div class="rmbt-full-width rmbt-header-2-top-row-full-width">
 
-	<section class="rmbt-container rmbt-header-2-top-row">
+	<section class="rmbt-container">
 		<div class="rmbt-header-2__row rmbt-header-2-top-row">
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-left">
 				<div class="rmbt-header-2-top-col-left__phones">

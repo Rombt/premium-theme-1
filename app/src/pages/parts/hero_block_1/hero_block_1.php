@@ -25,7 +25,7 @@
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-center">
 
 				<?php if ( has_nav_menu( 'header_nav' ) ) { ?>
-					<div class="rmbt-menu-horizontal">
+					<div class="rmbt-menu-horizontal" data-da=".rmbt-hero-block-1-top-row-col-right, 768">
 						<?php wp_nav_menu(
 							array(
 								'theme_location' => 'header_nav',
@@ -41,7 +41,7 @@
 
 
 				get_template_part( 'pages/components/button-link/button', 'link', [ 
-					// 'title' => 'Get a quote',
+					'data' => 'data-da="#menu-header-navigation, 768"',
 					'title' => rmbt_get_redux_field( 'rmbt-call_to_action_button-text', 1 ),
 					'href' => '#',
 				] );

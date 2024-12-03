@@ -3,13 +3,19 @@
 	<section class="rmbt-container">
 		<div class="rmbt-header-2__row rmbt-header-2-top-row">
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-left">
+				<!-- <div class="rmbt-header-2-top-col-left__phones" data-da=".rmbt-header-2-top-col-center, 768"> -->
 				<div class="rmbt-header-2-top-col-left__phones">
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-phone' ); ?>
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-2-phone' ); ?>
+					<svg>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#phone_1">
+						</use>
+					</svg>
 				</div>
 			</div>
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-center">
-				<div class=rmbt-header-2-top-col-left__email">
+				<div class=rmbt-header-2-top-col-left__email" data-da=".rmbt-header-2-top-col-left, 768">
+					<!-- <div class=rmbt-header-2-top-col-left__email"> -->
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-email', 'mailto' ); ?>
 				</div>
 			</div>

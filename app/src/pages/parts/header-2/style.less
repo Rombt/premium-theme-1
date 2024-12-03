@@ -94,23 +94,39 @@
 }
 
 .rmbt-header-2-top-col-left {
-  .size(4);
+  .size(8);
   display: flex;
   justify-content: space-between;
   align-items: center;
   column-gap: 20px;
 
   .to(1024px,{
-    flex-grow: 1;
+    // flex-grow: 1;
   });
 
   .to(768px,{
-    flex-grow: 0;
+    flex-grow: 1;
+    // .size(10);
 
-    // border: 1px solid #0515fd;
-    
   });
 
+  .to(690px,{
+  justify-content: start;
+  });
+
+  svg {
+    display: none;
+
+    width: 32px;
+    height: 32px;
+  }
+  .to(600px,{
+    
+    svg {
+      display: block;
+      
+    }
+    });
   a {
     &:hover {
       transform: scale(1.02);
@@ -125,58 +141,53 @@
     column-gap: 20px;
 
     .adaptive-prop(font-size, 16, 14);
+  }
 
-    svg {
+  &__email {
+    ul {
+      .to(600px,{
+  
       display: none;
-    }
-
-    .to(768px,{
       
-    svg{
-      // display: block;
-      width: 32px;
-      height: 32px;
-    }
-
-    ul{
-      // display: none;
-    }
     });
+    }
   }
 }
 
-.rmbt-header-2-top-col-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
+// .rmbt-header-2-top-col-center {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-grow: 1;
 
-  .to(1024px,{
-    justify-content: start;
-  });
+//   display: none;
 
-  .to(768px,{
-    flex-grow: 1;
-    justify-content: center;
+//   .to(1024px,{
+//     justify-content: start;
+//   });
 
-    display: none;
+//   .to(768px,{
+//     flex-grow: 1;
+//     justify-content: center;
 
-    svg{
+//     display: none;
 
-      width: 32px;
-      height: 32px;
-      display: none;
-    }
-    
-  });
+//     svg{
 
-  // a {
-  //   &:hover {
-  //     transform: scale(1.02);
-  //     transition: all 0.1s ease-in-out;
-  //   }
-  // }
-}
+//       width: 32px;
+//       height: 32px;
+//       display: none;
+//     }
+
+//   });
+
+//   // a {
+//   //   &:hover {
+//   //     transform: scale(1.02);
+//   //     transition: all 0.1s ease-in-out;
+//   //   }
+//   // }
+// }
 
 .rmbt-header-2-top-col-right {
   .size(2);
@@ -185,6 +196,10 @@
   align-items: center;
   justify-content: end;
   column-gap: 15px;
+
+  .to(768px,{
+  // flex-grow: 1;
+  });
 
   svg {
     width: 22px;

@@ -5,6 +5,10 @@
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-left">
 				<!-- <div class="rmbt-header-2-top-col-left__phones" data-da=".rmbt-header-2-top-col-center, 768"> -->
 				<div class="rmbt-header-2-top-col-left__phones">
+					<svg>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1">
+						</use>
+					</svg>
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-phone' ); ?>
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-2-phone' ); ?>
 
@@ -17,10 +21,6 @@
 				<!-- <div class=rmbt-header-2-top-col-left__email" data-da=".rmbt-header-2-top-col-left, 768"> -->
 				<div class="rmbt-header-2-top-col-left__email">
 					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-email', 'mailto' ); ?>
-					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1">
-						</use>
-					</svg>
 				</div>
 			</div>
 			<!-- <div class="rmbt-header-2__col rmbt-header-2-top-col-center">

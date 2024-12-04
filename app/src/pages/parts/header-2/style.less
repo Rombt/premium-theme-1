@@ -145,6 +145,7 @@
     align-items: center;
     column-gap: 20px;
     .adaptive-prop(font-size, 16, 14);
+    width: auto;
 
     .to(480px,{
       // ul{
@@ -155,10 +156,6 @@
       } 
     });
   }
-
-  // .open {
-  //   display: block;
-  // }
 }
 
 .hidden {
@@ -169,6 +166,8 @@
   opacity: 0;
   z-index: 0;
   transition: z-index 1s, top 1s, opacity 1s;
+  width: 0px;
+  padding: 0px 0px 0px 0px !important;
 }
 
 .visible {

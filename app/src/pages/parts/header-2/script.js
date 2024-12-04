@@ -44,15 +44,28 @@
   });
 
   const email_icon = document.querySelector('.rmbt-header-2-top-col-left__email > svg');
-  const email_link = document.querySelector('.rmbt-header-2-top-col-left__email > a');
+  const email_link = document.querySelector('.rmbt-header-2-top-col-left__email a');
 
   const phones_icon = document.querySelector('.rmbt-header-2-top-col-left__phones > svg');
-  const phones_links = document.querySelector('.rmbt-header-2-top-col-left__phones > ul');
+  const nl_phones_links = document.querySelectorAll(
+    '.rmbt-header-2-top-col-left__phones ul'
+  );
+
+  if (getComputedStyle(email_icon).display != 'none') {
+    email_link.classList.add('hidden');
+  }
+  if (getComputedStyle(phones_icon).display != 'none') {
+    nl_phones_links.forEach(phones_link => {
+      phones_link.classList.add('hidden');
+    });
+  }
 
   email_icon.addEventListener('click', e => {
-    email_link.style.display = 'block';
+    email_link.classList.add('visible');
+    email_icon.classList.add('hidden');
   });
   phones_icon.addEventListener('click', e => {
-    phones_links.style.display = 'block';
+    phones_links.classList.add('visible');
+    phones_icon.classList.add('hidden');
   });
 })();

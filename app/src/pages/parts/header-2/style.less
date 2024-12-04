@@ -116,19 +116,24 @@
 
   svg {
     display: none;
-
     width: 32px;
     height: 32px;
   }
+
   .to(600px,{
     
-    svg {
+    #svg_email {
       display: block;
-      
-    }
+    }  
 
+  });
 
-    });
+  .to(480px,{
+     #svg_phone {
+       display: block;
+     }
+  });
+
   a {
     &:hover {
       transform: scale(1.02);
@@ -141,13 +146,16 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 20px;
-
     .adaptive-prop(font-size, 16, 14);
+
+    .to(480px,{
+      display: none;
+    });
   }
 
   &__email {
     .to(600px,{
-    display: none;
+      display: none;
     });
   }
 }

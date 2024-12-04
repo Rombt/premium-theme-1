@@ -42,4 +42,17 @@
       li.classList.add('hidden');
     });
   });
+
+  const email_icon = document.querySelector('.rmbt-header-2-top-col-left__email > svg');
+  const email_link = document.querySelector('.rmbt-header-2-top-col-left__email > a');
+
+  const phones_icon = document.querySelector('.rmbt-header-2-top-col-left__phones > svg');
+  const phones_links = document.querySelector('.rmbt-header-2-top-col-left__phones > ul');
+
+  email_icon.addEventListener('click', e => {
+    email_link.style.display = 'block';
+  });
+  phones_icon.addEventListener('click', e => {
+    phones_links.style.display = 'block';
+  });
 })();

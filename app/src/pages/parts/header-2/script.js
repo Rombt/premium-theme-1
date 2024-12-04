@@ -51,6 +51,15 @@
     '.rmbt-header-2-top-col-left__phones ul'
   );
 
+  if (getComputedStyle(email_icon).display !== 'none') {
+    email_link.classList.add('hidden');
+  }
+  if (getComputedStyle(phones_icon).display !== 'none') {
+    nl_phones_links.forEach(phones_link => {
+      phones_link.classList.add('hidden');
+    });
+  }
+
   window.addEventListener('resize', () => {
     if (getComputedStyle(email_icon).display !== 'none') {
       email_link.classList.add('hidden');

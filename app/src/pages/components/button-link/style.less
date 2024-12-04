@@ -6,7 +6,6 @@
   height: 50px;
   line-height: 50px;
   border-radius: 20px;
-
   background-color: #0a7f6e;
   color: #d5d5d5;
   font-family: Podkova;
@@ -18,25 +17,12 @@
     z-index: 1;
   }
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    border-radius: 19px;
-    transition: transform 0.25s ease-in-out, box-shadow 0.5s ease-in-out;
-  }
-
-  &::after {
-    width: 93%;
-    height: 80%;
-    border: 1px solid #d5d5d5;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   // рабочий вариант уменьшение
   //   &::before {
+  //   content: '';
+  // position: absolute;
+  // border-radius: 19px;
+  // transition: transform 0.25s ease-in-out, box-shadow 0.5s ease-in-out;
   //   height: 100%;
   //   width: 100%;
   //   left: 0px;
@@ -54,11 +40,17 @@
 
   //  рабочий вариант  увеличение
   &::before {
+    content: '';
+    position: absolute;
+    border-radius: 19px;
     height: 100%;
     width: 100%;
     left: 0px;
     top: 0px;
+    outline: 1px solid #d5d5d5;
+    outline-offset: -6px;
     box-shadow: inset 0px 0 0 50px rgb(10, 127, 110);
+    transition: transform 0.25s ease-in-out, box-shadow 0.5s ease-in-out;
   }
 
   &:hover {

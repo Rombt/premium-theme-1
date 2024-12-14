@@ -6,8 +6,9 @@
   &::after {
     content: '';
     position: absolute;
-    left: 67px;
-    right: 70px;
+    .adaptive-prop(left, 70, 11);
+    .adaptive-prop(right, 70, 11);
+
     top: @height_hero-block-1_top_row;
     height: 2px;
     background-color: #d5d5d5;
@@ -37,8 +38,10 @@
 .rmbt-hero-block-1-top-row {
   height: @height_hero-block-1_top_row;
   position: relative;
+
   &__row {
     .row-flex();
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
   }
@@ -51,18 +54,24 @@
   .size(3);
   position: relative;
 
+  // .custom-logo-link
   img {
     width: 100%;
     height: auto;
   }
 
   .to(768px,{
-    .size(4);
+    // .size(5);
+
+    .adaptive-prop(width, 285, 200);
+    
+
+
   });
 
-  .to(600px,{
-    .size(5);
-  });
+  // .to(600px,{
+  //   .size(6);
+  // });
 }
 .rmbt-hero-block-1-top-row-col-center {
   .size(6);

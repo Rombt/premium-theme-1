@@ -467,7 +467,7 @@ class HorizontalMenu {
           currentMenu
             .querySelectorAll(`.${this.hiddenMenuCont.overflow}>li`)
             .forEach(li => {
-              currentMenu.querySelector('nav>ul:first-child').append(li);
+              currentMenu.querySelector('ul').append(li);
             });
         }
       }

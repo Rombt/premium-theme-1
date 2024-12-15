@@ -161,15 +161,8 @@
   .to(769px, {
 
         .icon-burger {
-            height: 30px;
-            width: 40px;
-
             .adaptive-prop(width, 60, 30);
             .adaptive-prop(height, 50, 20);
-            
-            
-            
-
             position: absolute;
             right: 15px;
             top: 50%;
@@ -330,20 +323,23 @@
                 }
             }
 
-
-
             .icon-dropdown_open {
                 transform: rotate(180deg);
                 background-color: #FD0404;
             }
         }
 
-        // .drop-menu-open,
         .rmbt-visible_burger {
             left: 0;
             transition: left 0.5s ease;
             z-index: 5;
         }
+    });
+
+  .to(480px,{
+      nav {
+        min-width: 100vw;
+      }
     });
 
   visibility: hidden; // скрываю до окончания поного фармирования потом показываю js

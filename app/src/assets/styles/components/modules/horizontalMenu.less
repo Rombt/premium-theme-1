@@ -160,6 +160,11 @@
 
   .to(769px, {
 
+    .overflow-cont,
+    .icon-overflow{
+      display: none;
+    }
+
         .icon-burger {
             .adaptive-prop(width, 60, 30);
             .adaptive-prop(height, 50, 20);
@@ -260,15 +265,19 @@
             left: -200%;    // перестраховка для мобильных браузеров
             transition: left 1s ease;
 
+            flex-direction: column;
+            justify-content: start;
+
             >ul {
 
                 display: block;
                 flex-direction: column;
-                align-items: flex-start;
+                // align-items: flex-start;
                 justify-content: start;
                 top: 0px;
                 // overflow-y: auto;
-                height: 100%;
+                // height: 100%;
+                flex-grow:0;
 
                 li {
                     margin: 0px 10px 20px 0px;

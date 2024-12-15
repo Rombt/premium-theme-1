@@ -25,4 +25,11 @@
       heroBlockFullWidth.classList.remove('hide-after');
     }
   });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 769) {
+      topRowColLeft.prepend(logo);
+      heroBlockFullWidth.classList.remove('hide-after');
+    }
+  });
 })();

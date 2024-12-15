@@ -134,7 +134,9 @@ class HorizontalMenu {
       // throw new Error('Menus with given selectors  are absent on this page');
       return;
     }
-    this.contAdditionalClasses = param.contAdditionalClasses;
+    if (param?.contAdditionalClasses?.length > 0) {
+      this.contAdditionalClasses = param.contAdditionalClasses;
+    }
     this.iconOverflow = this._clearClassName(param.iconOverflow || 'icon-overflow');
     this.iconBurger = this._clearClassName(param.iconBurger || 'icon-burger');
     this.iconBurgerOpen = this._clearClassName(
@@ -637,11 +639,11 @@ class HorizontalMenu {
 
 const param = {
   containersMenu: ['.rmbt-menu-horizontal'],
-  contAdditionalClasses: {
-    drop: ['add-drop-1'],
-    overflow: ['add-overflow-1'],
-    burger: ['add-burger-1'],
-  },
+  // contAdditionalClasses: {
+  //   drop: [],
+  //   overflow: [],
+  //   burger: [],
+  // },
   // animation: {
   //     drop: {},
   //     overflow: {},

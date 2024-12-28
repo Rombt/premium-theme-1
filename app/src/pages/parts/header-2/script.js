@@ -29,10 +29,7 @@
           li.style.top = i * li.offsetHeight + 'px';
         });
       }
-
       icon_drop.classList.toggle('open');
-
-      console.log('e = ', e);
     });
   });
 

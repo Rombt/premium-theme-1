@@ -445,8 +445,6 @@ class HorizontalMenu {
   }
 
   OpenMenu(currentMenu, modifier) {
-    // this.checkSingle(currentMenu);
-
     if (typeof gsap !== 'undefined') {
       if (modifier === this.modifiers.drop) {
         gsap.to(currentMenu, this.animation.drop.open).play();
@@ -477,7 +475,6 @@ class HorizontalMenu {
 
     currentMenu.classList.add(this.visibleClass + '_' + modifier);
     this.changeStateIconMenu(currentMenu, modifier, 'open');
-
     this.checkSingle(currentMenu);
   }
 
@@ -577,6 +574,17 @@ class HorizontalMenu {
         this.containersMenu.forEach(containerMenu => {
           if (!target.closest(containerMenu)) {
             this.clickOut();
+          } else {
+            let parentUl = target.closest('ul');
+            if (parentUl === null) {
+              parentUl = target;
+            }
+            const openedMenus = this._getAllOpenMenus(parentUl);
+            if (openedMenus.length > 0) {
+              openedMenus.forEach(openedMenu => {
+                this.closeMenu(openedMenu);
+              });
+            }
           }
         });
       }
@@ -666,11 +674,19 @@ class HorizontalMenu {
     return this._uniqueArr(flatArray);
   }
 
-  _getAllOpenMenus() {
+  _getAllOpenMenus(parentContainer) {
     let entries = Object.entries(this.modifiers);
-    let arr_menu = entries.map(([key, mod]) => [
-      ...document.querySelectorAll(`.${this.visibleClass}_${mod}`),
-    ]);
+    let arr_menu;
+
+    if (parentContainer) {
+      arr_menu = entries.map(([key, mod]) => [
+        ...parentContainer.querySelectorAll(`.${this.visibleClass}_${mod}`),
+      ]);
+    } else {
+      arr_menu = entries.map(([key, mod]) => [
+        ...document.querySelectorAll(`.${this.visibleClass}_${mod}`),
+      ]);
+    }
     arr_menu = arr_menu.flat();
 
     return arr_menu;

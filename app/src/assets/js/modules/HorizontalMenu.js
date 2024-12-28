@@ -14,13 +14,13 @@ class HorizontalMenu {
               iconOverflow: '.icon-overflow', // определяет внешний вид иконки overflow menu
               iconOverflowOpen: '.icon-overflow_open', // определяет внешний вид иконки overflow menu когда overflow menu открыто
               
-              iconBurger: 'icon-drop', // определяет внешний вид иконки Burgerr menu
-              iconBurgerOpen: 'icon-drop_open', // определяет внешний вид иконки Burgerr menu когда Burgerr menu открыто  iconBurger НЕбудет удалён
+              iconBurger: 'icon-drop', // определяет внешний вид иконки Burger menu
+              iconBurgerOpen: 'icon-drop_open', // определяет внешний вид иконки Burger menu когда Burger menu открыто  iconBurger НЕбудет удалён
               breakPointBurger: 768,      // размер окна при котором происходит перестроения в burger меню из overflow меню
               
-              // single: 'false', // допускает одновременное открытие нескольких меню т.е. открытие следующего меню не закрывает предидущее
+              single: 'false', // допускает одновременное открытие нескольких меню т.е. открытие следующего меню не закрывает предыдущее
 
-              contAdditionalClasses: { // пользаватеьские классы определяющие внешний вид открытых пунтков меню или контейнеров
+              contAdditionalClasses: { // пользовательские классы определяющие внешний вид открытых пунов меню или контейнеров
                   drop: [],
                   overflow: [],
                   burger: [],
@@ -52,7 +52,7 @@ class HorizontalMenu {
     burger: 'burger-cont',
   };
 
-  // объект, модификаторы классов для того что бы каждый вид меню мог открываться - закрываться посвоему
+  // объект, модификаторы классов для того что бы каждый вид меню мог открываться - закрываться по своему
   modifiers = {
     drop: 'drop',
     overflow: 'overflow',
@@ -484,17 +484,26 @@ class HorizontalMenu {
       return null;
     }
 
-    let flaf = 0;
+    let flag = 0;
     let arr_values = Object.values(this.modifiers);
 
     for (var i = arr_values.length - 1; i >= 0; i--) {
+      console.log('currentMenu = ', currentMenu);
+
+      console.log(
+        '`this.visibleClass_${arr_values[i]}` = ',
+        `this.visibleClass_${arr_values[i]}`
+      );
+
       if (currentMenu.closest(`.${this.visibleClass}_${arr_values[i]}`)) {
-        flaf = 1;
+        flag = 1;
         break;
       }
     }
 
-    if (flaf == 0) {
+    console.log('flag = ', flag);
+
+    if (flag == 0) {
       let openedMenu = this._getAllOpenMenus();
       if (openedMenu.length > 0) {
         openedMenu.forEach(openedMenu => {

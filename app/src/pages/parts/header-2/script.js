@@ -90,11 +90,14 @@
 
       phones_icon.classList.add('hidden');
       email_icon.classList.add('hidden');
+
+      phones_block.classList.add('visible-phone');
     } else {
       if (!email_link.contains(e.target) && !phones_block.contains(e.target)) {
         email_link.classList.remove('visible-email');
         email_icon.classList.remove('hidden');
         phones_icon.classList.remove('hidden');
+        phones_block.classList.remove('visible-phone');
 
         nl_phones_links.forEach(phones_link => {
           phones_link.classList.add('hidden');

@@ -119,6 +119,8 @@
      #svg_phone {
        display: block;
      }
+
+    
   });
 
   a {
@@ -146,11 +148,10 @@
     column-gap: 20px;
     .adaptive-prop(font-size, 16, 14);
     width: auto;
+    height: 100%;
 
     .to(480px,{
-      // ul{
-      //   display: none;
-      // }
+      column-gap: 0px;
       svg {
         display: block;
       } 
@@ -181,6 +182,21 @@
   z-index: 1;
   opacity: 1;
   transition: top 1s, opacity 1s;
+}
+
+.visible-phone {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  justify-content: space-around;
+
+  padding: 10px 10px 10px 10px;
+
+  background-color: #222322;
+
+  transition: all 0.2s;
 }
 
 // .rmbt-header-2-top-col-center {

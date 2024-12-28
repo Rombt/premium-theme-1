@@ -445,7 +445,7 @@ class HorizontalMenu {
   }
 
   OpenMenu(currentMenu, modifier) {
-    this.checSingle(currentMenu);
+    this.checkSingle(currentMenu);
 
     if (typeof gsap !== 'undefined') {
       if (modifier === this.modifiers.drop) {
@@ -479,21 +479,38 @@ class HorizontalMenu {
     this.changeStateIconMenu(currentMenu, modifier, 'open');
   }
 
-  checSingle(currentMenu) {
+  /**
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   */
+  checkSingle(currentMenu) {
     if (this.single !== 'true') {
       return null;
     }
 
+    // console.log('currentMenu = ', currentMenu);
+
     let flag = 0;
     let arr_values = Object.values(this.modifiers);
 
-    for (var i = arr_values.length - 1; i >= 0; i--) {
-      console.log('currentMenu = ', currentMenu);
+    // console.log('arr_values  = ', arr_values);
 
-      console.log(
-        '`this.visibleClass_${arr_values[i]}` = ',
-        `this.visibleClass_${arr_values[i]}`
-      );
+    for (var i = arr_values.length - 1; i >= 0; i--) {
+      // console.log(
+      //   '`this.visibleClass_${arr_values[i]}` = ',
+      //   `this.visibleClass_${arr_values[i]}`
+      // );
+
+      // console.log('this.visibleClass = ', this.visibleClass);
+      // console.log(
+      //   'currentMenu.closest(`.${this.visibleClass}_${arr_values[i]}`) = ',
+      //   currentMenu.closest(`.${this.visibleClass}_${arr_values[i]}`)
+      // );
 
       if (currentMenu.closest(`.${this.visibleClass}_${arr_values[i]}`)) {
         flag = 1;
@@ -501,7 +518,7 @@ class HorizontalMenu {
       }
     }
 
-    console.log('flag = ', flag);
+    // console.log('flag = ', flag);
 
     if (flag == 0) {
       let openedMenu = this._getAllOpenMenus();
@@ -547,7 +564,11 @@ class HorizontalMenu {
           }
         });
       } else {
-        this.clickOut();
+        this.containersMenu.forEach(containerMenu => {
+          if (!target.closest(containerMenu)) {
+            this.clickOut();
+          }
+        });
       }
     });
   }

@@ -47,6 +47,7 @@
   const email_link = document.querySelector('.rmbt-header-2-top-col-left__email a');
 
   const phones_icon = document.querySelector('.rmbt-header-2-top-col-left__phones > svg');
+  const phones_block = document.querySelector('.rmbt-header-2-top-col-left__phones');
   const nl_phones_links = document.querySelectorAll(
     '.rmbt-header-2-top-col-left__phones ul'
   );
@@ -77,12 +78,28 @@
     }
   });
 
-  email_icon.addEventListener('click', e => {
-    email_link.classList.add('visible');
-    email_icon.classList.add('hidden');
-  });
-  phones_icon.addEventListener('click', e => {
-    phones_links.classList.add('visible');
-    phones_icon.classList.add('hidden');
+  document.addEventListener('click', e => {
+    if (email_icon.contains(e.target)) {
+      email_link.classList.add('visible-email');
+      email_icon.classList.add('hidden');
+      phones_icon.classList.add('hidden');
+    } else if (phones_icon.contains(e.target)) {
+      nl_phones_links.forEach(phones_link => {
+        phones_link.classList.remove('hidden');
+      });
+
+      phones_icon.classList.add('hidden');
+      email_icon.classList.add('hidden');
+    } else {
+      if (!email_link.contains(e.target) && !phones_block.contains(e.target)) {
+        email_link.classList.remove('visible-email');
+        email_icon.classList.remove('hidden');
+        phones_icon.classList.remove('hidden');
+
+        nl_phones_links.forEach(phones_link => {
+          phones_link.classList.add('hidden');
+        });
+      }
+    }
   });
 })();

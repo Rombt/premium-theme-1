@@ -445,7 +445,7 @@ class HorizontalMenu {
   }
 
   OpenMenu(currentMenu, modifier) {
-    this.checkSingle(currentMenu);
+    // this.checkSingle(currentMenu);
 
     if (typeof gsap !== 'undefined') {
       if (modifier === this.modifiers.drop) {
@@ -477,15 +477,16 @@ class HorizontalMenu {
 
     currentMenu.classList.add(this.visibleClass + '_' + modifier);
     this.changeStateIconMenu(currentMenu, modifier, 'open');
+
+    this.checkSingle(currentMenu);
   }
 
   /**
    *
-   *
-   *
-   *
-   *
-   *
+   *  закрывать все открытые меню кроме родительских
+   *    не только в других контейнерах меню
+   *    но и соседние в текущем контейнере
+   *    в мобильной версии в том числе!!
    *
    */
   checkSingle(currentMenu) {
@@ -493,32 +494,41 @@ class HorizontalMenu {
       return null;
     }
 
-    // console.log('currentMenu = ', currentMenu);
-
     let flag = 0;
     let arr_values = Object.values(this.modifiers);
 
-    // console.log('arr_values  = ', arr_values);
-
     for (var i = arr_values.length - 1; i >= 0; i--) {
-      // console.log(
-      //   '`this.visibleClass_${arr_values[i]}` = ',
-      //   `this.visibleClass_${arr_values[i]}`
-      // );
-
-      // console.log('this.visibleClass = ', this.visibleClass);
-      // console.log(
-      //   'currentMenu.closest(`.${this.visibleClass}_${arr_values[i]}`) = ',
-      //   currentMenu.closest(`.${this.visibleClass}_${arr_values[i]}`)
-      // );
-
       if (currentMenu.closest(`.${this.visibleClass}_${arr_values[i]}`)) {
+        const parentLi = currentMenu.closest('li');
+        const parentUl = parentLi ? parentLi.closest('ul') : null;
+
+        let currentMenuVisibleClass = '';
+        currentMenu.classList.forEach(classStr => {
+          arr_values.forEach(modifiers => {
+            if (classStr.includes(`${this.visibleClass}_${modifiers}`)) {
+              currentMenuVisibleClass = classStr;
+              return;
+            }
+            if (currentMenuVisibleClass !== '') return;
+          });
+        });
+
+        const neighboringMenus = parentUl?.querySelectorAll(
+          `.${currentMenuVisibleClass}`
+        );
+
+        if (neighboringMenus && neighboringMenus.length > 1) {
+          neighboringMenus.forEach(neighboringMenu => {
+            if (currentMenu !== neighboringMenu) {
+              this.closeMenu(neighboringMenu);
+            }
+          });
+        }
+
         flag = 1;
         break;
       }
     }
-
-    // console.log('flag = ', flag);
 
     if (flag == 0) {
       let openedMenu = this._getAllOpenMenus();

@@ -125,6 +125,10 @@
     width: auto;
   
   });
+
+  .rmbt-social-networks {
+    display: none;
+  }
 }
 
 .rmbt-hero-block-1 {
@@ -317,7 +321,6 @@
   }
 
   .rmbt-button-link {
-    // .adaptive-prop(width, 150, 120);
     width: 80%;
     min-width: 180px;
     margin: 0px auto 0 auto;
@@ -325,9 +328,16 @@
 
   .rmbt-social-networks {
     svg {
-      width: 48px;
-      height: 48px;
+      width: 45px;
+      height: 45px;
     }
+
+    .to(768px,{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    });
   }
 }
 

@@ -1,8 +1,10 @@
 <div class="rmbt-social-networks" <?= ! empty( $args['data'] ) ? $args['data'] : '' ?>>
 
-	<svg>
-		<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#facebook_1"></use>
-	</svg>
+	<a href="<?= ! empty( $args['href_1'] ) ? $args['href_1'] : '#' ?>">
+		<svg>
+			<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#facebook_1"></use>
+		</svg>
+	</a>
 
 	<svg>
 		<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#instagram_1"></use>

@@ -49,6 +49,10 @@
 
 				?>
 
+				<?php get_template_part( 'pages/components/social-networks/social-networks', null, [ 
+					'data' => 'data-da=".menu-header-navigation-container, 769, last"',
+				] ); ?>
+
 			</div>
 		</div>
 	</section>

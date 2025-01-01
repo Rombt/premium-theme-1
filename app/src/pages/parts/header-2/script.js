@@ -76,6 +76,8 @@
   });
 
   document.addEventListener('click', e => {
+    // console.log('000');
+
     if (email_icon.contains(e.target)) {
       email_link.classList.add('visible-email');
       email_icon.classList.add('hidden');
@@ -90,7 +92,14 @@
 
       phones_block.classList.add('visible-phone');
     } else {
-      if (!email_link.contains(e.target) && !phones_block.contains(e.target)) {
+      console.log('111');
+
+      if (
+        (email_link.classList.contains('visible-email') ||
+          phones_block.classList.contains('visible-phone')) &&
+        !email_link.contains(e.target) &&
+        !phones_block.contains(e.target)
+      ) {
         email_link.classList.remove('visible-email');
         email_icon.classList.remove('hidden');
         phones_icon.classList.remove('hidden');

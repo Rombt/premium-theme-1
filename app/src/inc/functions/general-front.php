@@ -340,6 +340,8 @@ function rmbt_redux_get_url( $id_field, $custom_default_url = '' ) {
 function rmbt_redux_img( $id_field_pic, $alt = "", $id_svg = '' ) {
 	global $rmbt_theme_options;
 
+	if ( ! array_key_exists( $id_field_pic, $rmbt_theme_options ) )
+		return "";
 
 
 	if ( $rmbt_theme_options[ $id_field_pic ]['url'] ) {

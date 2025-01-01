@@ -20,6 +20,7 @@ Redux::set_section(
 				'title' => esc_html__( 'It is the first icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
 				'compiler' => 'true',
 				'preview_size' => 'full',
+				'remove' => true,
 			),
 			array(
 				'id' => 'rmbt-social-networks-icon_1_alt',
@@ -39,6 +40,7 @@ Redux::set_section(
 				'title' => esc_html__( 'It is the second icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
 				'compiler' => 'true',
 				'preview_size' => 'full',
+				'remove' => true,
 			),
 			array(
 				'id' => 'rmbt-social-networks-icon_2_alt',
@@ -58,6 +60,7 @@ Redux::set_section(
 				'title' => esc_html__( 'It is the third icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
 				'compiler' => 'true',
 				'preview_size' => 'full',
+				'remove' => true,
 			),
 			array(
 				'id' => 'rmbt-social-networks-icon_3_alt',
@@ -77,6 +80,7 @@ Redux::set_section(
 				'title' => esc_html__( 'It is the fourth icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
 				'compiler' => 'true',
 				'preview_size' => 'full',
+				'remove' => true,
 			),
 			array(
 				'id' => 'rmbt-social-networks-icon_4_alt',

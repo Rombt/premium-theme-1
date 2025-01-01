@@ -1,18 +1,10 @@
 <div class="rmbt-full-width rmbt-hero-block-1-full-width">
 
 	<div class="rmbt-hero-block-1-full-width__bg">
-		<!-- <div class="wrap-img">
-			<img src="<?php // echo get_template_directory_uri() ?>/assets/img/hero_1 1.jpg" alt="hero-block-bg">
-		</div> -->
-
 		<div class="wrap-img">
 			<?php echo rmbt_redux_img( 'rmbt-hero-block-1-bg_img', 'rmbt-hero-block-1-bg_img_alt' ) ?>
 		</div>
-
-
-
 	</div>
-
 
 	<section class="rmbt-container rmbt-hero-block-1-top-row">
 		<div class="rmbt-hero-block-1-top-row__row rmbt-hero-block-1-top-row">
@@ -22,7 +14,6 @@
 				<?php endif ?>
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-center">
-
 				<?php if ( has_nav_menu( 'header_nav' ) ) { ?>
 					<div class="rmbt-menu-horizontal" data-da=".rmbt-hero-block-1-top-row-col-right, 768">
 						<?php wp_nav_menu(
@@ -33,7 +24,6 @@
 						); ?>
 					</div>
 				<?php } ?>
-
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-right">
 				<?php get_template_part( 'pages/components/button-link/button', 'link', [ 
@@ -42,7 +32,6 @@
 					'href' => rmbt_get_redux_field( 'rmbt-call_to_action_button-link', 1 ),
 				] );
 				?>
-
 				<?php get_template_part( 'pages/components/social-networks/social-networks', null, [ 
 					'data' => 'data-da=".menu-header-navigation-container, 769, last"',
 				] ); ?>
@@ -50,9 +39,6 @@
 			</div>
 		</div>
 	</section>
-
-
-
 
 
 	<section class="rmbt-container rmbt-hero-block-1">

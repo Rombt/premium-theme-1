@@ -60,12 +60,19 @@
 			</div>
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-left'>
 
-				<div class="rmbt-hero-block-1-col-left__bg">
-					<!-- <div class="wrap-img">
-						<img src="<?php echo get_template_directory_uri() ?>/assets/img/bg_transparent.jpg"
+				заголовок
+				под заголовок
+				дополнительные контролы
+				кнопки или
+				поля ввода
+
+
+				<!-- <div class="rmbt-hero-block-1-col-left__bg"> -->
+				<!-- <div class="wrap-img">
+						<img src="<?php // echo get_template_directory_uri() ?>/assets/img/bg_transparent.jpg"
 							alt="hero-block-bg">
 					</div> -->
-				</div>
+				<!-- </div> -->
 
 			</div>
 			<!-- <div class="rmbt-hero-block-1__title-block rmbt-title-block">

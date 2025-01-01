@@ -16,7 +16,6 @@
 
 	<section class="rmbt-container rmbt-hero-block-1-top-row">
 		<div class="rmbt-hero-block-1-top-row__row rmbt-hero-block-1-top-row">
-
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-left">
 				<?php if ( has_custom_logo() ) : ?>
 					<?php the_custom_logo(); ?>
@@ -37,15 +36,11 @@
 
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-right">
-				<?php
-
-
-				get_template_part( 'pages/components/button-link/button', 'link', [ 
+				<?php get_template_part( 'pages/components/button-link/button', 'link', [ 
 					'data' => 'data-da=".menu-header-navigation-container, 769"',
 					'title' => rmbt_get_redux_field( 'rmbt-call_to_action_button-text', 1 ),
 					'href' => rmbt_get_redux_field( 'rmbt-call_to_action_button-link', 1 ),
 				] );
-
 				?>
 
 				<?php get_template_part( 'pages/components/social-networks/social-networks', null, [ 

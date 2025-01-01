@@ -6,7 +6,7 @@
 		</div> -->
 
 		<div class="wrap-img">
-			<?php echo rmbt_redux_img( 'rmbt-bg_section-img', 'rmbt-bg_section-img_alt' ) ?>
+			<?php echo rmbt_redux_img( 'rmbt-hero-block-1-bg_img', 'rmbt-hero-block-1-bg_img_alt' ) ?>
 		</div>
 
 
@@ -41,10 +41,9 @@
 
 
 				get_template_part( 'pages/components/button-link/button', 'link', [ 
-					// 'data' => 'data-da="#menu-header-navigation, 769"',
 					'data' => 'data-da=".menu-header-navigation-container, 769"',
 					'title' => rmbt_get_redux_field( 'rmbt-call_to_action_button-text', 1 ),
-					'href' => '#',
+					'href' => rmbt_get_redux_field( 'rmbt-call_to_action_button-link', 1 ),
 				] );
 
 				?>

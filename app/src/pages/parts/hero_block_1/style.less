@@ -211,6 +211,14 @@
   flex-grow: 1;
   position: relative;
 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  // row-gap: 30px;
+
+  padding: 0px 40px 0px 40px;
+
   &__bg {
     position: absolute;
     left: 0;
@@ -237,17 +245,100 @@
   &__title {
     position: relative;
 
-    border: 1px solid #0515fd;
+    // font-size: 50px;
+    // font-family: Lemonada;
+    // font-weight: 500;
+    // line-height: 60px;
+    // // color: #d5d5d5;
+    // color: #d7d7d8;
+    // letter-spacing: 0.026em;
+    // -----------------------------------
+
+    font-family: Overlock;
+    font-size: 45px;
+    line-height: 45px;
+    font-weight: 700;
+    // color: #f99945;
+    // color: #c4946c;
+    // color: #d7d7d8;
+    // color: #e6e6e6;
+    color: #eaeaea;
+    letter-spacing: 0em;
+
+    margin-left: 50px;
+
+    span {
+      color: #f35200;
+    }
+
+    // -----------------------------------
+
+    // font-family: Quicksand;
+    // font-size: 54px;
+    // line-height: 60px;
+    // font-weight: 800;
+    // color: #d5d5d5;
+    // letter-spacing: 0.005em;
+    // font-style: italic;
+
+    //-----------------------------------
+
+    // font-family: Ubuntu; // may be for slogan or subtitle
+    // font-size: 68px;
+    // line-height: 66px;
+    // font-weight: 300;
+    // color: #d5d5d5;
+    // letter-spacing: 0.032em;
+    // // font-style: italic;
+
+    // -----------------------------------
+
+    // font-family: YanoneKaffeesatz; // may be for slogan or subtitle
+    // color: #d5d5d5;
+    // letter-spacing: 0.029em;
+    // font-size: 58px;
+    // font-weight: 300;
+    // font-style: normal;
+    // line-height: 61px;
   }
   &__subtitle {
     position: relative;
 
-    border: 1px solid #0515fd;
+    width: 60%;
+    margin-top: 20px;
+    // margin-left: 130px;
+
+    font-family: Ubuntu;
+    font-size: 16px;
+    line-height: 110%;
+    font-weight: 200;
+    color: #eaeaea;
+    // color: #1effaa;
+    // color: #1affde;
+    // color: #f35200;
+    letter-spacing: 0em;
+    text-transform: lowercase;
   }
   &__slogan {
     position: relative;
+    margin-bottom: 5px;
+    margin-left: 320px;
 
-    border: 1px solid #0515fd;
+    font-family: Ubuntu;
+    // font-family: Overlock;
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 200;
+    color: #eaeaea;
+    // color: #1effaa;
+    // color: #f35200;
+    letter-spacing: 0em;
+    // text-transform: lowercase;
+    text-transform: uppercase;
+
+    // span {
+    //   color: #f35200;
+    // }
   }
 }
 

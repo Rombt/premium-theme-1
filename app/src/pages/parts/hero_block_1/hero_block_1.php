@@ -64,16 +64,17 @@
 				</div>
 
 				<div class="rmbt-hero-block-1-col-left__slogan">
-					Websites Branding Digital Marketing
+					Websites branding digital marketing
 				</div>
 				<div class="rmbt-hero-block-1-col-left__title">
-					Winning Designs Made Simple! Create Like a Pro
+					<span>Winning</span> designs made simple!
 				</div>
 				<div class="rmbt-hero-block-1-col-left__subtitle">
-					Visual design, UI/UX & digital marketing
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam suscipit tenetur ratione optio deleniti,
+					eos eveniet ipsa laudantium iusto. Nulla.
 				</div>
 
-				<?php get_template_part( 'pages/components/controls_container/controls_container' ); ?>
+				<?php // get_template_part( 'pages/components/controls_container/controls_container' ); ?>
 
 			</div>
 			<!-- <div class="rmbt-hero-block-1__title-block rmbt-title-block">

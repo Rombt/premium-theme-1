@@ -26,7 +26,7 @@
 				<?php } ?>
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-right">
-				<?php get_template_part( 'pages/components/button_link/button_link', 'null', [ 
+				<?php get_template_part( 'pages/components/button_cta/button_cta', 'null', [ 
 					'data' => 'data-da=".menu-header-navigation-container, 769"',
 					'title' => rmbt_get_redux_field( 'rmbt-call_to_action_button-text', 1 ),
 					'href' => rmbt_get_redux_field( 'rmbt-call_to_action_button-link', 1 ),
@@ -60,29 +60,20 @@
 			</div>
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-left'>
 
-
 				<div class="rmbt-hero-block-1-col-left__bg">
 				</div>
 
-
 				<div class="rmbt-hero-block-1-col-left__slogan">
-					слоган
+					Websites Branding Digital Marketing
 				</div>
 				<div class="rmbt-hero-block-1-col-left__title">
-					заголовок
+					Winning Designs Made Simple! Create Like a Pro
 				</div>
 				<div class="rmbt-hero-block-1-col-left__subtitle">
-					под заголовок
+					Visual design, UI/UX & digital marketing
 				</div>
 
-				<div class="controls-container">
-
-				</div>
 				<?php get_template_part( 'pages/components/controls_container/controls_container' ); ?>
-				дополнительные контролы
-				кнопки или
-				поля ввода
-
 
 			</div>
 			<!-- <div class="rmbt-hero-block-1__title-block rmbt-title-block">
@@ -100,7 +91,7 @@
 						cal-to-action-bottom
 					</div>
 				</a>
-				<?php get_template_part( 'template-parts/_templates/components\button-0\button-0' ); ?>
+				<?php // get_template_part( 'template-parts/_templates/components\button-0\button-0' ); ?>
 
 
 			</div> -->

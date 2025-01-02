@@ -233,56 +233,72 @@
       backdrop-filter: blur(4px);
     }
   }
-}
-
-.rmbt-title-block {
-  width: 400px;
-  height: 240px;
-
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 30px;
-
-  border: 1px solid @border-color-wireframe-inner;
-  background-color: #fff;
-
-  &__decor {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    // transform: translate(-50%,-50%);
-    width: 30px;
-    height: 30px;
-
-    border-radius: 50%;
-    border: 1px solid @border-color-wireframe-inner;
-  }
-
-  &__icon {
-    width: 40px;
-    height: 40px;
-
-    border: 1px dashed @border-color-wireframe-inner;
-    margin-bottom: 30px;
-  }
 
   &__title {
-    width: 75%;
-    height: 50px;
-    border: 1px dashed @border-color-wireframe-inner;
-    margin-bottom: 25px;
+    position: relative;
+
+    border: 1px solid #0515fd;
   }
   &__subtitle {
-    width: 40%;
-    height: 30px;
-    border: 1px dashed @border-color-wireframe-inner;
-    margin-bottom: 10px;
+    position: relative;
+
+    border: 1px solid #0515fd;
+  }
+  &__slogan {
+    position: relative;
+
+    border: 1px solid #0515fd;
   }
 }
+
+// .rmbt-title-block {
+//   width: 400px;
+//   height: 240px;
+
+//   box-sizing: border-box;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   padding-left: 30px;
+
+//   border: 1px solid @border-color-wireframe-inner;
+//   background-color: #fff;
+
+//   &__decor {
+//     position: absolute;
+//     right: 20px;
+//     top: 15px;
+//     // transform: translate(-50%,-50%);
+//     width: 30px;
+//     height: 30px;
+
+//     border-radius: 50%;
+//     border: 1px solid @border-color-wireframe-inner;
+//   }
+
+//   &__icon {
+//     width: 40px;
+//     height: 40px;
+
+//     border: 1px dashed @border-color-wireframe-inner;
+//     margin-bottom: 30px;
+//   }
+
+//   &__title {
+//     width: 75%;
+//     height: 50px;
+//     border: 1px dashed @border-color-wireframe-inner;
+//     margin-bottom: 25px;
+//   }
+//   &__subtitle {
+//     width: 40%;
+//     height: 30px;
+//     border: 1px dashed @border-color-wireframe-inner;
+//     margin-bottom: 10px;
+//   }
+// }
 
 .rmbt-visible_burger,
 .menu-header-navigation-container {

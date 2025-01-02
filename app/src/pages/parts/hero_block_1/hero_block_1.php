@@ -26,13 +26,13 @@
 				<?php } ?>
 			</div>
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-right">
-				<?php get_template_part( 'pages/components/button-link/button', 'link', [ 
+				<?php get_template_part( 'pages/components/button_link/button_link', 'null', [ 
 					'data' => 'data-da=".menu-header-navigation-container, 769"',
 					'title' => rmbt_get_redux_field( 'rmbt-call_to_action_button-text', 1 ),
 					'href' => rmbt_get_redux_field( 'rmbt-call_to_action_button-link', 1 ),
 				] );
 				?>
-				<?php get_template_part( 'pages/components/social-networks/social-networks', null, [ 
+				<?php get_template_part( 'pages/components/social_networks/social_networks', null, [ 
 					'data' => 'data-da=".menu-header-navigation-container, 769, last"',
 				] ); ?>
 
@@ -60,19 +60,29 @@
 			</div>
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-left'>
 
-				заголовок
-				под заголовок
+
+				<div class="rmbt-hero-block-1-col-left__bg">
+				</div>
+
+
+				<div class="rmbt-hero-block-1-col-left__slogan">
+					слоган
+				</div>
+				<div class="rmbt-hero-block-1-col-left__title">
+					заголовок
+				</div>
+				<div class="rmbt-hero-block-1-col-left__subtitle">
+					под заголовок
+				</div>
+
+				<div class="controls-container">
+
+				</div>
+				<?php get_template_part( 'pages/components/controls_container/controls_container' ); ?>
 				дополнительные контролы
 				кнопки или
 				поля ввода
 
-
-				<!-- <div class="rmbt-hero-block-1-col-left__bg"> -->
-				<!-- <div class="wrap-img">
-						<img src="<?php // echo get_template_directory_uri() ?>/assets/img/bg_transparent.jpg"
-							alt="hero-block-bg">
-					</div> -->
-				<!-- </div> -->
 
 			</div>
 			<!-- <div class="rmbt-hero-block-1__title-block rmbt-title-block">
@@ -84,11 +94,7 @@
 						subtitle
 					</div>
 				</div>
-				<div class="rmbt-title-block__title">
-					<div class="block-details">
-						title
-					</div>
-				</div>
+
 				<a href="#" class='rmbt-title-block__button'>
 					<div class="block-details">
 						cal-to-action-bottom

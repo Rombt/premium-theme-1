@@ -38,7 +38,7 @@
 //=============================================================================
 
 const minDistanceSvg = 50; // В пикселях
-const minDistanceRegion = 20; // В пикселях
+const minDistanceRegion = 30; // В пикселях
 
 const containerSvg = document.querySelector('.rmbt-hero-block-1-col-left__bg');
 const widthContainerSvg = containerSvg.clientWidth;

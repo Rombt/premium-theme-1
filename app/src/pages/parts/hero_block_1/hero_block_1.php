@@ -62,8 +62,13 @@
 
 				<div class="rmbt-hero-block-1-col-left__bg">
 
+
+
 					<?php
-					for ( $i = 1; $i < rand( 8, 13 ); $i++ ) { ?>
+					for ( $i = 8; $i < 17; $i++ ) {
+						// for ( $i = 1; $i < rand( 18, 24 ); $i++ ) { 
+					
+						?>
 
 						<!-- <svg>
 							<use
@@ -82,7 +87,7 @@
 						</svg> -->
 						<svg>
 							<use
-								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_2_<?= $i ?>">
+								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_1_<?= $i ?>">
 							</use>
 						</svg>
 

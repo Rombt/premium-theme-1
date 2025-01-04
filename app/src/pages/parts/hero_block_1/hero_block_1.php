@@ -63,27 +63,31 @@
 				<div class="rmbt-hero-block-1-col-left__bg">
 
 					<?php
-					for ( $i = 1; $i < 13; $i++ ) { ?>
+					for ( $i = 1; $i < rand( 8, 13 ); $i++ ) { ?>
 
-						<svg>
+						<!-- <svg>
 							<use
 								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_1_<?= $i ?>">
+							</use>
+						</svg> -->
+						<!-- <svg>
+							<use
+								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_2_<?= $i ?>">
+							</use>
+						</svg> -->
+						<!-- <svg>
+							<use
+								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_<?= rand( 1, 3 ) ?>_<?= $i ?>">
+							</use>
+						</svg> -->
+						<svg>
+							<use
+								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_2_<?= $i ?>">
 							</use>
 						</svg>
 
 					<?php } ?>
 
-
-
-					<!-- <svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_2"></use>
-					</svg>
-					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_3"></use>
-					</svg>
-					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_4"></use>
-					</svg> -->
 
 				</div>
 

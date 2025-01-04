@@ -34,6 +34,12 @@
   });
 })();
 
+//=============================================================================
+//=============================================================================
+
+const minDistanceSvg = 50; // В пикселях
+const minDistanceRegion = 20; // В пикселях
+
 const containerSvg = document.querySelector('.rmbt-hero-block-1-col-left__bg');
 const widthContainerSvg = containerSvg.clientWidth;
 const heightContainerSvg = containerSvg.clientHeight;
@@ -74,15 +80,16 @@ nl_svg.forEach((svg, i) => {
 
   svg.style.left = x + 'px';
   svg.style.top = y + 'px';
+  placedSVGs.push({ x, y, width: widthSvg, height: heighSvg });
 });
 
 function isOverlapping(x, y, width, height) {
   const overlapsRestricted = restrictedRegions.some(
     region =>
-      x < region.x + region.width &&
-      x + width > region.x &&
-      y < region.y + region.height &&
-      y + height > region.y
+      x < region.x + region.width + minDistanceRegion &&
+      x + width > region.x - minDistanceRegion &&
+      y < region.y + region.height + minDistanceRegion &&
+      y + height > region.y - minDistanceRegion
   );
 
   if (overlapsRestricted) return true;
@@ -91,7 +98,7 @@ function isOverlapping(x, y, width, height) {
     const dx = svg.x + svg.width / 2 - (x + width / 2);
     const dy = svg.y + svg.height / 2 - (y + height / 2);
     const distance = Math.sqrt(dx * dx + dy * dy);
-    return distance < minDistance + Math.max(width, height) / 2;
+    return distance < minDistanceSvg + Math.max(width, height) / 2;
   });
 
   return overlapsSVGs;

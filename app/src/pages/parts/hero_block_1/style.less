@@ -154,19 +154,25 @@
     z-index: 2;
   }
 
-  &__right-text {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translate(0%, -50%);
-    border: 1px dashed @border-color-wireframe-inner;
+  // &__right-text {
+  //   position: absolute;
+  //   right: 30px;
+  //   top: 50%;
+  //   transform: translate(0%, -50%);
+  //   width: 30px;
+  //   height: 80%;
+  //   writing-mode: vertical-rl;
+  //   text-orientation: upright; /* Чтобы буквы не были наклонены */
 
-    width: 30px;
-    height: 80%;
-
-    writing-mode: vertical-rl;
-    text-orientation: upright; /* Чтобы буквы не были наклонены */
-  }
+  //   font-family: Ubuntu;
+  //   font-size: 16px;
+  //   line-height: 200%;
+  //   font-weight: 200;
+  //   color: #eaeaea;
+  //   text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+  //   letter-spacing: 0.022em;
+  //   text-transform: uppercase;
+  // }
 }
 .rmbt-hero-block-1-col-right {
   flex-basis: 30%;
@@ -189,9 +195,12 @@
 
       background-color: @color_background_col;
       border-radius: 16px 0px 0px 16px;
-      border: 1px solid @color_border_col;
       backdrop-filter: blur(4px);
-      box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
+      // border: 1px solid @color_border_col;
+      // box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
+
+      background-color: rgba(213, 213, 213, 0.15);
+      box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
     }
   }
 
@@ -226,7 +235,8 @@
     width: 100%;
     height: 100%;
 
-    &:after {
+    // &:after {
+    &::before {
       content: '';
       position: absolute;
       left: 0;
@@ -236,9 +246,21 @@
 
       border: 1px solid @color_border_col;
       border-radius: 0px 16px 16px 0px;
-      background-color: @color_background_col;
-      box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
+      // background-color: @color_background_col;
+      // box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
+
+      background-color: rgba(213, 213, 213, 0.15);
+      box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+
       backdrop-filter: blur(4px);
+    }
+
+    svg {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
     }
   }
 
@@ -285,11 +307,12 @@
     font-family: Ubuntu;
     font-size: 16px;
     line-height: 100%;
-    font-weight: 200;
-    color: #eaeaea;
+    font-weight: 400;
+    // color: #eaeaea;
+    color: #fff;
     letter-spacing: 0em;
     text-transform: uppercase;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
   }
 }
 

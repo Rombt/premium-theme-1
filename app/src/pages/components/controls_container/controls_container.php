@@ -8,7 +8,7 @@
 	?>
 
 	<?php get_template_part( 'pages/components/button_nav/button_nav', 'null', [ 
-		'data' => 'data-da=""',
+		'data' => '',
 		'title' => rmbt_get_redux_field( 'rmbt-call_to_action_button-text', 1 ),
 		'href' => rmbt_get_redux_field( 'rmbt-call_to_action_button-link', 1 ),
 	] );

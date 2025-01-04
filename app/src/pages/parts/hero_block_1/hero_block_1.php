@@ -61,10 +61,34 @@
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-left'>
 
 				<div class="rmbt-hero-block-1-col-left__bg">
+
+					<?php
+					for ( $i = 1; $i < 13; $i++ ) { ?>
+
+						<svg>
+							<use
+								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_1_<?= $i ?>">
+							</use>
+						</svg>
+
+					<?php } ?>
+
+
+
+					<!-- <svg>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_2"></use>
+					</svg>
+					<svg>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_3"></use>
+					</svg>
+					<svg>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_4"></use>
+					</svg> -->
+
 				</div>
 
 				<div class="rmbt-hero-block-1-col-left__slogan">
-					Websites branding digital marketing
+					A Website that Leads to Customers
 				</div>
 				<div class="rmbt-hero-block-1-col-left__title">
 					<span>Winning</span> designs made simple!
@@ -74,7 +98,7 @@
 					eos eveniet ipsa laudantium iusto. Nulla.
 				</div>
 
-				<?php // get_template_part( 'pages/components/controls_container/controls_container' ); ?>
+				<?php get_template_part( 'pages/components/controls_container/controls_container' ); ?>
 
 			</div>
 			<!-- <div class="rmbt-hero-block-1__title-block rmbt-title-block">
@@ -96,11 +120,9 @@
 
 
 			</div> -->
-			<div class="rmbt-hero-block-1__right-text">
-				<div class="block-details">
-					текстовой нюанс
-				</div>
-			</div>
+			<!-- <div class="rmbt-hero-block-1__right-text">
+				digital marketing
+			</div> -->
 		</div>
 	</section>
 </div>

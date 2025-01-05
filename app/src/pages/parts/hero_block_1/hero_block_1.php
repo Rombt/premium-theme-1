@@ -57,79 +57,34 @@
 
 			</div>
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-left'>
-
 				<div class="rmbt-hero-block-1-col-left__bg">
 
-
-
-					<?php
-					for ( $i = 1; $i < 13; $i++ ) {
-						// for ( $i = 1; $i < rand( 18, 24 ); $i++ ) { 
-					
-						?>
-
-						<!-- <svg>
-							<use
-								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_1_<?= $i ?>">
-							</use>
-						</svg> -->
-						<!-- <svg>
-							<use
-								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_2_<?= $i ?>">
-							</use>
-						</svg> -->
-						<!-- <svg>
-							<use
-								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_<?= rand( 1, 3 ) ?>_<?= $i ?>">
-							</use>
-						</svg> -->
+					<?php for ( $i = 1; $i < 13; $i++ ) { ?>
 						<svg>
 							<use
 								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_1_<?= $i ?>">
 							</use>
 						</svg>
-
 					<?php } ?>
-
-
 				</div>
 
-				<div class="rmbt-hero-block-1-col-left__slogan">
-					A Website that Leads to Customers
-				</div>
-				<div class="rmbt-hero-block-1-col-left__title">
-					<span>Winning</span> designs made simple!
-				</div>
-				<div class="rmbt-hero-block-1-col-left__subtitle">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam suscipit tenetur ratione optio deleniti,
-					eos eveniet ipsa laudantium iusto. Nulla.
+				<div class="rmbt-hero-block-1-col-left__content">
+					<div class="rmbt-hero-block-1-col-left__slogan">
+						A Website that Leads to Customers
+					</div>
+					<div class="rmbt-hero-block-1-col-left__title">
+						<span>Winning</span> designs made simple!
+					</div>
+					<div class="rmbt-hero-block-1-col-left__subtitle">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam suscipit tenetur ratione optio
+						deleniti,
+						eos eveniet ipsa laudantium iusto. Nulla.
+					</div>
 				</div>
 
 				<?php get_template_part( 'pages/components/controls_container/controls_container' ); ?>
 
 			</div>
-			<!-- <div class="rmbt-hero-block-1__title-block rmbt-title-block">
-
-				<div class="rmbt-title-block__decor"></div>
-				<div class="rmbt-title-block__icon"></div>
-				<div class="rmbt-title-block__subtitle">
-					<div class="block-details">
-						subtitle
-					</div>
-				</div>
-
-				<a href="#" class='rmbt-title-block__button'>
-					<div class="block-details">
-						cal-to-action-bottom
-					</div>
-				</a>
-				<?php // get_template_part( 'template-parts/_templates/components\button-0\button-0' ); ?>
-
-
-			</div> -->
-			<!-- <div class="rmbt-hero-block-1__right-text">
-				digital marketing
-			</div> -->
 		</div>
 	</section>
 </div>

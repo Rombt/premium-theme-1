@@ -12,8 +12,4 @@
 		'href' => rmbt_get_redux_field( 'rmbt-benefits-slide-block_button-link_1', 1 ),
 	] );
 	?>
-
-
-
-
 </div>

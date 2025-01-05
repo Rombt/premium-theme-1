@@ -1,7 +1,63 @@
 .benefit-slide {
   position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: space-between;
+  justify-content: space-around;
+
   &__title {
+    position: relative;
+    // font-size: 24px;
+    // font-family: Ubuntu;
+    // font-weight: 400;
+    // color: #eaeaea;
+    // text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    // text-align: center;
+    // text-transform: uppercase;
+    // // vertical-align: middle;
+    // line-height: 45px;
+
+    font-family: Overlock;
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: 400;
+    letter-spacing: 0, 037em;
+    color: #eaeaea;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+
+    &:after {
+      content: '';
+
+      position: absolute;
+      left: -12px;
+      right: -12px;
+      bottom: -5px;
+      height: 2px;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+      // box-shadow: 1px 1px 1px rgba(10, 127, 109, 1);
+      // background-color: #0a7f6e;
+      background-color: #f35200a6;
+      // background-color: rgba(10, 127, 109, 1);
+    }
   }
   &__text {
+    font-family: Ubuntu;
+    font-size: 16px;
+    line-height: 130%;
+    font-weight: 200;
+    color: #eaeaea;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    letter-spacing: 0em;
+    // text-transform: lowercase;
+    text-align: center;
+  }
+
+  .rmbt-button-nav {
+    background-color: transparent !important;
   }
 }

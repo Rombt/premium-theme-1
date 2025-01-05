@@ -26,6 +26,7 @@ Redux::set_section(
 				'id' => 'rmbt-social-networks-icon_1_alt',
 				'type' => 'text',
 				'title' => esc_html__( 'Description the first icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
+				'desc' => esc_html__( 'If you don`t want to display an icon on the screen, type "null" into this field.', RMBT_TEXT_DOMAIN_THEME ),
 			),
 			array(
 				'id' => 'rmbt-social-networks-link_1',
@@ -46,6 +47,7 @@ Redux::set_section(
 				'id' => 'rmbt-social-networks-icon_2_alt',
 				'type' => 'text',
 				'title' => esc_html__( 'Description the second icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
+				'desc' => esc_html__( 'If you don`t want to display an icon on the screen, type "null" into this field.', RMBT_TEXT_DOMAIN_THEME ),
 			),
 			array(
 				'id' => 'rmbt-social-networks-link_2',
@@ -66,6 +68,7 @@ Redux::set_section(
 				'id' => 'rmbt-social-networks-icon_3_alt',
 				'type' => 'text',
 				'title' => esc_html__( 'Description the third icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
+				'desc' => esc_html__( 'If you don`t want to display an icon on the screen, type "null" into this field.', RMBT_TEXT_DOMAIN_THEME ),
 			),
 			array(
 				'id' => 'rmbt-social-networks-link_3',
@@ -86,15 +89,13 @@ Redux::set_section(
 				'id' => 'rmbt-social-networks-icon_4_alt',
 				'type' => 'text',
 				'title' => esc_html__( 'Description the fourth icon for the social networks block', RMBT_TEXT_DOMAIN_THEME ),
+				'desc' => esc_html__( 'If you don`t want to display an icon on the screen, type "null" into this field.', RMBT_TEXT_DOMAIN_THEME ),
 			),
 			array(
 				'id' => 'rmbt-social-networks-link_4',
 				'type' => 'text',
 				'title' => esc_html__( 'The link of the fourth icon of the social networks block', RMBT_TEXT_DOMAIN_THEME ),
 			),
-
-
-
 		),
 	)
 );

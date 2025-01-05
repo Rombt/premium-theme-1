@@ -46,15 +46,13 @@
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-right'>
 
 				<div class="rmbt-hero-block-1-col-right__bg">
-					<!-- <div class="wrap-img">
-						<img src="<?php echo get_template_directory_uri() ?>/assets/img/bg_transparent.jpg"
-						alt="hero-block-bg">
-					</div> -->
 				</div>
 
 
-				<div class="rmbt-hero-block-1-col-right__content">
-				</div>
+				<?php
+				get_template_part( 'pages/components/benefit_slide/benefit_slide' );
+				?>
+
 
 
 			</div>

@@ -303,6 +303,27 @@
 .menu-header-navigation-container {
   row-gap: 50px;
 
+  li a {
+    &:after {
+      content: '';
+
+      position: absolute;
+      left: 0px;
+      bottom: 1px;
+      height: 2px;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+      background-color: #f35200a6;
+      width: 0px;
+    }
+  }
+
+  li:hover {
+    & > a:after {
+      width: 100%;
+      transition: width 0.5s;
+    }
+  }
+
   .custom-logo-link {
     position: absolute;
     top: 30px;

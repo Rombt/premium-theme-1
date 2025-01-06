@@ -10,21 +10,18 @@
   // justify-content: space-between;
   justify-content: space-around;
 
-  &::after {
+  &::before {
     content: '';
     position: absolute;
     left: 0px;
     right: 0px;
     top: 0px;
     bottom: 0px;
-    z-index: -1;
+    z-index: 1;
 
-    // background: url(../img/curved_line_1.svg#wave-path) no-repeat;
-    // background-position: bottom left; /* Нижний левый угол */
-    // background-size: auto; /* Изображение сохраняет свои размеры */
-
-    // background-color: #f35200a6;
-    // clip-path: polygon(0 60%, 49% 100%, 0% 100%);
+    border-radius: 0px 0px 0px 16px;
+    background-color: #f3520075;
+    clip-path: polygon(0 65%, 40% 100%, 0% 100%);
   }
 
   &__title {
@@ -74,6 +71,6 @@
 }
 
 .rmbt-benefit-slide-swiper {
-  width: 300px;
+  width: 308px;
   height: 100%;
 }

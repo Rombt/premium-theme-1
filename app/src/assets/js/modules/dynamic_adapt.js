@@ -19,6 +19,9 @@ DynamicAdapt.prototype.init = function () {
   for (let i = 0; i < this.nodes.length; i++) {
     const node = this.nodes[i];
     const data = node.dataset.da.trim();
+    if (data === '') {
+      continue;
+    }
     const dataArray = data.split(',');
     const оbject = {};
     оbject.element = node;
@@ -75,7 +78,6 @@ DynamicAdapt.prototype.mediaHandler = function (matchMedia, оbjects) {
       this.moveTo(оbject.place, оbject.element, оbject.destination);
     }
   } else {
-    //for (let i = 0; i < оbjects.length; i++) {
     for (let i = оbjects.length - 1; i >= 0; i--) {
       const оbject = оbjects[i];
       if (оbject.element.classList.contains(this.daClassname)) {

@@ -27,14 +27,17 @@
   });
 
   let resizeTimeout;
+  let oldWidth = 0;
   window.addEventListener('resize', () => {
     if (window.innerWidth >= 1024) {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(() => {
-        executeWithTimeout(() => svgDistribution(), 100)
-          .then(() => {})
-          .catch(err => {});
-      }, 100);
+      if (Math.abs(oldWidth - window.innerWidth) > 2) {
+        svgDistribution();
+        //   executeWithTimeout(() => svgDistribution(), 50)
+        //     .then(() => {})
+        //     .catch(err => {});
+      }
+
+      oldWidth = window.innerWidth;
     }
 
     if (window.innerWidth > 769) {
@@ -43,9 +46,11 @@
     }
   });
 
-  executeWithTimeout(() => svgDistribution(), 50)
-    .then(() => {})
-    .catch(err => {});
+  svgDistribution();
+
+  // executeWithTimeout(() => svgDistribution(), 50)
+  //   .then(() => {})
+  //   .catch(err => {});
 
   function svgDistribution(minDistanceSvg, minDistanceRegion) {
     if (window.innerWidth < 1024) {
@@ -56,6 +61,9 @@
     minDistanceRegion = 30;
 
     const containerSvg = document.querySelector('.rmbt-hero-block-1-col-left__bg');
+    if (!containerSvg) {
+      return;
+    }
     const widthContainerSvg = containerSvg.clientWidth;
     const heightContainerSvg = containerSvg.clientHeight;
 
@@ -83,19 +91,28 @@
     });
 
     const nl_svg = containerSvg.querySelectorAll('svg');
+
+    if (!nl_svg || nl_svg.length === 0) {
+      return;
+    }
+
     nl_svg.forEach((svg, i) => {
       const widthSvg = svg.clientWidth;
       const heighSvg = svg.clientHeight;
       let x, y;
 
-      do {
-        x = getRandomInt(0, widthContainerSvg - widthSvg);
-        y = getRandomInt(0, heightContainerSvg - heighSvg);
-      } while (isOverlapping(x, y, widthSvg, heighSvg));
+      executeWithTimeout(() => {
+        do {
+          x = getRandomInt(0, widthContainerSvg - widthSvg);
+          y = getRandomInt(0, heightContainerSvg - heighSvg);
+        } while (isOverlapping(x, y, widthSvg, heighSvg));
 
-      svg.style.left = x + 'px';
-      svg.style.top = y + 'px';
-      placedSVGs.push({ x, y, width: widthSvg, height: heighSvg });
+        svg.style.left = x + 'px';
+        svg.style.top = y + 'px';
+        placedSVGs.push({ x, y, width: widthSvg, height: heighSvg });
+      }, 50)
+        .then(() => {})
+        .catch(err => {});
     });
 
     function isOverlapping(x, y, width, height) {

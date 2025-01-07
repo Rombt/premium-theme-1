@@ -29,16 +29,10 @@
   let resizeTimeout;
   let oldWidth = 0;
   window.addEventListener('resize', () => {
-    if (window.innerWidth >= 1024) {
-      if (Math.abs(oldWidth - window.innerWidth) > 2) {
-        svgDistribution();
-        //   executeWithTimeout(() => svgDistribution(), 50)
-        //     .then(() => {})
-        //     .catch(err => {});
-      }
-
-      oldWidth = window.innerWidth;
+    if (Math.abs(oldWidth - window.innerWidth) > 2) {
+      svgDistribution();
     }
+    oldWidth = window.innerWidth;
 
     if (window.innerWidth > 769) {
       topRowColLeft.prepend(logo);
@@ -48,15 +42,7 @@
 
   svgDistribution();
 
-  // executeWithTimeout(() => svgDistribution(), 50)
-  //   .then(() => {})
-  //   .catch(err => {});
-
   function svgDistribution(minDistanceSvg, minDistanceRegion) {
-    if (window.innerWidth < 1024) {
-      return;
-    }
-
     minDistanceSvg = 50;
     minDistanceRegion = 30;
 
@@ -100,19 +86,20 @@
       const widthSvg = svg.clientWidth;
       const heighSvg = svg.clientHeight;
       let x, y;
+      let k = 0;
 
-      executeWithTimeout(() => {
-        do {
-          x = getRandomInt(0, widthContainerSvg - widthSvg);
-          y = getRandomInt(0, heightContainerSvg - heighSvg);
-        } while (isOverlapping(x, y, widthSvg, heighSvg));
+      do {
+        x = getRandomInt(0, widthContainerSvg - widthSvg);
+        y = getRandomInt(0, heightContainerSvg - heighSvg);
+        k++;
+        if (k > 200) {
+          break;
+        }
+      } while (isOverlapping(x, y, widthSvg, heighSvg));
 
-        svg.style.left = x + 'px';
-        svg.style.top = y + 'px';
-        placedSVGs.push({ x, y, width: widthSvg, height: heighSvg });
-      }, 50)
-        .then(() => {})
-        .catch(err => {});
+      svg.style.left = x + 'px';
+      svg.style.top = y + 'px';
+      placedSVGs.push({ x, y, width: widthSvg, height: heighSvg });
     });
 
     function isOverlapping(x, y, width, height) {

@@ -179,7 +179,10 @@
   flex-basis: 30%;
   position: relative;
   box-sizing: border-box;
-  // padding: 20px 20px 20px 20px;
+
+  .to(960px,{
+  display: none;
+  });
 
   &__bg {
     position: absolute;
@@ -201,34 +204,6 @@
       background-color: rgba(213, 213, 213, 0.15);
       box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
     }
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   left: 0px;
-    //   right: 0px;
-    //   top: 0px;
-    //   bottom: 0px;
-    //   z-index: 1;
-
-    //   border-radius: 0px 0px 0px 16px;
-
-    //   // background: url(../img/curved_line_1.svg#wave-path) no-repeat;
-    //   // background-position: bottom left; /* Нижний левый угол */
-    //   // background-size: auto; /* Изображение сохраняет свои размеры */
-
-    //   // background-color: #0a7f6e80;
-    //   background-color: #f3520075;
-    //   clip-path: polygon(0 65%, 40% 100%, 0% 100%);
-    // }
-
-    .wrap-img {
-      width: 70%;
-      height: 40%;
-      position: relative;
-      top: 168px;
-      left: 98px;
-    }
   }
 
   h3 {
@@ -236,7 +211,8 @@
 
     position: relative;
     font-family: Overlock;
-    font-size: 30px;
+    .adaptive-prop(font-size, 30, 20);
+
     line-height: 35px;
     font-weight: 400;
     letter-spacing: 0, 037em;
@@ -253,16 +229,8 @@
       bottom: -5px;
       height: 2px;
       box-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
-      // box-shadow: 1px 1px 1px rgba(10, 127, 109, 1);
-      // background-color: #0a7f6e;
       background-color: #f35200a6;
-      // background-color: rgba(10, 127, 109, 1);
     }
-  }
-
-  &__bg-img {
-    position: relative;
-    z-index: 1;
   }
 }
 .rmbt-hero-block-1-col-left {
@@ -273,7 +241,10 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 0px 40px 0px 40px;
+  padding: 0px;
+
+  .adaptive-prop(padding-left, 40, 10);
+  .adaptive-prop(padding-right, 40, 10);
 
   &__bg {
     position: absolute;
@@ -282,7 +253,6 @@
     width: 100%;
     height: 100%;
 
-    // &:after {
     &::before {
       content: '';
       position: absolute;
@@ -293,13 +263,15 @@
 
       border: 1px solid @color_border_col;
       border-radius: 0px 16px 16px 0px;
-      // background-color: @color_background_col;
-      // box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
 
       background-color: rgba(213, 213, 213, 0.15);
       box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
 
       backdrop-filter: blur(4px);
+
+      .to(960px,{
+        border-radius: 16px 16px 16px 16px;
+      });
     }
 
     svg {
@@ -310,24 +282,38 @@
       opacity: 0.8;
 
       filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6));
+
+      .to(1024px,{
+        display: none;
+      });
     }
   }
 
   &__content {
     position: relative;
     width: 80%;
+
+    .to(1090px,{
+        width: 100%;
+        margin-top: -50px;
+      });
   }
 
   &__title {
     position: relative;
     font-family: Overlock;
-    font-size: 45px;
+    .adaptive-prop(font-size, 45, 35);
+
     line-height: 45px;
     font-weight: 700;
     letter-spacing: 0em;
     color: #eaeaea;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
     text-align: end;
+
+    .to(1090px,{
+        text-align: center;
+      });
 
     span {
       color: #f35200;
@@ -336,7 +322,8 @@
   &__subtitle {
     position: relative;
     font-family: Ubuntu;
-    font-size: 16px;
+    .adaptive-prop(font-size, 16, 12);
+
     line-height: 110%;
     font-weight: 200;
     color: #eaeaea;
@@ -346,11 +333,17 @@
 
     margin-top: 20px;
     width: 60%;
+
+    .to(1090px,{
+        width: 100%;
+        text-align: center;
+    });
   }
   &__slogan {
     position: relative;
     font-family: Ubuntu;
-    font-size: 16px;
+    .adaptive-prop(font-size, 16, 12);
+
     line-height: 100%;
     font-weight: 400;
     color: #fff;
@@ -359,6 +352,26 @@
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     margin-bottom: 5px;
     text-align: end;
+
+    .to(1090px,{
+        text-align: center;
+      });
+  }
+
+  .controls-container {
+    left: auto;
+    right: 35px;
+    bottom: 25px;
+
+    .to(1024px,{
+      
+      right: auto;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      bottom: 60px;
+      
+
+     });
   }
 }
 
@@ -441,12 +454,3 @@
     });
   }
 }
-
-// #menu-header-navigation {
-//   .rmbt-button-link {
-//     // .adaptive-prop(width, 150, 120);
-//     width: 80%;
-//     min-width: 180px;
-//     margin: 30px auto 0 auto;
-//   }
-// }

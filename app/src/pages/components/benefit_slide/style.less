@@ -11,6 +11,7 @@
   // justify-content: space-around;
   justify-content: space-evenly;
   padding-bottom: 50px;
+  .adaptive-prop(padding-bottom, 50, 20);
 
   &::before {
     // content: '';
@@ -30,7 +31,11 @@
     position: relative;
     font-family: Overlock;
     font-size: 30px;
-    line-height: 35px;
+    .adaptive-prop( font-size, 30, 20);
+
+    // line-height: 35px;
+    .adaptive-prop(line-height, 35, 25);
+
     font-weight: 400;
     letter-spacing: 0, 037em;
     color: #eaeaea;
@@ -38,6 +43,8 @@
     text-align: center;
 
     max-width: 80%;
+    margin-top: 0;
+    margin-bottom: 0;
 
     &:after {
       content: '';
@@ -54,6 +61,8 @@
   &__text {
     font-family: Ubuntu;
     font-size: 18px;
+    .adaptive-prop( font-size, 18, 12);
+
     line-height: 130%;
     font-weight: 200;
     color: #eaeaea;
@@ -73,5 +82,7 @@
 
 .rmbt-benefit-slide-swiper {
   width: 308px;
+  .adaptive-prop(width, 308, 160);
+
   height: 100%;
 }

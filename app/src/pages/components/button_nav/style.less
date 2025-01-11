@@ -3,15 +3,22 @@
   display: block;
   text-align: center;
 
-  width: 135px;
-  height: 35px;
-  line-height: 35px;
+  // width: 135px;
+  .adaptive-prop(width, 135, 95);
+
+  // height: 35px;
+  .adaptive-prop(height, 35, 25);
+
+  // line-height: 35px;
+  .adaptive-prop(line-height, 35, 25);
+
   border-radius: 8px;
 
   color: #eaeaea;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
   font-family: Podkova;
-  font-size: 18px;
+  // font-size: 18px;
+  .adaptive-prop(font-size, 18, 12);
   font-weight: 300;
 
   box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 0.5);

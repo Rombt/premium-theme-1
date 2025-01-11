@@ -122,6 +122,7 @@
 
   &__col {
     height: 370px;
+    .adaptive-prop(height, 370, 170);
   }
 
   &__title-block {
@@ -139,9 +140,12 @@
 
   padding: 30px 20px 40px 20px;
 
-  .to(960px,{
-  display: none;
-  });
+  .adaptive-prop(padding-bottom, 40, 10);
+  .adaptive-prop(padding-top, 30, 10);
+
+  // .to(960px,{
+  // display: none;
+  // });
 
   &__bg {
     position: absolute;
@@ -166,32 +170,8 @@
     }
   }
 
-  h3 {
-    position: relative;
-
-    position: relative;
-    font-family: Overlock;
-    .adaptive-prop(font-size, 30, 20);
-
-    line-height: 35px;
-    font-weight: 400;
-    letter-spacing: 0, 037em;
-    color: #eaeaea;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-    text-align: center;
-
-    &:after {
-      content: '';
-
-      position: absolute;
-      left: 30px;
-      right: 30px;
-      bottom: -5px;
-      height: 2px;
-      box-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
-      background-color: #f35200a6;
-    }
-  }
+  // .benefit-slide {
+  // }
 }
 .rmbt-hero-block-1-col-left {
   flex-grow: 1;
@@ -230,9 +210,9 @@
 
       backdrop-filter: blur(4px);
 
-      .to(960px,{
-        border-radius: 16px 16px 16px 16px;
-      });
+      // .to(960px,{
+      //   border-radius: 16px 16px 16px 16px;
+      // });
     }
 
     svg {
@@ -263,7 +243,8 @@
   &__title {
     position: relative;
     font-family: Overlock;
-    .adaptive-prop(font-size, 49, 35);
+    // .adaptive-prop(font-size, 49, 35);
+    .adaptive-prop(font-size, 49, 25);
 
     line-height: 45px;
     font-weight: 700;
@@ -292,8 +273,9 @@
     letter-spacing: 0em;
     text-transform: lowercase;
 
-    margin-top: 20px;
     width: 80%;
+    // margin-top: 20px;
+    .adaptive-prop(margin-top, 20, -10);
 
     .to(1090px,{
         width: 100%;
@@ -311,8 +293,9 @@
     letter-spacing: 0em;
     text-transform: uppercase;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
-    margin-bottom: 5px;
     text-align: end;
+    margin-bottom: 5px;
+    .adaptive-prop(margin-bottom, 5, -10);
 
     .to(1090px,{
         text-align: center;
@@ -329,7 +312,9 @@
       right: auto;
       left: 50%;
       transform: translate(-50%, 0%);
-      bottom: 60px;
+      // bottom: 60px;
+      .adaptive-prop(bottom, 60, 10);
+      
       
 
      });

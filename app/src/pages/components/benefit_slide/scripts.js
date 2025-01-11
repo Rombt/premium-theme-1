@@ -4,7 +4,7 @@ if (document.querySelector('.rmbt-benefit-slide-swiper')) {
     loop: true,
     speed: 900,
     autoplay: {
-      delay: 5000,
+      delay: 50000,
     },
   });
 }

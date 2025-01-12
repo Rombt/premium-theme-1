@@ -46,34 +46,15 @@
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-right'>
 
 				<div class="rmbt-hero-block-1-col-right__bg">
-
-
-					<!-- <div class="wrap-img rmbt-hero-block-1-col-right__bg-img">
-						<img src="<?php echo get_template_directory_uri() ?>/assets/img/home2__slide_iPad.png" alt="">
-					</div>  -->
-
-
 				</div>
-
-				<!-- <h3>B2B Solutions</h3>  -->
 
 				<?php
 				get_template_part( 'pages/components/benefit_slide/benefit_slide' );
 				?>
 
-
-
 			</div>
 			<div class='rmbt-hero-block-1__col rmbt-hero-block-1-col-left'>
 				<div class="rmbt-hero-block-1-col-left__bg">
-
-					<?php for ( $i = 1; $i < 13; $i++ ) { ?>
-						<svg>
-							<use
-								xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#bf_1_<?= $i ?>">
-							</use>
-						</svg>
-					<?php } ?>
 				</div>
 
 				<div class="rmbt-hero-block-1-col-left__content">

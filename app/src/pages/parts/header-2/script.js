@@ -92,8 +92,6 @@
 
       phones_block.classList.add('visible-phone');
     } else {
-      console.log('111');
-
       if (
         (email_link.classList.contains('visible-email') ||
           phones_block.classList.contains('visible-phone')) &&

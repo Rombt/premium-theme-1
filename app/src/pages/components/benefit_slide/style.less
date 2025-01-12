@@ -13,6 +13,11 @@
   padding-bottom: 50px;
   .adaptive-prop(padding-bottom, 50, 20);
 
+  .to(768px,{
+      row-gap: 15px;
+      padding: 5px 0px 5px 0px; 
+    });
+
   &::before {
     // content: '';
     position: absolute;
@@ -34,7 +39,7 @@
     .adaptive-prop( font-size, 30, 20);
 
     // line-height: 35px;
-    .adaptive-prop(line-height, 35, 25);
+    .adaptive-prop(line-height, 35, 15);
 
     font-weight: 400;
     letter-spacing: 0, 037em;
@@ -62,13 +67,20 @@
     font-family: Ubuntu;
     font-size: 18px;
     .adaptive-prop( font-size, 18, 12);
-
     line-height: 130%;
+    .adaptive-prop(line-height, 18, 15);
+
     font-weight: 200;
     color: #eaeaea;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
     letter-spacing: 0em;
     text-align: center;
+
+    .to(768px,{
+      // .adaptive-prop(font-size, 40, 12);
+      font-size: 16px;
+      line-height: 20px;
+    });
   }
 
   .rmbt-button-nav {
@@ -77,12 +89,28 @@
     position: absolute;
     bottom: 2px;
     margin: 0 auto;
+
+    .to(768px,{
+
+        position: relative;
+        bottom: auto;
+    });
+
+    .to(480px,{
+      height: 40px;
+      line-height: 40px;
+    });
   }
 }
 
 .rmbt-benefit-slide-swiper {
-  width: 308px;
   .adaptive-prop(width, 308, 160);
-
   height: 100%;
+
+  .to(768px,{
+    width: 500px;
+
+    .adaptive-prop(width, 1500, 250);
+    
+  });
 }

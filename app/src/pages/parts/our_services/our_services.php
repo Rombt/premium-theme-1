@@ -1,0 +1,42 @@
+<div class="rmbt-full-width rmbt-our-services-full-width">
+	<section class="rmbt-container rmbt-our-services">
+
+		<!-- <div class="rmbt-our-services__row"> -->
+
+		<h2>Our Services</h2>
+
+
+		<div class="tabs rmbt-our-services-tabs">
+			<nav data-tabs-titles class="tabs__nav">
+				<div class="tabs__title tabs__title-active" data-tab="tab-1">
+					title-tab-1
+				</div>
+				<div class="tabs__title" data-tab="tab-2">
+					title-tab-2
+				</div>
+				<div class="tabs__title" data-tab="tab-3">
+					title-tab-3
+				</div>
+			</nav>
+			<div class="tabs__content">
+				<div class="tabs__body tabs__body-active" data-tab-name="tab-1">
+					<div class="block-details">
+						tab-1
+					</div>
+				</div>
+				<div class="tabs__body" data-tab-name="tab-2">
+					<div class="block-details">
+						tab-2
+					</div>
+				</div>
+				<div class="tabs__body" data-tab-name="tab-3">
+					<div class="block-details">
+						tab-3
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- </div> -->
+
+	</section>
+</div>

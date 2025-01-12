@@ -1,6 +1,31 @@
 .rmbt-our-services-full-width {
 }
 .rmbt-our-services {
+  h2 {
+    position: relative;
+    // font-family: Overlock;
+    // font-family: Ubuntu;
+    font-family: Podkova;
+    .adaptive-prop(font-size, 35, 20);
+
+    line-height: 60%;
+    font-weight: 800;
+    letter-spacing: 0.027em;
+    text-align: center;
+    color: #222322;
+
+    &:after {
+      content: '';
+
+      position: absolute;
+      left: 0px;
+      bottom: -2px;
+      height: 2px;
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
+      background-color: #f35200a6;
+      width: 200px;
+    }
+  }
   .rmbt-our-services-tabs {
     .row-flex();
     flex-wrap: nowrap;

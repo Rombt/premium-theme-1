@@ -44,7 +44,7 @@ Redux::set_section(
 
 			array(
 				'id' => 'our-services-tabs-1_subtitle',
-				'type' => 'text',
+				'type' => 'textarea',
 				'title' => esc_html__( 'Subtitle of first tab', RMBT_TEXT_DOMAIN_THEME ),
 				// 'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
 			),

@@ -18,8 +18,13 @@
 		<div class="tabs rmbt-our-services-tabs">
 			<nav data-tabs-titles class="tabs__nav">
 				<div class="tabs__title tabs__title-active" data-tab="tab-1">
-					<?php echo rmbt_get_redux_field( 'our-services-tabs-1_title', 1 ) ?>
-					<?php echo rmbt_get_redux_field( 'our-services-tabs-1_subtitle', 1 ) ?>
+					<h3 class="title-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_title', 1 ) ?>
+					</h3>
+
+					<div class="subtitle-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_subtitle', 1 ) ?>
+					</div>
 				</div>
 				<div class="tabs__title" data-tab="tab-2">
 					<?php echo rmbt_get_redux_field( 'our-services-tabs-2_title', 1 ) ?>
@@ -32,23 +37,15 @@
 			</nav>
 			<div class="tabs__content">
 				<div class="tabs__body tabs__body-active" data-tab-name="tab-1">
-					<div class="block-details">
-
-						<div class="wrap-img">
-							<?php echo rmbt_redux_img( 'rmbt-our-services-tabs-1-img', 'rmbt-_img-alt-' ) ?>
-						</div>
-
+					<div class="wrap-img">
+						<?php echo rmbt_redux_img( 'rmbt-our-services-tabs-1-img', 'rmbt-_img-alt-' ) ?>
 					</div>
 				</div>
 				<div class="tabs__body" data-tab-name="tab-2">
-					<div class="block-details">
-						tab-2
-					</div>
+					tab-2
 				</div>
 				<div class="tabs__body" data-tab-name="tab-3">
-					<div class="block-details">
-						tab-3
-					</div>
+					tab-3
 				</div>
 			</div>
 		</div>

@@ -20,21 +20,24 @@
       border-bottom: auto;
     }
     .tabs__title {
-      font-family: Arial;
-      font-size: 14px;
-      text-transform: lowercase;
-      font-weight: 200;
-      font-style: italic;
+      cursor: pointer;
+
       color: @font-color-block-details;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      // display: flex;
+      // align-items: center;
+      // justify-content: center;
 
       width: 100%;
+      // height: max-content;
+      // min-height: 65px;
 
-      cursor: pointer;
-      border: 1px solid @border-color-wireframe-inner;
+      border-radius: 16px 0px 0px 16px;
+      background-color: rgba(213, 213, 213, 0.15);
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+
+      padding: 0px 20px 10px 20px;
     }
     .tabs__title-active {
     }

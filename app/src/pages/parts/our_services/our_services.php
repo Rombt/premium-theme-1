@@ -64,12 +64,12 @@
 			</nav>
 			<div class="tabs__content shadow-box">
 				<div class="tabs__body tabs__body-active" data-tab-name="tab-1">
-					<p class="text-block">
-						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_text', 1 ) ?>
-					</p>
 					<div class="wrap-img">
 						<?php echo rmbt_redux_img( 'rmbt-our-services-tabs-1-img', 'rmbt-_img-alt-' ) ?>
 					</div>
+					<p class="text-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_text', 1 ) ?>
+					</p>
 				</div>
 				<div class="tabs__body" data-tab-name="tab-2">
 					<p class="text-block">

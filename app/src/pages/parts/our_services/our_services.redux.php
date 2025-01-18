@@ -19,12 +19,11 @@ Redux::set_section(
 				'title' => esc_html__( 'Title of tabs block', RMBT_TEXT_DOMAIN_THEME ),
 				'default' => esc_html__( 'Our Services', RMBT_TEXT_DOMAIN_THEME ),
 			),
-			// array(
-			// 	'id' => 'rmbt-our-services-tabs_section-text',
-			// 	'type' => 'text',
-			// 	'title' => esc_html__( 'Text of Our-services-tabs', RMBT_TEXT_DOMAIN_THEME ),
-			// 	// 'default' => esc_html__( '', RMBT_TEXT_DOMAIN_THEME ),
-			// ),
+			array(
+				'id' => 'rmbt-our-services-tabs_section-subtitle',
+				'type' => 'textarea',
+				'title' => esc_html__( 'Subtitle of tabs block', RMBT_TEXT_DOMAIN_THEME ),
+			),
 
 
 

@@ -6,7 +6,12 @@
 	endif ?>>
 
 		<?php if ( $rmbt_theme_options['rmbt-our-services-tabs_section-title'] ) : ?>
-			<h2> <?php echo rmbt_get_redux_field( 'rmbt-our-services-tabs_section-title', 1 ) ?> </h2>
+			<h2 class='title-section'> <?php echo rmbt_get_redux_field( 'rmbt-our-services-tabs_section-title', 1 ) ?> </h2>
+		<?php endif ?>
+		<?php if ( isset( $rmbt_theme_options['rmbt-our-services-tabs_section-subtitle'] ) && $rmbt_theme_options['rmbt-our-services-tabs_section-subtitle'] !== "" ) : ?>
+			<p class='subtitle-section'>
+				<?php echo rmbt_get_redux_field( 'rmbt-our-services-tabs_section-subtitle', 1 ) ?>
+			</p>
 		<?php endif ?>
 
 

@@ -122,59 +122,6 @@ a {
   }
 }
 
-// .rmbt-menu-horizontal {
-//   width: 100%;
-//   height: 70px;
-//   margin: 0 auto;
-
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   * {
-//     box-sizing: border-box;
-//   }
-
-//   ul,
-//   li {
-//     margin: 0;
-//     padding: 0;
-//     list-style: none;
-//   }
-
-//   a {
-//     color: inherit;
-//     text-decoration: none;
-//   }
-
-//   > ul {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     width: 80%;
-
-//     li {
-//       position: relative;
-//       width: max-content;
-//       margin: 5px 0px;
-//       cursor: pointer;
-
-//       ul {
-//         position: absolute;
-//         left: 20px;
-//         top: 100%;
-//         padding: 10px 10px 10px 10px;
-//         z-index: 2;
-
-//         height: 0px;
-//         overflow: hidden;
-//         opacity: 0;
-//         pointer-events: none;
-//       }
-//     }
-//   }
-// }
-
 body.rmbt-lock {
   overflow: hidden;
 }
@@ -204,9 +151,46 @@ body.rmbt-lock {
   flex-shrink: 0;
 }
 
-/*
-for display results work function in the process of develope 
-*/
+.title-section {
+  position: relative;
+  font-family: Podkova;
+  .adaptive-prop(font-size, 35, 20);
+  line-height: 60%;
+  font-weight: 800;
+  letter-spacing: 0.027em;
+  text-align: center;
+  color: #042b1f;
+  text-shadow: 1px 1px 2px #d5d5d5;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    bottom: -8px;
+    height: 3px;
+    box-shadow: 1px 1px 2px #d5d5d5;
+    background-color: #f35200;
+  }
+}
+.subtitle-section {
+  font-family: Ubuntu;
+  font-size: 18px;
+  .adaptive-prop(font-size, 16, 12);
+  line-height: 130%;
+  letter-spacing: -0, 005em;
+  color: #06392a;
+  letter-spacing: 0em;
+  text-align: center;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*========= for display results work function in the process of develop  ==============*/
 
 .test-block {
   position: absolute;

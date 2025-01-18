@@ -1,9 +1,13 @@
+<?php global $rmbt_theme_options; ?>
+
 <div class="rmbt-full-width rmbt-our-services-full-width">
-	<section class="rmbt-container rmbt-our-services">
+	<section class="rmbt-container rmbt-our-services" <?php if ( isset( $rmbt_theme_options['rmbt-our-services-tabs_section-title'] ) && $rmbt_theme_options['rmbt-our-services-tabs_section-title'] == "" ) :
+		echo 'style="padding-top: 15px; padding-bottom: 15px;"';
+	endif ?>>
 
-		<!-- <div class="rmbt-our-services__row"> -->
-
-		<h2>Our Services</h2>
+		<?php if ( $rmbt_theme_options['rmbt-our-services-tabs_section-title'] ) : ?>
+			<h2> <?php echo rmbt_get_redux_field( 'rmbt-our-services-tabs_section-title', 1 ) ?> </h2>
+		<?php endif ?>
 
 
 		<div class="tabs rmbt-our-services-tabs">
@@ -36,7 +40,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- </div> -->
 
 	</section>
 </div>

@@ -21,31 +21,51 @@
 					<h3 class="title-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_title', 1 ) ?>
 					</h3>
-
-					<div class="subtitle-block">
+					<p class="subtitle-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_subtitle', 1 ) ?>
-					</div>
+					</p>
 				</div>
 				<div class="tabs__title" data-tab="tab-2">
-					<?php echo rmbt_get_redux_field( 'our-services-tabs-2_title', 1 ) ?>
-					<?php echo rmbt_get_redux_field( 'our-services-tabs-2_subtitle', 1 ) ?>
+					<h3 class="title-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-2_title', 1 ) ?>
+					</h3>
+					<p class="subtitle-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-2_subtitle', 1 ) ?>
+					</p>
 				</div>
 				<div class="tabs__title" data-tab="tab-3">
-					<?php echo rmbt_get_redux_field( 'our-services-tabs-3_title', 1 ) ?>
-					<?php echo rmbt_get_redux_field( 'our-services-tabs-3_subtitle', 1 ) ?>
+					<h3 class="title-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-3_title', 1 ) ?>
+					</h3>
+					<p class="subtitle-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-3_subtitle', 1 ) ?>
+					</p>
 				</div>
 			</nav>
 			<div class="tabs__content">
 				<div class="tabs__body tabs__body-active" data-tab-name="tab-1">
+					<p class="text-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_text', 1 ) ?>
+					</p>
 					<div class="wrap-img">
 						<?php echo rmbt_redux_img( 'rmbt-our-services-tabs-1-img', 'rmbt-_img-alt-' ) ?>
 					</div>
 				</div>
 				<div class="tabs__body" data-tab-name="tab-2">
-					tab-2
+					<p class="text-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-2_text', 1 ) ?>
+					</p>
+					<div class="wrap-img">
+						<?php echo rmbt_redux_img( 'rmbt-our-services-tabs-2-img', 'rmbt-_img-alt-' ) ?>
+					</div>
 				</div>
 				<div class="tabs__body" data-tab-name="tab-3">
-					tab-3
+					<p class="text-block">
+						<?php echo rmbt_get_redux_field( 'our-services-tabs-3_text', 1 ) ?>
+					</p>
+					<div class="wrap-img">
+						<?php echo rmbt_redux_img( 'rmbt-our-services-tabs-3-img', 'rmbt-_img-alt-' ) ?>
+					</div>
 				</div>
 			</div>
 		</div>

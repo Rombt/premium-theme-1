@@ -17,32 +17,52 @@
 
 		<div class="tabs rmbt-our-services-tabs">
 			<nav data-tabs-titles class="tabs__nav">
-				<div class="tabs__title tabs__title-active" data-tab="tab-1">
+				<div class="tabs__title shadow-box tabs__title-active" data-tab="tab-1">
 					<h3 class="title-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_title', 1 ) ?>
 					</h3>
 					<p class="subtitle-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_subtitle', 1 ) ?>
 					</p>
+
+					<div class="tabs__arrow">
+						<svg>
+							<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#chevron_1">
+							</use>
+						</svg>
+					</div>
+
 				</div>
-				<div class="tabs__title" data-tab="tab-2">
+				<div class="tabs__title shadow-box" data-tab="tab-2">
 					<h3 class="title-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-2_title', 1 ) ?>
 					</h3>
 					<p class="subtitle-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-2_subtitle', 1 ) ?>
 					</p>
+					<div class="tabs__arrow">
+						<svg>
+							<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#chevron_1">
+							</use>
+						</svg>
+					</div>
 				</div>
-				<div class="tabs__title" data-tab="tab-3">
+				<div class="tabs__title shadow-box" data-tab="tab-3">
 					<h3 class="title-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-3_title', 1 ) ?>
 					</h3>
 					<p class="subtitle-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-3_subtitle', 1 ) ?>
 					</p>
+					<div class="tabs__arrow">
+						<svg>
+							<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#chevron_1">
+							</use>
+						</svg>
+					</div>
 				</div>
 			</nav>
-			<div class="tabs__content">
+			<div class="tabs__content shadow-box">
 				<div class="tabs__body tabs__body-active" data-tab-name="tab-1">
 					<p class="text-block">
 						<?php echo rmbt_get_redux_field( 'our-services-tabs-1_text', 1 ) ?>

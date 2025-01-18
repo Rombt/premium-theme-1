@@ -25,11 +25,9 @@ Redux::set_section(
 				'title' => esc_html__( 'Subtitle of tabs block', RMBT_TEXT_DOMAIN_THEME ),
 			),
 
-
-
 			/*------------------ rmbt-our-services-tabs accordion ------------------*/
 			array(
-				'id' => 'rmbt-our-services-tabs-start',
+				'id' => 'rmbt-our-services-tabs-1-start',
 				'type' => 'accordion',
 				'title' => esc_html__( 'Title of Our-services-tabs', RMBT_TEXT_DOMAIN_THEME ),
 				'subtitle' => 'Add your content to the section \'Title\'',
@@ -37,29 +35,40 @@ Redux::set_section(
 			),
 
 
-			// array(
-			// 	'id' => 'rmbt-our-services-tabs-gallery',
-			// 	'type' => 'gallery',
-			// 	'title' => esc_html__( 'Add/Edit Gallery on the main screen ', RMBT_TEXT_DOMAIN_THEME ),
-			// ),
+			array(
+				'id' => 'our-services-tabs-1_title',
+				'type' => 'text',
+				'title' => esc_html__( 'Title of first tab', RMBT_TEXT_DOMAIN_THEME ),
+				// 'default' => __( wp_kses( 'Український виробник', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
+			),
 
-			// array(
-			// 	'id' => 'our-services-tabs_title',
-			// 	'type' => 'text',
-			// 	'title' => esc_html__( 'Front page title', RMBT_TEXT_DOMAIN_THEME ),
-			// 	'default' => __( wp_kses( 'Український виробник', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
-			// ),
+			array(
+				'id' => 'our-services-tabs-1_subtitle',
+				'type' => 'text',
+				'title' => esc_html__( 'Subtitle of first tab', RMBT_TEXT_DOMAIN_THEME ),
+				// 'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
+			),
 
-			// array(
-			// 	'id' => 'our-services-tabs_subtitle',
-			// 	'type' => 'text',
-			// 	'title' => esc_html__( 'Front page title', RMBT_TEXT_DOMAIN_THEME ),
-			// 	'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
-			// ),
+			array(
+				'id' => 'rmbt-our-services-tabs-1-img',
+				'type' => 'media',
+				'url' => true,
+				'title' => esc_html__( 'Image for first tab', RMBT_TEXT_DOMAIN_THEME ),
+				'compiler' => 'true',
+				'preview_size' => 'full',
+				'remove' => true,
+			),
+
+			array(
+				'id' => 'rmbt-our-services-tabs-1-img-alt',
+				'type' => 'text',
+				'title' => esc_html__( 'Subtitle of first tab', RMBT_TEXT_DOMAIN_THEME ),
+				// 'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
+			),
 
 
 			array(
-				'id' => 'rmbt-our-services-tabs-end',
+				'id' => 'rmbt-our-services-tabs-1-end',
 				'type' => 'accordion',
 				'position' => 'end',
 			),

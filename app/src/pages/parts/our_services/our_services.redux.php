@@ -13,24 +13,6 @@ Redux::set_section(
 		// 'icon'             => 'el el-home',
 		'fields' => array(
 
-			// array(
-			// 	'id' => 'rmbt-bg_section-img',
-			// 	'type' => 'media',
-			// 	'url' => true,
-			// 	'title' => esc_html__( 'This picture will use for background section', RMBT_TEXT_DOMAIN_THEME ),
-			// 	'compiler' => 'true',
-			// 	'preview_size' => 'full',
-			// 	'default' => array(
-			// 		'url' => '/assets/img/no-image.jpg',
-			// 	),
-			// ),
-			// array(
-			// 	'id' => 'rmbt-bg_section-img_alt',
-			// 	'type' => 'text',
-			// 	'title' => esc_html__( 'Description for background section picture', RMBT_TEXT_DOMAIN_THEME ),
-			// 	'default' => esc_html__( 'background section picture', RMBT_TEXT_DOMAIN_THEME ),
-			// ),
-
 			array(
 				'id' => 'rmbt-our-services-tabs_section-title',
 				'type' => 'text',

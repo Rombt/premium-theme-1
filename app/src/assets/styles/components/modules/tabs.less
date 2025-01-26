@@ -17,11 +17,30 @@
 
   &__body {
     padding: 20px 10px 20px 10px;
-
     display: none;
   }
 
+  &__arrow {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    // transition: opacity 0.8s;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   &__title-active {
+    .tabs__arrow {
+      opacity: 1;
+      // transition: opacity 0.8s;
+    }
   }
   &__body-active {
     display: block;

@@ -14,95 +14,50 @@
 		<?php endif ?>
 
 		<div class="rmbt-how-we-work__row">
-			<article class="rmbt-how-we-work__col shadow-box">
+			<div class="rmbt-how-we-work__col shadow-box">
 				<div class="wrap-img rmbt-how-we-work__img">
 					<?php echo rmbt_redux_img( 'rmbt-how-we-work-card-1-img', 'rmbt-how-we-work-card-1-img-alt' ) ?>
 				</div>
-				<header>
+				<div>
 					<h3 class='title-block'><?php echo rmbt_get_redux_field( 'how-we-work-card-1_title' ) ?></h3>
-					<p class="subtitle-block"><?php echo rmbt_get_redux_field( 'how-we-work-card-1_subtitle' ) ?></p>
-				</header>
-				<div class="rmbt-how-we-work__article-body">
-					<div class="rmbt-how-we-work__article-text text-block">
-						<?php echo wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-1_text' ), 5, '  [...]' ) ?>
-						!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-					</div>
+					<p class="subtitle-block">
+						<?php echo wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-1_subtitle' ), 8, '  [...]' ) ?>
+					</p>
 				</div>
-				<!-- <footer>
-					<a href="#">
-						read more
-						<svg>
-							<use xlink:href="<?php // echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-						</svg>
-					</a>
-				</footer> -->
-			</article>
-			<article class="rmbt-how-we-work__col shadow-box">
+			</div>
+			<div class="rmbt-how-we-work__col shadow-box">
 				<div class="wrap-img rmbt-how-we-work__img">
 					<?php echo rmbt_redux_img( 'rmbt-how-we-work-card-2-img', 'rmbt-how-we-work-card-2-img-alt' ) ?>
 				</div>
-				<header>
+				<div>
 					<h3 class='title-block'><?php echo rmbt_get_redux_field( 'how-we-work-card-2_title' ) ?></h3>
-					<p class="subtitle-block"><?php echo rmbt_get_redux_field( 'how-we-work-card-2_subtitle' ) ?></p>
-				</header>
-				<div class="rmbt-how-we-work__article-body">
-					<div class="rmbt-how-we-work__article-text text-block">
-						<?php echo rmbt_get_redux_field( 'how-we-work-card-2_text' ) ?>
-					</div>
+					<p class="subtitle-block">
+						<?php echo wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-2_subtitle' ), 8, '  [...]' ) ?>
+					</p>
 				</div>
-				<!-- <footer>
-					<a href="#">
-						read more
-						<svg>
-							<use xlink:href="<?php // echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-						</svg>
-					</a>
-				</footer> -->
-			</article>
-			<article class="rmbt-how-we-work__col shadow-box">
+			</div>
+			<div class="rmbt-how-we-work__col shadow-box">
 				<div class="wrap-img rmbt-how-we-work__img">
 					<?php echo rmbt_redux_img( 'rmbt-how-we-work-card-3-img', 'rmbt-how-we-work-card-3-img-alt' ) ?>
 				</div>
-				<header>
+				<div>
 					<h3 class='title-block'><?php echo rmbt_get_redux_field( 'how-we-work-card-3_title' ) ?></h3>
-					<p class="subtitle-block"><?php echo rmbt_get_redux_field( 'how-we-work-card-3_subtitle' ) ?></p>
-				</header>
-				<div class="rmbt-how-we-work__article-body">
-					<div class="rmbt-how-we-work__article-text text-block">
-						<?php echo rmbt_get_redux_field( 'how-we-work-card-3_text' ) ?>
-					</div>
+					<p class="subtitle-block">
+						<?php echo wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-3_subtitle' ), 8, '  [...]' ) ?>
+					</p>
 				</div>
-				<!-- <footer>
-					<a href="#">
-						read more
-						<svg>
-							<use xlink:href="<?php // echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-						</svg>
-					</a>
-				</footer> -->
-			</article>
-			<article class="rmbt-how-we-work__col shadow-box">
+			</div>
+			<div class="rmbt-how-we-work__col shadow-box">
 				<div class="wrap-img rmbt-how-we-work__img">
 					<?php echo rmbt_redux_img( 'rmbt-how-we-work-card-4-img', 'rmbt-how-we-work-card-4-img-alt' ) ?>
 				</div>
-				<header>
+				<div>
 					<h3 class='title-block'><?php echo rmbt_get_redux_field( 'how-we-work-card-4_title' ) ?></h3>
-					<p class="subtitle-block"><?php echo rmbt_get_redux_field( 'how-we-work-card-4_subtitle' ) ?></p>
-				</header>
-				<div class="rmbt-how-we-work__article-body">
-					<div class="rmbt-how-we-work__article-text text-block">
-						<?php echo rmbt_get_redux_field( 'how-we-work-card-4_text' ) ?>
-					</div>
+					<p class="subtitle-block">
+						<?php echo wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-4_subtitle' ), 8, '  [...]' ) ?>
+					</p>
 				</div>
-				<!-- <footer>
-					<a href="#">
-						read more
-						<svg>
-							<use xlink:href="<?php // echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-						</svg>
-					</a>
-				</footer> -->
-			</article>
+			</div>
 		</div>
 
 

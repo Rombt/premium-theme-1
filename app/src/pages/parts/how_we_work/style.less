@@ -6,21 +6,56 @@
 }
 .rmbt-how-we-work {
   min-height: 220px;
-  // border: 1px solid #c2c2c2;
 
   &__row {
     .row-flex();
+    row-gap: 30px;
+
+    .to(480px,{
+    justify-content: center;
+    });
   }
   &__col {
     .col();
     .size(3);
-
+    min-width: 282px;
     padding: 20px 15px 20px 15px;
     border-radius: 16px;
+
+    .to(1280px,{
+        .size(4);
+
+    &:nth-of-type(1),
+    &:nth-of-type(3) {
+        .shift-left(2);
+    }
+
+    });
+
+    .to(960px,{
+      .size(5);
+        min-width: 201px;
+      &:nth-of-type(1),
+      &:nth-of-type(3) {
+        .shift-left(1);
+      }
+    });
+
+    .to(560px,{
+      .size(6);
+        min-width: 201px;
+      &:nth-of-type(1),
+      &:nth-of-type(3) {
+        .shift-left(0);
+      }
+    });
+
+    .to(480px,{
+      .adaptive-prop(width, 260, 330);
+        min-width: 210px;
+    });
   }
-  &__article-body {
-    // border: 1px solid #0515fd;
-  }
+
   &__img {
     height: 200px;
     border-radius: 16px;

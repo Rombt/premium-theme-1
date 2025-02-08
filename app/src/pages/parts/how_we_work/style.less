@@ -6,9 +6,55 @@
 }
 .rmbt-how-we-work {
   min-height: 220px;
-  border: 1px solid #c2c2c2;
-}
-.title-section {
-}
-.subtitle-section {
+  // border: 1px solid #c2c2c2;
+
+  &__row {
+    .row-flex();
+  }
+  &__col {
+    .col();
+    .size(3);
+
+    padding: 20px 15px 20px 15px;
+    border-radius: 16px;
+  }
+  &__article-body {
+    // border: 1px solid #0515fd;
+  }
+  &__img {
+    height: 200px;
+    border-radius: 16px;
+  }
+  .wrap-img {
+  }
+
+  &__article-text {
+    display: none;
+  }
+
+  .title-section {
+  }
+  .subtitle-section {
+  }
+
+  .title-block {
+    margin-left: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: auto;
+    line-height: 100%;
+
+    &::after {
+      width: auto;
+      top: 115%;
+      left: 15px;
+      right: 15px;
+    }
+  }
+
+  .subtitle-block {
+    margin-left: auto;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }

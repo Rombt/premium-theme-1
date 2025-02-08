@@ -11,12 +11,13 @@ Text Domain: rmbt-premium-theme-1
 */
 
 
-define( 'RMBT_TEXT_DOMAIN_THEME', 'premium-theme-1' );  //! you must use only chars those allow for url 
 
 if ( ! function_exists( 'add_action' ) ) {
 	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
 	exit;
 }
+
+define( 'RMBT_TEXT_DOMAIN_THEME', 'premium-theme-1' );  //! you must use only chars those allow for url 
 
 function rmbt_theme_scripts_admin() {
 	wp_enqueue_style( RMBT_TEXT_DOMAIN_THEME . '-admin_main', plugins_url() . '/' . RMBT_TEXT_DOMAIN_THEME . '-core/assets/styles/main-style.min.css', array(), '1.0', 'all' );
@@ -25,6 +26,7 @@ function rmbt_theme_scripts_admin() {
 add_action( 'admin_enqueue_scripts', 'rmbt_theme_scripts_admin' );
 
 require_once plugin_dir_path( __FILE__ ) . 'inc/general-admin.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/project_post_type/project_post_type.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/ajax.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/gutenberg/index.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/acf.php';
@@ -57,7 +59,7 @@ function rmbt_get_images_sizes() {
 				'height' => 250,
 				'crop' => true,
 			),
-		)
+		),
 	);
 }
 add_action( 'plugin_loaded', 'rmbt_register_image_size' );

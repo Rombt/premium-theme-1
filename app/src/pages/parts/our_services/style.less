@@ -173,7 +173,7 @@
 
       .to(768px,{
         .size(12);
-         border-radius: 0px 0px 16px 16px;
+         border-radius: 0px 0px 0px 0px;
         z-index: 3;
       });
 
@@ -189,6 +189,10 @@
       height: 370px;
 
       border-radius: 0px 16px 16px 0px;
+
+      .to(768px,{
+          border-radius: 0px 0px 0px 0px;
+        });
       &:after {
         content: '';
         position: absolute;
@@ -200,7 +204,7 @@
         border-radius: 0px 16px 16px 0px;
 
         .to(768px,{
-          border-radius: 0px 0px 16px 16px;
+          border-radius: 0px 0px 0px 0px;
         });
       }
 
@@ -233,7 +237,7 @@
         border-radius: 0px 16px 16px 0px;
 
         .to(768px,{
-          border-radius: 0px 0px 16px 16px;
+          border-radius: 0px 0px 0px 0px;
         });
       }
     }

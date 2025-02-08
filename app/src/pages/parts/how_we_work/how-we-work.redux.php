@@ -5,9 +5,9 @@ defined( 'ABSPATH' ) || exit;
 Redux::set_section(
 	$opt_name,
 	array(
-		'title' => esc_html__( 'how-we-work-card', RMBT_TEXT_DOMAIN_THEME ),
 		'id' => 'settings_how-we-work-card',
-		'desc' => esc_html__( 'Settings header site', RMBT_TEXT_DOMAIN_THEME ),
+		'title' => esc_html__( 'How We Work Block', RMBT_TEXT_DOMAIN_THEME ),
+		'desc' => esc_html__( 'Settings "How We Work Card" block', RMBT_TEXT_DOMAIN_THEME ),
 		'customizer_width' => '450',
 		'subsections' => true,
 		// 'icon'             => 'el el-home',
@@ -183,6 +183,58 @@ Redux::set_section(
 				'position' => 'end',
 			),
 			/*------------------ /rmbt-how-we-work-card-3 accordion ------------------*/
+
+			/*------------------ rmbt-how-we-work-card-4 accordion ------------------*/
+			array(
+				'id' => 'rmbt-how-we-work-card-4-start',
+				'type' => 'accordion',
+				'title' => __( 'Settings of fourth card', RMBT_TEXT_DOMAIN_THEME ),
+				'subtitle' => 'Add your content to fourth card',
+				'position' => 'start',
+			),
+
+
+			array(
+				'id' => 'how-we-work-card-4_title',
+				'type' => 'text',
+				'title' => __( 'Title of fourth card', RMBT_TEXT_DOMAIN_THEME ),
+			),
+
+			array(
+				'id' => 'how-we-work-card-4_subtitle',
+				'type' => 'text',
+				'title' => __( 'Subtitle of fourth card', RMBT_TEXT_DOMAIN_THEME ),
+			),
+
+			array(
+				'id' => 'how-we-work-card-4_text',
+				'type' => 'textarea',
+				'title' => __( 'Text of fourth card', RMBT_TEXT_DOMAIN_THEME ),
+			),
+
+			array(
+				'id' => 'rmbt-how-we-work-card-4-img',
+				'type' => 'media',
+				'url' => true,
+				'title' => __( 'Image for first card', RMBT_TEXT_DOMAIN_THEME ),
+				'compiler' => 'true',
+				'preview_size' => 'full',
+				'remove' => true,
+			),
+
+			array(
+				'id' => 'rmbt-how-we-work-card-4-img-alt',
+				'type' => 'text',
+				'title' => __( 'Subtitle of fourth card', RMBT_TEXT_DOMAIN_THEME ),
+			),
+
+
+			array(
+				'id' => 'rmbt-how-we-work-card-4-end',
+				'type' => 'accordion',
+				'position' => 'end',
+			),
+			/*------------------ /rmbt-how-we-work-card-4 accordion ------------------*/
 
 
 

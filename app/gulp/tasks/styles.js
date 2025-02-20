@@ -1,6 +1,7 @@
 /**
  *
- *
+ *  при необходимости использовать конкатенацию для файлов стилей плагина
+ *  нужно делать отдельную задачу под плагин т.к. app.plugins.concat определяет базовую директорию по первому прошедшему через него файлу потока
  *
  *
  */
@@ -14,6 +15,10 @@ import autoprefixer from 'gulp-autoprefixer';
 import groupCssMediaQueries from 'gulp-group-css-media-queries';
 const sass = gulpSasss(dartSasss);
 
+var condition = function (file) {
+  return !file.path.includes(app.path.srcPluginName);
+};
+
 export const styles = () => {
   return app.gulp
     .src(app.path.styles.src, { sourcemaps: app.isDev, allowEmpty: true })
@@ -25,13 +30,16 @@ export const styles = () => {
         })
       )
     )
-    .pipe(app.plugins.concat('main-style.less'))
+    .pipe(app.plugins.if(condition, app.plugins.concat('main-style.less')))
     .pipe(
       app.plugins.if(
         app.isSASS,
         sass({ outputStyle: 'expanded' }),
         less({
-          paths: [`${app.path.src.php}/assets/styles`],
+          paths: [
+            `${app.path.src.php}/assets/styles`,
+            `${app.path.src.plug}/assets/styles`,
+          ],
         })
       )
     )

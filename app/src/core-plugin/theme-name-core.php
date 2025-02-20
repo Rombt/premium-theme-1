@@ -27,9 +27,11 @@ add_action( 'admin_enqueue_scripts', 'rmbt_theme_scripts_admin' );
 
 require_once plugin_dir_path( __FILE__ ) . 'inc/general-admin.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/project_post_type/project_post_type.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/application_processing_form/application_processing_form.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/ajax.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/gutenberg/index.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/acf.php';
+
 
 function rmbt_get_images_sizes() {
 
@@ -62,8 +64,10 @@ function rmbt_get_images_sizes() {
 		),
 	);
 }
-add_action( 'plugin_loaded', 'rmbt_register_image_size' );
+add_action( 'plugins_loaded', 'rmbt_register_image_size' );
+
 function rmbt_register_image_size() {
+
 	if ( function_exists( 'rmbt_get_images_sizes' ) ) {
 		foreach ( rmbt_get_images_sizes() as $post_type => $sizes ) {
 			foreach ( $sizes as $config ) {

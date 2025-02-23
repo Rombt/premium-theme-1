@@ -1,0 +1,117 @@
+.rmbt-latest-blog-posts-card {
+  @padding_left: 150px;
+  @padding_bottom: 0px;
+  @offset_left: 15px;
+
+  .to(768px,{
+    @offset_left: 5px;
+    padding-right: 5px;
+  });
+
+  position: relative;
+  padding-left: @padding_left + @offset_left;
+  padding-right: 15px;
+  min-height: 120px;
+  max-height: 160px;
+  border-radius: 0px 16px 16px 0px;
+  .to(480px,{
+    padding-left: @offset_left;
+  });
+
+  .to(1024px,{
+    border-radius: 16px 16px 16px 16px;
+  });
+
+  .to(480px,{
+      max-height: 220px;
+  });
+
+  &__col {
+  }
+  &__article-body {
+  }
+  &__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: @padding_left;
+
+    .to(1024px,{
+      border-radius: 16px 0px 0px 16px;
+    });
+
+    .to(480px,{
+      display: none;
+    });
+  }
+
+  &__content {
+    position: relative;
+    height: 100%;
+    padding-top: 15px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 5px;
+  }
+
+  .title-block {
+    margin: 0px 0px 10px 0px;
+    max-width: 100%;
+    line-height: 110%;
+    text-align: left;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    .to(480px,{
+      text-align: center;
+    });
+
+    &:after {
+      left: 0px;
+      top: auto;
+      bottom: -7px;
+      width: 35%;
+
+      .to(480px,{
+        right: 35px;
+        left: 35px;
+        width: auto;
+      });
+    }
+  }
+
+  .subtitle-block {
+    line-height: 110%;
+    font-weight: 300;
+    font-size: 13px;
+    margin-left: 10px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 12px 2px 12px;
+
+    .to(768px,{
+      width: 80%;
+      margin: 0 auto;
+    });
+
+    .rmbt-button-read-more {
+      position: static;
+      font-size: 12px;
+      .adaptive-prop(min-width, 75, 35);
+      .adaptive-prop(height, 30, 20);
+      .adaptive-prop(line-height, 30, 20);
+      .adaptive-prop(padding-left, 10, 5);
+      .adaptive-prop(padding-right, 10, 5);
+      .adaptive-prop(outline-offset, -5, -3);
+    }
+  }
+}

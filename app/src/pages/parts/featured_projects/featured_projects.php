@@ -38,9 +38,19 @@ $posts = get_posts( $args );
 									</div>
 									<h2 class="title-block"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 									<div class='subtitle-block'><?php echo wp_trim_words( get_the_excerpt(), 10, '  [...]' ); ?></div>
-									<a href="<?php the_permalink(); ?>" class='rmbt-featured-projects-slide__nav-butt shadow-box'> read
-										more
-									</a>
+
+									<?php
+									get_template_part( 'pages/components/button_read_more/button_read_more', null, [ 
+										'data' => '',
+										'title' => 'read more',
+										'href' => get_permalink(),
+										'classes' => 'shadow-box',
+									] );
+									?>
+
+
+
+
 								</div>
 
 							<?php endforeach;

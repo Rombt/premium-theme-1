@@ -168,7 +168,19 @@ function rmbt_widgets_init() {
 }
 add_action( 'widgets_init', 'rmbt_widgets_init' );
 
+function theme_customize_register( $wp_customize ) {
+	$wp_customize->add_setting( 'custom_footer_logo', [ 
+		'default' => '',
+		'sanitize_callback' => 'esc_url_raw',
+	] );
 
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'custom_footer_logo', [ 
+		'label' => __( 'Footer Logo', RMBT_TEXT_DOMAIN_THEME ),
+		'section' => 'title_tagline',
+		'settings' => 'custom_footer_logo',
+	] ) );
+}
+add_action( 'customize_register', 'theme_customize_register' );
 
 
 //===========================================================================

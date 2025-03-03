@@ -23,6 +23,11 @@ Redux::set_section(
 				'title' => esc_html__( 'The title of the first section', RMBT_TEXT_DOMAIN_THEME ),
 			),
 			array(
+				'id' => 'rmbt-subtitle-section-1',
+				'type' => 'textarea',
+				'title' => esc_html__( 'The subtitle of the first section', RMBT_TEXT_DOMAIN_THEME ),
+			),
+			array(
 				'id' => 'rmbt-title-section-1-end',
 				'type' => 'section',
 				'indent' => false,
@@ -30,26 +35,7 @@ Redux::set_section(
 
 
 			array(
-				'id' => 'rmbt-title-section-2-start',
-				'type' => 'section',
-				'title' => esc_html__( 'Second Title Section', RMBT_TEXT_DOMAIN_THEME ),
-				'indent' => true,
-			),
-			array(
-				'id' => 'rmbt-title-section-2',
-				'type' => 'text',
-				'title' => esc_html__( 'The title of the second section', RMBT_TEXT_DOMAIN_THEME ),
-			),
-			array(
-				'id' => 'rmbt-title-section-2-end',
-				'type' => 'section',
-				'indent' => false,
-			),
-
-
-
-			array(
-				'id' => 'rmbt-address_en',
+				'id' => 'rmbt-address',
 				'type' => 'textarea',
 				'title' => esc_html__( 'Enter Your Address', RMBT_TEXT_DOMAIN_THEME ),
 			),
@@ -85,8 +71,7 @@ Redux::set_section(
 				'type' => 'section',
 				'indent' => false,
 			),
-			//First Manager section end	-----------------------------------
-			// 
+			//First Manager section end	----------------------------------- 
 			//Second  Manager section start	-----------------------------------
 			array(
 				'id' => 'rmbt-manager-2-section-start',
@@ -118,7 +103,6 @@ Redux::set_section(
 				'indent' => false,
 			),
 			//Second  Manager section end
-			//
 			//Third  Manager section start	-----------------------------------
 			array(
 				'id' => 'rmbt-manager-3-section-start',
@@ -149,7 +133,6 @@ Redux::set_section(
 				'indent' => false,
 			),
 			//Third  Manager section end		-----------------------------------
-			//
 			//Fourth  Manager section start	-----------------------------------
 			array(
 				'id' => 'rmbt-manager-4-section-start',
@@ -181,8 +164,6 @@ Redux::set_section(
 				'indent' => false,
 			),
 			//Fourth  Manager section end		-----------------------------------
-			//
-			//
 			//Fifth  Manager section start	-----------------------------------
 			array(
 				'id' => 'rmbt-manager-5-section-start',
@@ -214,8 +195,6 @@ Redux::set_section(
 				'indent' => false,
 			),
 			//Fifth  Manager section end		-----------------------------------
-			//
-			//
 			//Sixth  Manager section start	-----------------------------------
 			array(
 				'id' => 'rmbt-manager-6-section-start',

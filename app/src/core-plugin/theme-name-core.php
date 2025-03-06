@@ -28,6 +28,11 @@ add_action( 'admin_enqueue_scripts', 'rmbt_theme_scripts_admin' );
 require_once plugin_dir_path( __FILE__ ) . 'inc/general-admin.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/project_post_type/project_post_type.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/application_processing_form/application_processing_form.php';
+
+require_once plugin_dir_path( __FILE__ ) . 'inc/demo_content/demo_content_button.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/demo_content/ajax.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/demo_content/generate_content_post.php';
+
 // require_once plugin_dir_path(__FILE__) . 'inc/ajax.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/gutenberg/index.php';
 // require_once plugin_dir_path(__FILE__) . 'inc/acf.php';

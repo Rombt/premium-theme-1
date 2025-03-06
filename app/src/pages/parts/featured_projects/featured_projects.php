@@ -15,9 +15,11 @@ $posts = get_posts( $args );
 			<!-- <section class="rmbt-container rmbt-featured-projects"> -->
 			<!-- by full width -->
 			<section class="rmbt-featured-projects">
-				<h2 class="title-section"><?php echo 'Featured Projects'; ?></h2>
+				<h2 class="title-section">
+					<?php echo rmbt_get_redux_field( 'rmbt-featured-projects_section-title', 1 ) ?>
+				</h2>
 				<p class="subtitle-section">
-					<?php echo 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, obcaecati voluptas dolor laborum a accusamus quos iusto fugit excepturi ea?' ?>
+					<?php echo rmbt_get_redux_field( 'rmbt-featured-projects_section-subtitle', 1 ) ?>
 				</p>
 				<div class="rmbt-featured-projects__row">
 					<div class="rmbt-featured-projects-slide-swiper swiper">

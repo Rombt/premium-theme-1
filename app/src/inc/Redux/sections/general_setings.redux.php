@@ -26,7 +26,16 @@ Redux::set_section(
 			array(
 				'id' => 'rmbt-coming_soon_img-alt',
 				'type' => 'text',
-				'title' => esc_html__( 'The description of the \'Coming Soon\' photo.', RMBT_TEXT_DOMAIN_THEME ),
+				'title' => esc_html__( 'The description of the \'Coming Soon\' image.', RMBT_TEXT_DOMAIN_THEME ),
+			),
+
+
+			array(
+				'id' => 'rmbt-default_avatar_img',
+				'type' => 'text',
+				'title' => esc_html__( 'The description of the \'user avatar\' image.', RMBT_TEXT_DOMAIN_THEME ),
+				'description' => 'You can choose WordPress\'s standard avatars',
+				'default' => 'mystery',
 			),
 
 

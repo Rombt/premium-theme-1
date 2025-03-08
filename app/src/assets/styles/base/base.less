@@ -7,6 +7,9 @@ main {
   display: flex;
   flex-direction: column;
   row-gap: @margin_bottom_section;
+
+  padding-bottom: @margin_bottom_section * 2;
+  position: relative;
 }
 a {
   color: inherit;
@@ -31,7 +34,7 @@ a {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  row-gap: @margin_bottom_section;
+  // row-gap: @margin_bottom_section * 2; //!!! todo
 
   background-color: @color_background_pages;
 }
@@ -169,10 +172,11 @@ body.rmbt-lock {
     position: absolute;
     left: -6px;
     right: -6px;
-    top: 135%;
     height: 3px;
     box-shadow: 1px 1px 2px #d5d5d5;
     background-color: #f35200;
+    // top: 135%;
+    bottom: -7px;
   }
 }
 
@@ -190,8 +194,9 @@ body.rmbt-lock {
   &:after {
     left: 0px;
     width: 80px;
-    top: 160%;
     height: 2px;
+    // top: 160%;
+    bottom: -7px;
   }
 }
 
@@ -229,19 +234,15 @@ body.rmbt-lock {
 }
 
 .form-field-group {
-  // border: 1px solid #04c052;
-
   label,
   input {
     display: block;
   }
 
   label {
-    // border: 1px solid #222120;
   }
 
   input {
-    // border: 1px solid #ff25d0;
   }
 }
 

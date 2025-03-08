@@ -14,9 +14,19 @@
 
 	<?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
 
-	<?php if ( is_page( 'Страница шаблонов' ) ) : ?>
-		<div class="rmbt-page-wrap templates-page-wrap">
-		<?php elseif ( is_front_page() ) : ?>
-			<div class="rmbt-page-wrap front-page-wrap">
+
+
+	<?php if ( is_front_page() ) : ?>
+
+		<div class="rmbt-page-wrap front-page-wrap">
+			<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+			<!-- сюда добавить hero block  -->
+
+		<?php elseif ( is_page( 'Страница шаблонов' ) ) : ?>
+			<div class="rmbt-page-wrap templates-page-wrap"></div>
+
+		<?php else : ?>
+			<div class="rmbt-page-wrap">
 				<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+
 			<?php endif ?>

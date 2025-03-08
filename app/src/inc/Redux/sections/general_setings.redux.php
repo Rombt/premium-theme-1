@@ -39,6 +39,36 @@ Redux::set_section(
 			),
 
 
+			array(
+				'id' => 'rmbt-404_text',
+				'type' => 'text',
+				'title' => esc_html__( 'Text for 404 page', RMBT_TEXT_DOMAIN_THEME ),
+				'default' => 'Page Not Found',
+			),
+
+			array(
+				'id' => 'rmbt-404_button-title',
+				'type' => 'text',
+				'title' => esc_html__( 'Text for button 404 page', RMBT_TEXT_DOMAIN_THEME ),
+				'default' => 'Visit Homepage',
+			),
+
+
+			array(
+				'id' => 'rmbt-404-bg_img',
+				'type' => 'media',
+				'url' => true,
+				'title' => esc_html__( 'Background image for 404 page', RMBT_TEXT_DOMAIN_THEME ),
+				'compiler' => 'true',
+				'preview_size' => 'full',
+				'remove' => true,
+			),
+
+			array(
+				'id' => 'rmbt-404-bg_img-alt',
+				'type' => 'text',
+				'title' => esc_html__( 'The description of the \'404 background \' image.', RMBT_TEXT_DOMAIN_THEME ),
+			),
 
 			// array(
 			// 	'id' => 'rmbt-title-section-1-start',

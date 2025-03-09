@@ -1,4 +1,13 @@
-<article class="post">
-	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-	<div><?php the_excerpt(); ?></div>
-</article>
+<?php
+
+get_template_part( 'pages/components/latest-blog-posts-card/latest-blog-posts-card', null, [ 
+	'title' => get_the_title(),
+	'text' => wp_trim_words( get_the_excerpt(), 20, '  [...]' ),
+	'tag-img' => get_the_post_thumbnail( null, 'thumbnail' ),
+	'link_read_more_href' => get_the_permalink(),
+	'post_date' => get_the_date(),
+	'classes' => 'shadow-box',
+] );
+
+
+?>

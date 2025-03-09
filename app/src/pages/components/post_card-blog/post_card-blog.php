@@ -1,4 +1,4 @@
-<article class="rmbt-latest-blog-posts-card <?= ! empty( $args['classes'] ) ? $args['classes'] : '' ?>">
+<article class="rmbt-blog-posts-card <?= ! empty( $args['classes'] ) ? $args['classes'] : '' ?>">
 	<div class="wrap-img rmbt-latest-blog-posts-card__img">
 		<?php echo $args['tag-img'] ?>
 	</div>

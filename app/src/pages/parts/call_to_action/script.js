@@ -1,7 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+  let form = document.getElementById('rmbt-call-to-action-form');
+  if (!form) {
+    return;
+  }
+
   let modal = document.getElementById('thank-you-modal');
   let closeButton = document.getElementById('close-modal-btn');
-  let form = document.getElementById('rmbt-call-to-action-form');
 
   form.addEventListener('submit', function (event) {
     event.preventDefault();

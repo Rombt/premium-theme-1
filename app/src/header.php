@@ -20,13 +20,18 @@
 
 		<div class="rmbt-page-wrap front-page-wrap">
 			<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
-			<!-- сюда добавить hero block  -->
 
 		<?php elseif ( is_page( 'Страница шаблонов' ) ) : ?>
 			<div class="rmbt-page-wrap templates-page-wrap"></div>
 
-		<?php else : ?>
-			<div class="rmbt-page-wrap">
+		<?php elseif ( is_404() ) : ?>
+			<div class="rmbt-page-wrap rmbt-404-page-wrap">
 				<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+				<?php get_template_part( 'pages/components/hero-block-1-top-row/hero-block-1-top-row' ); ?>
 
-			<?php endif ?>
+			<?php else : ?>
+				<div class="rmbt-page-wrap">
+					<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+					<?php get_template_part( 'pages/components/hero-block-1-top-row/hero-block-1-top-row' ); ?>
+
+				<?php endif ?>

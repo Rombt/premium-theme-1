@@ -1,4 +1,8 @@
 (function () {
+  if (!document.querySelector('.rmbt-hero-block-1-top-row')) {
+    return;
+  }
+
   const burgerMenu = document.querySelector('.rmbt-menu-horizontal .icon-burger');
   const topRowColLeft = document.querySelector('.rmbt-hero-block-1-top-row-col-left');
   const logo = topRowColLeft.querySelector('.custom-logo-link');

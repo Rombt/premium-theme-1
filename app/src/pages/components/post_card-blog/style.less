@@ -3,23 +3,20 @@
   @padding_bottom: 0px;
   @offset_left: 15px;
 
-  .to(768px,{
-    @offset_left: 5px;
-    padding-right: 5px;
-  });
-
   position: relative;
   padding-left: @padding_left + @offset_left;
   padding-right: 15px;
   min-height: 120px;
   max-height: 160px;
-  border-radius: 0px 16px 16px 0px;
+  border-radius: 16px 16px 16px 16px;
+  overflow: hidden;
+
+  .to(768px,{
+    @offset_left: 5px;
+    padding-right: 5px;
+  });
   .to(480px,{
     padding-left: @offset_left;
-  });
-
-  .to(1024px,{
-    border-radius: 16px 16px 16px 16px;
   });
 
   .to(480px,{
@@ -36,10 +33,6 @@
     top: 0;
     bottom: 0;
     width: @padding_left;
-
-    .to(1024px,{
-      border-radius: 16px 0px 0px 16px;
-    });
 
     .to(480px,{
       display: none;

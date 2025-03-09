@@ -1,27 +1,31 @@
 .rmbt-blog-posts-card {
   @padding_left: 300px;
-  @padding_bottom: 0px;
-  @offset_left: 15px;
+  @offset_left: 30px;
+
+  box-sizing: border-box;
+
+  padding-top: @padding-top-section;
+  padding-bottom: @padding-bottom-section;
 
   position: relative;
   padding-left: @padding_left + @offset_left;
   padding-right: 15px;
-  min-height: 300px;
+  height: 300px;
   // max-height: 160px;
   border-radius: 16px 16px 16px 16px;
   overflow: hidden;
 
-  .to(768px,{
-    @offset_left: 5px;
-    padding-right: 5px;
-  });
-  .to(480px,{
-    padding-left: @offset_left;
-  });
+  // .to(768px,{
+  //   @offset_left: 5px;
+  //   padding-right: 5px;
+  // });
+  // .to(480px,{
+  //   padding-left: @offset_left;
+  // });
 
-  .to(480px,{
-      max-height: 220px;
-  });
+  // .to(480px,{
+  //     max-height: 220px;
+  // });
 
   &__col {
   }
@@ -52,12 +56,10 @@
   }
 
   .title-block {
-    margin: 0px 0px 10px 0px;
+    margin: 0px auto 10px auto;
     max-width: 100%;
     line-height: 110%;
-    text-align: left;
-
-    font-size: 16px;
+    text-align: center;
     font-weight: 600;
 
     .to(480px,{
@@ -65,10 +67,11 @@
     });
 
     &:after {
-      left: 0px;
+      left: 15%;
+      right: 15%;
       top: auto;
-      bottom: -7px;
-      width: 35%;
+      bottom: -20px;
+      width: auto;
 
       .to(480px,{
         right: 35px;
@@ -79,10 +82,9 @@
   }
 
   .subtitle-block {
-    line-height: 110%;
-    font-weight: 300;
-    font-size: 13px;
-    margin-left: 10px;
+    line-height: 140%;
+    font-weight: 400;
+    // margin-left: 10px;
   }
 
   footer {
@@ -98,13 +100,13 @@
 
     .rmbt-button-read-more {
       position: static;
-      font-size: 12px;
-      .adaptive-prop(min-width, 75, 35);
-      .adaptive-prop(height, 30, 20);
-      .adaptive-prop(line-height, 30, 20);
+      font-size: 16px;
+      .adaptive-prop(min-width, 120, 75);
+      .adaptive-prop(height, 40, 25);
+      .adaptive-prop(line-height, 40, 25);
       .adaptive-prop(padding-left, 10, 5);
       .adaptive-prop(padding-right, 10, 5);
-      .adaptive-prop(outline-offset, -5, -3);
+      .adaptive-prop(outline-offset, -6, -4);
     }
   }
 }

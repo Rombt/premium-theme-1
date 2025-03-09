@@ -2,7 +2,6 @@
   margin-top: @height_top_row;
   background-color: @color_background_header;
   position: relative;
-  z-index: 5;
 
   &::after {
     content: '';
@@ -16,8 +15,11 @@
     border-radius: 300%;
   }
 
-  &.hide-after::after {
-    display: none;
+  &.hide-after {
+    z-index: 5;
+    &:after {
+      display: none;
+    }
   }
 
   &__bg {

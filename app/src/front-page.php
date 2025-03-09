@@ -2,12 +2,9 @@
 
 <?php get_template_part( 'pages/parts/hero_block_1/hero_block_1', null ); ?>
 
-
-
 <main>
 	<?php
 
-	// get_template_part( 'pages/parts/hero_block_1/hero_block_1', null );
 	get_template_part( 'pages/parts/our_services/our_services' );
 	get_template_part( 'pages/parts/featured_projects/featured_projects' );
 	get_template_part( 'pages/parts/how_we_work/how_we_work' );		// block of cards, redux fields

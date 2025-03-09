@@ -1,15 +1,15 @@
 <article class="rmbt-blog-posts-card <?= ! empty( $args['classes'] ) ? $args['classes'] : '' ?>">
-	<div class="wrap-img rmbt-latest-blog-posts-card__img">
+	<div class="wrap-img rmbt-blog-posts-card__img">
 		<?php echo $args['tag-img'] ?>
 	</div>
 
-	<div class="rmbt-latest-blog-posts-card__content">
+	<div class="rmbt-blog-posts-card__content">
 
 		<header>
 			<h3 class='title-block'><?php echo $args['title'] ?></h3>
 		</header>
-		<div class="rmbt-latest-blog-posts-card__article-body">
-			<div class="subtitle-block rmbt-latest-blog-posts-card__article-text">
+		<div class="rmbt-blog-posts-card__article-body">
+			<div class="subtitle-block rmbt-blog-posts-card__article-text">
 				<?php echo $args['text'] ?>
 			</div>
 		</div>

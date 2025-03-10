@@ -4,7 +4,6 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
 </head>
@@ -20,6 +19,7 @@
 
 		<div class="rmbt-page-wrap front-page-wrap">
 			<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+			<?php get_template_part( 'pages/parts/hero_block_1/hero_block_1', null ); ?>
 
 		<?php elseif ( is_page( 'Страница шаблонов' ) ) : ?>
 			<div class="rmbt-page-wrap templates-page-wrap"></div>

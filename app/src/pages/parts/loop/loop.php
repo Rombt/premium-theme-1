@@ -6,8 +6,9 @@
 
 		<div class="rmbt-blog__row">
 
-			<div class="rmbt-blog__col rmbt-blog-right-col">
 
+
+			<div class="rmbt-blog__col rmbt-blog-right-col">
 
 				<?php if ( have_posts() ) : ?>
 					<?php while ( have_posts() ) :
@@ -19,9 +20,8 @@
 						<?php echo paginate_links(); ?>
 					</div>
 				<?php else : ?>
-					<p>Записей не найдено.</p>
+					<p>Posts don't found</p>
 				<?php endif; ?>
-
 
 			</div>
 		</div>

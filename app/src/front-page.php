@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<?php get_template_part( 'pages/parts/hero_block_1/hero_block_1', null ); ?>
-
 <main>
 	<?php
 
@@ -12,17 +10,7 @@
 	get_template_part( 'pages/parts/post_card-latest_blog/post_card-latest_blog' );		// block of cards
 	get_template_part( 'pages/parts/testimonials/testimonials' );		// block of cards
 	
-
-
-
-	// get_template_part( 'pages/parts/our_team/our_team' );		// slider, redux fields
-	// get_template_part( 'pages/parts/our_clients/our_clients' );		// slider, custom post type with a dedicated personal area for each client to manage their account and orders.
-	
-
-
-	// get_template_part( 'pages/_templates/sections/section_cards-0/section_cards-0', '0' );
 	?>
 </main>
-
 
 <?php get_footer();

@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
-	<?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
+	<?php get_template_part( 'pages\_templates\components\debug-grid' ); ?>
 
 
 

@@ -6,5 +6,22 @@
   flex-direction: column;
   align-items: center;
 
-  border: 1px solid #0515fd;
+  //   border: 1px solid #0515fd;
+
+  & > ul {
+    width: 100%;
+    border-radius: 16px;
+
+    padding: @padding-top-block @padding-bottom-block @padding-left-block
+      @padding-right-block;
+
+    background-color: rgba(213, 213, 213, 0.15);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+
+    & > li {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
 }

@@ -79,7 +79,7 @@
   a {
     color: @link-color;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     transition: color 0.3s ease;
     &:hover {
       color: @hover-dark;
@@ -109,12 +109,12 @@
     width: 100%;
     background-color: #fff;
     font-size: 14px;
-    // line-height: 125%;
     letter-spacing: 0em;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
   }
 
+  input[type='submit'],
   button {
     cursor: pointer;
 
@@ -160,6 +160,7 @@ caption,
   width: max-content;
   margin-right: auto !important;
   margin-left: auto !important;
+  margin-bottom: @margin-bottom-title !important;
 }
 
 .wp-block-heading,

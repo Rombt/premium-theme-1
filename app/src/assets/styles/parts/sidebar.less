@@ -40,8 +40,8 @@
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
 
-  padding: @padding-top-block @padding-bottom-block @padding-left-block
-    @padding-right-block;
+  padding: @padding-top-block @padding-left-block + 5px @padding-bottom-block
+    @padding-right-block + 5px;
   border-radius: @border-radius;
 
   p,
@@ -162,6 +162,8 @@ caption,
   margin-right: auto !important;
   margin-left: auto !important;
   margin-bottom: @margin-bottom-title !important;
+
+  margin-top: 0px;
 }
 
 .wp-block-heading,

@@ -16,6 +16,7 @@ function sidebarToggle() {
       sidebarToggle.classList.add('close');
     } else {
       parentSidebarToggle.prepend(sidebarToggle);
+      sidebarToggle.classList.remove('close');
     }
   });
 
@@ -26,6 +27,7 @@ function sidebarToggle() {
       !sidebarToggle.contains(e.target)
     ) {
       sidebar.classList.remove('open');
+      sidebarToggle.classList.remove('close');
       parentSidebarToggle.append(sidebarToggle);
     }
   });

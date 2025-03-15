@@ -10,7 +10,6 @@
   .col();
   .size(4);
   background: @sidebar-bg;
-  // background: transparent;
   display: flex;
   flex-direction: column;
   row-gap: @row-gap-blocks-into-section;
@@ -25,13 +24,16 @@
     transform: translateX(120%); 
     transition: transform 0.3s ease;
     z-index: 1000;  
-    padding: @padding-top-block @padding-right-block + 20px @padding-bottom-block   @padding-left-block  + 20px;
+    padding: 60px @padding-right-block + 20px @padding-bottom-block   @padding-left-block  + 20px;
 
+    backdrop-filter: blur(4px);
+    background-color: rgba(213, 213, 213, 0.15);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
 
     &.open {
       transform: translateX(0); 
       overflow-y: auto;
-      background: linear-gradient(90deg, #ffffff 0%, #222322 100%);
+
     }
 
   });

@@ -3,8 +3,6 @@ function sidebarToggle() {
   const sidebarToggle = document.querySelector('.sidebar-toggle');
   const parentSidebarToggle = sidebarToggle.parentElement;
 
-  console.log('parentSidebarToggle = ', parentSidebarToggle);
-
   if (!sidebar || !sidebarToggle) {
     return;
   }

@@ -11,12 +11,10 @@
   .size(4);
   background: @sidebar-bg;
   // background: transparent;
-  border-radius: @border-radius;
   display: flex;
   flex-direction: column;
   row-gap: @row-gap-blocks-into-section;
-
-  box-sizing: border-box;
+  min-width: min-content;
 
   .to(1024px,{
     position: fixed;
@@ -24,14 +22,21 @@
     right: 0;
     height: 100%;
     margin-right: 0px;
-    transform: translateX(100%); 
+    transform: translateX(120%); 
     transition: transform 0.3s ease;
     z-index: 1000;  
 
+    padding: @padding-top-block @padding-right-block + 20px @padding-bottom-block   @padding-left-block  + 20px;
+
+    margin-right: 50px;
+
     &.open {
       transform: translateX(0); 
-      margin-right: 15px;
+      // margin-right: 15px;
       overflow-y: auto;
+
+      background: linear-gradient(90deg, #ffffff 0%, #222322 100%);
+
     }
 
   });
@@ -68,7 +73,7 @@
     @padding-right-block + 5px;
   border-radius: @border-radius;
 
-  box-sizing: border-box;
+  min-width: 280px;
 
   p,
   ul,

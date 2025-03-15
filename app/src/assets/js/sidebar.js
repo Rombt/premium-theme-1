@@ -9,5 +9,15 @@ function sidebarToggle() {
   sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('open');
   });
+
+  document.addEventListener('click', e => {
+    if (
+      sidebar.classList.contains('open') &&
+      !sidebar.contains(e.target) &&
+      !sidebarToggle.contains(e.target)
+    ) {
+      sidebar.classList.remove('open');
+    }
+  });
 }
 sidebarToggle();

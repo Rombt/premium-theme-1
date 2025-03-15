@@ -6,7 +6,6 @@ function sidebarToggle() {
   if (!sidebar || !sidebarToggle) return;
 
   parentSidebarToggle.prepend(sidebarToggle);
-  //   const parentSidebarToggle = sidebarToggle.parentElement;
 
   sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('open');

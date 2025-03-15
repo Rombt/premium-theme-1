@@ -30,9 +30,6 @@
 				<?php get_template_part( 'pages/components/social_networks/social_networks', null, [ 
 					'data' => 'data-da=".menu-header-navigation-container, 769, last"',
 				] ); ?>
-
-
-				<button class="sidebar-toggle">☰</button>
 			</div>
 		</div>
 	</section>

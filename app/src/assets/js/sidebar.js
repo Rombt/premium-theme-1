@@ -1,11 +1,10 @@
 function sidebarToggle() {
   const sidebar = document.querySelector('.sidebar');
   const sidebarToggle = document.querySelector('.sidebar-toggle');
-  const parentSidebarToggle = sidebarToggle.parentElement;
 
-  if (!sidebar || !sidebarToggle) {
-    return;
-  }
+  if (!sidebar || !sidebarToggle) return;
+
+  const parentSidebarToggle = sidebarToggle.parentElement;
 
   sidebarToggle.addEventListener('click', () => {
     sidebar.classList.toggle('open');

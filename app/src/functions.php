@@ -148,7 +148,7 @@ function rmbt_widgets_init() {
 			'name' => esc_html__( 'Sidebar For Blog page', RMBT_TEXT_DOMAIN_THEME ),
 			'id' => 'rmbt_blog_sidebar',
 			'description' => esc_html__( 'Add widgets here', RMBT_TEXT_DOMAIN_THEME ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'before_widget' => '<section id="%1$s" class="widget %2$s"><button class="sidebar-toggle" data-da=".rmbt-hero-block-1-top-row__row, 1024, last">☰</button>',
 			'after_widget' => '</section>',
 			'before_title' => '<h2 class="widget-title">',
 			'after_title' => '</h2>',

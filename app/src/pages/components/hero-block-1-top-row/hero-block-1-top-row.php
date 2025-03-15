@@ -31,6 +31,8 @@
 					'data' => 'data-da=".menu-header-navigation-container, 769, last"',
 				] ); ?>
 
+
+				<button class="sidebar-toggle">☰</button>
 			</div>
 		</div>
 	</section>

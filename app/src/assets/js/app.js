@@ -7,6 +7,7 @@ import './modules/arrowsInputNumberStyle.js';
 import './modules/HorizontalMenu.js';
 import './modules/sliders.js';
 
+import './sidebar.js';
 // let tl = gsap.timeline();
 
 // tl.to('.test-box__green', { duration: 2, x: 800, ease: 'elastic' });

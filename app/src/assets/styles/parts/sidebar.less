@@ -10,22 +10,45 @@
   .col();
   .size(4);
   background: @sidebar-bg;
-
+  // background: transparent;
   border-radius: @border-radius;
-
   display: flex;
   flex-direction: column;
   row-gap: @row-gap-blocks-into-section;
 
-  // @media (max-width: 1024px) {
-  //   width: 100%;
-  //   margin-top: 20px;
-  // }
-  // @media (min-width: 1024px) {
-  //   position: sticky;
-  //   top: 20px;
-  // }
+  box-sizing: border-box;
+
+  .to(1024px,{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    margin-right: 0px;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease;
+    z-index: 1000;  
+
+    &.open {
+      transform: translateX(0); 
+      margin-right: 15px;
+    }
+
+  });
 }
+
+.to(1024px,{
+  .sidebar-toggle {
+    display: block; /* Показываем кнопку на маленьких экранах */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1001;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+});
 
 .widget {
   font-family: Ubuntu;
@@ -43,6 +66,8 @@
   padding: @padding-top-block @padding-left-block + 5px @padding-bottom-block
     @padding-right-block + 5px;
   border-radius: @border-radius;
+
+  box-sizing: border-box;
 
   p,
   ul,

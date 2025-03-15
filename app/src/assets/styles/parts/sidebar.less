@@ -24,19 +24,14 @@
     margin-right: 0px;
     transform: translateX(120%); 
     transition: transform 0.3s ease;
-    // z-index: 1000;  
-
+    z-index: 1000;  
     padding: @padding-top-block @padding-right-block + 20px @padding-bottom-block   @padding-left-block  + 20px;
 
-    margin-right: 50px;
 
     &.open {
       transform: translateX(0); 
-      // margin-right: 15px;
       overflow-y: auto;
-
       background: linear-gradient(90deg, #ffffff 0%, #222322 100%);
-
     }
 
   });
@@ -54,6 +49,13 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+
+
+    &.close{
+
+      background-color: #f00606;
+      
+    }
   });
 }
 

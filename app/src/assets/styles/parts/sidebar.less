@@ -24,7 +24,7 @@
     margin-right: 0px;
     transform: translateX(120%); 
     transition: transform 0.3s ease;
-    z-index: 1000;  
+    // z-index: 1000;  
 
     padding: @padding-top-block @padding-right-block + 20px @padding-bottom-block   @padding-left-block  + 20px;
 
@@ -41,20 +41,20 @@
 
   });
 }
-
-.to(1024px,{
-  .sidebar-toggle {
+.sidebar-toggle {
+  display: none;
+  .to(1024px,{
     display: block; /* Показываем кнопку на маленьких экранах */
     position: fixed;
     top: 10px;
     right: 10px;
-    z-index: 1001;
+    // z-index: 1001;
     background-color: #f0f0f0;
     border: none;
     padding: 10px;
     cursor: pointer;
-  }
-});
+  });
+}
 
 .widget {
   font-family: Ubuntu;

@@ -7,6 +7,6 @@
 	<?php if ( is_active_sidebar( 'rmbt_blog_sidebar' ) ) : ?>
 		<?php dynamic_sidebar( 'rmbt_blog_sidebar' ); ?>
 	<?php else : ?>
-		<p>Добавьте виджеты в админке.</p>
+		<p class='rmbt-no-widget'>We don't found anyone widget</p>
 	<?php endif; ?>
 </aside>

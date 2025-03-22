@@ -168,6 +168,7 @@ function rmbt_widgets_init() {
 }
 add_action( 'widgets_init', 'rmbt_widgets_init' );
 
+
 function theme_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'custom_footer_logo', [ 
 		'default' => '',

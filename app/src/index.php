@@ -1,76 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="./assets/styles/main-style.min.css" rel="stylesheet" type="text/css">
-	<title>Document</title>
-</head>
-
-<body>
-
-	<div class="test-1"></div>
+<?php get_header(); ?>
 
 
 
+<main>
 
-	<script src='./assets/js/app.main.min.js'></script>
-</body>
+	<div class="rmbt-full-width rmbt-blog-full-width">
+		<section class="rmbt-container rmbt-blog" <?php if ( isset( $rmbt_theme_options['rmbt-blog_page-title'] ) && $rmbt_theme_options['rmbt-blog_page-title'] == "" ) :
+			echo 'style="padding-top: 15px; padding-bottom: 15px;"';
+		endif ?>>
 
-</html>
+			<?php if ( $rmbt_theme_options['rmbt-blog_page-title'] ) : ?>
+				<h2 class='title-section'> <?php echo rmbt_get_redux_field( 'rmbt-blog_page-title', 1 ) ?> </h2>
+			<?php endif ?>
+			<?php if ( isset( $rmbt_theme_options['rmbt-blog_page-subtitle'] ) && $rmbt_theme_options['rmbt-blog_page-subtitle'] !== "" ) : ?>
+				<p class='subtitle-section'>
+					<?php echo rmbt_get_redux_field( 'rmbt-blog_page-subtitle', 1 ) ?>
+				</p>
+			<?php endif ?>
 
+			<div class="rmbt-blog__row">
+				<?php
+				global $rmbt_theme_options;
+				if ( $rmbt_theme_options['rmbt-sidebar-switch'] && $rmbt_theme_options['rmbt-sidebar-radio'] === '1' ) {
+					get_sidebar( 'left' );
+				}
+				?>
 
-
-
-<!-- !!!!!!!!!!!    YOU CAN CHOOSE ONE OF THIS VARIANTS !!!!!!!!!!!!!!-->
-
-<?php // get_header(); ?>
-
-<!-- <main>
-	<div class="wrapper-section">
-		<div class="rmbt-full-width rmbt-blog-full-width">
-			<section class="rmbt-container rmbt-blog">
-				<div class="rmbt-blog__row">
-
-					<header class="page-header ">
-						<h1 class="page-title">
-							<?php // if ( is_search() ) {
-							// 	printf( esc_html__( 'Результати пошуку для: %s', RMBT_TEXT_DOMAIN_THEME ), '<span>' . get_search_query() . '</span>' );
-							// } else if ( is_home() || is_page( [ 'blog', 'Blog' ] ) ) {
-							// 	echo "Новини нашої компанії";
-							// } ?>
-						</h1>
-					</header>
-					<div class="rmbt-blog__col">
-						<?php
-						// if ( have_posts() ) {
-						// 	while ( have_posts() ) :
-						// 		the_post();
-						
-						// 		get_template_part( 'template-parts/components/card_news_strings', null, [		// here your card template
-						// 			'title' => get_the_title(),
-						// 			'text' => get_the_excerpt(),
-						// 			'tag-img' => get_the_post_thumbnail(),
-						// 			'link_read_more_href' => get_the_permalink(),
-						// 		] );
-						
-						// 	endwhile;
-						// } else {
-						// 	//   get_template_part('partials/notfound');
-						// }
-						?>
-					</div>
+				<div class="rmbt-blog__col rmbt-blog-right-col">
+					<?php get_template_part( 'pages/parts/loop/loop' ); ?>
 				</div>
-			</section>
-		</div>
+
+				<?php
+				if ( $rmbt_theme_options['rmbt-sidebar-switch'] && $rmbt_theme_options['rmbt-sidebar-radio'] === '2' ) {
+					get_sidebar( 'right' );
+				}
+				?>
+
+
+			</div>
+		</section>
 	</div>
-</main> -->
 
 
-<?php // get_template_part( 'template-parts/components/pagination' ); ?>
+</main>
 
-
-
-<?php // get_footer();
+<?php get_footer(); ?>

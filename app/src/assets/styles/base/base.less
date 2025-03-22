@@ -8,7 +8,7 @@ main {
   flex-direction: column;
   row-gap: @margin_bottom_section;
 
-  padding-bottom: @margin_bottom_section * 2;
+  // padding-bottom: @margin_bottom_section * 2;
   position: relative;
 
   min-height: 80vh;
@@ -36,7 +36,7 @@ a {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  // row-gap: @margin_bottom_section * 2; //!!! todo
+  row-gap: @margin_bottom_section;
 
   background-color: @color_background_pages;
 }
@@ -51,12 +51,6 @@ a {
   position: relative;
 
   // background-color: #9ef7b9;
-}
-
-.debug-grid {
-  z-index: 100;
-  pointer-events: none;
-  .debug(#d0d6f81a, 1px rgba(6, 235, 197, 0.4) dashed);
 }
 
 .wrap-img {
@@ -185,6 +179,7 @@ body.rmbt-lock {
 .title-section {
   max-width: 80%;
   line-height: 100%;
+  margin-top: 0px;
 }
 
 .title-block {
@@ -254,7 +249,62 @@ body.rmbt-lock {
   backdrop-filter: blur(4px);
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+
+  .to(600px,{
+      // justify-content: space-around;
+  });
+
+  .page-numbers {
+    text-transform: capitalize;
+    text-align: center;
+    font-family: Podkova;
+    font-weight: 500;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.747);
+    color: #042b1f;
+    outline: 1px solid #042b1f;
+    background-color: rgba(230, 230, 230, 0.25);
+    backdrop-filter: blur(4px);
+    display: block;
+
+    .adaptive-prop(font-size, 16, 13);
+    .adaptive-prop(border-radius, 14, 8);
+    .adaptive-prop(outline-offset, -6, -3);
+    .adaptive-prop(right, 30, 20);
+    .adaptive-prop(bottom, 20, 10);
+    .adaptive-prop(height, 40, 30);
+    .adaptive-prop(line-height, 40, 30);
+    .adaptive-prop(padding-left, 20, 10);
+    .adaptive-prop(padding-right, 20, 10);
+
+    .to(480px,{
+      display: none;
+    });
+  }
+
+  .next,
+  .prev {
+    display: block;
+  }
+
+  .current {
+    outline: 1px solid #f35200b5;
+    color: #f35200;
+    font-weight: 800;
+    display: block;
+  }
+}
+
 /*========= for display results work function in the process of develop  ==============*/
+
+.debug-grid {
+  z-index: 100;
+  pointer-events: none;
+  .debug(#d0d6f81a, 1px rgba(6, 235, 197, 0.4) dashed);
+}
 
 .test-block {
   position: absolute;

@@ -1,0 +1,27 @@
+.rmbt-full-width {
+}
+.rmbt-blog-full-width {
+}
+.rmbt-container {
+}
+.rmbt-blog {
+  .subtitle-section {
+    margin-bottom: @margin-bottom-title*3;
+  }
+
+  &__row {
+    .row-flex();
+    flex-wrap: nowrap;
+  }
+  &__col {
+    .col();
+    .size(8);
+    flex-grow: 1;
+
+    // article:not(:last-of-type) {
+    //   margin-bottom: @margin_bottom_section;
+    // }
+  }
+}
+.rmbt-blog-right-col {
+}

@@ -1,0 +1,117 @@
+.rmbt-blog-posts-card {
+  @padding_left: 300px;
+  @offset_left: 30px;
+
+  box-sizing: border-box;
+  padding-top: @padding-top-section;
+  padding-bottom: @padding-bottom-section;
+  position: relative;
+  padding-left: @padding_left + @offset_left;
+  padding-right: 15px;
+  height: 300px;
+  border-radius: 16px 16px 16px 16px;
+  overflow: hidden;
+
+  margin-bottom: @margin_bottom_section;
+
+  .to(768px,{
+    .adaptive-prop(padding-left, 330, 160);
+    height: auto;
+  });
+
+  .to(480px,{
+    padding-left: @padding-left-section;
+    padding-top: 240px;
+    padding-bottom:10px;
+    height: auto;
+  });
+
+  &__col {
+  }
+  &__article-body {
+  }
+  &__img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: @padding_left;
+
+    .to(768px,{
+      .adaptive-prop(width, 300, 150);
+    });
+
+    .to(480px,{
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: auto;
+      width: auto;
+      height: 230px;
+    });
+  }
+
+  &__content {
+    position: relative;
+    height: 100%;
+    padding-top: 15px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 5px;
+  }
+
+  .title-block {
+    margin: 0px auto 10px auto;
+    max-width: 100%;
+    line-height: 110%;
+    text-align: center;
+    font-weight: 600;
+
+    .to(480px,{
+      text-align: center;
+    });
+
+    &:after {
+      left: 15%;
+      right: 15%;
+      top: auto;
+      width: auto;
+      .adaptive-prop(bottom, -20, -5);
+    }
+  }
+
+  .subtitle-block {
+    line-height: 140%;
+    font-weight: 400;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 12px 2px 12px;
+
+    .to(768px,{
+      width: 80%;
+      margin: 0 auto;
+    });
+
+    .to(480px,{
+      width: 90%;
+    });
+
+    .rmbt-button-read-more {
+      position: static;
+      .adaptive-prop(font-size, 16, 12);
+      .adaptive-prop(min-width, 120, 75);
+      .adaptive-prop(height, 40, 25);
+      .adaptive-prop(line-height, 40, 25);
+      .adaptive-prop(padding-left, 10, 5);
+      .adaptive-prop(padding-right, 10, 5);
+      .adaptive-prop(outline-offset, -6, -4);
+    }
+  }
+}

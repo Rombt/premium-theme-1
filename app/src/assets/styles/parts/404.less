@@ -1,4 +1,5 @@
 .rmbt-404-page-wrap {
+  row-gap: 0px;
   .rmbt-404-wrapper-section {
     height: 80vh;
   }
@@ -14,20 +15,6 @@
       top: -@height_hero-block-1_top_row;
       bottom: -(@height_top_row + @margin_bottom_section * 2);
 
-      // background: linear-gradient(
-      //   90deg,
-      //   rgba(255, 255, 255, 1) 0%,
-      //   rgba(230, 230, 230, 0.83) 25%,
-      //   rgba(230, 230, 230, 0.83) 75%,
-      //   rgba(255, 255, 255, 1) 100%
-      // );
-      // background: linear-gradient(
-      //   90deg,
-      //   rgba(255, 255, 255, 1) 0%,
-      //   rgba(245, 245, 245, 0.83) 25%,
-      //   rgba(245, 245, 245, 0.83) 75%,
-      //   rgba(255, 255, 255, 1) 100%
-      // );
       background: linear-gradient(
         90deg,
         rgba(255, 255, 255, 1) 0%,
@@ -40,7 +27,7 @@
     &__bg {
       position: absolute;
       left: 50%;
-      top: 60%;
+      top: 50%;
       transform: translate(-50%, -50%);
       width: 1200px;
       height: 600px;
@@ -59,7 +46,7 @@
     &__col {
       .col();
       .size(10);
-      margin: @height_top_row + @margin_bottom_section * 2 auto 0 auto;
+      margin: 0 auto 0 auto;
 
       display: flex;
       flex-direction: column;

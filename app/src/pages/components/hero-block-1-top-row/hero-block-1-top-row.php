@@ -30,7 +30,6 @@
 				<?php get_template_part( 'pages/components/social_networks/social_networks', null, [ 
 					'data' => 'data-da=".menu-header-navigation-container, 769, last"',
 				] ); ?>
-
 			</div>
 		</div>
 	</section>

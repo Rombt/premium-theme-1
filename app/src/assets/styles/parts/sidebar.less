@@ -51,6 +51,57 @@
   .rmbt-no-widget {
     text-align: center;
   }
+
+  caption,
+  .wp-block-heading,
+  .widget-title {
+    padding: 10px 0;
+
+    position: relative;
+    font-family: Podkova;
+    line-height: 60%;
+    font-weight: 800;
+    letter-spacing: 0.027em;
+    text-align: center;
+    color: #042b1f;
+    text-shadow: 1px 1px 2px #d5d5d5;
+    width: max-content;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    margin-bottom: @margin-bottom-title !important;
+
+    margin-top: 0px;
+  }
+
+  .wp-block-heading,
+  .widget-title {
+    &:after {
+      content: '';
+      position: absolute;
+      left: -6px;
+      width: 60%;
+      border-radius: 0 300% 300% 0;
+      height: 3px;
+      box-shadow: 1px 1px 2px #d5d5d5;
+      background-color: #f35200;
+      bottom: -3px;
+    }
+  }
+
+  .widget-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .text {
+      flex: 1;
+    }
+  }
 }
 
 .sidebar-left {
@@ -208,13 +259,6 @@
 }
 
 .widget {
-  // font-family: Ubuntu;
-  // font-size: 18px;
-  // font-size: calc(14px + 4 * ((100vw - 320px) / 1650));
-  // line-height: 150%;
-  // letter-spacing: 0, 5em;
-  // color: @primary-color;
-  // letter-spacing: 0em;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   background-color: rgba(213, 213, 213, 0.15);
@@ -332,56 +376,5 @@
       transform: scale(1.025);
       transition: all 0.1s ease-in-out;
     }
-  }
-}
-
-caption,
-.wp-block-heading,
-.widget-title {
-  padding: 10px 0;
-
-  position: relative;
-  font-family: Podkova;
-  line-height: 60%;
-  font-weight: 800;
-  letter-spacing: 0.027em;
-  text-align: center;
-  color: #042b1f;
-  text-shadow: 1px 1px 2px #d5d5d5;
-  width: max-content;
-  margin-right: auto !important;
-  margin-left: auto !important;
-  margin-bottom: @margin-bottom-title !important;
-
-  margin-top: 0px;
-}
-
-.wp-block-heading,
-.widget-title {
-  &:after {
-    content: '';
-    position: absolute;
-    left: -6px;
-    width: 60%;
-    border-radius: 0 300% 300% 0;
-    height: 3px;
-    box-shadow: 1px 1px 2px #d5d5d5;
-    background-color: #f35200;
-    bottom: -3px;
-  }
-}
-
-.widget-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  .text {
-    flex: 1;
   }
 }

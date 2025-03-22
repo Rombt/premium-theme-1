@@ -1,0 +1,41 @@
+.rmbt-full-width {
+}
+.rmbt-single-full-width {
+}
+.rmbt-container {
+}
+.rmbt-single {
+  &__row {
+    .row-flex();
+    flex-wrap: nowrap;
+  }
+  &__col {
+    .col();
+    .size(8);
+    flex-grow: 1;
+
+    font-family: Ubuntu;
+    font-size: 18px;
+    font-size: calc(14px + 4 * ((100vw - 320px) / 1650));
+    line-height: 130%;
+    letter-spacing: 0, 5em;
+    color: #06392a;
+    letter-spacing: 0em;
+
+    .to(1024px,{
+      padding-left: 30px;
+      padding-right: 30px;
+    });
+
+    .entry-title,
+    .wp-block-heading {
+      line-height: 120%;
+    }
+  }
+}
+.title-section {
+}
+.subtitle-section {
+}
+.rmbt-single-right-col {
+}

@@ -1,13 +1,3 @@
-<div class="test-block">
-	<pre>
-<?php
-echo get_post_type();
-?>
-</pre>
-</div>
-
-
-
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) :
 		the_post(); ?>

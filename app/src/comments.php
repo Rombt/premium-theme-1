@@ -5,7 +5,7 @@
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
-			printf( esc_html( _nx( 'Один комментарий', '%1$s комментариев', get_comments_number(), 'comments title', 'textdomain' ) ),
+			printf( esc_html( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', RMBT_TEXT_DOMAIN_THEME ) ),
 				number_format_i18n( get_comments_number() ) );
 			?>
 		</h2>

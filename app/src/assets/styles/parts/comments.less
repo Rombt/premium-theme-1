@@ -1,0 +1,110 @@
+@primary-color: #0073aa;
+@border-color: #ddd;
+@bg-light: #f9f9f9;
+@text-color: #333;
+
+.comments-area {
+  margin-top: 40px;
+  padding: 20px;
+  background: @bg-light;
+  border: 1px solid @border-color;
+  border-radius: 5px;
+
+  .comments-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: @primary-color;
+    margin-bottom: 15px;
+  }
+
+  .comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .comment {
+      padding: 15px;
+      border-bottom: 1px solid @border-color;
+
+      &.bypostauthor {
+        background: lighten(@bg-light, 5%);
+        border-left: 4px solid @primary-color;
+      }
+
+      .comment-author {
+        font-weight: bold;
+        color: darken(@primary-color, 10%);
+      }
+
+      .comment-meta {
+        font-size: 12px;
+        color: lighten(@text-color, 30%);
+      }
+
+      .comment-content {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .reply {
+        margin-top: 10px;
+
+        a {
+          color: @primary-color;
+          font-size: 12px;
+          text-decoration: none;
+          border: 1px solid @primary-color;
+          padding: 5px 10px;
+          border-radius: 3px;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            background: @primary-color;
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    .children {
+      margin-left: 30px;
+      border-left: 2px solid @border-color;
+      padding-left: 15px;
+    }
+  }
+
+  .comment-form {
+    margin-top: 20px;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid @border-color;
+      border-radius: 3px;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .submit {
+      background: @primary-color;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.3s ease-in-out;
+
+      &:hover {
+        background: darken(@primary-color, 10%);
+      }
+    }
+  }
+}

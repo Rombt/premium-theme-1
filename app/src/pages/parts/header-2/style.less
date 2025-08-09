@@ -127,7 +127,6 @@
   &__phones {
     display: flex;
     justify-content: space-between;
-    column-gap: 15px;
     .adaptive-prop(font-size, 16, 14);
     width: auto;
     height: @height_top_row;
@@ -160,6 +159,12 @@
       transition: all 0.3s ease-in;
       border: 1px solid @color_black;
       border-radius: 16px;
+
+
+      &:not(:first-of-type) {
+        margin-left: 15px;
+        
+      }
       
     }
     
@@ -169,12 +174,21 @@
       width: 10px;
       position: relative;
       transition: transform 0.3s ease-in;
+      cursor: pointer;
 
-      .rmbt-ul-toggle{
+      svg{
+
+        display: block;
+        width: 13px;
+        height: 13px;
+        fill: #fff;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
+      }
+
+      .rmbt-ul-toggle{
 
         
       }

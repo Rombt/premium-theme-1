@@ -4,8 +4,10 @@
   const phonesCont = document.querySelector('.rmbt-header-2-top-col-left__phones');
 
   if (phonesCont) {
-    // buildUl(phonesCont, '.rmbt-ul-toggle');
     buildUl(phonesCont, '.ul-toggle-wrap');
+  }
+  if (emailsCont) {
+    buildUl(emailsCont, '.ul-toggle-wrap');
   }
 
 
@@ -47,7 +49,6 @@
           ulClose(ul, initialHeightUl);
         }
 
-        console.log('Нажат элемент:', li);
       });
 
 

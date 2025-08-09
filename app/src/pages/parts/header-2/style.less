@@ -158,30 +158,36 @@
       padding-right: 10px;
       padding-top: 0px;
       padding-bottom: 0px;
-
-      transition: all 0.5s ease-in;
-
+      transition: all 0.3s ease-in;
       border: 1px solid @color_black;
       border-radius: 16px;
       
-
     }
-
-
+    
+    
     .ul-toggle-wrap{
       display: none;
       width: 10px;
       position: relative;
+      transition: transform 0.3s ease-in;
 
       .rmbt-ul-toggle{
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
+
+        
       }
 
       &-visible{
         display: block;
+      }
+
+      &-open{
+        transform: rotate(180deg);
+        transition: transform 0.3s ease-in;
+
       }
 
     }
@@ -189,7 +195,6 @@
     .rmbt-visible_drop{
       border: 1px solid @color_border_col !important;
 
-      z-index: 2;
     }
 
 

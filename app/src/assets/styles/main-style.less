@@ -14,3 +14,46 @@
 // @import 'components/modules/arrowsInputNumberStyle.less';
 
 // @import 'parts/social-networks.less';
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.icon-drop {
+
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 9px solid #d5d5d5;
+    cursor: pointer;
+
+    // box-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.7));
+
+    .to(768px,{
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 12px solid #d5d5d5;
+    });
+
+    &_open {
+      transform: rotate(180deg);
+      transition: all 0.5s;
+      transform-origin: 4px 2px;
+    }
+  }
+
+  .rmbt-visible_drop{
+
+    padding: 10px 10px 10px 10px;
+    border: 1px solid @color_border_col;
+    border-radius: 16px;
+    background-color: @color_background_col;
+    // box-shadow: 0 0 1em rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.5);
+  }

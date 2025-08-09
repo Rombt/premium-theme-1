@@ -1,112 +1,72 @@
 (function () {
-  let arr_li = [];
-  const nl_ul = document.querySelectorAll('.rmbt-header-2-top-col-left__phones > ul');
 
-  nl_ul.forEach((ul, i) => {
-    arr_li[i] = ul.querySelectorAll('li');
-    if (arr_li[i].length == 1) {
-      return;
-    }
+  const emailsCont = document.querySelector('.rmbt-header-2-top-col-left__email');
+  const phonesCont = document.querySelector('.rmbt-header-2-top-col-left__phones');
 
-    ul.classList.add('drop_ul');
-    const icon_drop = document.createElement('div');
-    icon_drop.classList.add('icon_drop');
-    ul.prepend(icon_drop);
-
-    icon_drop.addEventListener('click', e => {
-      if (icon_drop.classList.contains('open')) {
-        arr_li[i].forEach((li, i) => {
-          if (i == 0) return;
-          li.classList.add('hidden');
-          li.classList.remove('visible');
-          li.style.top = 0;
-        });
-      } else {
-        arr_li[i].forEach((li, i) => {
-          if (i == 0) return;
-          li.classList.remove('hidden');
-          li.classList.add('visible');
-          li.style.top = i * li.offsetHeight + 'px';
-        });
-      }
-      icon_drop.classList.toggle('open');
-    });
-  });
-
-  arr_li.forEach(nl_li => {
-    nl_li.forEach((li, i) => {
-      if (i == 0) return;
-      li.classList.add('hidden');
-    });
-  });
-
-  const email_icon = document.querySelector('.rmbt-header-2-top-col-left__email > svg');
-  const email_link = document.querySelector('.rmbt-header-2-top-col-left__email a');
-
-  const phones_icon = document.querySelector('.rmbt-header-2-top-col-left__phones > svg');
-  const phones_block = document.querySelector('.rmbt-header-2-top-col-left__phones');
-  const nl_phones_links = document.querySelectorAll(
-    '.rmbt-header-2-top-col-left__phones ul'
-  );
-
-  if (getComputedStyle(email_icon).display !== 'none') {
-    email_link.classList.add('hidden');
-  }
-  if (getComputedStyle(phones_icon).display !== 'none') {
-    nl_phones_links.forEach(phones_link => {
-      phones_link.classList.add('hidden');
-    });
+  if (phonesCont) {
+    // buildUl(phonesCont, '.rmbt-ul-toggle');
+    buildUl(phonesCont, '.ul-toggle-wrap');
   }
 
-  window.addEventListener('resize', () => {
-    if (getComputedStyle(email_icon).display !== 'none') {
-      email_link.classList.add('hidden');
-    } else {
-      email_link.classList.remove('hidden');
+
+
+  function buildUl(cont,sl_toggle) {
+    const nl_ul = cont.querySelectorAll('ul');
+    const toggle = cont.querySelector(sl_toggle);
+    const toggleOpen = sl_toggle.replace(/[.#]/,'') + '-open';
+    const toggleVisible = sl_toggle.replace(/[.#]/,'') + '-visible';
+    const tempToggle = toggle.cloneNode(true);
+    toggle.remove();
+    
+      if (!nl_ul.length > 0 && toggle) {
+        return;
     }
-    if (getComputedStyle(phones_icon).display !== 'none') {
-      nl_phones_links.forEach(phones_link => {
-        phones_link.classList.add('hidden');
-      });
-    } else {
-      nl_phones_links.forEach(phones_link => {
-        phones_link.classList.remove('hidden');
-      });
-    }
-  });
+    
+    let topUl = 0;
+    let leftUl = 0;
+    nl_ul.forEach(ul => {
+      const toggleCurrentUl = tempToggle.cloneNode(true);
+      const initialHeightUl = ul.offsetHeight;
 
-  document.addEventListener('click', e => {
-    // console.log('000');
-
-    if (email_icon.contains(e.target)) {
-      email_link.classList.add('visible-email');
-      email_icon.classList.add('hidden');
-      phones_icon.classList.add('hidden');
-    } else if (phones_icon.contains(e.target)) {
-      nl_phones_links.forEach(phones_link => {
-        phones_link.classList.remove('hidden');
-      });
-
-      phones_icon.classList.add('hidden');
-      email_icon.classList.add('hidden');
-
-      phones_block.classList.add('visible-phone');
-    } else {
-      if (
-        (email_link.classList.contains('visible-email') ||
-          phones_block.classList.contains('visible-phone')) &&
-        !email_link.contains(e.target) &&
-        !phones_block.contains(e.target)
-      ) {
-        email_link.classList.remove('visible-email');
-        email_icon.classList.remove('hidden');
-        phones_icon.classList.remove('hidden');
-        phones_block.classList.remove('visible-phone');
-
-        nl_phones_links.forEach(phones_link => {
-          phones_link.classList.add('hidden');
-        });
+      toggleCurrentUl.classList.add(toggleVisible);
+      ul.after(toggleCurrentUl);
+      // ul.append(toggleCurrentUl);
+      
+      const nl_li = ul.querySelectorAll('li');
+      let heightUl = 0;
+      for (const li of nl_li) {
+        heightUl += li.getBoundingClientRect().height;
       }
+      
+      toggleCurrentUl.addEventListener('click', () => {
+        toggleCurrentUl.classList.toggle(toggleOpen);
+
+        if (toggleCurrentUl.classList.contains(toggleOpen)) {
+          ulOpen(ul, heightUl);
+        } else {
+          ulClose(ul, initialHeightUl);
+        }
+
+        console.log('Нажат элемент:', li);
+      });
+
+
+    });
+
+
+    function ulOpen(ul, heightUl) {
+      ul.style.height = heightUl + 'px';
+
+      ul.classList.add('rmbt-visible_drop');
     }
-  });
+    function ulClose(ul, initialHeightUl){
+      ul.style.height = initialHeightUl + 'px';
+      ul.classList.remove('rmbt-visible_drop');
+    }
+
+
+
+  }
+
+
 })();

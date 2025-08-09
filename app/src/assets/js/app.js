@@ -1,7 +1,7 @@
 import './modules/functions.js';
 import './modules/dynamic_adapt.js';
 import './modules/popup.js';
-import './modules/spoiler.js';
+import './modules/spoiler_2.0.js';
 import './modules/tabs.js';
 import './modules/arrowsInputNumberStyle.js';
 import './modules/HorizontalMenu.js';

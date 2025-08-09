@@ -1,5 +1,5 @@
 .rmbt-header-2-top-row-full-width {
-  background-color: #222322;
+  background-color: @color_black;
   position: fixed;
   left: 0;
   top: 0;
@@ -44,7 +44,7 @@
     position: relative;
 
     li {
-      line-height: 130%;
+      // line-height: 130%;
       .to(480px,{
         line-height: 200%;
       });
@@ -78,6 +78,7 @@
 }
 
 .rmbt-header-2-top-col-left {
+  
   .size(8);
   display: flex;
   justify-content: space-between;
@@ -125,11 +126,14 @@
   &__phones {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    column-gap: 20px;
+    column-gap: 15px;
     .adaptive-prop(font-size, 16, 14);
     width: auto;
-    height: 130%;
+    height: @height_top_row;
+    line-height:  @height_top_row;
+
+    position: relative;
+    
 
     .to(480px,{
       column-gap: 0px;
@@ -139,10 +143,57 @@
     });
 
     a {
+
       .to(480px,{
         .adaptive-prop(font-size, 16, 13);
       });
     }
+
+    ul{
+      height:  @height_top_row;
+      line-height:  @height_top_row;
+      overflow: hidden;
+      background-color: @color_black;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+
+      transition: all 0.5s ease-in;
+
+      border: 1px solid @color_black;
+      border-radius: 16px;
+      
+
+    }
+
+
+    .ul-toggle-wrap{
+      display: none;
+      width: 10px;
+      position: relative;
+
+      .rmbt-ul-toggle{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+
+      &-visible{
+        display: block;
+      }
+
+    }
+
+    .rmbt-visible_drop{
+      border: 1px solid @color_border_col !important;
+
+      z-index: 2;
+    }
+
+
+
   }
 }
 
@@ -181,7 +232,7 @@
 
   padding: 10px 10px 10px 10px;
 
-  background-color: #222322;
+  background-color: @color_black;
 
   transition: all 0.2s;
 }

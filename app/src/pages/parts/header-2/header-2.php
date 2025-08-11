@@ -5,14 +5,13 @@
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-left">
 				<div class="rmbt-header-2-top-col-left__email">
 					<?php echo rmbt_redux_field_to_ul('rmbt-manager-1-email', 'mailto'); ?>
-					<div class="ul-toggle-wrap">					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#triangle">
-							</use>
+					<div class="ul-toggle-wrap">					
+						<svg>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#triangle"> </use>
 						</svg>	
 					</div>
 					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1">
-						</use>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1"> </use>
 					</svg>	
 				</div>
 				<div class="rmbt-header-2-top-col-left__phones">

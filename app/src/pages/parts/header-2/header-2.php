@@ -10,7 +10,7 @@
 						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#triangle"> </use>
 						</svg>	
 					</div>
-					<svg>
+					<svg class="rmbt-header-2-top-col-left__email-icon">
 						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1"> </use>
 					</svg>	
 				</div>
@@ -25,7 +25,7 @@
 						</svg>	
 					</div>
 
-					<svg>
+					<svg class="rmbt-header-2-top-col-left__phones-icon">
 						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#phone_1">
 						</use>
 					</svg>

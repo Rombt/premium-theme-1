@@ -1,17 +1,57 @@
 (function () {
 
-  const emailsCont = document.querySelector('.rmbt-header-2-top-col-left__email');
-  const phonesCont = document.querySelector('.rmbt-header-2-top-col-left__phones');
+  const contEmails = document.querySelector('.rmbt-header-2-top-col-left__email');
+  const contPhones = document.querySelector('.rmbt-header-2-top-col-left__phones');
 
-  if (phonesCont) {
-    buildUl(phonesCont, '.ul-toggle-wrap');
+  if (contPhones) {
+    buildUl(contPhones, '.ul-toggle-wrap');
   }
-  if (emailsCont) {
-    buildUl(emailsCont, '.ul-toggle-wrap');
+  if (contEmails) {
+    buildUl(contEmails, '.ul-toggle-wrap');
   }
 
 
 
+    const emailsIcon = contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon');
+    const phonesIcon = contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon');
+
+  const styleEmailsIcon = window.getComputedStyle(emailsIcon);
+  const displayEmailsIcon = styleEmailsIcon.display;
+
+  const stylePhonesIcon = window.getComputedStyle(phonesIcon);
+  const displayPhonesIcon = stylePhonesIcon.display;
+
+  console.log("displayEmailsIcon = ", displayEmailsIcon);
+  console.log("displayPhonesIcon = ", displayPhonesIcon);
+  
+  if (displayEmailsIcon === 'block') {
+    hideUl(contEmails)
+  } 
+
+
+  if (displayPhonesIcon === 'block') {
+    hideUl(contPhones)
+  }
+
+
+
+  function hideUl(cont) {
+    const nl_ul = cont.querySelectorAll('ul');
+    const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
+
+    nl_ul.forEach(ul => {
+      ul.style.display = 'none';
+    });
+
+    nl_ulToggleWrap.forEach(ulToggleWrap => {
+      ulToggleWrap.style.display = 'none';
+    });
+
+
+    
+  }
+
+  
   function buildUl(cont,sl_toggle) {
     const nl_ul = cont.querySelectorAll('ul');
     const toggle = cont.querySelector(sl_toggle);
@@ -67,6 +107,6 @@
 
 
   }
-
+  
 
 })();

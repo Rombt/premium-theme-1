@@ -1,5 +1,5 @@
 .rmbt-header-2-top-row-full-width {
-  background-color: #222322;
+  background-color: @color_black;
   position: fixed;
   left: 0;
   top: 0;
@@ -44,7 +44,7 @@
     position: relative;
 
     li {
-      line-height: 130%;
+      // line-height: 130%;
       .to(480px,{
         line-height: 200%;
       });
@@ -78,15 +78,15 @@
 }
 
 .rmbt-header-2-top-col-left {
+  
   .size(8);
   display: flex;
   justify-content: space-between;
   align-items: center;
   column-gap: 20px;
 
-  .to(768px,{
+  .to(900px,{
     flex-grow: 1;
-
   });
 
   .to(690px,{
@@ -96,7 +96,7 @@
   svg {
     display: none;
     width: 32px;
-    height: 32px;
+    height: @height_top_row;
   }
 
   .to(480px,{
@@ -115,22 +115,25 @@
   }
 
   &__email {
-    .to(600px,{
+    .to(768px,{
       svg {
         display: block;
       }  
     });
   }
 
+  &__email,
   &__phones {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    column-gap: 20px;
     .adaptive-prop(font-size, 16, 14);
     width: auto;
-    height: 130%;
+    height: @height_top_row;
+    line-height:  @height_top_row;
+    
 
+
+    
     .to(480px,{
       column-gap: 0px;
       svg {
@@ -139,10 +142,77 @@
     });
 
     a {
+
       .to(480px,{
         .adaptive-prop(font-size, 16, 13);
       });
     }
+
+    ul{
+      height:  @height_top_row;
+      line-height:  @height_top_row;
+      overflow: hidden;
+      background-color: @color_black;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      transition: all 0.3s ease-in;
+      border: 1px solid @color_black;
+      border-radius: 16px;
+
+
+      &:not(:first-of-type) {
+        margin-left: 20px;
+        
+      }
+      
+    }
+    
+    
+    .ul-toggle-wrap{
+      display: none;
+      width: 10px;
+      position: relative;
+      transition: transform 0.3s ease-in;
+      cursor: pointer;
+
+      svg{
+
+        display: block;
+        width: 13px;
+        height: 13px;
+        fill: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+
+      .rmbt-ul-toggle{
+
+        
+      }
+
+      &-visible{
+        display: block;
+      }
+
+      &-open{
+        transform: rotate(180deg);
+        transition: transform 0.3s ease-in;
+
+      }
+
+    }
+
+    .rmbt-visible_drop{
+      border: 1px solid @color_border_col !important;
+
+    }
+
+
+
   }
 }
 
@@ -181,7 +251,7 @@
 
   padding: 10px 10px 10px 10px;
 
-  background-color: #222322;
+  background-color: @color_black;
 
   transition: all 0.2s;
 }

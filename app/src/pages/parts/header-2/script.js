@@ -10,6 +10,85 @@
     buildUl(contEmails, '.ul-toggle-wrap');
   }
 
+  const iconEmail = contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon');
+  const iconPhone = contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon');
+  
+  toggleUl(contEmails, iconEmail);
+  toggleUl(contPhones, iconPhone);
+  window.addEventListener("resize", () => {
+    toggleUl(contEmails, iconEmail);
+    toggleUl(contPhones, iconPhone);
+  });
+
+  iconEmail.addEventListener('click', e => {
+    toggleUlMobile(iconEmail);
+  })
+  
+  
+  function toggleUlMobile(icon) {
+    
+    // получить родительский контейнер
+    // получить все ul в этом контейнере
+    // получить все li и рассчитать высоту ul 
+    // спрятать icon 
+    // открыть ul
+    
+    const parentDiv = icon.closest('div');
+    const nl_ul = parentDiv.querySelectorAll('ul');
+
+    nl_ul.forEach(ul => {
+      
+      const nl_li = ul.querySelectorAll('li');
+      let heightUl = 0;
+      for (const li of nl_li) {
+        heightUl += li.getBoundingClientRect().height;
+      }
+      ul.style.display = 'block';
+      ul.style.height = heightUl + 'px';
+
+      //!!!!!
+
+
+    });
+
+
+    
+    
+    
+    
+    
+
+  }
+
+
+
+
+
+  function toggleUl(cont, icon) {
+    
+    const nl_ul = cont.querySelectorAll('ul');
+    const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
+
+    if (window.getComputedStyle(icon).display !== "none") {
+  
+      nl_ul.forEach(ul => {
+        ul.style.display = 'none';
+      });
+  
+      nl_ulToggleWrap.forEach(ulToggleWrap => {
+        ulToggleWrap.style.display = 'none';
+      });
+    }else{
+      nl_ul.forEach(ul => {
+        ul.style.display = 'block';
+      });
+  
+      nl_ulToggleWrap.forEach(ulToggleWrap => {
+        ulToggleWrap.style.display = 'block';
+      });
+    }
+  }
+
   function buildUl(cont, sl_toggle) {
     
     const nl_ul = cont.querySelectorAll('ul');
@@ -62,46 +141,6 @@
     }
   }
 
-
-  const iconEmail = contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon');
-  const iconPhone = contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon');
-  
-  toggleUl(contEmails, iconEmail);
-  toggleUl(contPhones, iconPhone);
-  window.addEventListener("resize", () => {
-
-    toggleUl(contEmails, iconEmail);
-    toggleUl(contPhones, iconPhone);
-
-  });
-
-
-  function toggleUl(cont, icon) {
-    
-    const nl_ul = cont.querySelectorAll('ul');
-    const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
-
-    if (window.getComputedStyle(icon).display !== "none") {
-  
-      nl_ul.forEach(ul => {
-        ul.style.display = 'none';
-      });
-  
-      nl_ulToggleWrap.forEach(ulToggleWrap => {
-        ulToggleWrap.style.display = 'none';
-      });
-    }else{
-      nl_ul.forEach(ul => {
-        ul.style.display = 'block';
-      });
-  
-      nl_ulToggleWrap.forEach(ulToggleWrap => {
-        ulToggleWrap.style.display = 'block';
-      });
-    }
-
-
-  }
 
   
 

@@ -72,14 +72,14 @@
   const iconEmail = contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon');
   const iconPhone = contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon');
   
-  toggleUl(contEmails, iconEmail);
-  toggleUl(contPhones, iconPhone);
-  window.addEventListener("resize", () => {
+  // toggleUl(contEmails, iconEmail);
+  // toggleUl(contPhones, iconPhone);
+  // window.addEventListener("resize", () => {
 
-    toggleUl(contEmails, iconEmail);
-    toggleUl(contPhones, iconPhone);
+  //   toggleUl(contEmails, iconEmail);
+  //   toggleUl(contPhones, iconPhone);
 
-  });
+  // });
 
 
   function toggleUl(cont, icon) {

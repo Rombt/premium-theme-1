@@ -72,7 +72,8 @@
     if (window.getComputedStyle(icon).display !== "none") {
   
       nl_ul.forEach(ul => {
-        ul.style.display = 'none';
+        // ul.style.display = 'none';
+        ul.classList.add('hidden-ul');
       });
   
       nl_ulToggleWrap.forEach(ulToggleWrap => {
@@ -80,7 +81,8 @@
       });
     }else{
       nl_ul.forEach(ul => {
-        ul.style.display = 'block';
+        // ul.style.display = 'block';
+        ul.classList.remove('hidden-ul');
       });
   
       nl_ulToggleWrap.forEach(ulToggleWrap => {

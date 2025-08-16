@@ -72,53 +72,42 @@
   const iconEmail = contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon');
   const iconPhone = contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon');
   
+  toggleUl(contEmails, iconEmail);
+  toggleUl(contPhones, iconPhone);
   window.addEventListener("resize", () => {
 
-    if (window.getComputedStyle(iconEmail).display !== "none") {
-      hideUl(contEmails);
-    }else{
-      showUl(contEmails);
-    }
-
-    if (window.getComputedStyle(iconPhone).display !== "none") {
-      hideUl(contPhones);
-    }else{
-      showUl(contPhones);
-    }
+    toggleUl(contEmails, iconEmail);
+    toggleUl(contPhones, iconPhone);
 
   });
 
 
-
-  function hideUl(cont) {
-
+  function toggleUl(cont, icon) {
+    
     const nl_ul = cont.querySelectorAll('ul');
     const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
 
-    nl_ul.forEach(ul => {
-      ul.style.display = 'none';
-    });
-
-    nl_ulToggleWrap.forEach(ulToggleWrap => {
-      ulToggleWrap.style.display = 'none';
-    });
-  }
-
-  function showUl(cont) {
-
-    const nl_ul = cont.querySelectorAll('ul');
-    const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
-
-    nl_ul.forEach(ul => {
-      ul.style.display = 'block';
-    });
-
-    nl_ulToggleWrap.forEach(ulToggleWrap => {
-      ulToggleWrap.style.display = 'block';
-    });
-  }
-
+    if (window.getComputedStyle(icon).display !== "none") {
   
+      nl_ul.forEach(ul => {
+        ul.style.display = 'none';
+      });
+  
+      nl_ulToggleWrap.forEach(ulToggleWrap => {
+        ulToggleWrap.style.display = 'none';
+      });
+    }else{
+      nl_ul.forEach(ul => {
+        ul.style.display = 'block';
+      });
+  
+      nl_ulToggleWrap.forEach(ulToggleWrap => {
+        ulToggleWrap.style.display = 'block';
+      });
+    }
+
+
+  }
 
   
 

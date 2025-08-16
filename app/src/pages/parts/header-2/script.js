@@ -37,14 +37,19 @@
     const nl_ul = parentDiv.querySelectorAll('ul');
 
     nl_ul.forEach(ul => {
+
+      console.log("ul = ", ul);
       
       const nl_li = ul.querySelectorAll('li');
       let heightUl = 0;
       for (const li of nl_li) {
         heightUl += li.getBoundingClientRect().height;
       }
-      ul.style.display = 'block';
-      ul.style.height = heightUl + 'px';
+      // ul.style.display = 'block';
+
+      console.log(" heightUl = ",  heightUl);
+
+      // ul.style.height = heightUl + 'px';
 
       //!!!!!
 
@@ -72,7 +77,6 @@
     if (window.getComputedStyle(icon).display !== "none") {
   
       nl_ul.forEach(ul => {
-        // ul.style.display = 'none';
         ul.classList.add('hidden-ul');
       });
   
@@ -81,7 +85,6 @@
       });
     }else{
       nl_ul.forEach(ul => {
-        // ul.style.display = 'block';
         ul.classList.remove('hidden-ul');
       });
   

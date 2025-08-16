@@ -113,15 +113,18 @@
   }
 
   &__email {
+    
+
     .to(768px,{
+
       svg {
         display: block;
       }  
 
-      ul{
-        display: none;
+      // ul{
+      //   display: none;
         
-      }
+      // }
       
       .ul-toggle-wrap{
         display: none !important;
@@ -130,6 +133,7 @@
   }
 
   &__phones {
+
     .to(@break_520,{
       ul{
         display: none !important;
@@ -151,6 +155,11 @@
     width: auto;
     height: @height_top_row;
     line-height:  @height_top_row;
+    
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid #0515fd;
     
 
 
@@ -241,17 +250,20 @@
   }
 
   .hidden-ul{
-    overflow: hidden;
-    height: 0;
-    width: 0;
-    pointer-events: none;
-    opacity: 0;
+    // overflow: hidden;
+    // pointer-events: none;
+    // opacity: 0;
     // visibility: hidden;
+    position: absolute;
+    left: 0;
+
+    top: -100%;
+    width: 100%;
+    height: 100%;
 
 
 
   }
-
 
 }
 

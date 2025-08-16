@@ -12,30 +12,43 @@
 
 
 
-    const emailsIcon = contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon');
-    const phonesIcon = contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon');
-
-  const styleEmailsIcon = window.getComputedStyle(emailsIcon);
-  const displayEmailsIcon = styleEmailsIcon.display;
-
-  const stylePhonesIcon = window.getComputedStyle(phonesIcon);
-  const displayPhonesIcon = stylePhonesIcon.display;
-
-  console.log("displayEmailsIcon = ", displayEmailsIcon);
-  console.log("displayPhonesIcon = ", displayPhonesIcon);
-  
-  if (displayEmailsIcon === 'block') {
-    hideUl(contEmails)
-  } 
+  function observeDisplayChange(element, container) {
+    if (!element) return; // если элемента нет — выходим
 
 
-  if (displayPhonesIcon === 'block') {
-    hideUl(contPhones)
+
+    const observer = new  ((element) => {
+      console.log("element = ", element);
+      if (getComputedStyle(element).display === 'block') {
+
+            hideUl(container);
+        }
+    });
+
+    observer.observe(element, {
+        attributes: true,
+        attributeFilter: ['style', 'class'],
+        attributeOldValue: true
+    });
   }
 
+  // Привязка
+  observeDisplayChange(
+      contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon'),
+      contEmails
+  );
 
+  observeDisplayChange(
+      contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon'),
+      contPhones
+  );
+
+  
+  
+  
 
   function hideUl(cont) {
+
     const nl_ul = cont.querySelectorAll('ul');
     const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
 

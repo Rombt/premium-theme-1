@@ -12,57 +12,57 @@
 
 
 
-  // function observeDisplayChange(element, container) {
-  //   if (!element) return; // если элемента нет — выходим
+  function observeDisplayChange(element, container) {
+    if (!element) return; // если элемента нет — выходим
 
 
 
-  //   const observer = new  ((element) => {
-  //     console.log("element = ", element);
-  //     if (getComputedStyle(element).display === 'block') {
+    const observer = new  MutationObserver((element) => {
+      console.log("element = ", element);
+      if (getComputedStyle(element).display === 'block') {
 
-  //           hideUl(container);
-  //       }
-  //   });
+            hideUl(container);
+        }
+    });
 
-  //   observer.observe(element, {
-  //       attributes: true,
-  //       attributeFilter: ['style', 'class'],
-  //       attributeOldValue: true
-  //   });
-  // }
+    observer.observe(element, {
+        attributes: true,
+        attributeFilter: ['style', 'class'],
+        attributeOldValue: true
+    });
+  }
 
-  // // Привязка
-  // observeDisplayChange(
-  //     contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon'),
-  //     contEmails
-  // );
+  // Привязка
+  observeDisplayChange(
+      contEmails.querySelector('.rmbt-header-2-top-col-left__email-icon'),
+      contEmails
+  );
 
-  // observeDisplayChange(
-  //     contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon'),
-  //     contPhones
-  // );
+  observeDisplayChange(
+      contPhones.querySelector('.rmbt-header-2-top-col-left__phones-icon'),
+      contPhones
+  );
 
   
   
   
 
-  // function hideUl(cont) {
+  function hideUl(cont) {
 
-  //   const nl_ul = cont.querySelectorAll('ul');
-  //   const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
+    const nl_ul = cont.querySelectorAll('ul');
+    const nl_ulToggleWrap = cont.querySelectorAll('.ul-toggle-wrap');
 
-  //   nl_ul.forEach(ul => {
-  //     ul.style.display = 'none';
-  //   });
+    nl_ul.forEach(ul => {
+      ul.style.display = 'none';
+    });
 
-  //   nl_ulToggleWrap.forEach(ulToggleWrap => {
-  //     ulToggleWrap.style.display = 'none';
-  //   });
+    nl_ulToggleWrap.forEach(ulToggleWrap => {
+      ulToggleWrap.style.display = 'none';
+    });
 
 
     
-  // }
+  }
 
   
   function buildUl(cont, sl_toggle) {

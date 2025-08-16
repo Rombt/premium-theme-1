@@ -49,23 +49,17 @@
         }
 
       });
-
-
     });
 
 
     function ulOpen(ul, heightUl) {
       ul.style.height = heightUl + 'px';
-
       ul.classList.add('rmbt-visible_drop');
     }
     function ulClose(ul, initialHeightUl){
       ul.style.height = initialHeightUl + 'px';
       ul.classList.remove('rmbt-visible_drop');
     }
-
-
-
   }
 
 

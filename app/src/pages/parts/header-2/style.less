@@ -1,3 +1,6 @@
+
+@break_520: 520px;
+
 .rmbt-header-2-top-row-full-width {
   background-color: @color_black;
 
@@ -101,13 +104,6 @@
     height: @height_top_row;
   }
 
-  .to(480px,{
-     #svg_phone {
-       display: block;
-     }
-
-    
-  });
 
   a {
     &:hover {
@@ -119,9 +115,32 @@
   &__email {
     .to(768px,{
       svg {
-        // display: block;
+        display: block;
       }  
+
+      ul{
+        display: none;
+        
+      }
+      
+      .ul-toggle-wrap{
+        display: none !important;
+      }
     });
+  }
+
+  &__phones {
+    .to(@break_520,{
+      ul{
+        display: none !important;
+        
+      }
+      
+      .ul-toggle-wrap{
+        display: none !important;
+      }
+
+    })
   }
 
   &__email,
@@ -138,9 +157,6 @@
     
     .to(480px,{
       column-gap: 0px;
-      svg {
-        display: block;
-      } 
     });
 
     a {
@@ -214,6 +230,13 @@
     }
 
 
+
+  }
+
+  &__phones-icon{
+    .to(@break_520,{
+      display: block !important;
+    })
 
   }
 }

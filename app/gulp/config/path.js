@@ -14,9 +14,9 @@ const THEME_NAME = nodePath.basename(nodePath.resolve(currentDir, '..', '..', '.
 const ROOT_PATH = nodePath.resolve(currentDir, '..', '..').replace(/\\/g, '/');
 
 const srcFolder = `${ROOT_PATH}/src`;
-const prodFolder = `${ROOT_PATH}/..`;
+const prodFolder = nodePath.resolve(`${ROOT_PATH}/..`);
 const prodPluginName = `${THEME_NAME}-core`; // set name your plugin for production version
-const prodPlugFolder = `${ROOT_PATH}/../../../plugins/${prodPluginName}`;
+const prodPlugFolder = nodePath.resolve(`${ROOT_PATH}/../../../plugins/${prodPluginName}`);
 const templateParts = `${srcFolder}/pages`;
 
 export const path = {

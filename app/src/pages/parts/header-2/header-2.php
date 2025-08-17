@@ -4,16 +4,28 @@
 		<div class="rmbt-header-2__row rmbt-header-2-top-row">
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-left">
 				<div class="rmbt-header-2-top-col-left__email">
-					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-email', 'mailto' ); ?>
-					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1">
-						</use>
-					</svg>
+					<?php echo rmbt_redux_field_to_ul('rmbt-manager-1-email', 'mailto'); ?>
+					<div class="ul-toggle-wrap">					
+						<svg>
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#triangle"> </use>
+						</svg>	
+					</div>
+					<svg class="rmbt-header-2-top-col-left__email-icon">
+						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1"> </use>
+					</svg>	
 				</div>
 				<div class="rmbt-header-2-top-col-left__phones">
-					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-1-phone' ); ?>
-					<?php echo rmbt_redux_field_to_ul( 'rmbt-manager-2-phone' ); ?>
-					<svg>
+					<?php echo rmbt_redux_field_to_ul('rmbt-manager-1-phone'); ?>
+					<?php echo rmbt_redux_field_to_ul('rmbt-manager-2-phone'); ?>
+					
+					<div class="ul-toggle-wrap">					
+						<svg>
+							<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#triangle">
+							</use>
+						</svg>	
+					</div>
+
+					<svg class="rmbt-header-2-top-col-left__phones-icon">
 						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#phone_1">
 						</use>
 					</svg>
@@ -48,15 +60,15 @@
 						<div class="rmbt-search-modal__close-window popup__close-window"></div>
 						<div class="rmbt-search-modal__content">
 							<h2 class="rmbt-search-modal__title popup__title section-title">
-								<?php esc_html_e( 'Пошук по сайту', RMBT_TEXT_DOMAIN_THEME ) ?>
+								<?php esc_html_e('Пошук по сайту', RMBT_TEXT_DOMAIN_THEME) ?>
 							</h2>
 							<div class="rmbt-search-modal__text popup__text">
 								<form class="rmbt-search-modal__form" role="search" method="get"
-									action="<?php echo esc_url( site_url() ); ?>">
+									action="<?php echo esc_url(site_url()); ?>">
 									<input type="search" value="<?php echo get_search_query(); ?>" name="s" id="s"
-										placeholder="<?php esc_html_e( 'Введіть текст...', RMBT_TEXT_DOMAIN_THEME ) ?>" />
+										placeholder="<?php esc_html_e('Введіть текст...', RMBT_TEXT_DOMAIN_THEME) ?>" />
 									<input type="submit" class="rmbt-button"
-										value="<?php esc_html_e( 'пошук', RMBT_TEXT_DOMAIN_THEME ) ?>" />
+										value="<?php esc_html_e('пошук', RMBT_TEXT_DOMAIN_THEME) ?>" />
 								</form>
 							</div>
 						</div>

@@ -162,7 +162,10 @@ export const path = {
     const path = {
       src: {
         html: [`${this.src.php}/assets/img/svg/*.svg`],
-        php: [`${this.src.php}/assets/img/svg/*.svg`],
+        php: [
+          `${this.src.php}/assets/img/svg/*.svg`,
+          `${this.src.php}/assets/img/svg_color/*.svg`,
+        ],
         plug: [`${this.src.plug}/assets/img/svg/*.svg`],
       },
       prod: {

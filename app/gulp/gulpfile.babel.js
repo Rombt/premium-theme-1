@@ -4,7 +4,7 @@ import { plugins } from './config/plugins.js';
 import { otfToTtf, ttfToWoff, fontStyle, copyFonts } from './tasks/fonts.js';
 import { copyPHP } from './tasks/copyPHP.js';
 import { copyPl } from './tasks/copyPl.js';
-import { createSvgSprite } from './tasks/svgsprite.js';
+import { createSvgSprite, createSvgSpriteColor } from './tasks/svgsprite.js';
 import { images, moveSvgSprite } from './tasks/images.js';
 import { php } from './tasks/php.js';
 import { js } from './tasks/js.js';
@@ -77,7 +77,9 @@ export const run = gulp.series(
 
 export const fonts = gulp.series(otfToTtf, ttfToWoff, fontStyle);
 export { grid };
+  
 export { createSvgSprite };
+export { createSvgSpriteColor };
 
 export { zip };
 export { zipPl };

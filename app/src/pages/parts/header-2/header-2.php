@@ -19,10 +19,7 @@
 					<?php echo rmbt_redux_field_to_ul('rmbt-manager-2-phone'); ?>
 					
 					<div class="ul-toggle-wrap">					
-						<svg>
-							<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#triangle">
-							</use>
-						</svg>	
+						<?= get_icon_svg('triangle') ?>
 					</div>
 
 					<svg class="rmbt-header-2-top-col-left__phones-icon">

@@ -68,7 +68,7 @@ const config = {
 const configColor = {
     mode: {
       symbol: {
-        sprite: '../sprite-color.svg', // имя итогового файла спрайта
+        sprite: '../sprite_color.svg', // имя итогового файла спрайта
         example:  {
             dest: '../sprite-color-preview/sprite.html' // путь и имя HTML-файла примера относительно output
           }

@@ -21,10 +21,7 @@
 		<a href="<?= ! empty($rmbt_theme_options['rmbt-social-networks-link_1'])
 	        ? esc_url($rmbt_theme_options['rmbt-social-networks-link_1'])
 	        : '#' ?>">
-			<svg>
-				<use xlink:href="<?= esc_url(get_template_directory_uri()) ?>/assets/img/icons/sprite.svg#facebook">
-				</use>
-			</svg>
+			<?= get_icon_svg('facebook', true) ?>
 		</a>
 	<?php endif; ?>
 
@@ -49,14 +46,9 @@
 		<a href="<?= ! empty($rmbt_theme_options['rmbt-social-networks-link_2'])
 	        ? esc_url($rmbt_theme_options['rmbt-social-networks-link_2'])
 	        : '#' ?>">
-			<svg>
-				<use xlink:href="<?= esc_url(get_template_directory_uri()) ?>/assets/img/icons/sprite.svg#instagram">
-				</use>
-			</svg>
+			<?= get_icon_svg('instagram', true) ?>
 		</a>
 	<?php endif; ?>
-
-
 
 	<?php
 	if (isset($rmbt_theme_options['rmbt-social-networks-icon_3'])
@@ -78,10 +70,7 @@
 		<a href="<?= ! empty($rmbt_theme_options['rmbt-social-networks-link_3'])
 	        ? esc_url($rmbt_theme_options['rmbt-social-networks-link_3'])
 	        : '#' ?>">
-			<svg>
-				<use xlink:href="<?= esc_url(get_template_directory_uri()) ?>/assets/img/icons/sprite.svg#pinterest">
-				</use>
-			</svg>
+			<?= get_icon_svg('pinterest', true) ?>
 		</a>
 	<?php endif; ?>
 
@@ -106,18 +95,7 @@
 		<a href="<?= ! empty($rmbt_theme_options['rmbt-social-networks-link_4'])
 	        ? esc_url($rmbt_theme_options['rmbt-social-networks-link_4'])
 	        : '#' ?>">
-			<svg>
-				<use xlink:href="<?= esc_url(get_template_directory_uri()) ?>/assets/img/icons/sprite.svg#linkedin">
-				</use>
-			</svg>
+			<?= get_icon_svg('linkedin', true) ?>
 		</a>
 	<?php endif; ?>
-
-
-	<!-- 
-	<svg>
-		<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#linkedin_1"></use>
-	</svg> -->
-
-
 </div>

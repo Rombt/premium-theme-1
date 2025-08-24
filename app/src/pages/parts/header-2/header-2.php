@@ -6,26 +6,17 @@
 				<div class="rmbt-header-2-top-col-left__email">
 					<?php echo rmbt_redux_field_to_ul('rmbt-manager-1-email', 'mailto'); ?>
 					<div class="ul-toggle-wrap">					
-						<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#triangle"> </use>
-						</svg>	
+						<?= get_icon_svg('triangle') ?>
 					</div>
-					<svg class="rmbt-header-2-top-col-left__email-icon">
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#email_1"> </use>
-					</svg>	
+					<?= get_icon_svg('email_1', true, 'rmbt-header-2-top-col-left__email-icon') ?>	
 				</div>
 				<div class="rmbt-header-2-top-col-left__phones">
 					<?php echo rmbt_redux_field_to_ul('rmbt-manager-1-phone'); ?>
 					<?php echo rmbt_redux_field_to_ul('rmbt-manager-2-phone'); ?>
-					
 					<div class="ul-toggle-wrap">					
 						<?= get_icon_svg('triangle') ?>
 					</div>
-
-					<svg class="rmbt-header-2-top-col-left__phones-icon">
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#phone_1">
-						</use>
-					</svg>
+					<?= get_icon_svg('phone_1', true, 'rmbt-header-2-top-col-left__phones-icon') ?>	
 				</div>
 
 
@@ -35,22 +26,13 @@
 			</div> -->
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-right">
 				<a href="#rmbt-search_modal" class="rmbt-search-modal__trigger popup-link">
-					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#search">
-						</use>
-					</svg>
+					<?= get_icon_svg('search') ?>
 				</a>
 				<a href="#" class="">
-					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#cart">
-						</use>
-					</svg>
+					<?= get_icon_svg('cart') ?>
 				</a>
 				<a href="#" class="">
-					<svg>
-						<use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#login">
-						</use>
-					</svg>
+					<?= get_icon_svg('login') ?>
 				</a>
 				<div id="rmbt-search_modal" class="rmbt-search-modal popup">
 					<div class="rmbt-search-modal__body popup__body">

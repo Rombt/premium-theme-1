@@ -1,24 +1,16 @@
 <div class="rmbt-social-media-icon-block-0">
 
    <div class='rmbt-social-media-icon-block-0__icon'>
-      <svg>
-         <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-      </svg>
+      <?= get_icon_svg('', true, 'rmbt-social-media-icon-block-0__icon') ?>
    </div>
    <div class='rmbt-social-media-icon-block-0__icon'>
-      <svg>
-         <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-      </svg>
+      <?= get_icon_svg('', true, 'rmbt-social-media-icon-block-0__icon') ?>
    </div>
    <div class='rmbt-social-media-icon-block-0__icon'>
-      <svg>
-         <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-      </svg>
+      <?= get_icon_svg('', true, 'rmbt-social-media-icon-block-0__icon') ?>
    </div>
    <div class='rmbt-social-media-icon-block-0__icon'>
-      <svg>
-         <use xlink:href="<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#"></use>
-      </svg>
+      <?= get_icon_svg('', true, 'rmbt-social-media-icon-block-0__icon') ?>
    </div>
 
 

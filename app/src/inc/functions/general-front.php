@@ -1,6 +1,6 @@
 <?php
 
-function get_icon_svg($id, $color = false)
+function get_icon_svg($id, $color = false, $classes = '')
 {
     $sprite_name = $color ? 'sprite_color.svg' : 'sprite.svg';
     $sprite_rel = '/assets/img/icons/';
@@ -10,7 +10,11 @@ function get_icon_svg($id, $color = false)
     $url = esc_url(add_query_arg('ver', $ver, $base_url));
     $pash = $url . '#' . $id ;
 
-    return ' <svg><use href="' . $pash . '"> </use></svg>';
+    if ($classes != '') {
+        $classes = 'class="' . $classes . '"';
+    }
+
+    return '<svg ' . $classes . '><use href="' . $pash . '"> </use></svg>';
 }
 
 
@@ -353,7 +357,7 @@ function rmbt_redux_get_url($id_field, $custom_default_url = '')
     }
 }
 
-function rmbt_redux_img($id_field_pic, $alt = "", $id_svg = '')
+function rmbt_redux_img($id_field_pic, $alt = "", $id_svg = '', $svg_color = false)
 {
     global $rmbt_theme_options;
 
@@ -369,9 +373,12 @@ function rmbt_redux_img($id_field_pic, $alt = "", $id_svg = '')
             return;
         }
 
-        return '<svg>
-			<use xlink:href="' . get_template_directory_uri() . '/assets/img/icons/sprite.svg#' . $id_svg . '"></use>
-		</svg>';
+        // return '<svg>
+        // 	<use xlink:href="' . get_template_directory_uri() . '/assets/img/icons/sprite.svg#' . $id_svg . '"></use>
+        // </svg>';
+
+        return get_icon_svg($id_svg, $svg_color);
+
     }
 }
 

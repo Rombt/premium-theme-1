@@ -17,7 +17,7 @@
 
   &__body {
     padding: 20px 10px 20px 10px;
-    display: none;
+    // display: none;
   }
 
   &__arrow {
@@ -27,8 +27,6 @@
     transform: translate(50%, -50%);
     width: 60px;
     height: 0px;
-    // opacity: 0;
-    // transition: opacity 0.8s;
 
     svg {
       width: 100%;
@@ -38,12 +36,11 @@
 
   &__title-active {
     .tabs__arrow {
-      // opacity: 1;
       height: 60px;
-      // transition: opacity 0.8s;
     }
   }
   &__body-active {
-    display: block;
+    // display: block;
+    // opacity: 1;
   }
 }

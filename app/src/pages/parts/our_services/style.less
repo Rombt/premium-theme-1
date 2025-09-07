@@ -12,13 +12,12 @@
     .row-flex();
     flex-wrap: nowrap;
     position: relative;
-    height: 370px;
+    min-height: 370px;
 
-    perspective: 600px;
 
     .to(768px,{
       flex-direction: column;
-      height: 100%;
+      min-height: 480px;
     });
 
     .tabs__nav {
@@ -125,8 +124,6 @@
       .adaptive-prop(width, 43, 33);
       height: 0px;
 
-      
-
       .to(768px,{
         display: none;
       });
@@ -225,15 +222,21 @@
       }
     }
     .tabs__body {
-      position: relative;
-      height: 370px;
-
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
       border-radius: 0px 16px 16px 0px;
+      height: 370px;
+      transition: opacity 0.25s ease-in;
+      opacity: 0;
+      pointer-events: none;
+
 
       &:hover{
 
         img{
-
           transform: scale(1.075);
           transition: transform .6s;
         }
@@ -296,7 +299,8 @@
       }
     }
     .tabs__body-active {
-
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }

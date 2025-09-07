@@ -127,6 +127,14 @@
     &__img {
       width: 100%;
       .adaptive-prop(height, 300, 200);
+
+      &:hover{
+
+        img{
+          transform: scale(1.075);
+          transition: transform .6s;
+        }
+      }
     }
 
     .title-block {

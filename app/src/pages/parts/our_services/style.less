@@ -14,6 +14,8 @@
     position: relative;
     height: 370px;
 
+    perspective: 600px;
+
     .to(768px,{
       flex-direction: column;
       height: 100%;
@@ -46,6 +48,28 @@
       height: 110px;
       padding: 0px 20px 10px 20px;
       border-radius: 16px 0px 0px 16px;
+
+      transition: 
+      transform .28s cubic-bezier(.2,.8,.2,1),
+      box-shadow .28s cubic-bezier(.2,.8,.2,1),
+      background-color .3s;
+    will-change: transform, box-shadow;
+    // transform-style: preserve-3d;
+
+    &:hover {
+      transform: translateY(-2px) scale(1.005);
+      box-shadow: 4px 6px 12px rgba(0,0,0,.25);
+      background-color: #f9f9f9;
+
+      .tabs__arrow{
+
+        // transform: translateY(-4px);
+        // border: 1px solid #0515fd;
+        
+      }
+
+    }
+
 
       .subtitle-block {
         max-height: 50px;
@@ -118,6 +142,7 @@
 
     .tabs__title-active {
       background-color: #fff;
+      box-shadow: 3px 4px 8px rgba(0,0,0,.3);
       .to(768px,{
         z-index: 2;
         flex-grow:3;
@@ -245,3 +270,6 @@
     }
   }
 }
+
+
+

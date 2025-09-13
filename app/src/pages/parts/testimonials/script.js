@@ -6,6 +6,9 @@ if (document.querySelector('.rmbt-testimonials-block-slide-swiper')) {
     slidesPerView: 1,
     centeredSlides: true,
     speed: 820,
+
+    // effect: 'coverflow',
+
     autoplay: {
       delay: 4800,
     },

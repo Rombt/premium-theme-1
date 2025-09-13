@@ -3,9 +3,16 @@ if (document.querySelector('.rmbt-featured-projects-slide-swiper')) {
     direction: 'horizontal',
     loop: true,
     spaceBetween: 30,
-    slidesPerView: 1,
+    slidesPerView: 6,
     centeredSlides: true,
     speed: 820,
+
+    effect: 'coverflow',
+    // effect: 'flip',
+    // effect: 'cards',
+    // effect: 'slide',
+
+
     autoplay: {
       delay: 4800,
     },

@@ -15,9 +15,11 @@ $posts = get_posts($args);
 			<!-- <section class="rmbt-container rmbt-featured-projects"> -->
 			<!-- by full width -->
 			<section class="rmbt-featured-projects">
+				<?php if (rmbt_get_redux_field('rmbt-featured-projects_section-title', 1) != '') {?>
 				<h2 class="title-section">
 					<?php echo rmbt_get_redux_field('rmbt-featured-projects_section-title', 1) ?>
 				</h2>
+				<?php }?>
 				<p class="subtitle-section">
 					<?php echo rmbt_get_redux_field('rmbt-featured-projects_section-subtitle', 1) ?>
 				</p>

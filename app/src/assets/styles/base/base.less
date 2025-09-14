@@ -68,7 +68,16 @@ a {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: transform .6s;
   }
+
+  &:hover{
+    img{
+      transform: scale(1.075);
+      transition: transform .6s;
+    }
+  }
+
 }
 
 .wrap-img-a {
@@ -363,4 +372,20 @@ body.rmbt-lock {
     color: #858585;
     display: none;
   }
+}
+
+.hover-img{
+
+  img{
+    transition: transform .6s;
+  }
+
+  &:hover{
+    img{
+      transform: scale(1.075);
+      transition: transform .6s;
+    }
+  }
+
+
 }

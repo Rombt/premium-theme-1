@@ -1,5 +1,5 @@
-<article class="rmbt-latest-blog-posts-card <?= ! empty( $args['classes'] ) ? $args['classes'] : '' ?>">
-	<div class="wrap-img rmbt-latest-blog-posts-card__img">
+<article class="rmbt-latest-blog-posts-card <?= ! empty($args['classes']) ? $args['classes'] : '' ?>">
+	<div class="wrap-img hover-img rmbt-latest-blog-posts-card__img">
 		<?php echo $args['tag-img'] ?>
 	</div>
 
@@ -16,13 +16,13 @@
 		<footer class='text-block'>
 			<?php echo $args['post_date'] ?>
 			<?php
-			get_template_part( 'pages/components/button_read_more/button_read_more', null, [ 
-				'data' => '',
-				'title' => 'read more',
-				'href' => get_permalink(),
-				'classes' => 'shadow-box',
-			] );
-			?>
+            get_template_part('pages/components/button_read_more/button_read_more', null, [
+                'data' => '',
+                'title' => 'read more',
+                'href' => get_permalink(),
+                'classes' => 'shadow-box',
+            ]);
+?>
 		</footer>
 	</div>
 </article>

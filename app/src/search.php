@@ -20,27 +20,26 @@ get_header();
 		<header class="page-header ">
 			<h1 class="page-title">
 				<?php
-				/* translators: %s: search query. */
-				printf(esc_html__('Search Results for: %s', 'simple-restaurant-site'), '<span>' . get_search_query() . '</span>');
-				?>
+                /* translators: %s: search query. */
+                printf(esc_html__('Search Results for: %s', RMBT_TEXT_DOMAIN_THEME), '<span>' . get_search_query() . '</span>');
+	    ?>
 			</h1>
 		</header>
 
 	<?php
-		while (have_posts()) :
-			the_post();
-			get_template_part('template-parts/content', 'search');
+        while (have_posts()) :
+            the_post();
+            get_template_part('template-parts/content', 'search');
 
-		endwhile;
+        endwhile;
 
-		the_posts_navigation();
-
+	    the_posts_navigation();
 	else :
 
-		get_template_part('template-parts/content', 'none');
+	    get_template_part('template-parts/content', 'none');
 
 	endif;
-	?>
+?>
 
 </main>
 

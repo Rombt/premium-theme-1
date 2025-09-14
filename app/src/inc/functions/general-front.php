@@ -43,12 +43,12 @@ function rmbt_custom_WPquery($rmbt_post_type, $rmbt_posts_per_page, $rmbt_curren
 function rmbt_get_breadcrumbs()
 {
 
-    $text['home'] = esc_html__('Home', RMBT_TEXT_DOMAIN_THEME);
-    $text['category'] = esc_html__('Archive', RMBT_TEXT_DOMAIN_THEME) . ' "%s"';
-    $text['search'] = esc_html__('Search results', RMBT_TEXT_DOMAIN_THEME) . ' "%s"';
-    $text['tag'] = esc_html__('Tag', RMBT_TEXT_DOMAIN_THEME) . ' "%s"';
-    $text['author'] = esc_html__('Author', RMBT_TEXT_DOMAIN_THEME) . ' %s';
-    $text['404'] = esc_html__('Error 404', RMBT_TEXT_DOMAIN_THEME);
+    $text['home'] = esc_html__('Home', 'premium-theme-1');
+    $text['category'] = esc_html__('Archive', 'premium-theme-1') . ' "%s"';
+    $text['search'] = esc_html__('Search results', 'premium-theme-1') . ' "%s"';
+    $text['tag'] = esc_html__('Tag', 'premium-theme-1') . ' "%s"';
+    $text['author'] = esc_html__('Author', 'premium-theme-1') . ' %s';
+    $text['404'] = esc_html__('Error 404', 'premium-theme-1');
 
     $show_current = 1;
     $show_on_home = 0;
@@ -79,7 +79,7 @@ function rmbt_get_breadcrumbs()
         }
 
         if (get_option('page_for_posts') && is_home()) {
-            echo '<nav class="breadcrumbs"><a href="' . esc_url($home_link) . '">' . esc_attr($text['home']) . '</a>' . rmbt_wp_kses($delimiter) . ' ' . __('Blog', RMBT_TEXT_DOMAIN_THEME) . '</nav>';
+            echo '<nav class="breadcrumbs"><a href="' . esc_url($home_link) . '">' . esc_attr($text['home']) . '</a>' . rmbt_wp_kses($delimiter) . ' ' . __('Blog', 'premium-theme-1') . '</nav>';
         }
     } else {
 
@@ -204,7 +204,7 @@ function rmbt_get_breadcrumbs()
             if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) {
                 echo ' (';
             }
-            echo rmbt_wp_kses($delimiter) . esc_html__('Page', RMBT_TEXT_DOMAIN_THEME) . ' ' . get_query_var('paged');
+            echo rmbt_wp_kses($delimiter) . esc_html__('Page', 'premium-theme-1') . ' ' . get_query_var('paged');
             if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) {
                 echo ')';
             }
@@ -348,7 +348,7 @@ function rmbt_redux_get_url($id_field, $custom_default_url = '')
     }
 
     if (isset($rmbt_theme_options[ $id_field ])) {
-        if (stripos($rmbt_theme_options[ $id_field ], get_site_url()) === 0) {
+        if (stripos($rmbt_theme_options[ $id_field ], home_url()) === 0) {
             return $rmbt_theme_options[ $id_field ];
         } else {
             $clear_url = str_replace($_SERVER['SERVER_NAME'] . '/', '', $rmbt_theme_options[ $id_field ]);
@@ -395,7 +395,11 @@ function rmbt_get_redux_field($id_field, $kses = false, $all_tags_allowed = fals
     } elseif ($all_tags_allowed) {
         return class_exists('ReduxFramework') ? $rmbt_theme_options[ $id_field ] : "";
     }
-    return class_exists('ReduxFramework') ? esc_html__($rmbt_theme_options[ $id_field ]) : "";
+
+    return class_exists('ReduxFramework')
+    ? sprintf(esc_html__('%s', 'premium-theme-1'), esc_html($rmbt_theme_options[ $id_field ]))
+    : '';
+
 }
 
 function rmbt_phone_number_clear_redux($phone_number)

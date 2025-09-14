@@ -1,6 +1,6 @@
 <div class="rmbt-copyright-block-1">
 	<div class='rmbt-copyright-block-1__body'>
-		<?= get_icon_svg('copyright_1') ?>
+		<?php echo get_icon_svg('copyright_1') ?>
 		2024 Rombt Net Studio
 		<br>
 		All rights reserved

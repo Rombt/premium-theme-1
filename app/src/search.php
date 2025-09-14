@@ -21,17 +21,17 @@ get_header();
 			<h1 class="page-title">
 				<?php
                 /* translators: %s: search query. */
-                printf(esc_html__('Search Results for: %s', RMBT_TEXT_DOMAIN_THEME), '<span>' . get_search_query() . '</span>');
+                printf(esc_html__('Search Results for: %s', 'premium-theme-1'), '<span>' . get_search_query() . '</span>');
 	    ?>
 			</h1>
 		</header>
 
 	<?php
-        while (have_posts()) :
-            the_post();
-            get_template_part('template-parts/content', 'search');
+	    while (have_posts()) :
+	        the_post();
+	        get_template_part('template-parts/content', 'search');
 
-        endwhile;
+	    endwhile;
 
 	    the_posts_navigation();
 	else :

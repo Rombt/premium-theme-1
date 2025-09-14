@@ -6,9 +6,9 @@ defined('ABSPATH') || exit;
 Redux::set_section(
     $opt_name,
     array(
-        'title' => esc_html__('simple-section', RMBT_TEXT_DOMAIN_THEME),
+        'title' => esc_html__('simple-section', 'premium-theme-1'),
         'id' => 'settings_simple-section',
-        'desc' => esc_html__('Settings header site', RMBT_TEXT_DOMAIN_THEME),
+        'desc' => esc_html__('Settings header site', 'premium-theme-1'),
         'customizer_width' => '450',
         'subsections' => true,
         // 'icon'             => 'el el-home',
@@ -18,7 +18,7 @@ Redux::set_section(
                 'id' => 'rmbt-bg_section-img',
                 'type' => 'media',
                 'url' => true,
-                'title' => esc_html__('This picture will use for background section', RMBT_TEXT_DOMAIN_THEME),
+                'title' => esc_html__('This picture will use for background section', 'premium-theme-1'),
                 'compiler' => 'true',
                 'preview_size' => 'full',
                 'default' => array(
@@ -28,21 +28,21 @@ Redux::set_section(
             array(
                 'id' => 'rmbt-bg_section-img_alt',
                 'type' => 'text',
-                'title' => esc_html__('Description for background section picture', RMBT_TEXT_DOMAIN_THEME),
-                'default' => esc_html__('background section picture', RMBT_TEXT_DOMAIN_THEME),
+                'title' => esc_html__('Description for background section picture', 'premium-theme-1'),
+                'default' => esc_html__('background section picture', 'premium-theme-1'),
             ),
 
             array(
                 'id' => 'rmbt-simple-section_section-title',
                 'type' => 'text',
-                'title' => esc_html__('Title of Simple-Section', RMBT_TEXT_DOMAIN_THEME),
-                // 'default' => esc_html__( '', RMBT_TEXT_DOMAIN_THEME ),
+                'title' => esc_html__('Title of Simple-Section', 'premium-theme-1'),
+                // 'default' => esc_html__( '', 'premium-theme-1' ),
             ),
             array(
                 'id' => 'rmbt-simple-section_section-text',
                 'type' => 'text',
-                'title' => esc_html__('Text of Simple-Section', RMBT_TEXT_DOMAIN_THEME),
-                // 'default' => esc_html__( '', RMBT_TEXT_DOMAIN_THEME ),
+                'title' => esc_html__('Text of Simple-Section', 'premium-theme-1'),
+                // 'default' => esc_html__( '', 'premium-theme-1' ),
             ),
 
 
@@ -51,7 +51,7 @@ Redux::set_section(
             array(
                 'id' => 'rmbt-simple-section-start',
                 'type' => 'accordion',
-                'title' => esc_html__('Title of Simple-Section', RMBT_TEXT_DOMAIN_THEME),
+                'title' => esc_html__('Title of Simple-Section', 'premium-theme-1'),
                 'subtitle' => 'Add your content to the section \'Title\'',
                 'position' => 'start',
             ),
@@ -60,21 +60,21 @@ Redux::set_section(
             // array(
             // 	'id' => 'rmbt-simple-section-gallery',
             // 	'type' => 'gallery',
-            // 	'title' => esc_html__( 'Add/Edit Gallery on the main screen ', RMBT_TEXT_DOMAIN_THEME ),
+            // 	'title' => esc_html__( 'Add/Edit Gallery on the main screen ', 'premium-theme-1' ),
             // ),
 
             // array(
             // 	'id' => 'simple-section_title',
             // 	'type' => 'text',
-            // 	'title' => esc_html__( 'Front page title', RMBT_TEXT_DOMAIN_THEME ),
-            // 	'default' => __( wp_kses( 'Український виробник', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
+            // 	'title' => esc_html__( 'Front page title', 'premium-theme-1' ),
+            // 	'default' => __( wp_kses( 'Український виробник', 'post' ), 'premium-theme-1' ),
             // ),
 
             // array(
             // 	'id' => 'simple-section_subtitle',
             // 	'type' => 'text',
-            // 	'title' => esc_html__( 'Front page title', RMBT_TEXT_DOMAIN_THEME ),
-            // 	'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), RMBT_TEXT_DOMAIN_THEME ),
+            // 	'title' => esc_html__( 'Front page title', 'premium-theme-1' ),
+            // 	'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), 'premium-theme-1' ),
             // ),
 
 

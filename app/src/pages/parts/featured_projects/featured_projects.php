@@ -60,10 +60,10 @@ wp_reset_postdata(); ?>
 						<!-- <div class="rmbt--swiper__pagination"></div> -->
 					</div>
 					<div class="rmbt-featured-projects-slide-swiper__button-next">
-						<?= get_icon_svg('chevron_1', true) ?>
+						<?php echo get_icon_svg('chevron_1', true) ?>
 					</div>
 					<div class="rmbt-featured-projects-slide-swiper__button-prev">
-						<?= get_icon_svg('chevron_1', true) ?>
+						<?php echo get_icon_svg('chevron_1', true) ?>
 					</div>
 				</div>
 			</section>

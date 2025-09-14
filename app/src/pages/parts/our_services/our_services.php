@@ -26,7 +26,7 @@
 					</p>
 
 					<div class="tabs__arrow">
-						<?= get_icon_svg('chevron_1', true) ?>
+						<?php echo get_icon_svg('chevron_1', true) ?>
 					</div>
 
 				</div>
@@ -38,7 +38,7 @@
 						<?php echo rmbt_get_redux_field('our-services-tabs-2_subtitle', 1) ?>
 					</p>
 					<div class="tabs__arrow">
-					<?= get_icon_svg('chevron_1', true) ?>
+					<?php echo get_icon_svg('chevron_1', true) ?>
 					</div>
 				</div>
 				<div class="tabs__title shadow-box" data-tab="tab-3">
@@ -49,7 +49,7 @@
 						<?php echo rmbt_get_redux_field('our-services-tabs-3_subtitle', 1) ?>
 					</p>
 					<div class="tabs__arrow">
-					<?= get_icon_svg('chevron_1', true) ?>
+					<?php echo get_icon_svg('chevron_1', true) ?>
 					</div>
 				</div>
 			</nav>

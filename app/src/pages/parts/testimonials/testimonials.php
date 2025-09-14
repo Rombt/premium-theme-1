@@ -52,12 +52,12 @@ $comments = get_comments($args);
 									</div>
 
 									<?php
-                                    get_template_part('pages/components/button_read_more/button_read_more', null, [
+							        get_template_part('pages/components/button_read_more/button_read_more', null, [
 							    'data' => '',
 							    'title' => 'read more',
 							    'href' => get_comment_link($comment->comment_ID),
 							    'classes' => 'shadow-box',
-                                    ]);
+							        ]);
 							    ?>
 								</div>
 							<?php endforeach; ?>
@@ -65,10 +65,10 @@ $comments = get_comments($args);
 						</div>
 					</div>
 					<div class="rmbt-testimonials-block-slide-swiper__button-next">
-						<?= get_icon_svg('chevron_1', true) ?>
+						<?php echo get_icon_svg('chevron_1', true) ?>
 					</div>
 					<div class="rmbt-testimonials-block-slide-swiper__button-prev">
-						<?= get_icon_svg('chevron_1', true) ?>
+						<?php echo get_icon_svg('chevron_1', true) ?>
 					</div>
 				</div>
 			</section>

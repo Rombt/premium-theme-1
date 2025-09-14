@@ -306,14 +306,6 @@ body.rmbt-lock {
   }
 }
 
-/*========= for display results work function in the process of develop  ==============*/
-
-.debug-grid {
-  z-index: 100;
-  pointer-events: none;
-  .debug(#d0d6f81a, 1px rgba(6, 235, 197, 0.4) dashed);
-}
-
 .test-block {
   position: absolute;
   top: 50px;
@@ -388,4 +380,92 @@ body.rmbt-lock {
   }
 
 
+}
+
+
+/* ==== WordPress Standard Classes ==== */
+
+/* Подписи к изображениям */
+.wp-caption {
+  margin: 1em 0;
+  padding: 0.5em;
+  text-align: center;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.wp-caption img {
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-caption-text,
+.gallery-caption {
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.4;
+  margin-top: 0.5em;
+}
+
+/* Выравнивание блоков */
+.alignright {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+.alignleft {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+.aligncenter {
+  display: block;
+  margin: 0 auto 1em auto;
+}
+
+/* Минимальные стили для галерей */
+.gallery {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery-item {
+  display: inline-block;
+  margin: 0 1% 1% 0;
+  vertical-align: top;
+}
+
+.gallery-item img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+.screen-reader-text:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+
+
+
+.debug-grid {
+  z-index: 100;
+  pointer-events: none;
+  .debug(#d0d6f81a, 1px rgba(6, 235, 197, 0.4) dashed);
 }

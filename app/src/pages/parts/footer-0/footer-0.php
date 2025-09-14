@@ -27,7 +27,7 @@
 
 				<?php $description = get_bloginfo('description');
 			if (! empty($description)) { ?>
-					<p class="subtitle-block rmbt-site-description"><?= esc_html($description) ?></p>
+					<p class="subtitle-block rmbt-site-description"><?php echo esc_html($description) ?></p>
 				<?php } ?>
 
 				<?php get_template_part('pages/components/social_networks/social_networks', null, [
@@ -48,15 +48,15 @@
 
 				<ul>
 					<li>
-						<?= get_icon_svg('phone_2') ?>
+						<?php echo get_icon_svg('phone_2') ?>
 						<?php echo rmbt_get_redux_field('rmbt-manager-6-phone', 1) ?>
 					</li>
 					<li>
-						<?= get_icon_svg('email_2') ?>
+						<?php echo get_icon_svg('email_2') ?>
 						<?php echo rmbt_get_redux_field('rmbt-email-1', 1) ?>
 					</li>
 					<li>
-						<?= get_icon_svg('address_2') ?>
+						<?php echo get_icon_svg('address_2') ?>
 						<?php echo rmbt_get_redux_field('rmbt-address', 1) ?>
 					</li>
 				</ul>

@@ -1,6 +1,6 @@
 <?php
 
-define('RMBT_TEXT_DOMAIN_THEME', 'premium-theme-1');		//! you must use only chars those allow for url
+// define(RMBT_TEXT_DOMAIN_THEME, 'premium-theme-1');		//! you must use only chars those allow for url
 define('rmbt_PATH_THEME', get_template_directory());
 define('rmbt_URL_THEME', esc_url(get_template_directory_uri()));
 define('rmbt_DIR_TEMPLATE_PARTS', 'pages');
@@ -33,11 +33,11 @@ function rmbt_theme_scripts()
 {
 
     wp_enqueue_style('swiper-bundle', get_template_directory_uri() . '/assets/styles/libs/swiper-bundle.min.css', array(), '1.0', 'all');
-    wp_enqueue_style(RMBT_TEXT_DOMAIN_THEME . '-main', get_template_directory_uri() . '/assets/styles/main-style.min.css', array(), '1.0', 'all');
+    wp_enqueue_style('premium-theme-1' . '-main', get_template_directory_uri() . '/assets/styles/main-style.min.css', array(), '1.0', 'all');
 
     wp_enqueue_script('swiper-bundle', get_template_directory_uri() . '/assets/js/libs/swiper-bundle.min.js', array(), '', true);
     wp_enqueue_script('anime_js', get_template_directory_uri() . '/assets/js/libs/anime.min.js', array(), 'v3.2.2', true);
-    wp_enqueue_script(RMBT_TEXT_DOMAIN_THEME . '-app', get_template_directory_uri() . '/assets/js/app.main.min.js', array( 'jquery' ), '1.0', true);
+    wp_enqueue_script('premium-theme-1' . '-app', get_template_directory_uri() . '/assets/js/app.main.min.js', array( 'jquery' ), '1.0', true);
 
 
     wp_add_inline_script(
@@ -72,20 +72,20 @@ function rmbt_site_setup()
 
     register_nav_menus(
         array(
-            'header_nav' => esc_html__('rmbt_Header Navigation', RMBT_TEXT_DOMAIN_THEME),
-            'footer_nav' => esc_html__('rmbt_Footer Navigation', RMBT_TEXT_DOMAIN_THEME),
-            'rmbt-vertical-nav-0' => esc_html__('rmbt Vertical Navigation 0', RMBT_TEXT_DOMAIN_THEME),
+            'header_nav' => esc_html__('rmbt_Header Navigation', 'premium-theme-1'),
+            'footer_nav' => esc_html__('rmbt_Footer Navigation', 'premium-theme-1'),
+            'rmbt-vertical-nav-0' => esc_html__('rmbt Vertical Navigation 0', 'premium-theme-1'),
         )
     );
 
-    load_theme_textdomain(RMBT_TEXT_DOMAIN_THEME, get_template_directory() . '/languages');
+    load_theme_textdomain('premium-theme-1', get_template_directory() . '/languages');
     add_theme_support('automatic-feed-links');
 }
 add_action('after_setup_theme', 'rmbt_site_setup');
 
 function simple_rmbt_theme_content_width()
 {
-    $GLOBALS['content_width'] = apply_filters('simple_' . RMBT_TEXT_DOMAIN_THEME . '_content_width', 640);
+    $GLOBALS['content_width'] = apply_filters('simple_' . 'premium-theme-1' . '_content_width', 640);
 }
 add_action('after_setup_theme', 'simple_rmbt_theme_content_width', 0);
 
@@ -93,11 +93,11 @@ function rmbt_theme_register_required_plugins()
 {
     $plugins = array(
         array(
-            'name' => RMBT_TEXT_DOMAIN_THEME . ' core',
+            'name' => 'premium-theme-1' . ' core',
             // The plugin name.
-            'slug' => RMBT_TEXT_DOMAIN_THEME . '-core',
+            'slug' => 'premium-theme-1' . '-core',
             // The plugin slug (typically the folder name).
-            'source' => WP_PLUGIN_DIR . '/' . RMBT_TEXT_DOMAIN_THEME . '-core',
+            'source' => WP_PLUGIN_DIR . '/' . 'premium-theme-1' . '-core',
             // The plugin source.
             'required' => true,
             // If false, the plugin is only 'recommended' instead of required.
@@ -150,9 +150,9 @@ function rmbt_widgets_init()
 {
     register_sidebar(
         array(
-            'name' => esc_html__('Sidebar For Blog page', RMBT_TEXT_DOMAIN_THEME),
+            'name' => esc_html__('Sidebar For Blog page', 'premium-theme-1'),
             'id' => 'rmbt_blog_sidebar',
-            'description' => esc_html__('Add widgets here', RMBT_TEXT_DOMAIN_THEME),
+            'description' => esc_html__('Add widgets here', 'premium-theme-1'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget' => '</section>',
             'before_title' => '<h2 class="widget-title">',
@@ -161,9 +161,9 @@ function rmbt_widgets_init()
     );
     register_sidebar(
         array(
-            'name' => esc_html__('Sidebar For Shop page', RMBT_TEXT_DOMAIN_THEME),
+            'name' => esc_html__('Sidebar For Shop page', 'premium-theme-1'),
             'id' => 'rmbt_shop_sidebar',
-            'description' => esc_html__('Add widgets here', RMBT_TEXT_DOMAIN_THEME),
+            'description' => esc_html__('Add widgets here', 'premium-theme-1'),
             'before_widget' => '<section id="%1$s" class="widget %2$s">',
             'after_widget' => '</section>',
             'before_title' => '<h2 class="widget-title">',
@@ -182,12 +182,90 @@ function theme_customize_register($wp_customize)
     ]);
 
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'custom_footer_logo', [
-        'label' => __('Footer Logo', RMBT_TEXT_DOMAIN_THEME),
+        'label' => __('Footer Logo', 'premium-theme-1'),
         'section' => 'title_tagline',
         'settings' => 'custom_footer_logo',
     ]));
 }
 add_action('customize_register', 'theme_customize_register');
+
+
+function premium_theme_1_register_block_styles()
+{
+    // Кастомный стиль для блока кнопки
+    register_block_style(
+        'core/button',
+        array(
+            'name'  => 'rmbt-solid-button',
+            'label' => __('RMBT Solid', 'premium-theme-1'),
+        )
+    );
+
+    // Кастомный стиль для блока заголовка
+    register_block_style(
+        'core/heading',
+        array(
+            'name'  => 'rmbt-fancy-heading',
+            'label' => __('RMBT Fancy', 'premium-theme-1'),
+        )
+    );
+}
+add_action('init', 'premium_theme_1_register_block_styles');
+
+
+
+function premium_theme_1_block_support()
+{
+    add_theme_support('wp-block-styles');
+    add_theme_support('align-wide');
+    add_theme_support('responsive-embeds');
+
+    // Пример блока: кнопка
+    register_block_style('core/button', [
+        'name' => 'rmbt-solid',
+        'label' => __('RMBT Solid', 'premium-theme-1'),
+    ]);
+
+    // Пример шаблона блока
+    register_block_pattern('premium-theme-1/hero-section', [
+        'title'       => __('Hero Section', 'premium-theme-1'),
+        'description' => __('Hero section with background and title', 'premium-theme-1'),
+        'content'     => '<!-- wp:cover {"url":"example.jpg"} /-->',
+    ]);
+}
+add_action('after_setup_theme', 'premium_theme_1_block_support');
+
+
+
+add_theme_support('custom-header', [
+    'width' => 1920,
+    'height' => 400,
+    'flex-width' => true,
+    'flex-height' => true,
+]);
+
+add_theme_support('custom-background', [
+    'default-color' => 'ffffff',
+    'default-image' => '',
+]);
+
+
+
+add_action('after_setup_theme', function () {
+    add_editor_style('assets/css/editor-style.css');
+});
+
+
+
+function premium_theme_1_enqueue_scripts()
+{
+    if (is_singular() && comments_open() && get_option('thread_comments')) {
+        wp_enqueue_script('comment-reply');
+    }
+}
+add_action('wp_enqueue_scripts', 'premium_theme_1_enqueue_scripts');
+
+
 
 
 //===========================================================================

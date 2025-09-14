@@ -226,6 +226,7 @@ export const path = {
         ],
         php: [
           `${this.src.php}/README.md`,
+          `${this.src.php}/readme.txt`,
           `${this.src.php}/style.css`,
           `${this.src.php}/screenshot.png`,
           `${this.src.php}/assets/styles/libs/**/*.*`,

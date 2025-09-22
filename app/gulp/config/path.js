@@ -85,6 +85,7 @@ export const path = {
           `!${this.src.php}/${this.srcPluginName}/**/*.php`,
           `!${this.src.php}/**/_*.php`, // these are drafts and files which marked for delete
           `!${this.src.php}/**/-*.php`, // these are files which queued up to develope
+          `!${this.src.php}/blocs/**/*.php`, // the gutenberg blocks of the theme. They will be move by a special task
           `${app.isProd ? `!${this.src.php}/**/_*/**` : null}`,
         ],
         plug: [
@@ -247,6 +248,32 @@ export const path = {
 
     return this.resolveDest(path);
   },
+
+  
+  get gutenberg() {
+    const path = {
+      src: {
+        html: [  ],
+        php: [
+          `${this.src.php}/README.md`,
+          `${this.src.php}/readme.txt`,
+          `${this.src.php}/style.css`,
+          `${this.src.php}/screenshot.png`,
+          `${this.src.php}/assets/styles/libs/**/*.*`,
+          `${this.src.php}/assets/js/libs/**/*.*`,
+        ],
+        plug: [  ],
+      },
+      prod: {
+        html: `${this.prod.html}`,
+        php: `${this.prod.php}`,
+        plug: `${this.prod.plug}`,
+      },
+    };
+
+    return this.resolveDest(path);
+  },
+
 
   get ftp() {
     return {

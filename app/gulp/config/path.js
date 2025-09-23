@@ -23,7 +23,8 @@ export const path = {
   ThemeName: THEME_NAME,
   srcPluginName: 'core-plugin', // set name your plugin for development version
   RootPath: ROOT_PATH,
-  proxy: [`http://premium-theme-1.multisite/`, `http://premium-theme-1.multisite/`],
+  proxy: [`http://premium-theme-1.multisite/`],
+  // proxy: [`http://premium-theme-1.multisite/`, `http://local.wp/`],
   // proxy: [`http://multisite/`, `http://multisite/`],
 
   get src() {
@@ -83,9 +84,9 @@ export const path = {
         php: [
           `${this.src.php}/**/*.php`,
           `!${this.src.php}/${this.srcPluginName}/**/*.php`,
+          `!${this.src.php}/blocks/**/*.php`, // the gutenberg blocks of the theme. They will be move by a special task
           `!${this.src.php}/**/_*.php`, // these are drafts and files which marked for delete
           `!${this.src.php}/**/-*.php`, // these are files which queued up to develope
-          `!${this.src.php}/blocs/**/*.php`, // the gutenberg blocks of the theme. They will be move by a special task
           `${app.isProd ? `!${this.src.php}/**/_*/**` : null}`,
         ],
         plug: [
@@ -255,12 +256,10 @@ export const path = {
       src: {
         html: [  ],
         php: [
-          `${this.src.php}/README.md`,
-          `${this.src.php}/readme.txt`,
-          `${this.src.php}/style.css`,
-          `${this.src.php}/screenshot.png`,
-          `${this.src.php}/assets/styles/libs/**/*.*`,
-          `${this.src.php}/assets/js/libs/**/*.*`,
+          `${this.src.php}/blocks/**/build/**/*.*`,
+          `!${this.src.php}/blocks/**/node_modules/**/*.*`,
+          `!${this.src.php}/blocks/**/src/**/*.*`,
+ 
         ],
         plug: [  ],
       },

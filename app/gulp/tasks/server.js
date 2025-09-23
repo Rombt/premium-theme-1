@@ -13,7 +13,7 @@ export const server = (done) => {
     if (app.path.RootPath.includes('OSPanel')) {
         proxyPath = app.path.proxy[0];
     } else { // рабочий комп и домашний ноут
-        proxyPath = app.path.proxy[1];
+        proxyPath = app.path.proxy[0];
     }
 
     app.plugins.browsersync.init({

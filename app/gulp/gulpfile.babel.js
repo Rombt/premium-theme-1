@@ -15,6 +15,9 @@ import { grid } from './tasks/grid.js';
 import { zip, zipPl } from './tasks/zip.js';
 import { ftp, ftpPL } from './tasks/ftp.js';
 
+import { gutenberg } from './tasks/gutenberg.js';
+
+
 global.app = {
   gulp: gulp,
   path: path,
@@ -63,11 +66,16 @@ function watcher() {
     .on('unlink', currentPath => {
       path.clearForTask(currentPath, path.fonts.dest);
     });
+  gulp
+    .watch(path.watch.fonts, { ignorePermissionErrors: true }, gutenberg)
+    .on('unlink', currentPath => {
+      path.clearForTask(currentPath, path.gutenberg.dest);
+    });
 }
 
 const procImages = gulp.series(images, moveSvgSprite);
 
-const mainTask = gulp.series(copyFonts, gulp.parallel(procImages, styles, js, php));
+const mainTask = gulp.series(copyFonts,gutenberg, gulp.parallel(procImages, styles, js, php));
 export const run = gulp.series(
   reset,
   mainTask,

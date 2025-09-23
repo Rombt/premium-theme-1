@@ -267,24 +267,8 @@ add_action('wp_enqueue_scripts', 'premium_theme_1_enqueue_scripts');
 
 
 
+
 // Автоматическая регистрация всех gutenberg блоков из папки blocks/
-// add_action('init', function () {
-//     $blocks_dir = get_template_directory() . '/blocks/';
-
-//     if (! is_dir($blocks_dir)) {
-//         return;
-//     }
-
-//     // Перебираем все папки внутри blocks/
-//     foreach (glob($blocks_dir . '*') as $block_folder) {
-//         if (is_dir($block_folder) && file_exists($block_folder . '/block.json')) {
-//             register_block_type($block_folder);
-//         }
-//     }
-// });
-
-// на пока вот так:
-
 add_action('init', function () {
     $blocks_dir = get_template_directory() . '/blocks/';
 
@@ -292,24 +276,19 @@ add_action('init', function () {
         return;
     }
 
-    // Перебираем все подпапки первого уровня (hero-block-1)
     foreach (glob($blocks_dir . '*') as $block_parent_folder) {
 
         if (is_dir($block_parent_folder)) {
-            // Перебираем подпапки внутри каждой папки блока (вторая hero-block-1)
             foreach (glob($block_parent_folder . '/*') as $block_folder) {
-
-                // Проверяем наличие block.json
                 $block_json = $block_folder . '/' . basename($block_parent_folder) . '/block.json';
-
                 if (file_exists($block_json)) {
-
                     register_block_type(dirname($block_json));
                 }
             }
         }
     }
 });
+
 
 
 

@@ -361,8 +361,8 @@ function rmbt_redux_img($id_field_pic, $alt = "", $id_svg = '', $svg_color = fal
 {
     global $rmbt_theme_options;
 
-    if (! array_key_exists($id_field_pic, $rmbt_theme_options)) {
-        return "";
+    if (! class_exists('Redux') || !isset($rmbt_theme_options[$id_field_pic])) {
+        return;
     }
 
 
@@ -386,19 +386,20 @@ function rmbt_get_redux_field($id_field, $kses = false, $all_tags_allowed = fals
 {
     global $rmbt_theme_options;
 
-    if (! array_key_exists($id_field, $rmbt_theme_options)) {
+    if (! class_exists('Redux')) {
+        return;
+    } elseif (! isset($rmbt_theme_options[ $id_field ])) {
         return "";
     }
 
+
     if ($kses) {
-        return class_exists('ReduxFramework') ? wp_kses($rmbt_theme_options[ $id_field ], 'post') : "";
+        return wp_kses($rmbt_theme_options[ $id_field ], 'post');
     } elseif ($all_tags_allowed) {
-        return class_exists('ReduxFramework') ? $rmbt_theme_options[ $id_field ] : "";
+        return $rmbt_theme_options[ $id_field ];
     }
 
-    return class_exists('ReduxFramework')
-    ? sprintf(esc_html__('%s', 'premium-theme-1'), esc_html($rmbt_theme_options[ $id_field ]))
-    : '';
+    return sprintf(esc_html__('%s', 'premium-theme-1'), esc_html($rmbt_theme_options[ $id_field ]));
 
 }
 
@@ -432,6 +433,11 @@ function get_arr_names_cat_equip()
 
 function rmbt_redux_field_to_ul($id_field, $mod = 'tel', $before_str = '', $after_str = '')
 {
+
+
+    if (! class_exists('Redux') || ! isset($rmbt_theme_options[ $id_field ])) {
+        return;
+    }
 
     $arr_numbers = explode(',', rmbt_get_redux_field($id_field));
 

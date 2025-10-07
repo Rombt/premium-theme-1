@@ -18,10 +18,10 @@ if (file_exists(get_template_directory() . DIRECTORY_SEPARATOR . rmbt_DIR_TEMPLA
 
 if (class_exists('ReduxFramework')) {
     define('RMBT_PATH_REDUX_SECTIONS', array(
-        '/app/src/inc/Redux/sections',
-        '/app/src/' . DIRECTORY_SEPARATOR,
+        rmbt_PATH_THEME . '/inc/Redux/sections',
+        rmbt_PATH_THEME . '/pages',
     ));
-    require_once get_template_directory() . '/inc/Redux/redux-options.php';
+    require_once rmbt_PATH_THEME . '/inc/Redux/redux-options.php';
 }
 
 if (class_exists('WooCommerce')) {

@@ -1,5 +1,5 @@
 <?php if (! is_page('Страница шаблонов')) : ?>
-	<?php get_template_part('pages\parts\footer-0\footer-0'); ?>
+	<?php get_template_part('pages/parts/footer-0/footer-0'); ?>
 <?php endif ?>
 
 
@@ -8,4 +8,4 @@
 <?php wp_footer(); ?>
 </body>
 
-</html>
+</html>s

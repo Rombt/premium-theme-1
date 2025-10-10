@@ -14,26 +14,19 @@
 			<?php endif ?>
 
 			<div class="rmbt-single__row">
-				<?php
-                global $rmbt_theme_options;
-if ($rmbt_theme_options['rmbt-single-sidebar-switch'] && $rmbt_theme_options['rmbt-single-sidebar-radio'] === '1') {
-    get_sidebar('left');
-}
-?>
+				<?php global $rmbt_theme_options; ?>
+				<?php if ($rmbt_theme_options['rmbt-single-sidebar-switch'] && $rmbt_theme_options['rmbt-single-sidebar-radio'] === '1') {
+				    get_sidebar('left');
+				} ?>
 
-<div class="rmbt-single__col rmbt-single-right-col">
-	<?php get_template_part('pages/parts/content/content', get_post_type()); ?>
-	<?php
+					<div class="rmbt-single__col rmbt-single-right-col">
+						<?php get_template_part('pages/parts/content/content', get_post_type()); ?>
+						<?php wp_link_pages(array(
+				            'before' => '<div class="page-links">' . esc_html__('Pages:', 'premium-theme-1'),
+				            'after'  => '</div>',
+				            ));
 
-wp_link_pages(array(
-'before' => '<div class="page-links">' . esc_html__('Pages:', 'premium-theme-1'),
-'after'  => '</div>',
-));
-
-the_tags('<div class="post-tags">', ', ', '</div>');
-
-
-?>
+the_tags('<div class="post-tags">', ', ', '</div>'); ?>
 
 </div>
 

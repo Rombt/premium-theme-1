@@ -19,35 +19,24 @@
 				    get_sidebar('left');
 				} ?>
 
-					<div class="rmbt-single__col rmbt-single-right-col">
-						<?php get_template_part('pages/parts/content/content', get_post_type()); ?>
-						<?php wp_link_pages(array(
-				            'before' => '<div class="page-links">' . esc_html__('Pages:', 'premium-theme-1'),
-				            'after'  => '</div>',
-				            ));
+				<div class="rmbt-single__col rmbt-single-right-col">
+					<?php get_template_part('pages/parts/content/content', get_post_type()); ?>
+					<?php wp_link_pages(array(
+				        'before' => '<div class="page-links">' . esc_html__('Pages:', 'premium-theme-1'),
+				        'after'  => '</div>',
+				        ));?>
 
-the_tags('<div class="post-tags">', ', ', '</div>'); ?>
+					<?php the_tags('<div class="post-tags">', ', ', '</div>'); ?>
+				</div>
 
-</div>
-
-<?php
-if ($rmbt_theme_options['rmbt-single-sidebar-switch'] && $rmbt_theme_options['rmbt-single-sidebar-radio'] === '2') {
-    get_sidebar('right');
-}
-?>
-
+				<?php if ($rmbt_theme_options['rmbt-single-sidebar-switch'] && $rmbt_theme_options['rmbt-single-sidebar-radio'] === '2') {
+				    get_sidebar('right');
+				} ?>
 
 			</div>
-
-			<?php
-            if (comments_open() || get_comments_number()) {
-                comments_template();
-            }
-
-
-?>
-
-
+			<?php if (comments_open() || get_comments_number()) {
+			    comments_template();
+			}?>
 		</section>
 	</div>
 

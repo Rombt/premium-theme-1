@@ -85,11 +85,12 @@
 
 ++ main static page -- front-page.php
 ++ 404 Page 
+++ Comments block
+++ Single Blog Post (Статья блога) – страница для отображения одной статьи.
 
-Single Blog Post (Статья блога) – страница для отображения одной статьи.
+-- custom post type "project"
 
 main blog page -- home.php  список статей или новостей.
-
 
 
 About Us (О нас) – информация о компании/авторе, миссия, ценности.

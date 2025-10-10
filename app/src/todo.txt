@@ -83,14 +83,14 @@
 
 --------------------------   перечень страниц которые необходимы ---------------------
 
-++ main static page -- front-page.php
+++ main static page  --?? front-page.php
 ++ 404 Page 
 ++ Comments block
 ++ Single Blog Post (Статья блога) – страница для отображения одной статьи.
+++ main blog page  --?? home.php  список статей или новостей.
+
 
 -- custom post type "project"
-
-main blog page -- home.php  список статей или новостей.
 
 
 About Us (О нас) – информация о компании/авторе, миссия, ценности.

@@ -433,6 +433,7 @@ function get_arr_names_cat_equip()
 
 function rmbt_redux_field_to_ul($id_field, $mod = 'tel', $before_str = '', $after_str = '')
 {
+    global $rmbt_theme_options;
 
 
     if (! class_exists('Redux') || ! isset($rmbt_theme_options[ $id_field ])) {

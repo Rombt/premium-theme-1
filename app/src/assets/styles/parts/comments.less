@@ -53,15 +53,15 @@
         a {
           display: block;
           max-width: 75px;
-          height: 30px;
-          line-height: 30px;
+          // height: 22px;
+          // line-height: 22px;
           text-align: center;
           
           color: @primary-color;
           font-size: 12px;
           text-decoration: none;
           border: 1px solid @primary-color;
-          // padding: 5px 10px;
+          padding: 5px 5px;
           border-radius: 8px;
           transition: all 0.3s ease-in-out;
 
@@ -83,7 +83,7 @@
   .comment-form {
     margin-top: 20px;
 
-    input,
+    input:not([type="checkbox"], [type="submit"]),
     textarea {
       width: 100%;
       padding: 10px;
@@ -91,12 +91,23 @@
       border-radius: 3px;
       font-size: 14px;
       margin-bottom: 10px;
+
+      &:focus{
+        outline: 1px solid #06392a;
+      }
+
     }
 
     textarea {
       min-height: 100px;
       resize: vertical;
     }
+
+    input[type="submit"]{
+      border-radius: 8px;
+    }
+
+    
 
     .submit {
       background: @primary-color;

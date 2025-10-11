@@ -2,23 +2,18 @@ if (document.querySelector('.rmbt-featured-projects-slide-swiper')) {
   let swiperParam = new Swiper('.rmbt-featured-projects-slide-swiper', {
     direction: 'horizontal',
     loop: true,
-    spaceBetween: 30,
-    slidesPerView: 4,
-    centeredSlides: true,
     speed: 820,
+    slidesPerView: 'auto',
+    centeredSlides: true,
 
     effect: 'coverflow',
-    // effect: 'flip',
-    // effect: 'cards',
-    // effect: 'slide',
-
     coverflowEffect: {
-      rotate: 2,       // градусы поворота
-      stretch: 30,       // отступ между слайдами
-      depth: 2,       // глубина по оси Z
-      modifier: 1.2,      // множитель эффекта
-      scale: 0.85,         // масштаб слайда
-      slideShadows: true // тени
+      rotate: 7,       
+      stretch: 30,       
+      depth: 3,       
+      modifier: 1.5,      
+      scale: 0.85,         
+      slideShadows: true 
     },
 
     autoplay: {
@@ -29,17 +24,5 @@ if (document.querySelector('.rmbt-featured-projects-slide-swiper')) {
       prevEl: '.rmbt-featured-projects-slide-swiper__button-prev',
     },
 
-    breakpoints: {
-      800: {
-        centeredSlides: false,
-        slidesPerView: 'auto',
-      },
-      680: {
-        slidesPerView: 3,
-      },
-      480: {
-        slidesPerView: 1,
-      },
-    },
   });
 }

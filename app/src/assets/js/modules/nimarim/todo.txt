@@ -1,0 +1,8 @@
+
+составить 
+    минимально необходимый пакет тестов для 
+        index.js
+        NimCore.js 
+        EffectLoader.js
+        Manager.js
+    перечень необходимых utils и тестов к ним

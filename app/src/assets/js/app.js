@@ -16,3 +16,22 @@ import './sidebar.js';
 // tl.to('.test-box__green', { duration: 2, y: 0, ease: 'elastic' });
 
 
+
+//================= Animation effects =================
+
+
+//------------ Typing ------------
+
+function typing(node) {
+    const text = node.innerText;
+    node.innerText = '';
+    const arr_text = Array.from(text);
+
+
+    function typeChar() {
+        
+        
+    }
+
+
+}

@@ -22,8 +22,11 @@ import './sidebar.js';
 
 const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
 // typing(node);
-typeHTML(node,300);
+typeHTML(node,100);
 
+
+
+//!! как быть с высотой которая меняется при уменьшению экрана
 
 
 //------------ Typing ------------

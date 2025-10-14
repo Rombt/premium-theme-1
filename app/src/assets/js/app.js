@@ -20,18 +20,96 @@ import './sidebar.js';
 //================= Animation effects =================
 
 
+const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
+// typing(node);
+typeHTML(node,300);
+
+
+
 //------------ Typing ------------
 
-function typing(node) {
-    const text = node.innerText;
-    node.innerText = '';
-    const arr_text = Array.from(text);
-
-
-    function typeChar() {
-        
-        
+async function typeHTML(node, speed = 50) {
+    const content = node.innerHTML;
+    node.innerHTML = ''; // очищаем
+    const temp = document.createElement('div');
+    temp.innerHTML = content;
+  
+    async function typeElement(el, target) {
+      for (const child of el.childNodes) {
+        if (child.nodeType === Node.TEXT_NODE) {
+          const text = child.textContent;
+          await typeText(text, target);
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          const newEl = child.cloneNode(false);
+          target.appendChild(newEl);
+          await typeElement(child, newEl);
+        }
+      }
     }
+  
+    function typeText(text, target) {
+      return new Promise(resolve => {
+        let i = 0;
+        function typeChar() {
+          if (i < text.length) {
+            target.append(text[i++]);
+            setTimeout(typeChar, speed);
+          } else {
+            resolve();
+          }
+        }
+        typeChar();
+      });
+    }
+  
+    await typeElement(temp, node);
+  }
+  
+  
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function typing(node) {
+//     // const text = node.innerText;
+//     const text = node.textContent;
+//     node.innerText = '';
+//     // node.textContent = '';
+//     const arr_text = Array.from(text);
+
+//     const timeout = 300;
+//     let i = 0;
+
+//     function typeChar() {
+
+//         if (i < arr_text.length) {
+//             // node.innerText += arr_text[i];
+//             node.textContent += arr_text[i];
+//             i++;
+//             setTimeout(typeChar, timeout);
+//         } 
+//     }
+
+
+//     typeChar();
+
+// }

@@ -465,3 +465,16 @@ body.rmbt-lock {
   pointer-events: none;
   .debug(#d0d6f81a, 1px rgba(6, 235, 197, 0.4) dashed);
 }
+
+
+.typing-cursor {
+  display: inline-block;
+  width: 1ch;
+  height: 2px;
+  background: currentColor;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% { background: transparent; }
+}

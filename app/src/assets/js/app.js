@@ -22,7 +22,7 @@ import './sidebar.js';
 
 const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
 // typing(node);
-typeHTML(node,100);
+typeHTML(node,300);
 
 
 
@@ -33,10 +33,17 @@ typeHTML(node,100);
 
 async function typeHTML(node, speed = 50) {
     const content = node.innerHTML;
+    const heightNode = node.offsetHeight;
+    node.style.minHeight = heightNode + 'px';
     node.innerHTML = ''; // очищаем
     const temp = document.createElement('div');
     temp.innerHTML = content;
   
+  const cursor = document.createElement('span');
+  cursor.className = 'typing-cursor';
+  // cursor.style.minHeight = heightNode * 0.7 + 'px';ыы
+  node.appendChild(cursor);
+    
     async function typeElement(el, target) {
       for (const child of el.childNodes) {
         if (child.nodeType === Node.TEXT_NODE) {
@@ -44,6 +51,7 @@ async function typeHTML(node, speed = 50) {
           await typeText(text, target);
         } else if (child.nodeType === Node.ELEMENT_NODE) {
           const newEl = child.cloneNode(false);
+
           target.appendChild(newEl);
           await typeElement(child, newEl);
         }
@@ -56,6 +64,7 @@ async function typeHTML(node, speed = 50) {
         function typeChar() {
           if (i < text.length) {
             target.append(text[i++]);
+            node.appendChild(cursor);
             setTimeout(typeChar, speed);
           } else {
             resolve();

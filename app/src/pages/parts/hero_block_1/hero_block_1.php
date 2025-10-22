@@ -28,7 +28,7 @@
 					<div class="rmbt-hero-block-1-col-left__slogan">
 						A Website that Leads to Customers
 					</div>
-					<div class="rmbt-hero-block-1-col-left__title rmbt-typewriter">
+					<div class="rmbt-hero-block-1-col-left__title">
 						<span>Winning</span> designs made simple!
 					</div>
 					<div class="rmbt-hero-block-1-col-left__subtitle">

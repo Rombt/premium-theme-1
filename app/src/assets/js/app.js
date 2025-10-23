@@ -21,10 +21,11 @@ import { NimarimChain } from './modules/nimarim/NimarimChain.js'
  */
 
 const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
+const originalContent = node.innerHTML;
 
 const chain = new NimarimChain(node);
 chain
-  .use(typeHTML, { speed: 40 })
+  .use(typeHTML, { speed: 40, content: originalContent })
   .wait(1000)
   .use(eraseHTML, { speed: 30 })
   .wait(1000)

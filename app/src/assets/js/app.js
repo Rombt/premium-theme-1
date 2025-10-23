@@ -8,7 +8,8 @@ import './modules/HorizontalMenu.js';
 import './modules/sliders.js';
 import './sidebar.js';
 
-import { typeHTML } from './modules/effects.js'
+import { typeHTML, eraseHTML } from './modules/effects.js'
+import { NimarimChain } from './modules/nimarim/NimarimChain.js'
 
 
 
@@ -20,11 +21,14 @@ import { typeHTML } from './modules/effects.js'
  */
 
 const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
-const mainTitleTyping = async () => {
-  await typeHTML(node, 170);
-  setTimeout(mainTitleTyping, 300);
-};
-mainTitleTyping();
+
+const chain = new NimarimChain(node);
+chain
+  .use(typeHTML, { speed: 40 })
+  .wait(1000)
+  .use(eraseHTML, { speed: 30 })
+  .wait(1000)
+  .play(true); // зациклено
 
 
   

@@ -44,3 +44,52 @@ export async function typeHTML(node, speed = 50) {
     await typeElement(temp, node);
   }
   
+
+
+
+  export async function eraseHTML(node, speed = 50) {
+    // Сохраняем высоту, чтобы при очистке не прыгала верстка
+    const heightNode = node.offsetHeight;
+    node.style.minHeight = heightNode + 'px';
+  
+    // Получаем исходное содержимое (чтобы знать, что удалять)
+    const content = node.innerHTML;
+  
+    // Временный контейнер для итерации по элементам
+    const temp = document.createElement('div');
+    temp.innerHTML = content;
+  
+    // Основная функция — рекурсивно проходит по элементам и стирает
+    async function eraseElement(el) {
+      const childNodes = Array.from(el.childNodes).reverse(); // идём с конца
+  
+      for (const child of childNodes) {
+        if (child.nodeType === Node.TEXT_NODE) {
+          await eraseText(child);
+        } else if (child.nodeType === Node.ELEMENT_NODE) {
+          await eraseElement(child);
+          child.remove(); // удаляем тег после содержимого
+        }
+      }
+    }
+  
+    function eraseText(textNode) {
+      return new Promise(resolve => {
+        let text = textNode.textContent;
+        function eraseChar() {
+          if (text.length > 0) {
+            text = text.slice(0, -1);
+            textNode.textContent = text;
+            setTimeout(eraseChar, speed);
+          } else {
+            textNode.remove();
+            resolve();
+          }
+        }
+        eraseChar();
+      });
+    }
+  
+    await eraseElement(node);
+  }
+  

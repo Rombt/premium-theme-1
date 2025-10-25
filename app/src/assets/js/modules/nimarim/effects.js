@@ -4,14 +4,18 @@
 
 //------------ Typing ------------
 
-export async function typeHTML(node, { speed = 50, content = null } = {}) {
-  if (!content) content = node.innerHTML;
+export async function typeHTML(node, { speed = 50 } = {}) {
+  // Сохраняем исходный контент один раз внутри функции
+  const originalContent = node.dataset.originalContent || node.innerHTML;
+  node.dataset.originalContent = originalContent; // сохраняем на элементе для повторного цикла
+
+  // Фиксируем высоту, чтобы верстка не прыгала
   const heightNode = node.offsetHeight;
   node.style.minHeight = heightNode + 'px';
-  node.innerHTML = '';
 
+  node.innerHTML = ''; // очищаем перед печатью
   const temp = document.createElement('div');
-  temp.innerHTML = content;
+  temp.innerHTML = originalContent;
 
   async function typeElement(el, target) {
     for (const child of el.childNodes) {
@@ -28,22 +32,17 @@ export async function typeHTML(node, { speed = 50, content = null } = {}) {
   function typeText(text, target) {
     return new Promise(resolve => {
       let i = 0;
-      function typeChar() {
+      (function typeChar() {
         if (i < text.length) {
           target.append(text[i++]);
           setTimeout(typeChar, speed);
         } else resolve();
-      }
-      typeChar();
+      })();
     });
   }
 
   await typeElement(temp, node);
 }
-
-  
-
-
 
 export async function eraseHTML(node, { speed = 50 } = {}) {
   const heightNode = node.offsetHeight;

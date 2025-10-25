@@ -8,7 +8,7 @@ import './modules/HorizontalMenu.js';
 import './modules/sliders.js';
 import './sidebar.js';
 
-import { typeHTML, eraseHTML } from './modules/effects.js'
+import { typeHTML, eraseHTML } from './modules/nimarim/effects.js'
 import { NimarimChain } from './modules/nimarim/NimarimChain.js'
 
 
@@ -16,19 +16,30 @@ import { NimarimChain } from './modules/nimarim/NimarimChain.js'
 
 /** //todo
  * набор символов через разные промежутки времени
- * перед следующим циклом текст очень резко пропадает нужен какой то переходной эффект, затухание например
-    //!! но лучше ещё один эффект - стирание текста
- */
+ * на каждой итерации печатать другую строку в ту же разметку, как передавать массив строк?
+ * 
+ * Следующий эффект - качающиеся буквы. 
+ *  указанное количество случайно выбранных букв, или символов(?), выполняют различные покачивания
+ *  в параметрах 
+ *    количество качающихся символов 
+ *    частота, скорость, качаний
+ *    вид качаний:
+ *      нервное
+ *      спокойное
+ *      подпрыгивание
+ *      сползание 
+ *      поворачивание вокруг разных осей
+ *      с масштабированием 
+ */   
 
 const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
-const originalContent = node.innerHTML;
 
 const chain = new NimarimChain(node);
 chain
-  .use(typeHTML, { speed: 40, content: originalContent })
-  .wait(1000)
+  .use(typeHTML, { speed: 80})
+  .wait(7000)
   .use(eraseHTML, { speed: 30 })
-  .wait(1000)
+  .wait(500)
   .play(true); // зациклено
 
 

@@ -34,14 +34,11 @@ export class NimarimChain {
   }
 
   async play(loop = false) {
-    // this._stopped = false;
     do {
       for (const action of this.queue) {
         if (this._stopped) return;
         await action();
       }
-
-
     } while (loop && !this._stopped);
   }
 }

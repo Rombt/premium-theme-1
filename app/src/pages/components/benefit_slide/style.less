@@ -16,8 +16,10 @@
   
 
   .to(768px,{
-      row-gap: 15px;
-      padding: 5px 0px 5px 0px; 
+      row-gap: 30px;
+      // padding: 5px 0px 5px 0px; 
+      .adaptive-prop(padding-top, 30, 20);
+      
     });
 
   &::before {
@@ -39,8 +41,6 @@
     font-family: Overlock;
     font-size: 30px;
     .adaptive-prop( font-size, 30, 20);
-
-    // line-height: 35px;
     .adaptive-prop(line-height, 35, 15);
 
     font-weight: 400;
@@ -64,6 +64,18 @@
       box-shadow: 0px 0px 1px rgba(0, 0, 0, 1);
       background-color: #f35200a6;
     }
+
+    .to(768px,{
+      .adaptive-prop(font-size, 50, 25);
+      line-height: 105%;
+
+      &:after {
+        bottom: -17px;
+      }
+    
+    });
+
+
   }
   &__text {
     font-family: Ubuntu;
@@ -79,9 +91,9 @@
     text-align: center;
 
     .to(768px,{
-      // .adaptive-prop(font-size, 40, 12);
-      font-size: 16px;
-      line-height: 20px;
+      .adaptive-prop(font-size, 40, 12);
+    .adaptive-prop(line-height, 55, 15);
+    
     });
   }
 
@@ -110,10 +122,7 @@
   height: 100%;
 
   .to(768px,{
-    width: 500px;
-
-    .adaptive-prop(width, 1500, 250);
-    
+    .adaptive-prop(width,800, 230);
   });
 }
 

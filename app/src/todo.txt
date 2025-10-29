@@ -95,6 +95,17 @@
 
 --------------------------   перечень страниц которые необходимы ---------------------
 
+/your-theme/
+├── templates/
+│   ├── about.php          ← Template Name: About Page
+│   ├── contact.php        ← Template Name: Contact Page
+│   ├── terms.php          ← Template Name: Terms of Use
+├── functions.php
+├── page.php               ← default page fallback
+├── style.css
+└── demo-content.xml       ← optional (для импорта)
+
+
 ++ 404 Page 
 ++ Comments block
 ++ Single Blog Post (Статья блога) – страница для отображения одной статьи.
@@ -106,9 +117,9 @@
 
 
 About Us (О нас) – информация о компании/авторе, миссия, ценности.
+Contact Us (Контакты) – форма обратной связи, адрес, карта.
 Services (Услуги) – описание услуг или возможностей, которые предоставляет сайт.
 Portfolio (Портфолио) – примеры выполненных работ, проектов.
-Contact Us (Контакты) – форма обратной связи, адрес, карта.
 FAQ (Часто задаваемые вопросы) – ответы на популярные вопросы.
 Pricing (Цены) – тарифные планы или информация о стоимости услуг.
 Testimonials (Отзывы) – отзывы клиентов.

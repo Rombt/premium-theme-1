@@ -267,6 +267,103 @@ add_action('wp_enqueue_scripts', 'premium_theme_1_enqueue_scripts');
 
 
 
+/**
+ * Автоматическая очистка устаревших опций Redux.
+ * Удаляет значения полей, которых больше нет в конфигурации Redux.
+ */
+// function rmbt_redux_clean($options)      //!!! не работает !!!
+// {
+//     $opt_name = 'rmbt_theme_options';
+//     $redux = Redux::instance($opt_name);
+
+//     $valid_keys = [];
+//     foreach ((array) $redux->sections as $section) {
+//         foreach ((array) $section['fields'] as $field) {
+//             $valid_keys[] = $field['id'];
+//         }
+//     }
+
+//     $original = get_option($opt_name, []);
+
+//     $removed = [];
+//     foreach ($original as $key => $value) {
+//         if (!in_array($key, $valid_keys, true)) {
+//             $removed[$key] = $value;
+//             unset($original[$key]);
+//         }
+//     }
+
+//     if (!empty($removed)) {
+
+//         $backup_path = get_template_directory() . '/app/src/inc/_backups/redux-diff-backup-' . date('Y-m-d_H.i.s') . '.json';
+//         if (!file_exists(dirname($backup_path))) {
+//             mkdir(dirname($backup_path), 0755, true); // ✅ создаём все недостающие папки рекурсивно
+//         }
+//         file_put_contents($backup_path, wp_json_encode($removed, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+//         update_option($opt_name, $original);
+//     }
+
+// }
+// add_action("redux/options/rmbt_theme_options/saved", 'rmbt_redux_clean');
+
+
+// //todo сделать соответствующую кнопку в админ панели с выбором файла из которого подымать backup, а пока вручную
+// function rmbt_redux_restore_backup()
+// {
+
+//     $backup_file = '';  //**
+
+//     $backup = json_decode(file_get_contents($backup_file), true);
+//     $options = get_option('rmbt_theme_options', []);
+//     $options = array_merge($options, $backup); // добавляем только отсутствующие ключи
+//     update_option('rmbt_theme_options', $options);
+// }
+
+
+
+
+
+
+
+
+
+
+// add_action('redux/options/rmbt_theme_options/saved', function ($options) {
+
+//     $opt_name = 'rmbt_theme_options';
+//     $redux = Redux::instance($opt_name);
+
+//     $valid_keys = [];
+//     foreach ((array) $redux->sections as $section) {
+//         foreach ((array) $section['fields'] as $field) {
+//             $valid_keys[] = $field['id'];
+//         }
+//     }
+
+//     $original = get_option($opt_name, []);
+//     $removed = [];
+
+//     foreach ($original as $key => $value) {
+//         if (!in_array($key, $valid_keys, true)) {
+//             $removed[$key] = $value;
+//             unset($original[$key]);
+//         }
+//     }
+
+//     if (!empty($removed)) {
+
+//         $backup_path = get_template_directory() . '/app/src/inc/_backups/redux-diff-backup-' . date('Y-m-d-His') . '.json';
+//         if (!file_exists(dirname($backup_path))) {
+//             mkdir(dirname($backup_path), 0755, true); // ✅ создаём все недостающие папки рекурсивно
+//         }
+//         file_put_contents($backup_path, wp_json_encode($removed, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+//         update_option($opt_name, $original);
+//     }
+
+// });
+
+
 
 //===========================================================================
 //===========================================================================

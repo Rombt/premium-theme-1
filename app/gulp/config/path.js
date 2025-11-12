@@ -84,8 +84,10 @@ export const path = {
           `${this.src.php}/**/*.php`,
           `!${this.src.php}/${this.srcPluginName}/**/*.php`,
           `!${this.src.php}/**/_*.php`, // these are drafts and files which marked for delete
-          `!${this.src.php}/**/-*.php`, // these are files which queued up to develope
+          `!${this.src.php}/**/-*.php`, // these are files which queued up to develop
+          `!${this.src.php}/**/_*/**`, //  these are folders which need for development only
           `${app.isProd ? `!${this.src.php}/**/_*/**` : null}`,
+          
         ],
         plug: [
           `${this.src.php}/${this.srcPluginName}/**/*.php`,

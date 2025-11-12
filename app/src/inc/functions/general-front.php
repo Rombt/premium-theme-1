@@ -339,24 +339,6 @@ function rmbt_trim_excerpt($length, $text = '')
     return $text;
 }
 
-function rmbt_redux_get_url($id_field, $custom_default_url = '')
-{
-    global $rmbt_theme_options;
-
-    if (! class_exists('Redux') || ! isset($rmbt_theme_options[ $id_field ]) || $rmbt_theme_options[ $id_field ] === '') {
-        return esc_url($custom_default_url !== '' ? $custom_default_url : false);
-    }
-
-    if (isset($rmbt_theme_options[ $id_field ])) {
-        if (stripos($rmbt_theme_options[ $id_field ], home_url()) === 0) {
-            return $rmbt_theme_options[ $id_field ];
-        } else {
-            $clear_url = str_replace($_SERVER['SERVER_NAME'] . '/', '', $rmbt_theme_options[ $id_field ]);
-            return esc_url(get_template_directory_uri() . $clear_url);
-        }
-    }
-}
-
 function rmbt_redux_img($id_field_pic, $alt = "", $id_svg = '', $svg_color = false)
 {
     global $rmbt_theme_options;
@@ -409,28 +391,6 @@ function rmbt_phone_number_clear_redux($phone_number)
     return preg_replace($pattern, '', $phone_number);
 }
 
-/**
- * for equipment-categories.php only
- */
-function get_arr_names_cat_equip()
-{
-    global $rmbt_theme;
-
-    $arr_redux_fields = array_filter($rmbt_theme, function ($var) {
-        if (str_contains($var, 'equipCatPage') && str_contains($var, '_article-title')) {
-            return $var;
-        }
-    }, ARRAY_FILTER_USE_KEY);
-
-    $arr_name_cat_equip = [];
-    $pater = '/equipCatPage-(.*)?_article/';
-    foreach ($arr_redux_fields as $key => $value) {
-        preg_match($pater, $key, $name_cat_equip);
-        $arr_name_cat_equip[] = $name_cat_equip[1];
-    }
-    return $arr_name_cat_equip;
-}
-
 function rmbt_redux_field_to_ul($id_field, $mod = 'tel', $before_str = '', $after_str = '')
 {
     global $rmbt_theme_options;
@@ -466,6 +426,44 @@ function rmbt_redux_field_to_ul($id_field, $mod = 'tel', $before_str = '', $afte
     }
 }
 
+
+function rmbt_redux_repeater_to_ul($id_field, $mod = 'tel', $enabled_id = '', $enabled_option = '', $before_str = '', $after_str = '')
+{
+    global $rmbt_theme_options;
+
+
+    if (! class_exists('Redux') || ! isset($rmbt_theme_options[ $id_field ])) {
+        return;
+    }
+
+    $count_enabled_option = array_sum(array_column($rmbt_theme_options[$enabled_id], 'header'));
+
+    if (count($rmbt_theme_options[ $id_field ]) > 1 && $count_enabled_option > 1) {
+        $html = '<ul>';
+        foreach ($rmbt_theme_options[ $id_field ] as $key => $value) {
+
+            if (isset($rmbt_theme_options[$enabled_id][$key][$enabled_option]) && !$rmbt_theme_options[$enabled_id][$key][$enabled_option]) {
+                continue;
+            }
+
+            if ($mod == 'tel') {
+                $html .= '<li><a href="' . $mod . ':' . rmbt_phone_number_clear_redux($value) . '">' . $before_str . trim($value) . $after_str . '</a></li>';
+            } elseif ($mod == 'mailto') {
+                $html .= '<li><a href="' . $mod . ':' . $value . '">' . $before_str . trim($value) . $after_str . '</a></li>';
+            }
+        }
+
+        $html .= '</ul>';
+        return $html;
+    } else {
+        if ($mod == 'tel') {
+            return '<a href="' . $mod . ':' . rmbt_phone_number_clear_redux($rmbt_theme_options[ $id_field ][0]) . '">' . $before_str . trim($rmbt_theme_options[ $id_field ][0]) . $after_str . '</a>';
+        } elseif ($mod == 'mailto') {
+            return '<a href="' . $mod . ':' . $rmbt_theme_options[ $id_field ][0] . '">' . $before_str . trim($rmbt_theme_options[ $id_field ][0]) . $after_str . '</a>';
+        }
+    }
+}
+
 function file_search_recursive($directory, $pattern, &$results = [])
 {
     $files = scandir($directory);
@@ -483,3 +481,47 @@ function file_search_recursive($directory, $pattern, &$results = [])
     }
     return $results;
 }
+
+
+//==========================    DRAFT   ========================================
+
+
+// function rmbt_redux_get_url($id_field, $custom_default_url = '')
+// {
+//     global $rmbt_theme_options;
+
+//     if (! class_exists('Redux') || ! isset($rmbt_theme_options[ $id_field ]) || $rmbt_theme_options[ $id_field ] === '') {
+//         return esc_url($custom_default_url !== '' ? $custom_default_url : false);
+//     }
+
+//     if (isset($rmbt_theme_options[ $id_field ])) {
+//         if (stripos($rmbt_theme_options[ $id_field ], home_url()) === 0) {
+//             return $rmbt_theme_options[ $id_field ];
+//         } else {
+//             $clear_url = str_replace($_SERVER['SERVER_NAME'] . '/', '', $rmbt_theme_options[ $id_field ]);
+//             return esc_url(get_template_directory_uri() . $clear_url);
+//         }
+//     }
+// }
+
+/**
+ * for equipment-categories.php only
+ */
+// function get_arr_names_cat_equip()
+// {
+//     global $rmbt_theme;
+
+//     $arr_redux_fields = array_filter($rmbt_theme, function ($var) {
+//         if (str_contains($var, 'equipCatPage') && str_contains($var, '_article-title')) {
+//             return $var;
+//         }
+//     }, ARRAY_FILTER_USE_KEY);
+
+//     $arr_name_cat_equip = [];
+//     $pater = '/equipCatPage-(.*)?_article/';
+//     foreach ($arr_redux_fields as $key => $value) {
+//         preg_match($pater, $key, $name_cat_equip);
+//         $arr_name_cat_equip[] = $name_cat_equip[1];
+//     }
+//     return $arr_name_cat_equip;
+// }

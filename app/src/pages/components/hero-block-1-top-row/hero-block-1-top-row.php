@@ -1,7 +1,7 @@
 <div class="rmbt-full-width rmbt-hero-block-1-top-row-full-width">
 
 
-	<section class="rmbt-container rmbt-hero-block-1-top-row">
+	<section class="rmbt-container rmbt-hero-block-1-top-row ">
 		<div class="rmbt-hero-block-1-top-row__row ">
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-left">
 				<?php if (has_custom_logo()) : ?>

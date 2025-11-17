@@ -17,8 +17,9 @@ export function pinUntilScroll (element, offset, zIndex = 0) {
   if (!element) return;
   
     const originalPosition = window.getComputedStyle(element).position;
+    const originalStyle = window.getComputedStyle(element);
     const rectByDoc = getCoordinatesByDocument(element);
-   
+    const body = document.querySelector('body');
     
     // создаём placeholder что бы при извлечении элемента из потока не порвало вёрстку
     // стили при этом не должны зависеть от родителя!
@@ -27,44 +28,34 @@ export function pinUntilScroll (element, offset, zIndex = 0) {
     placeholder.style.left = rectByDoc.left + 'px';
     placeholder.style.width = rectByDoc.width + 'px';
     placeholder.style.height = rectByDoc.height + 'px';
-    
   
+    // создал и вставил заглушку
     const parent = element.parentNode;
     const nextSibling = element.nextSibling; // может быть null, если элемент последний
-    
-    console.log("parent = ", parent);
-    console.log("nextSibling = ", nextSibling);
-    
     if (nextSibling) {
       parent.insertBefore(placeholder, nextSibling);
     } else {
         parent.appendChild(placeholder);
     }
-  
-  
-
+    
     element.style.position = 'fixed';
-    // element.style.top = startTop + 'px';
-    // element.style.left = rect.left + 'px';
     element.style.width = rectByDoc.width + 'px';
     element.style.zIndex = zIndex;
 
     let ticking = false;
-
     function checkScroll() {
         const y = window.scrollY;
 
         if (y >= offset) {
-          element.style.position = originalPosition;
-          
-          // element.style.top = '';
-          // element.style.left = '';
-          // element.style.transform = `translateY(${element.getBoundingClientRect().top + window.scrollY}px)`;
-          // element.style.transform = `translateY(${startTop + window.scrollY}px)`;
-          element.style.transform = `translateY(${window.scrollY}px)`;
-          placeholder.remove();
 
-          element.style.width = '';
+          const rectByDoc = getCoordinatesByDocument(element);
+          element.style.position = 'absolute';
+          body.appendChild(element);
+          element.style.top = rectByDoc.top + 'px';
+          element.style.left = rectByDoc.left + 'px';
+          element.style.width = rectByDoc.width + 'px';
+          element.style.marginTop = 0 + 'px'
+
           window.removeEventListener('scroll', onScroll);
           return;
         }

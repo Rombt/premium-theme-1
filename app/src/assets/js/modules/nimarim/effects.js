@@ -1,6 +1,87 @@
 
 
 
+//------------ Scroll ------------
+
+
+/**
+ * Фиксирует указанный элемент на его исходной позиции на странице, 
+ * для этого элемент переносится в body с position: absolute, а его место замещается placeholder?
+ * до тех пор, пока страница не будет прокручена на заданное количество пикселей (offset). 
+ * После достижения прокрутки offset элемент возвращается в исходное позиционирование, 
+ * а обработчик скролла автоматически удаляется. 
+ * Оптимизировано с использованием requestAnimationFrame для минимальной нагрузки на CPU.
+ */
+
+export function pinUntilScroll (element, offset, zIndex = 0) {
+  if (!element) return;
+  
+    const originalPosition = window.getComputedStyle(element).position;
+    const rectByDoc = getCoordinatesByDocument(element);
+   
+    
+    // создаём placeholder что бы при извлечении элемента из потока не порвало вёрстку
+    // стили при этом не должны зависеть от родителя!
+    const placeholder = document.createElement('div');
+    placeholder.style.top = rectByDoc.top + 'px';
+    placeholder.style.left = rectByDoc.left + 'px';
+    placeholder.style.width = rectByDoc.width + 'px';
+    placeholder.style.height = rectByDoc.height + 'px';
+    
+  
+    const parent = element.parentNode;
+    const nextSibling = element.nextSibling; // может быть null, если элемент последний
+    
+    console.log("parent = ", parent);
+    console.log("nextSibling = ", nextSibling);
+    
+    if (nextSibling) {
+      parent.insertBefore(placeholder, nextSibling);
+    } else {
+        parent.appendChild(placeholder);
+    }
+  
+  
+
+    element.style.position = 'fixed';
+    // element.style.top = startTop + 'px';
+    // element.style.left = rect.left + 'px';
+    element.style.width = rectByDoc.width + 'px';
+    element.style.zIndex = zIndex;
+
+    let ticking = false;
+
+    function checkScroll() {
+        const y = window.scrollY;
+
+        if (y >= offset) {
+          element.style.position = originalPosition;
+          
+          // element.style.top = '';
+          // element.style.left = '';
+          // element.style.transform = `translateY(${element.getBoundingClientRect().top + window.scrollY}px)`;
+          // element.style.transform = `translateY(${startTop + window.scrollY}px)`;
+          element.style.transform = `translateY(${window.scrollY}px)`;
+          placeholder.remove();
+
+          element.style.width = '';
+          window.removeEventListener('scroll', onScroll);
+          return;
+        }
+
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(checkScroll);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll);
+};
+
 
 //------------ Typing ------------
 
@@ -80,3 +161,21 @@ export async function eraseHTML(node, { speed = 50 } = {}) {
 }
 
   
+/*===========================================================*/
+/*==========================   HELPERS  =====================*/
+/*===========================================================*/
+
+function getCoordinatesByDocument(element) {
+  const rect = element.getBoundingClientRect();
+  const scrollY = window.scrollY || window.pageYOffset;
+  const scrollX = window.scrollX || window.pageXOffset;
+
+  return {
+      top: rect.top + scrollY,
+      left: rect.left + scrollX,
+      right: rect.right + scrollX,
+      bottom: rect.bottom + scrollY,
+      width: rect.width,
+      height: rect.height
+  };
+}

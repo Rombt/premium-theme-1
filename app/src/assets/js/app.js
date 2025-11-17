@@ -8,11 +8,11 @@ import './modules/HorizontalMenu.js';
 import './modules/sliders.js';
 import './sidebar.js';
 
-import { typeHTML, eraseHTML } from './modules/nimarim/effects.js'
+import { typeHTML, eraseHTML, pinUntilScroll } from './modules/nimarim/effects.js'
 import { NimarimChain } from './modules/nimarim/NimarimChain.js'
 
 
-
+const heightViewport  = window.visualViewport?.height || window.innerHeight;
 
 /** //todo
  * набор символов через разные промежутки времени
@@ -30,19 +30,24 @@ import { NimarimChain } from './modules/nimarim/NimarimChain.js'
  *      сползание 
  *      поворачивание вокруг разных осей
  *      с масштабированием 
- */   
+ */
+
 
 const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
+if (node) {
+  const chain = new NimarimChain(node);
+  chain
+    .use(typeHTML, { speed: 80})
+    .wait(7000)
+    .use(eraseHTML, { speed: 30 })
+    .wait(500)
+    .play(true); // зациклено
+}
 
-const chain = new NimarimChain(node);
-chain
-  .use(typeHTML, { speed: 80})
-  .wait(7000)
-  .use(eraseHTML, { speed: 30 })
-  .wait(500)
-  .play(true); // зациклено
 
-
+const heroBockTopRow = document.querySelector('.rmbt-hero-block-1-top-row-full-width');
+// pinUntilScroll(heroBockTopRow, heightViewport, 4);
+pinUntilScroll(heroBockTopRow, 100, 4);
   
 
 

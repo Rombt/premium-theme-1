@@ -30,7 +30,7 @@ global $rmbt_theme_options;
 						</div>
 					</div>
                     <div class="rmbt-contacts-page__col-right">
-                        <div>
+                        <!-- <div>
                             <h3><?php echo rmbt_get_redux_field('rmbt-contacts-page_article-title-') ?></h3>
                         </div>
                         <div class="rmbt-contacts-page__article-body">
@@ -40,8 +40,13 @@ global $rmbt_theme_options;
                             <div class="rmbt-contacts-page__article-text">
                                 <?php echo rmbt_get_redux_field('rmbt-contacts-page_article-text-') ?>
                             </div>
-                        </div>
+                        </div> -->
                         
+                        <!-- <p>вкладки с контактами отделов - желательно через репитер</p>
+                        <p>форма для отправки сообщений </p>
+                        <p>карта с указанием локации</p> -->
+
+
 
 					</div>
                 </div>

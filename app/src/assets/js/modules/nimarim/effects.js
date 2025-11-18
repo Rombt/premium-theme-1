@@ -13,7 +13,7 @@
  * Оптимизировано с использованием requestAnimationFrame для минимальной нагрузки на CPU.
  */
 
-export function pinUntilScroll (element, offset, zIndex = 0) {
+export function pinUntilScroll (element, offset, zIndex = 0, useVwWidth = false) {
   if (!element) return;
   
     const rectByDoc = getCoordinatesByDocument(element);
@@ -28,7 +28,7 @@ export function pinUntilScroll (element, offset, zIndex = 0) {
     const placeholder = document.createElement('div');
     placeholder.style.top = rectByDoc.top + 'px';
     placeholder.style.left = rectByDoc.left + 'px';
-    placeholder.style.width = rectByDoc.width + 'px';
+    placeholder.style.width = formatWidth(rectByDoc.width, useVwWidth);
     placeholder.style.height = rectByDoc.height + 'px';
   
     if (y_init <= offset) {
@@ -41,7 +41,7 @@ export function pinUntilScroll (element, offset, zIndex = 0) {
           parent.appendChild(placeholder);
       }
       element.style.position = 'fixed';
-      element.style.width = rectByDoc.width + 'px';
+      element.style.width = formatWidth(rectByDoc.width, useVwWidth);
       element.style.zIndex = zIndex;
 
       
@@ -50,7 +50,7 @@ export function pinUntilScroll (element, offset, zIndex = 0) {
       const rect = element.getBoundingClientRect();
       element.style.top = `${rectByDoc.top - rect.top}px`;
       element.style.left = rectByDoc.left + 'px';
-      element.style.width = rectByDoc.width + 'px';
+      element.style.width = formatWidth(rectByDoc.width, useVwWidth);
       element.style.marginTop = 0 + 'px'
 
       body.appendChild(element);
@@ -70,7 +70,7 @@ export function pinUntilScroll (element, offset, zIndex = 0) {
           body.appendChild(element);
           element.style.top = _rectByDoc.top + 'px';
           element.style.left = _rectByDoc.left + 'px';
-          element.style.width = _rectByDoc.width + 'px';
+          element.style.width = formatWidth(rectByDoc.width, useVwWidth);
           element.style.marginTop = 0 + 'px'
           isFixed = false;
         }else if (y < offset && !isFixed) {
@@ -189,4 +189,10 @@ function getCoordinatesByDocument(element) {
       width: rect.width,
       height: rect.height
   };
+}
+
+function formatWidth(width, vw = false) {
+  return vw
+    ? `${width / (window.innerWidth / 100)}vw`
+    : `${width}px`;
 }

@@ -14,25 +14,6 @@ import { NimarimChain } from './modules/nimarim/NimarimChain.js'
 
 const heightViewport  = window.visualViewport?.height || window.innerHeight;
 
-/** //todo
- * набор символов через разные промежутки времени
- * на каждой итерации печатать другую строку в ту же разметку, как передавать массив строк?
- * 
- * Следующий эффект - качающиеся буквы. 
- *  указанное количество случайно выбранных букв, или символов(?), выполняют различные покачивания
- *  в параметрах 
- *    количество качающихся символов 
- *    частота, скорость, качаний
- *    вид качаний:
- *      нервное
- *      спокойное
- *      подпрыгивание
- *      сползание 
- *      поворачивание вокруг разных осей
- *      с масштабированием 
- */
-
-
 const node = document.querySelector('.rmbt-hero-block-1-col-left__title');
 if (node) {
   const chain = new NimarimChain(node);
@@ -45,10 +26,10 @@ if (node) {
 }
 
 
-const heroBockTopRow = document.querySelector('.rmbt-hero-block-1-top-row-full-width');
+const heroBockTopRow = document.querySelector('.rmbt-hero-block-1-top-row-is-inner');
 
 if (heroBockTopRow) {
-  pinUntilScroll(heroBockTopRow, heightViewport, 4);
+  pinUntilScroll(heroBockTopRow, heightViewport, 4, true);
 }
   
 

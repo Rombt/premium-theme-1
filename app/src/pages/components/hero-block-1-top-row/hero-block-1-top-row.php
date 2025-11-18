@@ -1,6 +1,4 @@
-<div class="rmbt-full-width rmbt-hero-block-1-top-row-full-width">
-
-
+<div class="rmbt-full-width rmbt-hero-block-1-top-row-full-width <?php echo is_front_page() ? '' : 'rmbt-hero-block-1-top-row-is-inner'; ?>">
 	<section class="rmbt-container rmbt-hero-block-1-top-row ">
 		<div class="rmbt-hero-block-1-top-row__row ">
 			<div class="rmbt-hero-block-1-top-row__col rmbt-hero-block-1-top-row-col-left">
@@ -27,10 +25,10 @@
                     'title' => rmbt_get_redux_field('rmbt-call_to_action_button-text', 1),
                     'href' => rmbt_get_redux_field('rmbt-call_to_action_button-link', 1),
                 ]);
-				?>
+?>
 				<?php get_template_part('pages/components/social_networks/social_networks', null, [
-				    'data' => 'data-da=".menu-header-navigation-container, 769, last"',
-				]); ?>
+    'data' => 'data-da=".menu-header-navigation-container, 769, last"',
+]); ?>
 			</div>
 		</div>
 	</section>

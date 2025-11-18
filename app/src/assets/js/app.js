@@ -46,8 +46,10 @@ if (node) {
 
 
 const heroBockTopRow = document.querySelector('.rmbt-hero-block-1-top-row-full-width');
-// pinUntilScroll(heroBockTopRow, heightViewport, 4);
-pinUntilScroll(heroBockTopRow, 100, 4);
+
+if (heroBockTopRow) {
+  pinUntilScroll(heroBockTopRow, heightViewport, 4);
+}
   
 
 

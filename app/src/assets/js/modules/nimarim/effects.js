@@ -6,58 +6,78 @@
 
 /**
  * Фиксирует указанный элемент на его исходной позиции на странице, 
- * для этого элемент переносится в body с position: absolute, а его место замещается placeholder?
+ * для этого элемент переносится в body с position: absolute, а его место замещается placeholder,
  * до тех пор, пока страница не будет прокручена на заданное количество пикселей (offset). 
- * После достижения прокрутки offset элемент возвращается в исходное позиционирование, 
- * а обработчик скролла автоматически удаляется. 
+ * после достижения установленного предела элемент отлипает и скрывается за верхним краем страницы
+ * при обратном скролле элемент снова залипает у верхней границы вьюпорта
  * Оптимизировано с использованием requestAnimationFrame для минимальной нагрузки на CPU.
  */
 
 export function pinUntilScroll (element, offset, zIndex = 0) {
   if (!element) return;
   
-    const originalPosition = window.getComputedStyle(element).position;
-    const originalStyle = window.getComputedStyle(element);
     const rectByDoc = getCoordinatesByDocument(element);
     const body = document.querySelector('body');
+    const y_init = window.scrollY;
+    
+    let isFixed = true; // текущее состояние элемента
     
     // создаём placeholder что бы при извлечении элемента из потока не порвало вёрстку
     // стили при этом не должны зависеть от родителя!
+    // создал заглушку
     const placeholder = document.createElement('div');
     placeholder.style.top = rectByDoc.top + 'px';
     placeholder.style.left = rectByDoc.left + 'px';
     placeholder.style.width = rectByDoc.width + 'px';
     placeholder.style.height = rectByDoc.height + 'px';
   
-    // создал и вставил заглушку
-    const parent = element.parentNode;
-    const nextSibling = element.nextSibling; // может быть null, если элемент последний
-    if (nextSibling) {
-      parent.insertBefore(placeholder, nextSibling);
-    } else {
-        parent.appendChild(placeholder);
-    }
-    
-    element.style.position = 'fixed';
-    element.style.width = rectByDoc.width + 'px';
-    element.style.zIndex = zIndex;
+    if (y_init <= offset) {
+      // вставил заглушку
+      const parent = element.parentNode;
+      const nextSibling = element.nextSibling; // может быть null, если элемент последний
+      if (nextSibling) {
+        parent.insertBefore(placeholder, nextSibling);
+      } else {
+          parent.appendChild(placeholder);
+      }
+      element.style.position = 'fixed';
+      element.style.width = rectByDoc.width + 'px';
+      element.style.zIndex = zIndex;
 
+      
+    } else {
+      element.style.position = 'absolute';
+      const rect = element.getBoundingClientRect();
+      element.style.top = `${rectByDoc.top - rect.top}px`;
+      element.style.left = rectByDoc.left + 'px';
+      element.style.width = rectByDoc.width + 'px';
+      element.style.marginTop = 0 + 'px'
+
+      body.appendChild(element);
+      isFixed = false;      
+    }
+  
+  
+
+    
     let ticking = false;
     function checkScroll() {
         const y = window.scrollY;
 
         if (y >= offset) {
-
-          const rectByDoc = getCoordinatesByDocument(element);
+          const _rectByDoc = getCoordinatesByDocument(element);
           element.style.position = 'absolute';
           body.appendChild(element);
+          element.style.top = _rectByDoc.top + 'px';
+          element.style.left = _rectByDoc.left + 'px';
+          element.style.width = _rectByDoc.width + 'px';
+          element.style.marginTop = 0 + 'px'
+          isFixed = false;
+        }else if (y < offset && !isFixed) {
+          element.style.position = 'fixed';
           element.style.top = rectByDoc.top + 'px';
           element.style.left = rectByDoc.left + 'px';
-          element.style.width = rectByDoc.width + 'px';
-          element.style.marginTop = 0 + 'px'
-
-          window.removeEventListener('scroll', onScroll);
-          return;
+          isFixed = true;
         }
 
         ticking = false;

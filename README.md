@@ -1,6 +1,4 @@
-===========================================
  Premium Theme 1 – WordPress Corporate Theme
-===========================================
 
 Theme Name: Premium Theme 1
 Author: Rombt-net

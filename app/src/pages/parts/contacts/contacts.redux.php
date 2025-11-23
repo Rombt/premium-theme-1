@@ -25,10 +25,57 @@ Redux::set_section(
                 'title' => __('Subtitle of Contacts Page', 'premium-theme-1'),
             ),
 
+
+
+            array(
+                'id'     => 'contact_map_section',
+                'type'   => 'section',
+                'title'  => __('Map Settings', 'premium-theme-1'),
+                'indent' => true,
+            ),
+
+            array(
+                'id'       => 'contact_address',
+                'type'     => 'textarea',
+                'title'    => __('Formatted Address', 'premium-theme-1'),
+                'subtitle' => __('Displayed on the Contact page.', 'premium-theme-1'),
+            ),
+
+            array(
+                'id'       => 'contact_map_address',
+                'type'     => 'text',
+                'title'    => __('Google Map Address', 'premium-theme-1'),
+                'subtitle' => __('Enter full address — the map will be generated automatically.', 'premium-theme-1'),
+                'placeholder' => '1600 Amphitheatre Parkway, Mountain View, CA',
+            ),
+
+            array(
+                'id'       => 'contact_map_zoom',
+                'type'     => 'slider',
+                'title'    => __('Map Zoom Level', 'premium-theme-1'),
+                'min'      => 1,
+                'max'      => 20,
+                'default'  => 14,
+            ),
+
+            array(
+                'type' => 'section',
+                'indent' => false,
+            ),
+
+
+
+
+
+
+
+
+
             array(
                 'id'       => 'rmbt-managers',
                 'type'     => 'repeater',
                 'title'    => esc_html__('Managers', 'premium-theme-1'),
+                'collapsed'   => true,
                 'fields'   => array(
                     array(
                         'id'    => 'rmbt-managers_id',
@@ -72,8 +119,6 @@ Redux::set_section(
                     )
                 ),
             ),
-
-
 
 
             array(

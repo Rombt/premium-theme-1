@@ -30,13 +30,13 @@ global $rmbt_theme_options;
                         <div class="rmbt-slide-in-tabs" data-rmbt-tabs-container="rmbt-contacts-tabs">
                             <div class="rmbt-slide-in-tabs-content">
                                 <div class="rmbt-slide-in-tabs-content__item" data-rmbt-tab-content-item="tab_1">
-
+                                tab_1
                                 </div>
                                 <div class="rmbt-slide-in-tabs-content__item" data-rmbt-tab-content-item="tab_2">
-
+                                tab_2
                                 </div>
                                 <div class="rmbt-slide-in-tabs-content__item" data-rmbt-tab-content-item="tab_3">
-
+                                tab_3
                                 </div>
                             </div>
                             <div class="rmbt-slide-in-tabs-nav">

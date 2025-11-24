@@ -8,7 +8,7 @@ import './modules/HorizontalMenu.js';
 import './modules/sliders.js';
 import './sidebar.js';
 
-import tabs from './modules/tabs.3.0.0.js';
+
 import { typeHTML, eraseHTML, pinUntilScroll } from './modules/nimarim/effects.js'
 import { NimarimChain } from './modules/nimarim/NimarimChain.js'
 
@@ -34,7 +34,7 @@ if (heroBockTopRow) {
 }
   
 
-tabs('rmbt-contacts-tabs', 'mouseenter');
+
 
 
 

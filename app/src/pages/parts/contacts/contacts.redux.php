@@ -39,6 +39,7 @@ Redux::set_section(
                 'type'     => 'textarea',
                 'title'    => __('Formatted Address', 'premium-theme-1'),
                 'subtitle' => __('Displayed on the Contact page.', 'premium-theme-1'),
+                'desc'     => __('Post\'s tags are available.', 'premium-theme-1'),
             ),
 
             array(

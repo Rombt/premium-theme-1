@@ -1,8 +1,4 @@
-<?php
-global $rmbt_theme_options;
-?>
-
-
+<?php global $rmbt_theme_options; ?>
 
 <div class="wrapper-section contacts-page-wrapper-section">
         <div class="rmbt-full-width rmbt-contacts-page-full-width">
@@ -26,47 +22,36 @@ global $rmbt_theme_options;
 							<?php echo rmbt_redux_img('rmbt-contacts-page_poster-3', 'rmbt-contacts-page_poster-3-alt') ?>
 						</div>
 					</div>
-                    <div class="rmbt-contacts-page__col-right">
+                    <div class="rmbt-contacts-page__col-right rmbt-contacts">
+                        <div class="rmbt-contacts__location"><?php echo rmbt_get_redux_field('contact_address', 1) ?></div>
                         <div class="rmbt-slide-in-tabs" data-rmbt-tabs-container="rmbt-contacts-tabs">
-                            <div class="rmbt-slide-in-tabs-content">
-                                <div class="rmbt-slide-in-tabs-content__item" data-rmbt-tab-content-item="tab_1">
-                                tab_1
+                            <?php $qty = count($rmbt_theme_options['rmbt-managers_id']); ?>
+                            <?php if ($qty > 0) { ?>
+                                <div class="rmbt-slide-in-tabs-content">
+                                    <?php for ($i = 0; $i < $qty; $i++) { ?>
+                                        <div class="rmbt-slide-in-tabs-content__item <?php echo  ($i == 0) ? 'active' : '' ?>" data-rmbt-tab-content-item="tab_<?=$i?>">
+                                            <p class="rmbt-contacts__name title-block"><?php echo esc_html($rmbt_theme_options[ 'rmbt-managers_name' ][$i]) ?></p>
+                                            <!-- <p class="rmbt-contacts__position">(<?php echo esc_html($rmbt_theme_options[ 'rmbt-managers_position' ][$i]) ?>)</p> -->
+                                            <a href="tel:<?=  rmbt_phone_number_clear_redux($rmbt_theme_options[ 'rmbt-managers_phone' ][$i]) ?>" class="rmbt-contacts__phone subtitle-block"><?php echo esc_html($rmbt_theme_options[ 'rmbt-managers_phone' ][$i]) ?></a>
+                                            <a href="mailto:<?=  $rmbt_theme_options[ 'rmbt-managers_email' ][$i] ?>" class="rmbt-contacts__email subtitle-block"><?php echo esc_html($rmbt_theme_options[ 'rmbt-managers_email' ][$i]) ?></a>
+                                        </div>
+                                    <?php   } ?>
                                 </div>
-                                <div class="rmbt-slide-in-tabs-content__item" data-rmbt-tab-content-item="tab_2">
-                                tab_2
+                                <div class="rmbt-slide-in-tabs-nav">
+                                    <?php for ($i = 0; $i < $qty; $i++) { ?>
+                                        <div class="rmbt-slide-in-tabs-nav__item shadow-box <?php echo  ($i == 0) ? 'active' : '' ?>" data-rmbt-tab-nav-item="tab_<?=$i?>">
+                                            <?php echo esc_html($rmbt_theme_options[ 'rmbt-managers_position' ][$i]) ?>
+                                        </div>
+                                    <?php   } ?>
                                 </div>
-                                <div class="rmbt-slide-in-tabs-content__item" data-rmbt-tab-content-item="tab_3">
-                                tab_3
-                                </div>
-                            </div>
-                            <div class="rmbt-slide-in-tabs-nav">
-                                <div class="rmbt-slide-in-tabs-nav__item" data-rmbt-tab-nav-item="tab_1">
-                                tab_1
-                                </div>
-                                <div class="rmbt-slide-in-tabs-nav__item" data-rmbt-tab-nav-item="tab_2">
-                                tab_2
-                                </div>
-                                <div class="rmbt-slide-in-tabs-nav__item" data-rmbt-tab-nav-item="tab_3">
-                                tab_3
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
-
-                        
-                        <!-- <p>вкладки с контактами отделов - желательно через репитер</p>
-                        <p>форма для отправки сообщений </p>
-                        <p>карта с указанием локации</p> -->
-
-
-
-					</div>
+                    </div>
                     <div class="rmbt-contacts-page__map"> 
                         <?php  $address = rmbt_get_redux_field('contact_map_address');
                             $zoom    = intval(rmbt_get_redux_field('contact_map_zoom'));
                             $map_url = 'https://www.google.com/maps?q=' . urlencode($address) . '&z=' . $zoom . '&output=embed';
                         ?>
-
-
                         <?php if (! empty($address)) : ?>
                         <iframe class="rmbt-map-iframe"
                             loading="lazy"
@@ -74,7 +59,6 @@ global $rmbt_theme_options;
                             src="<?php echo esc_url($map_url); ?>">
                         </iframe>
                         <?php endif; ?>
-
                     </div>
                 </div>
             </section>

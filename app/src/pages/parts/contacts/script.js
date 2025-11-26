@@ -1,4 +1,5 @@
 import tabs from '../../../assets/js/modules/tabs.3.0.0.js';
 
-tabs('rmbt-contacts-tabs', 'mouseenter');
-// tabs('rmbt-contacts-tabs', 'click');
+
+const event = window.matchMedia('(hover: hover)').matches ? 'mouseenter' : 'click';
+tabs('rmbt-contacts-tabs', event);

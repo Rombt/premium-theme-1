@@ -15,9 +15,7 @@ global $rmbt_theme_options;
 					<?php echo get_icon_svg('email_1', true, 'rmbt-header-2-top-col-left__email-icon') ?>	
 				</div>
 				<div class="rmbt-header-2-top-col-left__phones">
-
 					<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'header'); ?>
-
 					<div class="ul-toggle-wrap">					
 						<?php echo get_icon_svg('triangle') ?>
 					</div>

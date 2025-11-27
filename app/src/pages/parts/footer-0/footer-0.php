@@ -7,17 +7,6 @@
 		</div>
 	</div>
 
-
-<div class="test-block">
-	<pre>
-		<?php
-			var_dump(rmbt_redux_repeater_to_ul('rmbt-managers_phone'));
-			// print_r(rmbt_get_redux_field('rmbt-managers_phone'));
-		?>
-	</pre>
-</div>
-
-
 	<section class="rmbt-container rmbt-footer-0">
 		<div class="rmbt-footer-0__row rmbt-footer-0-row-content">
 			<div class="rmbt-footer-0__col rmbt-footer-0-row-content__left-col">
@@ -56,7 +45,8 @@
 				<ul>
 					<li>
 						<?php echo get_icon_svg('phone_2') ?>
-						<?php echo rmbt_get_redux_field('rmbt-managers_phone', 1) ?>
+						<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footer'); ?>
+
 					</li>
 					<li>
 						<?php echo get_icon_svg('email_2') ?>

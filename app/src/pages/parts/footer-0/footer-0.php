@@ -45,7 +45,12 @@
 				<ul>
 					<li>
 						<?php echo get_icon_svg('phone_2') ?>
-						<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footer'); ?>
+						<!-- <?php // echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footer'); ?> -->
+
+						<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footers'); ?>
+						<div class="ul-toggle-wrap">					
+							<?php echo get_icon_svg('triangle') ?>
+						</div>
 
 					</li>
 					<li>

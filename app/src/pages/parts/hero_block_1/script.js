@@ -6,7 +6,7 @@
   const burgerMenu = document.querySelector('.rmbt-menu-horizontal .icon-burger');
   const topRowColLeft = document.querySelector('.rmbt-hero-block-1-top-row-col-left');
   const logo = topRowColLeft.querySelector('.custom-logo-link');
-  const heroBlockFullWidth = document.querySelector('.rmbt-hero-block-1-full-width');
+  const heroBlockFullWidth = document.querySelector('.rmbt-hero-block-1-top-row-full-width');
   const menuHeaderNavigationContainer = document.querySelector(
     '.menu-header-navigation-container'
   );

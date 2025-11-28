@@ -41,7 +41,7 @@
 			<div class="rmbt-footer-0__col rmbt-footer-0-row-content__right-col">
 
 				<ul>
-					<li>
+					<li class="rmbt-footer-phone">
 						<?php echo get_icon_svg('phone_2') ?>
 						<!-- <?php // echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footer'); ?> -->
 

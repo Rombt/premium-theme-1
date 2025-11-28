@@ -35,7 +35,7 @@ export function toggleUl(cont, icon) {
     
     const nl_ul = cont.querySelectorAll('ul');
     const toggle = cont.querySelector(sl_toggle);
-  
+    
     const toggleOpen = sl_toggle.replace(/[.#]/,'') + '-open';
     const toggleVisible = sl_toggle.replace(/[.#]/,'') + '-visible';
     const tempToggle = toggle.cloneNode(true);
@@ -45,14 +45,17 @@ export function toggleUl(cont, icon) {
         return;
     }
     
-    let topUl = 0;
-    let leftUl = 0;
+    // let topUl = 0;
+    // let leftUl = 0;
     nl_ul.forEach(ul => {
       const toggleCurrentUl = tempToggle.cloneNode(true);
       const initialHeightUl = ul.offsetHeight;
   
       toggleCurrentUl.classList.add(toggleVisible);
       ul.after(toggleCurrentUl);
+      
+        console.log("ul = ", ul);
+        console.log("initialHeightUl = ", initialHeightUl);
       
       const nl_li = ul.querySelectorAll('li');
       let heightUl = 0;

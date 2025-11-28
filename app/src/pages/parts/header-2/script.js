@@ -1,3 +1,6 @@
+import { toggleUl, buildUl } from "../../../assets/js/common.js";
+
+
 (function () {
 
   const contEmails = document.querySelector('.rmbt-header-2-top-col-left__email');

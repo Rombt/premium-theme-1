@@ -11,14 +11,12 @@
 		<div class="rmbt-footer-0__row rmbt-footer-0-row-content">
 			<div class="rmbt-footer-0__col rmbt-footer-0-row-content__left-col">
 				<div class="rmbt-site-logo">
-					<?php
-                    $footer_logo = get_theme_mod('custom_footer_logo');
-			if ($footer_logo) {
-			    echo '<img src="' . esc_url($footer_logo) . '" alt="' . get_bloginfo('name') . '">';
-			} elseif (has_custom_logo()) {
-			    the_custom_logo();
-			}
-			?>
+					<?php $footer_logo = get_theme_mod('custom_footer_logo');
+					if ($footer_logo) {
+						echo '<img src="' . esc_url($footer_logo) . '" alt="' . get_bloginfo('name') . '">';
+					} elseif (has_custom_logo()) {
+						the_custom_logo();
+					} ?>
 				</div>
 
 				<?php $description = get_bloginfo('description');

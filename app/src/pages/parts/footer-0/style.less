@@ -198,15 +198,13 @@
   min-width: 200px;
   
   ul{
-    
       position: absolute;
-      left: 30px;
+      left: 50%;
       top: 0px;
       height: 52px;
       overflow: hidden;
-
-      // background-color: #000;
-
+      transform: translate(-50%,0px);
+      transition: height 0.5s ;
   }
 
   .ul-toggle-wrap{
@@ -217,9 +215,11 @@
     width: 15px ;
     height: 15px ;
 
+    transition: transform 0.5s;
     &-open{
 
       transform: rotate(180deg);
+      transition: transform 0.5s;
     }
     
     svg{

@@ -218,13 +218,15 @@
   }
 
   .ul-toggle-wrap{
+    cursor: pointer;
     position: absolute;
     right: 0px;
     top: 16px;
-    width: 15px ;
-    height: 15px ;
-
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
     transition: transform 0.5s;
+
     &-open{
 
       transform: rotate(180deg);
@@ -232,6 +234,9 @@
     }
     
     svg{
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100% !important;
       height: 100% !important;
     }

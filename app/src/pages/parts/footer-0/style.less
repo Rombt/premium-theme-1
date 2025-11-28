@@ -148,7 +148,6 @@
           padding-left: 0px;
           margin: 0 auto;
           width: max-content;
-          min-width: 150px;
 
           .to(1024px,{
           margin-bottom: 20px;
@@ -196,42 +195,43 @@
 .rmbt-footer-phone{
 
   position: relative;
-
-  border: 1px solid #c7fd05;
-  
-
-  
+  min-width: 200px;
   
   ul{
     
-// position: absolute;
-// left: 0px;
-// top: 0px;
-// // transform: translate(-50%,-50%);
-// min-width: 125px;
-// height: 52px;
+      position: absolute;
+      left: 30px;
+      top: 0px;
+      height: 52px;
+      overflow: hidden;
 
+      // background-color: #000;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    overflow: hidden;
-
-
-    border: 1px solid #0515fd;
   }
+
+  .ul-toggle-wrap{
+
+    position: absolute;
+    right: 0px;
+    top: 16px;
+    width: 15px ;
+    height: 15px ;
+
+    &-open{
+
+      transform: rotate(180deg);
+    }
+    
+    svg{
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+
+  }
+
+
+
   
 }
 

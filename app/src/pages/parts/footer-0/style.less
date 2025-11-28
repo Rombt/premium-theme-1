@@ -155,23 +155,24 @@
         });
 
           li {
-            display: flex;
-            // align-items: center;
-            height: 52px;
-            line-height: 52px;
-            height: 50px;
-
+            height: 45px;
+            line-height: 45px;
+            position: relative;
 
             .to(1024px,{
             height: 35px;
           });
-          }
         }
 
         svg {
+
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translate(0%,-50%);
+
           width: 25px;
           height: 25px;
-          margin-right: 20px;
         }
 
         .rmbt-social-networks {
@@ -252,4 +253,4 @@
   
 }
 
-
+}

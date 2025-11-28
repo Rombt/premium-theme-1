@@ -156,9 +156,11 @@
 
           li {
             display: flex;
-            align-items: center;
-            line-height: 115%;
+            // align-items: center;
+            height: 52px;
+            line-height: 52px;
             height: 50px;
+
 
             .to(1024px,{
             height: 35px;
@@ -209,7 +211,7 @@
       padding-right: 10px;
       
       transition: height 0.5s, background-color 1s;
-      
+
       
       &.open{
         backdrop-filter: blur(4px);
@@ -227,10 +229,10 @@
     height: 12px;
     box-sizing: border-box;
     transition: transform 0.5s;
+    transform: rotate(180deg);
 
     &-open{
 
-      transform: rotate(180deg);
       transition: transform 0.5s;
     }
     

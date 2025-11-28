@@ -31,7 +31,7 @@ export function toggleUl(cont, icon) {
     }
   }
   
-  export function buildUl(cont, sl_toggle) {
+  export function buildUl(cont, sl_toggle, ulStyleName='') {
     
     const nl_ul = cont.querySelectorAll('ul');
     const toggle = cont.querySelector(sl_toggle);
@@ -65,6 +65,10 @@ export function toggleUl(cont, icon) {
       
       toggleCurrentUl.addEventListener('click', () => {
         toggleCurrentUl.classList.toggle(toggleOpen);
+        
+        if (ulStyleName) {
+          ul.classList.toggle(ulStyleName);
+        }
   
         if (toggleCurrentUl.classList.contains(toggleOpen)) {
           ulOpen(ul, heightUl);

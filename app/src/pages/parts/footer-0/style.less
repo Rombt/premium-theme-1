@@ -204,11 +204,20 @@
       height: 52px;
       overflow: hidden;
       transform: translate(-50%,0px);
-      transition: height 0.5s ;
+      transition: height 0.5s, background-color 1s;
+      padding-left: 10px !important;
+      padding-right: 10px;
+      
+      
+      
+      &.open{
+        backdrop-filter: blur(4px);
+        background-color: rgba(213, 213, 213, 0.15);
+        transition: height 0.5s, background-color 1s;
+      }
   }
 
   .ul-toggle-wrap{
-
     position: absolute;
     right: 0px;
     top: 16px;

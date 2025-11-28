@@ -5,7 +5,7 @@ const contPhones = document.querySelector('.rmbt-footer-phone');
 
 
 if (contPhones) {
-    buildUl(contPhones, '.ul-toggle-wrap');
+    buildUl(contPhones, '.ul-toggle-wrap', 'open');
   }
 //   if (contEmails) {
 //     buildUl(contEmails, '.ul-toggle-wrap');

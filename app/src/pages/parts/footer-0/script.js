@@ -1,6 +1,6 @@
 import { toggleUl, buildUl } from "../../../assets/js/common.js";
 
-const contPhones = document.querySelector('.rmbt-footer-phone');
+const contPhones = document.querySelector('.rmbt-contact-row');
 // const contEmails = document.querySelector('.rmbt-header-2-top-col-left__email');
 
 

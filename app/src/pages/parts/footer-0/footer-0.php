@@ -41,23 +41,23 @@
 			<div class="rmbt-footer-0__col rmbt-footer-0-row-content__right-col">
 
 				<ul>
-					<li class="rmbt-contact-row">
+					<li class="rmbt-footer-phone">
 						<?php echo get_icon_svg('phone_2') ?>
-						<!-- <?php // echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footer'); ?> -->
-
 						<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footers'); ?>
 						<div class="ul-toggle-wrap">					
 							<?php echo get_icon_svg('triangle') ?>
 						</div>
-
 					</li>
-					<li>
+					<li class="rmbt-footer-email">
 						<?php echo get_icon_svg('email_2') ?>
-						<?php echo rmbt_get_redux_field('rmbt-email-1', 1) ?>
+						<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_email', 'mailto', 'rmbt-managers-show', 'footers'); ?>
+						<div class="ul-toggle-wrap">					
+							<?php echo get_icon_svg('triangle') ?>
+						</div>
 					</li>
 					<li>
 						<?php echo get_icon_svg('address_2') ?>
-						<?php echo rmbt_get_redux_field('rmbt-address', 1) ?>
+						<?php echo rmbt_get_redux_field('contact_address', 1) ?>
 					</li>
 				</ul>
 			</div>

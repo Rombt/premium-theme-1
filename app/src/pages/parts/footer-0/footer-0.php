@@ -55,7 +55,7 @@
 							<?php echo get_icon_svg('triangle') ?>
 						</div>
 					</li>
-					<li>
+					<li class="rmbt-footer-address">
 						<?php echo get_icon_svg('address_2') ?>
 						<?php echo rmbt_get_redux_field('contact_address', 1) ?>
 					</li>

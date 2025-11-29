@@ -139,22 +139,17 @@
       &__right-col {
         padding-top: 20px;
 
-
-        // border: 1px solid #0515fd;
-        // padding-left: 60px;
-
-
         .to(1024px,{
           padding-top: 0px;
         });
 
-        ul {
+        ul{
+          list-style: none;
+        }
+
+       &>ul {
           list-style: none;
           padding-left: 70px;
-
-          // border: 1px solid #03bfd4;
-          // margin: 0 auto;
-          // width: max-content;
 
           .to(1024px,{
           margin-bottom: 20px;
@@ -166,9 +161,6 @@
            line-height: 45px;
            position: relative;
 
-
-          //  border: 1px solid #05fd60;  
-           
 
            .to(1024px,{
            height: 35px;
@@ -209,28 +201,25 @@
 
 .rmbt-footer-email,
 .rmbt-footer-phone{
-
   position: relative;
   min-width: 200px;
-
-  
   
   ul{
     position: absolute;
-    left: 30px;
+    left: 0px;
     top: 0px;
     height: 52px;
     overflow: hidden;
-    padding-left: 10px !important;
     padding-right: 27px;
-    
-    transition: height 0.5s, background-color 1s;
-    
+    transition: height 0.5s, background-color 1.5s;
+    border-radius: 8px;
     
     &.open{
       backdrop-filter: blur(4px);
-      background-color: rgba(213, 213, 213, 0.15);
-      transition: height 0.5s, background-color 1s;
+      // background-color: rgba(213, 213, 213, 0.15);
+      background-color: rgba(77, 77, 77, 0.33);
+      transition: height 0.5s, background-color 1.5s;
+      z-index: 10;
     }
   }
 
@@ -265,6 +254,11 @@
 
 
   
+}
+
+.rmbt-footer-address{
+  padding-left: 40px;
+  line-height: 150% !important;
 }
 
 }

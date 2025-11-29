@@ -220,20 +220,18 @@
     left: 30px;
     top: 0px;
     height: 52px;
-      overflow: hidden;
-      // transform: translate(-50%,0px);
-      padding-left: 10px !important;
-      padding-right: 10px;
-      
+    overflow: hidden;
+    padding-left: 10px !important;
+    padding-right: 20px;
+    
+    transition: height 0.5s, background-color 1s;
+    
+    
+    &.open{
+      backdrop-filter: blur(4px);
+      background-color: rgba(213, 213, 213, 0.15);
       transition: height 0.5s, background-color 1s;
-      
-      // border: 1px solid #fdd405 !important;
-      
-      &.open{
-        backdrop-filter: blur(4px);
-        background-color: rgba(213, 213, 213, 0.15);
-        transition: height 0.5s, background-color 1s;
-      }
+    }
   }
 
   .ul-toggle-wrap{

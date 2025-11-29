@@ -50,7 +50,8 @@ export function toggleUl(cont, icon) {
       const initialHeightUl = ul.offsetHeight;
   
       toggleCurrentUl.classList.add(toggleVisible);
-      ul.after(toggleCurrentUl);
+      // ul.after(toggleCurrentUl);
+      ul.append(toggleCurrentUl);
       
       const nl_li = ul.querySelectorAll('li');
       let heightUl = 0;

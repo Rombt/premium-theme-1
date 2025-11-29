@@ -38,20 +38,16 @@ export function toggleUl(cont, icon) {
     
     const toggleOpen = sl_toggle.replace(/[.#]/,'') + '-open';
     const toggleVisible = sl_toggle.replace(/[.#]/,'') + '-visible';
-    const tempToggle = toggle.cloneNode(true);
-    toggle.remove();
     
       if (!nl_ul.length > 0 && toggle) {
         return;
     }
     
     nl_ul.forEach(ul => {
-      const toggleCurrentUl = tempToggle.cloneNode(true);
       const initialHeightUl = ul.offsetHeight;
   
-      toggleCurrentUl.classList.add(toggleVisible);
-      // ul.after(toggleCurrentUl);
-      ul.append(toggleCurrentUl);
+      toggle.classList.add(toggleVisible);
+      ul.append(toggle);
       
       const nl_li = ul.querySelectorAll('li');
       let heightUl = 0;
@@ -59,14 +55,14 @@ export function toggleUl(cont, icon) {
         heightUl += li.getBoundingClientRect().height;
       }
       
-      toggleCurrentUl.addEventListener('click', () => {
-        toggleCurrentUl.classList.toggle(toggleOpen);
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle(toggleOpen);
         
         if (ulStyleName) {
           ul.classList.toggle(ulStyleName);
         }
   
-        if (toggleCurrentUl.classList.contains(toggleOpen)) {
+        if (toggle.classList.contains(toggleOpen)) {
           ulOpen(ul, heightUl);
         } else {
           ulClose(ul, initialHeightUl);

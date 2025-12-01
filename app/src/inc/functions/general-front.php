@@ -436,9 +436,7 @@ function rmbt_redux_repeater_to_ul($id_field, $mod = 'tel', $enabled_id = '', $e
         return;
     }
 
-    $count_enabled_option = array_sum(array_column($rmbt_theme_options[$enabled_id], 'header'));
-
-    if (count($rmbt_theme_options[ $id_field ]) > 1 && $count_enabled_option > 1) {
+    if (count($rmbt_theme_options[ $id_field ]) > 1) {
         $html = '<ul>';
         foreach ($rmbt_theme_options[ $id_field ] as $key => $value) {
 
@@ -454,6 +452,7 @@ function rmbt_redux_repeater_to_ul($id_field, $mod = 'tel', $enabled_id = '', $e
         }
 
         $html .= '</ul>';
+
         return $html;
     } else {
         if ($mod == 'tel') {

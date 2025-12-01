@@ -3,7 +3,6 @@
 
 
 <main>
-
 	<div class="rmbt-full-width rmbt-single-full-width">
 		<section class="rmbt-container rmbt-single">
 			<?php the_title('<h1 class="entry-title title-section">', '</h1>'); ?>

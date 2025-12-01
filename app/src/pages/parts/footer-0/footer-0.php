@@ -7,22 +7,16 @@
 		</div>
 	</div>
 
-
-
-
-
 	<section class="rmbt-container rmbt-footer-0">
 		<div class="rmbt-footer-0__row rmbt-footer-0-row-content">
 			<div class="rmbt-footer-0__col rmbt-footer-0-row-content__left-col">
 				<div class="rmbt-site-logo">
-					<?php
-                    $footer_logo = get_theme_mod('custom_footer_logo');
-			if ($footer_logo) {
-			    echo '<img src="' . esc_url($footer_logo) . '" alt="' . get_bloginfo('name') . '">';
-			} elseif (has_custom_logo()) {
-			    the_custom_logo();
-			}
-			?>
+					<?php $footer_logo = get_theme_mod('custom_footer_logo');
+					if ($footer_logo) {
+						echo '<img src="' . esc_url($footer_logo) . '" alt="' . get_bloginfo('name') . '">';
+					} elseif (has_custom_logo()) {
+						the_custom_logo();
+					} ?>
 				</div>
 
 				<?php $description = get_bloginfo('description');
@@ -47,17 +41,23 @@
 			<div class="rmbt-footer-0__col rmbt-footer-0-row-content__right-col">
 
 				<ul>
-					<li>
+					<li class="rmbt-footer-phone">
 						<?php echo get_icon_svg('phone_2') ?>
-						<?php echo rmbt_get_redux_field('rmbt-manager-6-phone', 1) ?>
+						<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'footers'); ?>
+						<div class="ul-toggle-wrap">					
+							<?php echo get_icon_svg('triangle') ?>
+						</div>
 					</li>
-					<li>
+					<li class="rmbt-footer-email">
 						<?php echo get_icon_svg('email_2') ?>
-						<?php echo rmbt_get_redux_field('rmbt-email-1', 1) ?>
+						<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_email', 'mailto', 'rmbt-managers-show', 'footers'); ?>
+						<div class="ul-toggle-wrap">					
+							<?php echo get_icon_svg('triangle') ?>
+						</div>
 					</li>
-					<li>
+					<li class="rmbt-footer-address">
 						<?php echo get_icon_svg('address_2') ?>
-						<?php echo rmbt_get_redux_field('rmbt-address', 1) ?>
+						<?php echo rmbt_get_redux_field('contact_address', 1) ?>
 					</li>
 				</ul>
 			</div>

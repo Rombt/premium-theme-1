@@ -32,7 +32,6 @@ const heroBockTopRow = document.querySelector('.rmbt-hero-block-1-top-row-is-inn
 if (heroBockTopRow) {
   pinUntilScroll(heroBockTopRow, heightViewport, 4, true);
 }
-  
 
 
 
@@ -43,42 +42,3 @@ if (heroBockTopRow) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function typing(node) {
-//     // const text = node.innerText;
-//     const text = node.textContent;
-//     node.innerText = '';
-//     // node.textContent = '';
-//     const arr_text = Array.from(text);
-
-//     const timeout = 300;
-//     let i = 0;
-
-//     function typeChar() {
-
-//         if (i < arr_text.length) {
-//             // node.innerText += arr_text[i];
-//             node.textContent += arr_text[i];
-//             i++;
-//             setTimeout(typeChar, timeout);
-//         } 
-//     }
-
-
-//     typeChar();
-
-// }

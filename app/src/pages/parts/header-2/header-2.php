@@ -8,20 +8,18 @@ global $rmbt_theme_options;
 		<div class="rmbt-header-2__row rmbt-header-2-top-row">
 			<div class="rmbt-header-2__col rmbt-header-2-top-col-left">
 				<div class="rmbt-header-2-top-col-left__email">
-				<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_email', 'mailto', 'rmbt-managers-show', 'header'); ?>
+					<?php echo get_icon_svg('email_1', true, 'rmbt-header-2-top-col-left__email-icon') ?>	
+					<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_email', 'mailto', 'rmbt-managers-show', 'header'); ?>
 					<div class="ul-toggle-wrap">					
 						<?php echo get_icon_svg('triangle') ?>
 					</div>
-					<?php echo get_icon_svg('email_1', true, 'rmbt-header-2-top-col-left__email-icon') ?>	
 				</div>
 				<div class="rmbt-header-2-top-col-left__phones">
-
+					<?php echo get_icon_svg('phone_1', true, 'rmbt-header-2-top-col-left__phones-icon') ?>	
 					<?php echo rmbt_redux_repeater_to_ul('rmbt-managers_phone', 'tel', 'rmbt-managers-show', 'header'); ?>
-
 					<div class="ul-toggle-wrap">					
 						<?php echo get_icon_svg('triangle') ?>
 					</div>
-					<?php echo get_icon_svg('phone_1', true, 'rmbt-header-2-top-col-left__phones-icon') ?>	
 				</div>
 
 

@@ -1,13 +1,7 @@
-
-@break_520: 520px;
-
 .rmbt-header-2-top-row-full-width {
   background-color: @color_black;
-
-  // box-shadow: 5px 4px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 2px 11px 25px rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(4px);
-
 
   position: fixed;
   left: 0;
@@ -148,7 +142,8 @@
       ul{
         position: absolute;
         left: 0;
-        bottom: 100%;
+        // bottom: 100%;
+        top: -100%;
         width: max-content;
         height: 100%;
         z-index: 5;
@@ -160,9 +155,12 @@
     });
   }
 
+  
+
+
   &__phones {
 
-    .to(@break_520,{
+    .to(768px,{
       svg {
         display: block;
       }  
@@ -170,7 +168,8 @@
       ul{
         position: absolute;
         left: 0;
-        bottom: 100%;
+        // bottom: 100%;
+        top: -100%;
         width: max-content;
         height: 100%;
         z-index: 5;
@@ -193,11 +192,13 @@
       .ul-toggle-wrap{
         display: none !important;
       }
-
-
     });
+  }
 
-
+  &__phones-icon{
+    .to(768px,{
+      display: block !important;
+    })
   }
 
   &__email,
@@ -214,14 +215,11 @@
       column-gap: 0px;
     });
 
-
     .to(390px,{
 
       ul{
-
         min-width: 200px;
         text-align: center;
-
         border-radius: 0px !important;
 
         &:last-of-type{
@@ -233,7 +231,9 @@
     });
 
 
-
+    ul{
+      padding-right: 20px;
+    }
 
     a {
 
@@ -242,39 +242,23 @@
       });
     }
 
-    // ul{
-    //   height:  @height_top_row;
-    //   line-height:  @height_top_row;
-    //   overflow: hidden;
-    //   background-color: @color_black;
-    //   padding-left: 10px;
-    //   padding-right: 10px;
-    //   padding-top: 0px;
-    //   padding-bottom: 0px;
-    //   transition: all 0.3s ease-in;
-    //   border: 1px solid @color_black;
-    //   border-radius: 16px;
-
-
-    //   &:not(:first-of-type) {
-    //     margin-left: 20px;
-        
-    //   }
-      
-    // }
     
     .ul-toggle-wrap{
       display: none;
-      width: 10px;
       position: relative;
       transition: transform 0.3s ease-in;
       cursor: pointer;
+      position: absolute;
+      right: 0px;
+      top: 11px;
+      width: 13px;
+      height: 13px;
 
       svg{
 
         display: block;
-        width: 13px;
-        height: 13px;
+        width: 100%;
+        height: 100%;
         fill: #fff;
         position: absolute;
         left: 50%;
@@ -304,19 +288,10 @@
     }
   }
 
-  &__phones-icon{
-    .to(@break_520,{
-      display: block !important;
-    })
-  }
-
   .hidden-ul{
-    transition: transform .5s ease;
   }
   
   .visible-ul{
-    transform:translateY(100%);
-    transition: transform .5s ease;
 
     border-radius: 0px;
 
@@ -331,14 +306,7 @@
   }
 
   .visible-ul-mobile{
-    transform:translateY(100%);
-    transition: transform .5s ease;
-
-    // margin-left: 0px !important;
-    border-radius: 0px;
-
-    // border: 1px solid #0515fd;
-    
+    top: 0px;
   }
 
 }

@@ -16,9 +16,9 @@ if (document.querySelector('.rmbt-featured-projects-slide-swiper')) {
       slideShadows: true 
     },
 
-    autoplay: {
-      delay: 4800,
-    },
+    // autoplay: {
+    //   delay: 4800,
+    // },
     
     navigation: {
       nextEl: '.rmbt-featured-projects-slide-swiper__button-next',

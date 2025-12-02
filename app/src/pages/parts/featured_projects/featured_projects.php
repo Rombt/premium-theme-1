@@ -31,15 +31,17 @@ $posts = get_posts($args);
 							    setup_postdata($post); ?>
 
 								<div class="swiper-slide rmbt-featured-projects-slide  shadow-box">
-									<div class="wrap-img rmbt-featured-projects-slide__img">
+									<a href="<?php echo get_permalink();?>">
+										<div class="wrap-img rmbt-featured-projects-slide__img">
 
-										<?php if (has_post_thumbnail()) {
-										    the_post_thumbnail('medium');
-										} else {
-										    echo rmbt_redux_img('rmbt-coming_soon_img', 'rmbt-coming_soon_img-alt');
-										} ?>
+											<?php if (has_post_thumbnail()) {
+												the_post_thumbnail('medium');
+											} else {
+												echo rmbt_redux_img('rmbt-coming_soon_img', 'rmbt-coming_soon_img-alt');
+											} ?>
 
-									</div>
+										</div>
+									</a>
 									<h2 class="title-block"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 									<div class='subtitle-block'><?php echo wp_trim_words(get_the_excerpt(), 10, '  [...]'); ?></div>
 

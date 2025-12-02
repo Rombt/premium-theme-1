@@ -1,7 +1,14 @@
 <?php if ( have_posts() ) : ?>
 	<?php while ( have_posts() ) :
 		the_post(); ?>
-		<?php get_template_part( 'pages/parts/content/content', get_post_format() ); ?>
+		<?php 
+		// get_template_part( 'pages/parts/content/content', get_post_format() ); 
+		
+			$template_type = is_page() ? 'page' : get_post_format();
+			get_template_part('pages/parts/content/content', $template_type);
+
+		
+		?>
 	<?php endwhile; ?>
 
 	<div class="pagination">

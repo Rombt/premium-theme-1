@@ -140,9 +140,9 @@
 ++ main blog page  --?? home.php  список статей или новостей.
 ++ front-page.php  --?? main static page
 ++ Contact Us (Контакты) – адрес, карта, форма обратной связи(-)
+++ Single Blog Post (Статья блога) – страница для отображения одной статьи.
 
 
--- Single Blog Post (Статья блога) – страница для отображения одной статьи.
 -- custom post type "project"
 
 

@@ -47,6 +47,15 @@
       .size(4);
       min-width: 300px;
       z-index: 3;
+
+      a{
+        display: inline-block;
+
+        &:hover{
+          transform: scale(1.02);
+          transition: all 0.1s ease-in-out;
+        }
+      }
     }
 
     .rmbt-footer-0-row-content {
@@ -108,8 +117,6 @@
             svg {
               height: 40px;
               width: 40px;
-
-              
             }
           }
         }
@@ -163,7 +170,6 @@
 
         .to(480px,{
           padding-left: 0px;
-          
         });
 
         li {

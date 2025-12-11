@@ -59,7 +59,7 @@
 							<?php foreach ( $arr_templates as $template ) { ?>
 
 								<?php
-											$content = file_get_contents( get_template_directory() . DIRECTORY_SEPARATOR . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '.php' );
+											$content = file_get_contents( get_template_directory() . DIRECTORY_SEPARATOR . RMBT_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '.php' );
 											preg_match_all( '/\$args\[\s*\'([^\']*)\'\s*\]/', $content, $results );
 											$arr_args = array();
 											$str_args = '';
@@ -80,7 +80,7 @@
 								}
 								?>
 
-								<?php $str_get_template_part = 'get_template_part(\'' . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) . ');'; ?>
+								<?php $str_get_template_part = 'get_template_part(\'' . RMBT_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) . ');'; ?>
 
 								<?php if ( $template_type === 'components' ) : ?>
 							<div class="rmbt-container templates-page-components">
@@ -90,7 +90,7 @@
 								<button class='copy-button'>copy</button>
 								</div>
 								<div class="templates-page-components__body">
-									<?php get_template_part( rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
+									<?php get_template_part( RMBT_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
 								</div>
 							</div>
 
@@ -105,7 +105,7 @@
 								</div>
 							</div>
 
-								<?php get_template_part( rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
+								<?php get_template_part( RMBT_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template, strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null', count( $arr_args ) > 0 ? $arr_args : null ); ?>
 							<?php endif ?>
 
 							<?php } ?>

@@ -8,7 +8,7 @@ function create_custom_page() {
 	$page_status   = 'publish';
 	$page_author   = 1;
 	$page_type     = 'page';
-	$page_template = rmbt_DIR_TEMPLATE_PARTS . '/_templates/templates-page.php';
+	$page_template = RMBT_DIR_TEMPLATE_PARTS . '/_templates/templates-page.php';
 
 	$query = new WP_Query(
 		array(

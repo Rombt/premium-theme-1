@@ -1,17 +1,14 @@
 <?php
 
-// define(RMBT_TEXT_DOMAIN_THEME, 'premium-theme-1');       //! you must use only chars those allow for url
-define( 'rmbt_PATH_THEME', get_template_directory() );
-define( 'rmbt_URL_THEME', esc_url( get_template_directory_uri() ) );
-define( 'rmbt_DIR_TEMPLATE_PARTS', 'pages' );
+define( 'RMBT_PATH_THEME', get_template_directory() );
+define( 'RMBT_URL_THEME', esc_url( get_template_directory_uri() ) );
+define( 'RMBT_DIR_TEMPLATE_PARTS', 'pages' );
 
 require_once get_template_directory() . '/inc/functions/class-tgm-plugin-activation.php';
 require_once get_template_directory() . '/inc/functions/general-front.php';
-// require_once get_template_directory() . '/inc/functions/comment_default.php';
-// require_once get_template_directory() . '/inc/functions/ajax.php';
 
-if ( file_exists( get_template_directory() . DIRECTORY_SEPARATOR . rmbt_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' ) ) {
-	require_once get_template_directory() . '/inc/functions/templates_page.php';
+if ( file_exists( get_template_directory() . DIRECTORY_SEPARATOR . RMBT_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' ) ) {
+	require_once get_template_directory() . '/inc/functions/templates-page.php';
 }
 
 
@@ -20,11 +17,11 @@ if ( class_exists( 'ReduxFramework' ) ) {
 	define(
 		'RMBT_PATH_REDUX_SECTIONS',
 		array(
-			rmbt_PATH_THEME . '/inc/Redux/sections',
-			rmbt_PATH_THEME . '/pages',
+			RMBT_PATH_THEME . '/inc/Redux/sections',
+			RMBT_PATH_THEME . '/pages',
 		)
 	);
-	require_once rmbt_PATH_THEME . '/inc/Redux/redux-options.php';
+	require_once RMBT_PATH_THEME . '/inc/Redux/redux-options.php';
 }
 
 if ( class_exists( 'WooCommerce' ) ) {
@@ -35,22 +32,11 @@ if ( class_exists( 'WooCommerce' ) ) {
 function rmbt_theme_scripts() {
 
 	wp_enqueue_style( 'swiper-bundle', get_template_directory_uri() . '/assets/styles/libs/swiper-bundle.min.css', array(), '1.0', 'all' );
-	wp_enqueue_style( 'premium-theme-1' . '-main', get_template_directory_uri() . '/assets/styles/main-style.min.css', array(), '1.0', 'all' );
+	wp_enqueue_style( 'premium-theme-1-main', get_template_directory_uri() . '/assets/styles/main-style.min.css', array(), '1.0', 'all' );
 
-	wp_enqueue_script( 'swiper-bundle', get_template_directory_uri() . '/assets/js/libs/swiper-bundle.min.js', array(), '', true );
+	wp_enqueue_script( 'swiper-bundle', get_template_directory_uri() . '/assets/js/libs/swiper-bundle.min.js', array(), '12.0.3', true );
 	wp_enqueue_script( 'anime_js', get_template_directory_uri() . '/assets/js/libs/anime.min.js', array(), 'v3.2.2', true );
-	wp_enqueue_script( 'premium-theme-1' . '-app', get_template_directory_uri() . '/assets/js/app.main.min.js', array( 'jquery' ), '1.0', true );
-
-	wp_add_inline_script(
-		'rmbt_theme-app',
-		'const rmbt_theme_App = ' . json_encode(
-			array(
-			// 'ajaxUrl' => admin_url('ajax.php'),      // ????
-			// 'rmbtArrCategories' => $categories,      // your data if you need it
-			)
-		),
-		'before'
-	);
+	wp_enqueue_script( 'premium-theme-1-app', get_template_directory_uri() . '/assets/js/app.main.min.js', array( 'jquery' ), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'rmbt_theme_scripts', 20 );
 
@@ -86,18 +72,18 @@ function rmbt_site_setup() {
 add_action( 'after_setup_theme', 'rmbt_site_setup' );
 
 function simple_rmbt_theme_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'simple_' . 'premium-theme-1' . '_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'simple_premium-theme-1_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'simple_rmbt_theme_content_width', 0 );
 
 function rmbt_theme_register_required_plugins() {
 	$plugins = array(
 		array(
-			'name'               => 'premium-theme-1' . ' core',
+			'name'               => 'premium-theme-1-core',
 			// The plugin name.
-			'slug'               => 'premium-theme-1' . '-core',
+			'slug'               => 'premium-theme-1-core',
 			// The plugin slug (typically the folder name).
-			'source'             => WP_PLUGIN_DIR . '/' . 'premium-theme-1' . '-core',
+			'source'             => WP_PLUGIN_DIR . '/premium-theme-1-core',
 			// The plugin source.
 			'required'           => true,
 			// If false, the plugin is only 'recommended' instead of required.
@@ -108,12 +94,6 @@ function rmbt_theme_register_required_plugins() {
 			'force_deactivation' => false,
 			// If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 		),
-
-		// array(
-		// 'name' => 'Advanced Custom Fields',
-		// 'slug' => 'advanced-custom-fields',
-		// 'required' => true,
-		// ),
 
 		array(
 			'name'     => 'Redux Framework',

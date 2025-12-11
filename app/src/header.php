@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<?php wp_head(); ?>
@@ -11,27 +11,27 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
-	<?php // get_template_part( 'pages\_templates\components\debug-grid' );?>
+	<?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
 
 
 
-	<?php if (is_front_page()) : ?>
+	<?php if ( is_front_page() ) : ?>
 
 		<div class="rmbt-page-wrap front-page-wrap">
-			<?php get_template_part('pages/parts/header-2/header-2', '0'); ?>
-			<?php get_template_part('pages/parts/hero_block_1/hero_block_1', null); ?>
+			<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+			<?php get_template_part( 'pages/parts/hero_block_1/hero_block_1', null ); ?>
 
-		<?php elseif (is_page('Страница шаблонов')) : ?>
+		<?php elseif ( is_page( 'Страница шаблонов' ) ) : ?>
 			<div class="rmbt-page-wrap templates-page-wrap"></div>
 
-		<?php elseif (is_404()) : ?>
+		<?php elseif ( is_404() ) : ?>
 			<div class="rmbt-page-wrap rmbt-404-page-wrap">
-				<?php get_template_part('pages/parts/header-2/header-2', '0'); ?>
-				<?php get_template_part('pages/components/hero-block-1-top-row/hero-block-1-top-row'); ?>
+				<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+				<?php get_template_part( 'pages/components/hero-block-1-top-row/hero-block-1-top-row' ); ?>
 
 			<?php else : ?>
 				<div class="rmbt-page-wrap">
-					<?php get_template_part('pages/parts/header-2/header-2', '0'); ?>
-					<?php get_template_part('pages/components/hero-block-1-top-row/hero-block-1-top-row'); ?>
+					<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
+					<?php get_template_part( 'pages/components/hero-block-1-top-row/hero-block-1-top-row' ); ?>
 
 				<?php endif ?>

@@ -5,21 +5,25 @@
 	<div class="rmbt-full-width rmbt-call-to-action-full-width">
 		<div class="rmbt-call-to-action-full-width__bg">
 			<div class="wrap-img">
-				<?php echo rmbt_redux_img( 'rmbt-call-to-action-bg-img', 'rmbt-call-to-action-bg-img-alt' ) ?>
+				<?php echo rmbt_redux_img( 'rmbt-call-to-action-bg-img', 'rmbt-call-to-action-bg-img-alt' ); ?>
 			</div>
 		</div>
 
-		<section class="rmbt-container rmbt-call-to-action" <?php if ( isset( $rmbt_theme_options['rmbt-call-to-action-card_section-title'] ) && $rmbt_theme_options['rmbt-call-to-action-card_section-title'] == "" ) :
+		<section class="rmbt-container rmbt-call-to-action" 
+		<?php
+		if ( isset( $rmbt_theme_options['rmbt-call-to-action-card_section-title'] ) && $rmbt_theme_options['rmbt-call-to-action-card_section-title'] == '' ) :
 			echo 'style="padding-top: 15px; padding-bottom: 15px;"';
-		endif ?>>
+		endif
+		?>
+		>
 
 			<?php if ( $rmbt_theme_options['rmbt-call-to-action-card_section-title'] ) : ?>
-				<h2 class='title-section'> <?php echo rmbt_get_redux_field( 'rmbt-call-to-action-card_section-title', 1 ) ?>
+				<h2 class='title-section'> <?php echo rmbt_get_redux_field( 'rmbt-call-to-action-card_section-title', 1 ); ?>
 				</h2>
 			<?php endif ?>
-			<?php if ( isset( $rmbt_theme_options['rmbt-call-to-action-card_section-subtitle'] ) && $rmbt_theme_options['rmbt-call-to-action-card_section-subtitle'] !== "" ) : ?>
+			<?php if ( isset( $rmbt_theme_options['rmbt-call-to-action-card_section-subtitle'] ) && $rmbt_theme_options['rmbt-call-to-action-card_section-subtitle'] !== '' ) : ?>
 				<p class='subtitle-section'>
-					<?php echo rmbt_get_redux_field( 'rmbt-call-to-action-card_section-subtitle', 1 ) ?>
+					<?php echo rmbt_get_redux_field( 'rmbt-call-to-action-card_section-subtitle', 1 ); ?>
 				</p>
 			<?php endif ?>
 
@@ -48,7 +52,7 @@
 					</div>
 					<button type="submit" class='rmbt-button-cta'>
 						<span>
-							<?php echo rmbt_get_redux_field( 'rmbt-call-to-action-button-cta', 1 ) ?>
+							<?php echo rmbt_get_redux_field( 'rmbt-call-to-action-button-cta', 1 ); ?>
 						</span>
 					</button>
 				</form>
@@ -56,7 +60,7 @@
 				<div id="thank-you-modal" class="modal">
 					<div class="modal-content">
 						<p>
-							<?php echo rmbt_get_redux_field( 'rmbt-call-to-action-modal-content', 1 ) ?>
+							<?php echo rmbt_get_redux_field( 'rmbt-call-to-action-modal-content', 1 ); ?>
 						</p>
 						<button id="close-modal-btn">Close</button>
 					</div>

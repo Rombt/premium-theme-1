@@ -1,5 +1,5 @@
-<a href="<?php echo $args['href'] ?>"
-   class="rmbt-button-read-more <?php echo ! empty($args['classes']) ? $args['classes'] : '' ?>"
-   <?php echo ! empty($args['data']) ? $args['data'] : '' ?>>
-   <span><?php echo $args['title'] ?></span>
+<a href="<?php echo $args['href']; ?>"
+	class="rmbt-button-read-more <?php echo ! empty( $args['classes'] ) ? $args['classes'] : ''; ?>"
+	<?php echo ! empty( $args['data'] ) ? $args['data'] : ''; ?>>
+	<span><?php echo $args['title']; ?></span>
 </a>

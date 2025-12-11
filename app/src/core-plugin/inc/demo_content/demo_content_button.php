@@ -5,12 +5,10 @@
 function add_button_demo_content() {
 	$screen = get_current_screen();
 
-
-	$arr_page_with_demo_content = [ 
+	$arr_page_with_demo_content = array(
 		'destination',
 		'post',
-	];
-
+	);
 
 	foreach ( $arr_page_with_demo_content as $post_type_page ) {
 		if ( $screen->post_type == $post_type_page && $screen->base == 'edit' ) {
@@ -29,9 +27,9 @@ function add_button_demo_content() {
 						addNewButton.parentNode.insertBefore(customButton, addNewButton.nextSibling);
 					}
 				});
-			</script> <?php
+			</script> 
+			<?php
 		}
 	}
-
 }
 add_action( 'admin_head', 'add_button_demo_content' );

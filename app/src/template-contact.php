@@ -12,7 +12,7 @@ get_header();
 
 
 
-  <?php  get_template_part('pages/parts/contacts/contacts'); ?>
+	<?php get_template_part( 'pages/parts/contacts/contacts' ); ?>
   
 
 
@@ -20,11 +20,11 @@ get_header();
 <?php
 // для поддержки Gutenberg
 // if (have_posts()) :
-//     while (have_posts()) : the_post();
-//         echo '<div class="page-content">';
-//         the_content();
-//         echo '</div>';
-//     endwhile;
+// while (have_posts()) : the_post();
+// echo '<div class="page-content">';
+// the_content();
+// echo '</div>';
+// endwhile;
 // endif;
 
 ?>
@@ -32,4 +32,5 @@ get_header();
 </main>
 
 
-<?php get_footer();
+<?php
+get_footer();

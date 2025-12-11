@@ -4,6 +4,7 @@
 !/docs/
 !.gitignore
 !/README.md
+!/.vscode
 *.php-tmp
 
 node_modules/

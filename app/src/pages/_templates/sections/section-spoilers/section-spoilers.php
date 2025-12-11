@@ -22,7 +22,7 @@
 
 			<div class='rmbt-section-spoilers__right-col '>
 				<div class="wrap-img">
-					<!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/" alt=""> -->
+					<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/img/" alt=""> -->
 				</div>
 
 

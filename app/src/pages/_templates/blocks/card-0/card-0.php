@@ -6,7 +6,7 @@
 	</h3>
 	<div class="wrap-img rmbt-card-0__img">
 		img
-		<!-- <img src="<?php echo get_template_directory_uri() ?>/assets/img/" alt=""> -->
+		<!-- <img src="<?php echo get_template_directory_uri(); ?>/assets/img/" alt=""> -->
 	</div>
 
 	<div class='rmbt-card-0__body'>

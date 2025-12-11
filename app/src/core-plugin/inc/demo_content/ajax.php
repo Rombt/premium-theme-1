@@ -2,9 +2,7 @@
 
 function generate_demo_content() {
 
-
 	start_comments_generation();
-
 
 	wp_die();
 }

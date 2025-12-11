@@ -3,32 +3,31 @@
 
 function create_custom_page() {
 
-
-
-	$page_title = 'Страница шаблонов';
-	$page_content = '';
-	$page_status = 'publish';
-	$page_author = 1;
-	$page_type = 'page';
+	$page_title    = 'Страница шаблонов';
+	$page_content  = '';
+	$page_status   = 'publish';
+	$page_author   = 1;
+	$page_type     = 'page';
 	$page_template = rmbt_DIR_TEMPLATE_PARTS . '/_templates/templates-page.php';
 
-	$query = new WP_Query( array(
-		'post_type' => $page_type,
-		'title' => $page_title,
-		'post_status' => 'any',
-		'posts_per_page' => 1,
-	) );
+	$query = new WP_Query(
+		array(
+			'post_type'      => $page_type,
+			'title'          => $page_title,
+			'post_status'    => 'any',
+			'posts_per_page' => 1,
+		)
+	);
 
 	if ( ! $query->have_posts() ) {
 
 		$new_page = array(
-			'post_title' => $page_title,
+			'post_title'   => $page_title,
 			'post_content' => $page_content,
-			'post_status' => $page_status,
-			'post_author' => $page_author,
-			'post_type' => $page_type,
+			'post_status'  => $page_status,
+			'post_author'  => $page_author,
+			'post_type'    => $page_type,
 		);
-
 
 		$page_id = wp_insert_post( $new_page );
 

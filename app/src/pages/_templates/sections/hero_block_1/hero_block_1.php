@@ -6,7 +6,7 @@
 
 				<div class="_rmbt-hero-block-1-col-right__bg">
 					<!-- <div class="wrap-img">
-						<img src="<?php echo get_template_directory_uri() ?>/assets/img/bg_transparent.jpg"
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/bg_transparent.jpg"
 							alt="hero-block-bg">
 					</div> -->
 				</div>
@@ -17,7 +17,7 @@
 
 				<div class="_rmbt-hero-block-1-col-left__bg">
 					<!-- <div class="wrap-img">
-						<img src="<?php echo get_template_directory_uri() ?>/assets/img/bg_transparent.jpg"
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/bg_transparent.jpg"
 							alt="hero-block-bg">
 					</div> -->
 				</div>

@@ -161,6 +161,10 @@
                D:\web\multisite\wp-content\themes\premium-theme-1\app\composer> vendor/bin/phpcs "../src"
             авто исправление ошибок во всём проекте
             D:\web\multisite\wp-content\themes\premium-theme-1\app\composer> vendor/bin/phpcbf "../src"
+      добавить вот этот стандарт
+         composer require --dev wptrt/wp-theme-review
+
+
    SQL при условии что для работы с БД использовались только стандартные функции ядра WP тестировать на совместимость не нужно
    SSl - думаю лучше всего делать это на реальном хостинге например infinityfree.com
       нужно проверить secure cookies и mixed content

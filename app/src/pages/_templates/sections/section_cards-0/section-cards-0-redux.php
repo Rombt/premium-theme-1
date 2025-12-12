@@ -1,4 +1,9 @@
 <?php
+/**
+ * Section Cards Redux.
+ *
+ * @package rmbt
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,7 +16,6 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings header site', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
 
 			array(
@@ -36,16 +40,12 @@ Redux::set_section(
 				'id'    => 'rmbt-simple-section_section-title',
 				'type'  => 'text',
 				'title' => esc_html__( 'Title of Simple-Section', 'premium-theme-1' ),
-				// 'default' => esc_html__( '', 'premium-theme-1' ),
 			),
 			array(
 				'id'    => 'rmbt-simple-section_section-text',
 				'type'  => 'text',
 				'title' => esc_html__( 'Text of Simple-Section', 'premium-theme-1' ),
-				// 'default' => esc_html__( '', 'premium-theme-1' ),
 			),
-
-
 
 			/*------------------ rmbt-simple-section accordion ------------------*/
 			array(
@@ -55,28 +55,6 @@ Redux::set_section(
 				'subtitle' => 'Add your content to the section \'Title\'',
 				'position' => 'start',
 			),
-
-
-			// array(
-			// 'id' => 'rmbt-simple-section-gallery',
-			// 'type' => 'gallery',
-			// 'title' => esc_html__( 'Add/Edit Gallery on the main screen ', 'premium-theme-1' ),
-			// ),
-
-			// array(
-			// 'id' => 'simple-section_title',
-			// 'type' => 'text',
-			// 'title' => esc_html__( 'Front page title', 'premium-theme-1' ),
-			// 'default' => __( wp_kses( 'Український виробник', 'post' ), 'premium-theme-1' ),
-			// ),
-
-			// array(
-			// 'id' => 'simple-section_subtitle',
-			// 'type' => 'text',
-			// 'title' => esc_html__( 'Front page title', 'premium-theme-1' ),
-			// 'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), 'premium-theme-1' ),
-			// ),
-
 
 			array(
 				'id'       => 'rmbt-simple-section-end',

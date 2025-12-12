@@ -1,6 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Page Template.
+ *
+ * @package rmbt
+ */
 
-
+get_header(); ?>
 
 <main>
 
@@ -10,7 +15,7 @@
 	$number_active_tab = 2;
 	$templates_types   = array();
 	foreach ( $arr_dirs as $dir ) {
-		if ( $dir !== '.' && $dir !== '..' && is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir ) ) {
+		if ( '.' !== $dir && '..' !== $dir && is_dir( __DIR__ . DIRECTORY_SEPARATOR . $dir ) ) {
 			$templates_types[ $dir ] = array();
 			$arr_sub_dirs            = scandir( __DIR__ . DIRECTORY_SEPARATOR . $dir );
 			foreach ( $arr_sub_dirs as $sub_dir ) {
@@ -35,11 +40,11 @@
 						?>
 						<?php if ( $i === $number_active_tab ) : ?>
 					<button type="button" class="tabs__title tabs__title-active"
-						data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?>
+						data-tab="<?php echo esc_html( $template_type_name ); ?>"><?php echo esc_html( $template_type_name ); ?>
 					</button>
 					<?php else : ?>
 					<button type="button" class="tabs__title"
-						data-tab="<?php echo $template_type_name; ?>"><?php echo $template_type_name; ?></button>
+						data-tab="<?php echo esc_html( $template_type_name ); ?>"><?php echo esc_html( $template_type_name ); ?></button>
 					<?php endif ?>
 						<?php ++$i; ?>
 					<?php endforeach ?>
@@ -51,9 +56,9 @@
 					foreach ( $templates_types as $template_type => $arr_templates ) {
 						if ( $i === $number_active_tab ) {
 							?>
-					<div class="tabs__body tabs__body-active" data-tab-name="<?php echo $template_type; ?>">
+					<div class="tabs__body tabs__body-active" data-tab-name="<?php echo esc_html( $template_type ); ?>">
 						<?php } else { ?>
-						<div class="tabs__body" data-tab-name="<?php echo $template_type; ?>">
+						<div class="tabs__body" data-tab-name="<?php echo esc_html( $template_type ); ?>">
 							<?php } ?>
 
 							<?php foreach ( $arr_templates as $template ) { ?>
@@ -74,19 +79,22 @@
 								?>
 
 								<?php
-											$specifier = '';
-								if ( $pos = strpos( $template, '-' ) ) {
+								$specifier = '';
+
+								$pos = strpos( $template, '-' );
+								if ( $pos ) {
 									$specifier = substr( $template, $pos + 1 );
 								}
 								?>
 
+
 								<?php $str_get_template_part = 'get_template_part(\'' . RMBT_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' . DIRECTORY_SEPARATOR . $template_type . DIRECTORY_SEPARATOR . $template . DIRECTORY_SEPARATOR . $template . '\',' . ( strlen( $specifier ) > 0 ? '\'' . $specifier . '\'' : 'null' ) . ( strlen( $str_args ) > 0 ? ',' . $str_args : null ) . ');'; ?>
 
-								<?php if ( $template_type === 'components' ) : ?>
+								<?php if ( 'components' === $template_type ) : ?>
 							<div class="rmbt-container templates-page-components">
-								<h2><?php echo $template; ?></h2>
+								<h2><?php echo esc_html( $template ); ?></h2>
 								<div class="get-template-part">
-								<p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
+								<p class='text-to-copy'> <?php echo esc_html( $str_get_template_part ); ?> </p>
 								<button class='copy-button'>copy</button>
 								</div>
 								<div class="templates-page-components__body">
@@ -98,9 +106,9 @@
 							<?php else : ?>
 
 							<div class="rmbt-container templates-page-section-title">
-								<h2><?php echo $template; ?></h2>
+								<h2><?php echo esc_html( $template ); ?></h2>
 								<div class="get-template-part">
-								<p class='text-to-copy'> <?php echo $str_get_template_part; ?> </p>
+								<p class='text-to-copy'> <?php echo esc_html( $str_get_template_part ); ?> </p>
 								<button class='copy-button'>copy</button>
 								</div>
 							</div>

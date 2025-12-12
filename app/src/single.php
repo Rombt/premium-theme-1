@@ -1,4 +1,11 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Single Post Template.
+ *
+ * @package rmbt
+ */
+
+get_header();?>
 
 
 
@@ -6,16 +13,17 @@
 	<div class="rmbt-full-width rmbt-single-full-width">
 		<section class="rmbt-container rmbt-single">
 			<?php the_title( '<h1 class="entry-title title-section">', '</h1>' ); ?>
-			<?php if ( isset( $rmbt_theme_options['rmbt-single_page-subtitle'] ) && $rmbt_theme_options['rmbt-single_page-subtitle'] !== '' ) : ?>
+			<?php if ( isset( $rmbt_theme_options['rmbt-single_page-subtitle'] ) && '' !== $rmbt_theme_options['rmbt-single_page-subtitle'] ) { ?>
 				<p class='subtitle-section'>
 					<?php echo rmbt_get_redux_field( 'rmbt-single_page-subtitle', 1 ); ?>
 				</p>
-			<?php endif ?>
+			<?php } ?>
+
 
 			<div class="rmbt-single__row">
 				<?php global $rmbt_theme_options; ?>
 				<?php
-				if ( $rmbt_theme_options['rmbt-single-sidebar-switch'] && $rmbt_theme_options['rmbt-single-sidebar-radio'] === '1' ) {
+				if ( $rmbt_theme_options['rmbt-single-sidebar-switch'] && '1' === $rmbt_theme_options['rmbt-single-sidebar-radio'] ) {
 					get_sidebar( 'left' );
 				}
 				?>
@@ -35,7 +43,7 @@
 				</div>
 
 				<?php
-				if ( $rmbt_theme_options['rmbt-single-sidebar-switch'] && $rmbt_theme_options['rmbt-single-sidebar-radio'] === '2' ) {
+				if ( $rmbt_theme_options['rmbt-single-sidebar-switch'] && '2' === $rmbt_theme_options['rmbt-single-sidebar-radio'] ) {
 					get_sidebar( 'right' );
 				}
 				?>

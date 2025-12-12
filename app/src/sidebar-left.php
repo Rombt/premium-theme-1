@@ -1,3 +1,11 @@
+<?php
+/**
+ * Left Sidebar Template.
+ *
+ * @package rmbt
+ */
+?>
+
 <aside class="sidebar sidebar-left">
 
 	<div class="sidebar-toggle sidebar-toggle-left"><span></span>

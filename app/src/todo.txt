@@ -144,7 +144,7 @@
          @ini_set( 'display_errors', 1 );
          error_reporting( E_ALL );
 
-   PHP
+   ++ PHP
       установить в Laragon следующие версии php
         ++ 7.4
         ++ 8.0.9
@@ -152,10 +152,15 @@
         ++ 8.2.9
         ++- 8.3.9       ошибки при старте Apache, но сервер работает
         ++- 8.4.9       ошибки при старте Apache, но сервер работает
-     ++ установить Code Sniffers
-         установил
-            композером PHPCS файл настроек для него   .phpcs.xml
-            расширение для VS Code phpsab  использует .vscode\settings.json и .phpcs.xml
+   ++ Code Style (Code Sniffers)
+      установил
+         композером PHPCS файл настроек для него   .phpcs.xml
+         расширение для VS Code phpsab  использует .vscode\settings.json и .phpcs.xml
+         Команды:
+            показать ошибки во всём проекте
+               D:\web\multisite\wp-content\themes\premium-theme-1\app\composer> vendor/bin/phpcs "../src"
+            авто исправление ошибок во всём проекте
+            D:\web\multisite\wp-content\themes\premium-theme-1\app\composer> vendor/bin/phpcbf "../src"
    SQL при условии что для работы с БД использовались только стандартные функции ядра WP тестировать на совместимость не нужно
    SSl - думаю лучше всего делать это на реальном хостинге например infinityfree.com
       нужно проверить secure cookies и mixed content
@@ -418,11 +423,31 @@
 
 
 
+=============================  Перечень того что проверяют на Envato ThemeForest    =============================
 
+   безопасность (escape, sanitize, nonce);
 
+   производительность;
 
+   правильную структуру темы;
 
+   наличие обязательных файлов;
 
+   отсутствие плагин-функционала в теме;
+
+   отсутствие внешних зависимостей, грузящихся с CDN;
+
+   правильную работу Customizer;
+
+   демо-импорт;
+
+   правильные enqueues (никаких прямых <script> в шаблонах);
+
+   отсутствие устаревших функций;
+
+   RTL-совместимость;
+
+   доступность (a11y).
 
 
 

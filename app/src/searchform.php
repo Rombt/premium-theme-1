@@ -1,3 +1,11 @@
+<?php
+/**
+ * Search Form Template.
+ *
+ * @package rmbt
+ */
+?>
+
 <form class="rmbt-search-modal__form" method="get"
 			action="<?php echo esc_url( home_url() ); ?>">
 			<input type="search" value="<?php echo get_search_query(); ?>" name="s" id="s"

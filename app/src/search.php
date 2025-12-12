@@ -1,27 +1,27 @@
 <?php
-
 /**
- * The template for displaying search results pages
+ * Search Results Template.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
- *
- * @package simple_restaurant_site
+ * @package rmbt
  */
 
 get_header();
+get_template_part( 'template-parts/parts/head_pages' );
 ?>
-<?php get_template_part( 'template-parts/parts/head_pages' ); ?>
-
 
 <main id="primary" class="site-main container-for-wp-blocs">
 
 	<?php if ( have_posts() ) : ?>
 
-		<header class="page-header ">
+		<header class="page-header">
 			<h1 class="page-title">
 				<?php
 				/* translators: %s: search query. */
-				printf( esc_html__( 'Search Results for: %s', 'premium-theme-1' ), '<span>' . get_search_query() . '</span>' );
+				printf(
+				/* translators: wrapping in <span> is safe HTML */
+					esc_html__( 'Search Results for: %s', 'premium-theme-1' ),
+					'<span>' . esc_html( get_search_query() ) . '</span>'
+				);
 				?>
 			</h1>
 		</header>
@@ -30,7 +30,6 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 			get_template_part( 'template-parts/content', 'search' );
-
 		endwhile;
 
 		the_posts_navigation();
@@ -44,7 +43,4 @@ get_header();
 </main>
 
 <?php
-
-
-// get_sidebar();
 get_footer();

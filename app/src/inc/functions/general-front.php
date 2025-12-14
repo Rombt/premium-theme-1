@@ -6,15 +6,18 @@ function get_icon_svg( $id, $color = false, $classes = '' ) {
 	$file_path   = get_theme_file_path( $sprite_rel . $sprite_name );
 	$base_url    = get_theme_file_uri( $sprite_rel . $sprite_name );
 	$ver         = file_exists( $file_path ) ? filemtime( $file_path ) : time();
-	$url         = esc_url( add_query_arg( 'ver', $ver, $base_url ) );
-	$pash        = $url . '#' . $id;
 
-	if ( $classes != '' ) {
-		$classes = 'class="' . $classes . '"';
+	$url  = esc_url( add_query_arg( 'ver', $ver, $base_url ) );
+	$href = esc_url( $url . '#' . sanitize_key( $id ) );
+
+	$class_attr = '';
+	if ( '' !== $classes ) {
+		$class_attr = ' class="' . esc_attr( $classes ) . '"';
 	}
 
-	return '<svg ' . $classes . '><use href="' . $pash . '"> </use></svg>';
+	return '<svg' . $class_attr . '><use href="' . $href . '"></use></svg>';
 }
+
 
 
 function rmbt_custom_WPquery( $rmbt_post_type, $rmbt_posts_per_page, $rmbt_current = '', $tax_query = array() ) {

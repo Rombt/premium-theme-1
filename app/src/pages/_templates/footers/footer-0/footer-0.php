@@ -1,3 +1,13 @@
+<?php
+/**
+ * Footer 0 template.
+ *
+ * @package Premium_Theme_1
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
 <div class="rmbt-full-width _rmbt-footer-0-full-width">
 	<section class="rmbt-container _rmbt-footer-0">
 		<div class="_rmbt-footer-0__row _rmbt-footer-0-row-content">

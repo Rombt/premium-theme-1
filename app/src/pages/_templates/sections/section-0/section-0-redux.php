@@ -1,4 +1,9 @@
 <?php
+/**
+ * Section 0 Redux settings.
+ *
+ * @package Premium_Theme_1
+ */
 
 defined( 'ABSPATH' ) || exit;
 

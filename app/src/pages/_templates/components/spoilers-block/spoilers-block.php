@@ -1,3 +1,13 @@
+<?php
+/**
+ * Spoilers Block template.
+ *
+ * @package Premium_Theme_1
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
 <div class="spoilers-block">
 	<div class='spoiler'>
 		<div class='spoiler__title'>Spoiler Title 1</div>

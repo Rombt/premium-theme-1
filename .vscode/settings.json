@@ -6,4 +6,7 @@
     "phpsab.standard": "WordPress-Extra",
     "phpsab.executablePathCS": "app/composer/vendor/bin/phpcs",
     "phpsab.executablePathCBF": "app/composer/vendor/bin/phpcbf",
+    "cSpell.words": [
+        "ABSPATH"
+    ],
 }

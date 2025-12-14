@@ -1,3 +1,13 @@
+<?php
+/**
+ * Header 1 template.
+ *
+ * @package Premium_Theme_1
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
 <section class="rmbt-full-width rmbt-header-wireframes-1-full-width">
 
 	<div class="rmbt-container rmbt-header-wireframes-1">

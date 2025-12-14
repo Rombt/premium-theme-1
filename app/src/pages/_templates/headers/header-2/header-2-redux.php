@@ -1,4 +1,9 @@
 <?php
+/**
+ * Header 2 Redux settings.
+ *
+ * @package Premium_Theme_1
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,7 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings header site', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'           => 'rmbt-bg_section-img',
 				'type'         => 'media',
@@ -31,21 +34,16 @@ Redux::set_section(
 				'title'   => esc_html__( 'Description for background section picture', 'premium-theme-1' ),
 				'default' => esc_html__( 'background section picture', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'    => 'rmbt-header_wireframes-1_section-title',
 				'type'  => 'text',
 				'title' => esc_html__( 'Title of header_wireframes-1', 'premium-theme-1' ),
-				// 'default' => esc_html__( '', 'premium-theme-1' ),
 			),
 			array(
 				'id'    => 'rmbt-header_wireframes-1_section-text',
 				'type'  => 'text',
 				'title' => esc_html__( 'Text of header_wireframes-1', 'premium-theme-1' ),
-				// 'default' => esc_html__( '', 'premium-theme-1' ),
 			),
-
-
 
 			/*------------------ rmbt-header_wireframes-1 accordion ------------------*/
 			array(
@@ -55,37 +53,12 @@ Redux::set_section(
 				'subtitle' => 'Add your content to the section \'Title\'',
 				'position' => 'start',
 			),
-
-
-			// array(
-			// 'id' => 'rmbt-header_wireframes-1-gallery',
-			// 'type' => 'gallery',
-			// 'title' => esc_html__( 'Add/Edit Gallery on the main screen ', 'premium-theme-1' ),
-			// ),
-
-			// array(
-			// 'id' => 'header_wireframes-1_title',
-			// 'type' => 'text',
-			// 'title' => esc_html__( 'Front page title', 'premium-theme-1' ),
-			// 'default' => __( wp_kses( 'Український виробник', 'post' ), 'premium-theme-1' ),
-			// ),
-
-			// array(
-			// 'id' => 'header_wireframes-1_subtitle',
-			// 'type' => 'text',
-			// 'title' => esc_html__( 'Front page title', 'premium-theme-1' ),
-			// 'default' => __( wp_kses( 'хлібопекарського і кондитерського обладнання', 'post' ), 'premium-theme-1' ),
-			// ),
-
-
 			array(
 				'id'       => 'rmbt-header_wireframes-1-end',
 				'type'     => 'accordion',
 				'position' => 'end',
 			),
 			/*------------------ /rmbt-header_wireframes-1 accordion ------------------*/
-
-
 		),
 	)
 );

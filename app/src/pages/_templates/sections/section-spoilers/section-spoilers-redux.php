@@ -1,4 +1,9 @@
 <?php
+/**
+ * Section Spoilers Redux.
+ *
+ * @package rmbt
+ */
 
 defined( 'ABSPATH' ) || exit;
 

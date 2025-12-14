@@ -4,6 +4,8 @@
  *
  * @package rmbt
  */
+
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <div class="rmbt-full-width rmbt-section-cards-0-full-width">

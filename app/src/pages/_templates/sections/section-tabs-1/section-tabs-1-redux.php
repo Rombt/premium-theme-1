@@ -7,7 +7,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-
 Redux::set_section(
 	$opt_name,
 	array(
@@ -23,12 +22,13 @@ Redux::set_section(
 				'type'         => 'media',
 				'url'          => true,
 				'title'        => esc_html__( 'This picture will use for background section', 'premium-theme-1' ),
-				'compiler'     => 'true',
+				'compiler'     => true,
 				'preview_size' => 'full',
 				'default'      => array(
 					'url' => '/assets/img/no-image.jpg',
 				),
 			),
+
 			array(
 				'id'      => 'rmbt-bg_section-img_alt',
 				'type'    => 'text',
@@ -41,6 +41,7 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => esc_html__( 'Title of Simple-Section', 'premium-theme-1' ),
 			),
+
 			array(
 				'id'    => 'rmbt-simple-section_section-text',
 				'type'  => 'text',
@@ -52,7 +53,7 @@ Redux::set_section(
 				'id'       => 'rmbt-simple-section-start',
 				'type'     => 'accordion',
 				'title'    => esc_html__( 'Title of Simple-Section', 'premium-theme-1' ),
-				'subtitle' => 'Add your content to the section \'Title\'',
+				'subtitle' => esc_html__( 'Add your content to the section "Title"', 'premium-theme-1' ),
 				'position' => 'start',
 			),
 
@@ -62,7 +63,6 @@ Redux::set_section(
 				'position' => 'end',
 			),
 			/*------------------ /rmbt-simple-section accordion ------------------*/
-
 
 		),
 	)

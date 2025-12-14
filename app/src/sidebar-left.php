@@ -4,6 +4,8 @@
  *
  * @package rmbt
  */
+
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <aside class="sidebar sidebar-left">

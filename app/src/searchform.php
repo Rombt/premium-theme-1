@@ -4,6 +4,8 @@
  *
  * @package rmbt
  */
+
+defined( 'ABSPATH' ) || exit;
 ?>
 
 <form class="rmbt-search-modal__form" method="get"

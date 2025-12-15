@@ -4,6 +4,7 @@
  *
  * @package premium-theme-1
  */
+
 defined( 'ABSPATH' ) || exit;
 
 

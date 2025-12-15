@@ -414,25 +414,22 @@ function rmbt_redux_repeater_to_ul( $id_field, $mod = 'tel', $enabled_id = '', $
 	if ( count( $rmbt_theme_options[ $id_field ] ) > 1 ) {
 		$html = '<ul>';
 		foreach ( $rmbt_theme_options[ $id_field ] as $key => $value ) {
-
 			if ( isset( $rmbt_theme_options[ $enabled_id ][ $key ][ $enabled_option ] ) && ! $rmbt_theme_options[ $enabled_id ][ $key ][ $enabled_option ] ) {
 				continue;
 			}
-
-			if ( $mod == 'tel' ) {
+			if ( 'tel' === $mod ) {
 				$html .= '<li><a href="' . $mod . ':' . rmbt_phone_number_clear_redux( $value ) . '">' . $before_str . trim( $value ) . $after_str . '</a></li>';
-			} elseif ( $mod == 'mailto' ) {
+			} elseif ( 'mailto' === $mod ) {
 				$html .= '<li><a href="' . $mod . ':' . $value . '">' . $before_str . trim( $value ) . $after_str . '</a></li>';
 			}
 		}
-
 		$html .= '</ul>';
 
-		return $html;
-	} elseif ( $mod == 'tel' ) {
-			return '<a href="' . $mod . ':' . rmbt_phone_number_clear_redux( $rmbt_theme_options[ $id_field ][0] ) . '">' . $before_str . trim( $rmbt_theme_options[ $id_field ][0] ) . $after_str . '</a>';
-	} elseif ( $mod == 'mailto' ) {
-		return '<a href="' . $mod . ':' . $rmbt_theme_options[ $id_field ][0] . '">' . $before_str . trim( $rmbt_theme_options[ $id_field ][0] ) . $after_str . '</a>';
+		return wp_kses_post( $html );
+	} elseif ( 'tel' === $mod ) {
+			return '<a href="' . esc_html( $mod ) . ':' . esc_html( rmbt_phone_number_clear_redux( $rmbt_theme_options[ $id_field ][0] ) ) . '">' . wp_kses_post( $before_str ) . esc_html( trim( $rmbt_theme_options[ $id_field ][0] ) ) . wp_kses_post( $after_str ) . '</a>';
+	} elseif ( 'mailto' === $mod ) {
+		return '<a href="' . esc_html( $mod ) . ':' . esc_html( $rmbt_theme_options[ $id_field ][0] ) . '">' . wp_kses_post( $before_str ) . esc_html( trim( $rmbt_theme_options[ $id_field ][0] ) ) . wp_kses_post( $after_str ) . '</a>';
 	}
 }
 

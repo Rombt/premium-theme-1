@@ -1,3 +1,13 @@
+<?php
+/**
+ * Content Post Template.
+ *
+ * @package premium-theme-1
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 	</header>
@@ -7,7 +17,7 @@
 			the_post_thumbnail();
 		}
 		?>
-		
+
 		<?php the_content(); ?>
 	</div>
 </article>

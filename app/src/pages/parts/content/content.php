@@ -1,4 +1,12 @@
 <?php
+/**
+ * Content Template.
+ *
+ * @package premium-theme-1
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 
 get_template_part(
 	'pages/components/post_card-blog/post_card-blog',

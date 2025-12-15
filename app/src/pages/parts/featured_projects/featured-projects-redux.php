@@ -1,4 +1,9 @@
 <?php
+/**
+ * Featured Projects Redux Template.
+ *
+ * @package premium-theme-1
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,7 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings of Featured Projects Block', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'    => 'rmbt-featured-projects_section-title',
 				'type'  => 'text',
@@ -24,7 +27,6 @@ Redux::set_section(
 				'type'  => 'textarea',
 				'title' => __( 'Subtitle of Featured Projects Block', 'premium-theme-1' ),
 			),
-
 		),
 	)
 );

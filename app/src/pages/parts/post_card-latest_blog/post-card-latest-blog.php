@@ -1,10 +1,17 @@
-<?php global $rmbt_theme_options; ?>
-
 <?php
+/**
+ * Post Card Latest Blog Redux Template.
+ *
+ * @package premium-theme-1
+ */
 
-$sticky       = get_option( 'sticky_posts' );
-$sticky_posts = array();
-$post_query   = new WP_Query(
+defined( 'ABSPATH' ) || exit;
+
+global $rmbt_theme_options;
+
+$sticky          = get_option( 'sticky_posts' );
+$sticky_posts    = array();
+$rmbt_post_query = new WP_Query(
 	array(
 		'post_type'      => 'post',
 		'orderby'        => 'date',
@@ -25,25 +32,25 @@ if ( ! empty( $sticky ) && count( $sticky ) !== 0 ) {
 	$sticky_posts = get_posts( $args );
 
 }
-if ( $post_query->post_count !== 0 ) {
+if ( 0 !== $rmbt_post_query->post_count ) {
 	?>
 
 			<div class="rmbt-full-width rmbt-latest-blog-posts-full-width">
-				<section class="rmbt-container rmbt-latest-blog-posts" 
+				<section class="rmbt-container rmbt-latest-blog-posts"
 				<?php
-				if ( isset( $rmbt_theme_options['rmbt-latest-blog-posts_section-title'] ) && $rmbt_theme_options['rmbt-latest-blog-posts_section-title'] == '' ) :
+				if ( isset( $rmbt_theme_options['rmbt-latest-blog-posts_section-title'] ) && '' === $rmbt_theme_options['rmbt-latest-blog-posts_section-title'] ) :
 					echo 'style="padding-top: 15px; padding-bottom: 15px;"';
 				endif
 				?>
 				>
 
 					<?php if ( $rmbt_theme_options['rmbt-latest-blog-posts_section-title'] ) : ?>
-								<h2 class='title-section'> <?php echo rmbt_get_redux_field( 'rmbt-latest-blog-posts_section-title', 1 ); ?>
+								<h2 class='title-section'> <?php echo esc_html( rmbt_get_redux_field( 'rmbt-latest-blog-posts_section-title', 1 ) ); ?>
 								</h2>
 					<?php endif ?>
-					<?php if ( isset( $rmbt_theme_options['rmbt-latest-blog-posts_section-subtitle'] ) && $rmbt_theme_options['rmbt-latest-blog-posts_section-subtitle'] !== '' ) : ?>
+					<?php if ( isset( $rmbt_theme_options['rmbt-latest-blog-posts_section-subtitle'] ) && '' !== $rmbt_theme_options['rmbt-latest-blog-posts_section-subtitle'] ) : ?>
 								<p class='subtitle-section'>
-									<?php echo rmbt_get_redux_field( 'rmbt-latest-blog-posts_section-subtitle', 1 ); ?>
+									<?php echo esc_html( rmbt_get_redux_field( 'rmbt-latest-blog-posts_section-subtitle', 1 ) ); ?>
 								</p>
 					<?php endif ?>
 
@@ -52,9 +59,9 @@ if ( $post_query->post_count !== 0 ) {
 
 							<?php
 							if ( count( $sticky_posts ) > 0 ) {
-								// все закреплённые посты (или только один?)
-								foreach ( $sticky_posts as $post ) {
-									setup_postdata( $post );
+								// все закреплённые посты (или только один?).
+								foreach ( $sticky_posts as $rmbt_post ) {
+									setup_postdata( $rmbt_post );
 									get_template_part(
 										'pages/components/post_card-latest_blog/post_card-latest_blog',
 										null,
@@ -73,8 +80,8 @@ if ( $post_query->post_count !== 0 ) {
 
 
 							} else {
-								// самый молодой пост
-								$first_post = $post_query->posts[0];
+								// самый молодой пост.
+								$first_post = $rmbt_post_query->posts[0];
 								setup_postdata( $first_post );
 								get_template_part(
 									'pages/components/post_card-latest_blog/post_card-latest_blog',
@@ -98,9 +105,9 @@ if ( $post_query->post_count !== 0 ) {
 						<div class="rmbt-latest-blog-posts__col rmbt-latest-blog-posts-right-col">
 
 							<?php
-							if ( $post_query->have_posts() ) :
-								while ( $post_query->have_posts() ) :
-									$post_query->the_post();
+							if ( $rmbt_post_query->have_posts() ) :
+								while ( $rmbt_post_query->have_posts() ) :
+									$rmbt_post_query->the_post();
 
 									get_template_part(
 										'pages/components/post_card-latest_blog/post_card-latest_blog',

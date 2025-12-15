@@ -16,7 +16,6 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings header site', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
 			array(
 				'id'           => 'rmbt-bg_section-img',

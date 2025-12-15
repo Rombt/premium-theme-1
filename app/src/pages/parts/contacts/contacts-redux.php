@@ -1,4 +1,9 @@
 <?php
+/**
+ * Contacts Redux Template.
+ *
+ * @package premium-theme-1
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,7 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings of Contacts Page', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'    => 'rmbt-contacts-page_section-title',
 				'type'  => 'text',
@@ -24,16 +27,12 @@ Redux::set_section(
 				'type'  => 'textarea',
 				'title' => __( 'Subtitle of Contacts Page', 'premium-theme-1' ),
 			),
-
-
-
 			array(
 				'id'     => 'contact_map_section',
 				'type'   => 'section',
 				'title'  => __( 'Map Settings', 'premium-theme-1' ),
 				'indent' => true,
 			),
-
 			array(
 				'id'       => 'contact_address',
 				'type'     => 'textarea',
@@ -41,7 +40,6 @@ Redux::set_section(
 				'subtitle' => __( 'Displayed on the Contact page.', 'premium-theme-1' ),
 				'desc'     => __( 'Post\'s tags are available.', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'          => 'contact_map_address',
 				'type'        => 'text',
@@ -49,7 +47,6 @@ Redux::set_section(
 				'subtitle'    => __( 'Enter full address — the map will be generated automatically.', 'premium-theme-1' ),
 				'placeholder' => '1600 Amphitheatre Parkway, Mountain View, CA',
 			),
-
 			array(
 				'id'      => 'contact_map_zoom',
 				'type'    => 'slider',
@@ -58,20 +55,10 @@ Redux::set_section(
 				'max'     => 20,
 				'default' => 14,
 			),
-
 			array(
 				'type'   => 'section',
 				'indent' => false,
 			),
-
-
-
-
-
-
-
-
-
 			array(
 				'id'        => 'rmbt-managers',
 				'type'      => 'repeater',
@@ -120,8 +107,6 @@ Redux::set_section(
 					),
 				),
 			),
-
-
 			array(
 				'id'           => 'rmbt-contacts-page_poster-1',
 				'type'         => 'media',
@@ -136,7 +121,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => __( 'Image description of first poster', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'           => 'rmbt-contacts-page_poster-2',
 				'type'         => 'media',
@@ -151,7 +135,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => __( 'Image description of second poster', 'premium-theme-2' ),
 			),
-
 			array(
 				'id'           => 'rmbt-contacts-page_poster-3',
 				'type'         => 'media',
@@ -166,19 +149,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => __( 'Image description of third poster', 'premium-theme-1' ),
 			),
-
-
-			// array(
-			// 'id' => 'rmbt-contacts_section-title',
-			// 'type' => 'text',
-			// 'title' => __('Title of Contacts Block', 'premium-theme-1'),
-			// ),
-			// array(
-			// 'id' => 'rmbt-contacts_section-subtitle',
-			// 'type' => 'textarea',
-			// 'title' => __('Subtitle of Contacts Block', 'premium-theme-1'),
-			// ),
-
 		),
 	)
 );

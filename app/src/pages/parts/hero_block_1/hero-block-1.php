@@ -1,8 +1,21 @@
+<?php
+/**
+ * Hero Block Template.
+ *
+ * @package premium-theme-1
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
+
 <div class="rmbt-full-width rmbt-hero-block-1-full-width">
 
 	<div class="rmbt-hero-block-1-full-width__bg">
 		<div class="wrap-img">
-			<?php echo rmbt_redux_img( 'rmbt-hero-block-1-bg_img', 'rmbt-hero-block-1-bg_img_alt' ); ?>
+			<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo rmbt_redux_img( 'rmbt-hero-block-1-bg_img', 'rmbt-hero-block-1-bg_img_alt' );
+			?>
 		</div>
 	</div>
 

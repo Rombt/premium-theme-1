@@ -18,7 +18,6 @@ Redux::set_section(
 		'subsections'      => true,
 		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'           => 'rmbt-bg_section-img',
 				'type'         => 'media',

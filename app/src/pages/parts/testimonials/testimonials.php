@@ -1,11 +1,19 @@
 <?php
+/**
+ * Testimonials Redux Template.
+ *
+ * @package premium-theme-1
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 $args = array(
 	'status' => 'approve',
 	'number' => 10,
 	'order'  => 'DESC',
 );
 
-$comments = get_comments( $args );
+$rmbt_comments = get_comments( $args );
 
 ?>
 
@@ -13,44 +21,35 @@ $comments = get_comments( $args );
 
 	<div class="wrapper-section testimonials-block-wrapper-section">
 		<div class="rmbt-full-width rmbt-testimonials-block-full-width">
-			<!-- by container width -->
-			<!-- <section class="rmbt-container rmbt-testimonials-block"> -->
-			<!-- by full width -->
 			<section class="rmbt-testimonials-block">
 				<h2 class="title-section">
-					<?php echo rmbt_get_redux_field( 'rmbt-testimonials-block_section-title', 1 ); ?>
+					<?php echo esc_html( rmbt_get_redux_field( 'rmbt-testimonials-block_section-title', 1 ) ); ?>
 				</h2>
 				<p class="subtitle-section">
-					<?php echo rmbt_get_redux_field( 'rmbt-testimonials-block_section-subtitle', 1 ); ?>
+					<?php echo esc_html( rmbt_get_redux_field( 'rmbt-testimonials-block_section-subtitle', 1 ) ); ?>
 				</p>
 				<div class="rmbt-testimonials-block__row">
 					<div class="rmbt-testimonials-block-slide-swiper swiper">
 						<div class="swiper-wrapper">
-
-							<?php foreach ( $comments as $comment ) : ?>
-
+							<?php foreach ( $rmbt_comments as $rmbt_comment ) : ?>
 								<div class="swiper-slide rmbt-testimonials-block-slide  shadow-box">
 									<div class="wrap-img rmbt-testimonials-block-slide__img">
-
 										<?php
-										$custom_avatar = get_comment_meta( $comment->comment_ID, 'custom_avatar', true );
-										$avatar        = get_avatar( $comment->comment_author_email, 80 );
+										$custom_avatar = get_comment_meta( $rmbt_comment->comment_ID, 'custom_avatar', true );
+										$avatar        = get_avatar( $rmbt_comment->comment_author_email, 80 );
 										if ( $custom_avatar ) {
 											echo '<img src="' . esc_url( $custom_avatar ) . '" width="80" height="80" class="custom-avatar">';
 										} else {
-											echo get_avatar( $comment->comment_author_email, 80, rmbt_get_redux_field( 'rmbt-default_avatar_img', 1 ) );
+											echo get_avatar( $rmbt_comment->comment_author_email, 80, rmbt_get_redux_field( 'rmbt-default_avatar_img', 1 ) );
 										}
 										?>
-
 									</div>
 									<h2 class="title-block">
-										<a
-											href="<?php echo esc_url( $comment->comment_author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
+										<a href="<?php echo esc_url( $rmbt_comment->comment_author_url ); ?>"><?php echo esc_html( $rmbt_comment->comment_author ); ?></a>
 									</h2>
 									<div class='subtitle-block'>
-										<?php echo wp_trim_words( esc_html( $comment->comment_content ), 15, '  [...]' ); ?>
+										<?php echo esc_html( wp_trim_words( $rmbt_comment->comment_content, 15, '  [...]' ) ); ?>
 									</div>
-
 									<?php
 									get_template_part(
 										'pages/components/button_read_more/button_read_more',
@@ -58,21 +57,24 @@ $comments = get_comments( $args );
 										array(
 											'data'    => '',
 											'title'   => 'read more',
-											'href'    => get_comment_link( $comment->comment_ID ),
+											'href'    => get_comment_link( $rmbt_comment->comment_ID ),
 											'classes' => 'shadow-box',
 										)
 									);
 									?>
 								</div>
 							<?php endforeach; ?>
-
 						</div>
 					</div>
 					<div class="rmbt-testimonials-block-slide-swiper__button-next">
-						<?php echo get_icon_svg( 'chevron_1', true ); ?>
+						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo get_icon_svg( 'chevron_1', true );
+						?>
 					</div>
 					<div class="rmbt-testimonials-block-slide-swiper__button-prev">
-						<?php echo get_icon_svg( 'chevron_1', true ); ?>
+						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo get_icon_svg( 'chevron_1', true );
+						?>
 					</div>
 				</div>
 			</section>

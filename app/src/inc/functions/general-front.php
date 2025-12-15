@@ -371,7 +371,6 @@ function rmbt_get_redux_field( $id_field, $kses = false, $all_tags_allowed = fal
 		return $rmbt_theme_options[ $id_field ];
 	}
 
-	// return sprintf( esc_html__( '%s', 'premium-theme-1' ), esc_html( $rmbt_theme_options[ $id_field ] ) );
 	return esc_html( $rmbt_theme_options[ $id_field ] );
 }
 

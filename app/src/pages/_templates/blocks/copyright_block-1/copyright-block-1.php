@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright Block Redux Template.
+ * Copyright Block Redux Block Settings.
  *
  * @package premium-theme-1
  */

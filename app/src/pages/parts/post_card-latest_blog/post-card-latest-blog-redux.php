@@ -1,4 +1,9 @@
 <?php
+/**
+ * Post Card Latest Blog Redux Block Settings.
+ *
+ * @package premium-theme-1
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,7 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings header site', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'      => 'rmbt-latest-blog-posts_section-title',
 				'type'    => 'text',
@@ -25,7 +28,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => __( 'Subtitle of cards block', 'premium-theme-1' ),
 			),
-
 		),
 	)
 );

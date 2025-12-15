@@ -1,6 +1,6 @@
 <?php
 /**
- * Section Tabs Redux Template.
+ * Section Tabs Redux Block Settings.
  *
  * @package rmbt
  */

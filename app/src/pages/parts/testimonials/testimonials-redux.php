@@ -1,6 +1,6 @@
 <?php
 /**
- * Testimonials Redux Template.
+ * Testimonials Redux Block Settings.
  *
  * @package premium-theme-1
  */

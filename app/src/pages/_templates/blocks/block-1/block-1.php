@@ -1,6 +1,6 @@
 <?php
 /**
- * Block Redux Template.
+ * Block Redux Block Settings.
  *
  * @package premium-theme-1
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Card Redux Template.
+ * Card Redux Block Settings.
  *
  * @package premium-theme-1
  */

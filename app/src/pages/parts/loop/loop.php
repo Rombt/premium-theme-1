@@ -1,4 +1,14 @@
-<?php if ( have_posts() ) : ?>
+<?php
+/**
+ * Main Loop Template.
+ *
+ * @package premium-theme-1
+ */
+defined( 'ABSPATH' ) || exit;
+
+
+if ( have_posts() ) : ?>
+
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -11,10 +21,12 @@
 
 	<div class="pagination">
 		<?php
-		echo paginate_links(
-			array(
-				'mid_size' => 0,
-				'end_size' => 1,
+		echo wp_kses_post(
+			paginate_links(
+				array(
+					'mid_size' => 0,
+					'end_size' => 1,
+				)
 			)
 		);
 		?>

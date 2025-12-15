@@ -37,7 +37,10 @@ global $rmbt_theme_options; ?>
 				<div>
 					<h3 class='title-block'><?php echo esc_html( rmbt_get_redux_field( 'how-we-work-card-1_title' ) ); ?></h3>
 					<p class="subtitle-block">
-						<?php echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-1_subtitle' ) ), 8, '  [...]' ); ?>
+					<?php
+					echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-1_subtitle' ), 8, '...]' ) );
+					?>
+
 					</p>
 				</div>
 			</div>
@@ -50,7 +53,7 @@ global $rmbt_theme_options; ?>
 				<div>
 					<h3 class='title-block'><?php echo esc_html( rmbt_get_redux_field( 'how-we-work-card-2_title' ) ); ?></h3>
 					<p class="subtitle-block">
-						<?php echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-2_subtitle' ) ), 8, '  [...]' ); ?>
+						<?php echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-2_subtitle' ), 8, '  [...]' ) ); ?>
 					</p>
 				</div>
 			</div>
@@ -63,7 +66,7 @@ global $rmbt_theme_options; ?>
 				<div>
 					<h3 class='title-block'><?php echo esc_html( rmbt_get_redux_field( 'how-we-work-card-3_title' ) ); ?></h3>
 					<p class="subtitle-block">
-						<?php echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-3_subtitle' ) ), 8, '  [...]' ); ?>
+						<?php echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-3_subtitle' ), 8, '  [...]' ) ); ?>
 					</p>
 				</div>
 			</div>
@@ -76,7 +79,7 @@ global $rmbt_theme_options; ?>
 				<div>
 					<h3 class='title-block'><?php echo esc_html( rmbt_get_redux_field( 'how-we-work-card-4_title' ) ); ?></h3>
 					<p class="subtitle-block">
-						<?php echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-4_subtitle' ) ), 8, '  [...]' ); ?>
+						<?php echo esc_html( wp_trim_words( rmbt_get_redux_field( 'how-we-work-card-4_subtitle' ), 8, '  [...]' ) ); ?>
 					</p>
 				</div>
 			</div>

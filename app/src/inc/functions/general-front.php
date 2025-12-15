@@ -341,18 +341,12 @@ function rmbt_redux_img( $id_field_pic, $alt = '', $id_svg = '', $svg_color = fa
 	}
 
 	if ( $rmbt_theme_options[ $id_field_pic ]['url'] ) {
-		return '<img src="' . $rmbt_theme_options[ $id_field_pic ]['url'] . '" alt="' . $alt . '">';
+		return '<img src="' . esc_url( $rmbt_theme_options[ $id_field_pic ]['url'] ) . '" alt="' . esc_attr( $alt ) . '">';
 	} else {
 		if ( $id_svg == '' ) {
 			return;
 		}
-
-		// return '<svg>
-		// <use xlink:href="' . get_template_directory_uri() . '/assets/img/icons/sprite.svg#' . $id_svg . '"></use>
-		// </svg>';
-
 		return get_icon_svg( $id_svg, $svg_color );
-
 	}
 }
 

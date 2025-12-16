@@ -1,3 +1,14 @@
+<?php
+/**
+ * Header template file for the theme.
+ *
+ * Contains the opening HTML structure, <head> section, and site header.
+ *
+ * @package Premium_Theme_1
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 
@@ -11,6 +22,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
+	<!-- todo убрать  -->
 	<?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
 
 

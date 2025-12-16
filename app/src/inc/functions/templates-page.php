@@ -7,6 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Create custom page.
+ *
+ * @return void
+ */
 function create_custom_page() {
 
 	$page_title    = 'Страница шаблонов';
@@ -38,13 +43,16 @@ function create_custom_page() {
 		$page_id = wp_insert_post( $new_page );
 
 		if ( is_wp_error( $page_id ) ) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions
 			error_log( 'Ошибка создания страницы: ' . $page_id->get_error_message() );
 		} else {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions
 			error_log( 'Страница успешно создана с ID: ' . $page_id );
 			update_post_meta( $page_id, '_wp_page_template', $page_template );
 		}
 	} else {
 		$existing_page = $query->posts[0];
+		// phpcs:ignore WordPress.PHP.DevelopmentFunctions
 		error_log( 'Страница с заголовком "' . $page_title . '" уже существует (ID: ' . $existing_page->ID . ')' );
 	}
 }

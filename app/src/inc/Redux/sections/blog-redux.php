@@ -1,4 +1,9 @@
 <?php
+/**
+ * Blog Redux options.
+ *
+ * @package RMBT_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,6 @@ Redux::set_section(
 		'desc'             => esc_html__( 'general', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'fields'           => array(
-
-
-
 			array(
 				'id'    => 'rmbt-blog_page-title',
 				'type'  => 'text',
@@ -24,14 +26,12 @@ Redux::set_section(
 				'type'  => 'textarea',
 				'title' => esc_html__( 'Subtitle of blog page', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'      => 'rmbt-sidebar-switch',
 				'type'    => 'switch',
 				'title'   => esc_html__( 'Sidebar displaying', 'premium-theme-1' ),
 				'default' => true,
 			),
-
 			array(
 				'id'      => 'rmbt-sidebar-radio',
 				'type'    => 'radio',
@@ -42,7 +42,6 @@ Redux::set_section(
 				),
 				'default' => '2',
 			),
-
 		),
 	)
 );

@@ -1,5 +1,24 @@
 <?php
+/**
+ * General front settings.
+ *
+ * @package RMBT_Theme
+ */
 
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Get SVG icon markup by ID from the theme sprite.
+ *
+ * This function generates an inline <svg> element using a sprite file.
+ * It supports optional color variant, custom CSS classes, and adds
+ * versioning based on the file modification time for cache busting.
+ *
+ * @param string $id      The ID of the icon within the SVG sprite.
+ * @param bool   $color   Optional. If true, uses the colored sprite variant. Default false.
+ * @param string $classes Optional. Additional CSS classes to add to the <svg> tag. Default empty string.
+ * @return string SVG markup for the requested icon.
+ */
 function get_icon_svg( $id, $color = false, $classes = '' ) {
 	$sprite_name = $color ? 'sprite_color.svg' : 'sprite.svg';
 	$sprite_rel  = '/assets/img/icons/';
@@ -19,14 +38,26 @@ function get_icon_svg( $id, $color = false, $classes = '' ) {
 }
 
 
-
-function rmbt_custom_WPquery( $rmbt_post_type, $rmbt_posts_per_page, $rmbt_current = '', $tax_query = array() ) {
+/**
+ * Create a custom WP_Query instance for a given post type and taxonomy query.
+ *
+ * This function returns a WP_Query object for the specified post type,
+ * with support for custom number of posts per page, current pagination,
+ * and optional tax_query parameters.
+ *
+ * @param string $rmbt_post_type       Post type to query.
+ * @param int    $rmbt_posts_per_page  Number of posts per page.
+ * @param int    $rmbt_current         Optional. Current page for pagination. Default is calculated from query vars.
+ * @param array  $tax_query             Optional. Array of taxonomy query parameters. Default empty array.
+ * @return WP_Query WP_Query instance with the requested posts.
+ */
+function rmbt_custom_wp_query( $rmbt_post_type, $rmbt_posts_per_page, $rmbt_current = '', $tax_query = array() ) {
 
 	if ( empty( $rmbt_current ) ) {
 		$rmbt_current = absint( max( 1, get_query_var( 'paged' ) ? get_query_var( 'paged' ) : get_query_var( 'page' ) ) );
 	}
 
-	if ( count( $tax_query ) == 0 ) {
+	if ( 0 === count( $tax_query ) ) {
 		$params = array(
 			'post_type'      => $rmbt_post_type,
 			'post_status'    => 'publish',
@@ -40,179 +71,12 @@ function rmbt_custom_WPquery( $rmbt_post_type, $rmbt_posts_per_page, $rmbt_curre
 	return new WP_Query( $params );
 }
 
-function rmbt_get_breadcrumbs() {
-
-	$text['home']     = esc_html__( 'Home', 'premium-theme-1' );
-	$text['category'] = esc_html__( 'Archive', 'premium-theme-1' ) . ' "%s"';
-	$text['search']   = esc_html__( 'Search results', 'premium-theme-1' ) . ' "%s"';
-	$text['tag']      = esc_html__( 'Tag', 'premium-theme-1' ) . ' "%s"';
-	$text['author']   = esc_html__( 'Author', 'premium-theme-1' ) . ' %s';
-	$text['404']      = esc_html__( 'Error 404', 'premium-theme-1' );
-
-	$show_current   = 1;
-	$show_on_home   = 0;
-	$show_home_link = 1;
-	$show_title     = 1;
-	$delimiter      = ' / ';
-	$before         = '<span class="current">';
-	$after          = '</span>';
-
-	global $post;
-	$home_link   = esc_url( home_url( '/' ) );
-	$link_before = '<span>';
-	$link_after  = '</span>';
-	$link_attr   = '';
-	$link        = $link_before . '<a' . $link_attr . ' href="%1$s">%2$s</a>' . $link_after;
-	if ( isset( $post->post_parent ) ) {
-		$my_post_parent = $post->post_parent;
-	} else {
-		$my_post_parent = 1;
-	}
-	$parent_id    = $parent_id_2 = $my_post_parent;
-	$frontpage_id = get_option( 'page_on_front' );
-
-	if ( is_home() || is_front_page() ) {
-
-		if ( $show_on_home == 1 ) {
-			echo '<nav class="breadcrumbs"><a href="' . $home_link . '">' . $text['home'] . '</a></nav>';
-		}
-
-		if ( get_option( 'page_for_posts' ) && is_home() ) {
-			echo '<nav class="breadcrumbs"><a href="' . esc_url( $home_link ) . '">' . esc_attr( $text['home'] ) . '</a>' . rmbt_wp_kses( $delimiter ) . ' ' . __( 'Blog', 'premium-theme-1' ) . '</nav>';
-		}
-	} else {
-
-		echo '<nav class="breadcrumbs">';
-		if ( $show_home_link == 1 ) {
-			printf( $link, $home_link, $text['home'] );
-			if ( $frontpage_id == 0 || $parent_id != $frontpage_id ) {
-				echo rmbt_wp_kses( $delimiter );
-			}
-		}
-
-		if ( is_category() ) {
-			$this_cat = get_category( get_query_var( 'cat' ), false );
-			if ( $this_cat->parent != 0 ) {
-				$cats = get_category_parents( $this_cat->parent, true, $delimiter );
-				if ( $show_current == 0 ) {
-					$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
-				}
-				$cats = str_replace( '<a', $link_before . '<a' . $link_attr, $cats );
-				$cats = str_replace( '</a>', '</a>' . $link_after, $cats );
-				if ( $show_title == 0 ) {
-					$cats = preg_replace( '/ title="(.*?)"/', '', $cats );
-				}
-				echo rmbt_wp_kses( $cats );
-			}
-			if ( $show_current == 1 ) {
-				echo rmbt_wp_kses( $before ) . sprintf( $text['category'], single_cat_title( '', false ) ) . rmbt_wp_kses( $after );
-			}
-		} elseif ( is_search() ) {
-			echo rmbt_wp_kses( $before ) . sprintf( $text['search'], get_search_query() ) . rmbt_wp_kses( $after );
-		} elseif ( is_day() ) {
-			echo sprintf( $link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . rmbt_wp_kses( $delimiter );
-			echo sprintf( $link, get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ), get_the_time( 'F' ) ) . rmbt_wp_kses( $delimiter );
-			echo rmbt_wp_kses( $before ) . get_the_time( 'd' ) . rmbt_wp_kses( $after );
-		} elseif ( is_month() ) {
-			echo sprintf( $link, get_year_link( get_the_time( 'Y' ) ), get_the_time( 'Y' ) ) . rmbt_wp_kses( $delimiter );
-			echo rmbt_wp_kses( $before ) . get_the_time( 'F' ) . rmbt_wp_kses( $after );
-		} elseif ( is_year() ) {
-			echo rmbt_wp_kses( $before ) . get_the_time( 'Y' ) . rmbt_wp_kses( $after );
-		} elseif ( is_single() && ! is_attachment() ) {
-			if ( get_post_type() != 'post' ) {
-				$post_type = get_post_type_object( get_post_type() );
-				$slug      = $post_type->rewrite;
-				printf( $link, $home_link . '/' . $slug['slug'] . '/', $post_type->labels->singular_name );
-				if ( $show_current == 1 ) {
-					echo rmbt_wp_kses( $delimiter ) . rmbt_wp_kses( $before ) . get_the_title() . rmbt_wp_kses( $after );
-				}
-			} else {
-				$cat  = get_the_category();
-				$cat  = $cat[0];
-				$cats = get_category_parents( $cat, true, $delimiter );
-				if ( $show_current == 0 ) {
-					$cats = preg_replace( "#^(.+)$delimiter$#", '$1', $cats );
-				}
-				$cats = str_replace( '<a', $link_before . '<a' . $link_attr, $cats );
-				$cats = str_replace( '</a>', '</a>' . $link_after, $cats );
-				if ( $show_title == 0 ) {
-					$cats = preg_replace( '/ title="(.*?)"/', '', $cats );
-				}
-				echo rmbt_wp_kses( $cats );
-				if ( $show_current == 1 ) {
-					echo rmbt_wp_kses( $before ) . get_the_title() . rmbt_wp_kses( $after );
-				}
-			}
-		} elseif ( ! is_single() && ! is_page() && get_post_type() != 'post' && ! is_404() ) {
-			$post_type = get_post_type_object( get_post_type() );
-			echo rmbt_wp_kses( $before ) . esc_attr( $post_type->labels->singular_name ) . rmbt_wp_kses( $after );
-		} elseif ( is_attachment() ) {
-			$parent = get_post( $parent_id );
-			$cat    = get_the_category( $parent->ID );
-			$cat    = $cat[0];
-			$cats   = get_category_parents( $cat, true, $delimiter );
-			$cats   = str_replace( '<a', $link_before . '<a' . $link_attr, $cats );
-			$cats   = str_replace( '</a>', '</a>' . $link_after, $cats );
-			if ( $show_title == 0 ) {
-				$cats = preg_replace( '/ title="(.*?)"/', '', $cats );
-			}
-			echo rmbt_wp_kses( $cats );
-			printf( $link, get_permalink( $parent ), $parent->post_title );
-			if ( $show_current == 1 ) {
-				echo rmbt_wp_kses( $delimiter ) . rmbt_wp_kses( $before ) . get_the_title() . rmbt_wp_kses( $after );
-			}
-		} elseif ( is_page() && ! $parent_id ) {
-			if ( $show_current == 1 ) {
-				echo rmbt_wp_kses( $before ) . get_the_title() . rmbt_wp_kses( $after );
-			}
-		} elseif ( is_page() && $parent_id ) {
-			if ( $parent_id != $frontpage_id ) {
-				$breadcrumbs = array();
-				while ( $parent_id ) {
-					$page = get_page( $parent_id );
-					if ( $parent_id != $frontpage_id ) {
-						$breadcrumbs[] = sprintf( $link, get_permalink( $page->ID ), get_the_title( $page->ID ) );
-					}
-					$parent_id = $page->post_parent;
-				}
-				$breadcrumbs = array_reverse( $breadcrumbs );
-				for ( $i = 0; $i < count( $breadcrumbs ); $i++ ) {
-					echo rmbt_wp_kses( $breadcrumbs[ $i ] );
-					if ( $i != count( $breadcrumbs ) - 1 ) {
-						echo rmbt_wp_kses( $delimiter );
-					}
-				}
-			}
-			if ( $show_current == 1 ) {
-				if ( $show_home_link == 1 || ( $parent_id_2 != 0 && $parent_id_2 != $frontpage_id ) ) {
-					echo rmbt_wp_kses( $delimiter );
-				}
-				echo rmbt_wp_kses( $before ) . get_the_title() . rmbt_wp_kses( $after );
-			}
-		} elseif ( is_tag() ) {
-			echo rmbt_wp_kses( $before ) . sprintf( $text['tag'], single_tag_title( '', false ) ) . rmbt_wp_kses( $after );
-		} elseif ( is_author() ) {
-			global $author;
-			$userdata = get_userdata( $author );
-			echo rmbt_wp_kses( $before ) . sprintf( $text['author'], $userdata->display_name ) . rmbt_wp_kses( $after );
-		} elseif ( is_404() ) {
-			echo rmbt_wp_kses( $before ) . esc_attr( $text['404'] ) . rmbt_wp_kses( $after );
-		}
-
-		if ( get_query_var( 'paged' ) ) {
-			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
-				echo ' (';
-			}
-			echo rmbt_wp_kses( $delimiter ) . esc_html__( 'Page', 'premium-theme-1' ) . ' ' . get_query_var( 'paged' );
-			if ( is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author() ) {
-				echo ')';
-			}
-		}
-
-		echo '</nav>';
-	}
-}
-
+/**
+ * Sanitize HTML output with allowed tags for theme.
+ *
+ * @param string $rmbt_string HTML content to sanitize.
+ * @return string Sanitized HTML.
+ */
 function rmbt_wp_kses( $rmbt_string ) {
 	$allowed_tags = array(
 		'img'    => array(
@@ -304,15 +168,27 @@ function rmbt_wp_kses( $rmbt_string ) {
 	}
 }
 
+/**
+ * Trim post content or excerpt to a specific number of words.
+ *
+ * Generates a trimmed excerpt from the post content or an explicitly
+ * provided text. Shortcodes and HTML tags are removed, and the excerpt
+ * is limited to the specified number of words with an ellipsis appended
+ * if the text exceeds the limit.
+ *
+ * @param int    $length Maximum number of words.
+ * @param string $text   Optional. Custom text to trim instead of post content. Default empty.
+ * @return string Trimmed excerpt text.
+ */
 function rmbt_trim_excerpt( $length, $text = '' ) {
 
 	global $post;
 
 	$explicit_excerpt = $post->post_excerpt;
 
-	if ( '' != $text ) {
+	if ( '' !== $text ) {
 		$explicit_excerpt = $text;
-	} elseif ( '' == $explicit_excerpt ) {
+	} elseif ( '' === $explicit_excerpt ) {
 		$text = get_the_content( '' );
 		$text = apply_filters( 'the_content', $text );
 		$text = str_replace( ']]>', ']]>', $text );
@@ -320,8 +196,8 @@ function rmbt_trim_excerpt( $length, $text = '' ) {
 		$text = apply_filters( 'the_content', $explicit_excerpt );
 	}
 
-	$text           = strip_shortcodes( $text ); // optional
-	$text           = strip_tags( $text );
+	$text           = strip_shortcodes( $text ); // optional.
+	$text           = wp_strip_all_tags( $text, true );
 	$excerpt_length = $length;
 	$words          = explode( ' ', $text, $excerpt_length + 1 );
 	if ( count( $words ) > $excerpt_length ) {
@@ -333,6 +209,19 @@ function rmbt_trim_excerpt( $length, $text = '' ) {
 	return $text;
 }
 
+/**
+ * Outputs an image from Redux option or falls back to an SVG icon.
+ *
+ * Retrieves an image URL stored in Redux theme options and returns an `<img>` tag.
+ * If the image is not set, an SVG icon is returned instead (when SVG ID is provided).
+ *
+ * @param string $id_field_pic Redux option ID containing image data.
+ * @param string $alt          Alternative text for the image.
+ * @param string $id_svg       SVG icon ID used as a fallback.
+ * @param bool   $svg_color    Whether to use the colored SVG sprite.
+ *
+ * @return string|null HTML image or SVG markup on success, null otherwise.
+ */
 function rmbt_redux_img( $id_field_pic, $alt = '', $id_svg = '', $svg_color = false ) {
 	global $rmbt_theme_options;
 
@@ -343,13 +232,28 @@ function rmbt_redux_img( $id_field_pic, $alt = '', $id_svg = '', $svg_color = fa
 	if ( $rmbt_theme_options[ $id_field_pic ]['url'] ) {
 		return '<img src="' . esc_url( $rmbt_theme_options[ $id_field_pic ]['url'] ) . '" alt="' . esc_attr( $alt ) . '">';
 	} else {
-		if ( $id_svg == '' ) {
+		if ( '' === $id_svg ) {
 			return;
 		}
 		return get_icon_svg( $id_svg, $svg_color );
 	}
 }
 
+/**
+ * Retrieves a value from Redux theme options with optional sanitization.
+ *
+ * Returns a Redux option value by its ID and applies sanitization
+ * depending on the provided flags:
+ * - `wp_kses()` with post-allowed tags
+ * - no sanitization (raw output)
+ * - `esc_html()` by default
+ *
+ * @param string $id_field         Redux option ID.
+ * @param bool   $kses             Whether to allow only post-safe HTML via wp_kses().
+ * @param bool   $all_tags_allowed Whether to return the raw value without sanitization.
+ *
+ * @return string Sanitized option value or empty string if not available.
+ */
 function rmbt_get_redux_field( $id_field, $kses = false, $all_tags_allowed = false ) {
 	global $rmbt_theme_options;
 
@@ -368,11 +272,34 @@ function rmbt_get_redux_field( $id_field, $kses = false, $all_tags_allowed = fal
 	return esc_html( $rmbt_theme_options[ $id_field ] );
 }
 
+/**
+ * Sanitizes a phone number by removing formatting characters.
+ *
+ * Strips common formatting symbols such as parentheses, spaces, and hyphens
+ * from a phone number string (e.g. for use in `tel:` links).
+ *
+ * @param string $phone_number Raw phone number value from Redux options.
+ *
+ * @return string Sanitized phone number containing digits only.
+ */
 function rmbt_phone_number_clear_redux( $phone_number ) {
 	$pattern = '/[\)|\(| |-]/';
 	return preg_replace( $pattern, '', $phone_number );
 }
 
+/**
+ * Outputs Redux field values as a list or single link (tel/mailto).
+ *
+ * Supports comma-separated values and renders them either as a <ul> list
+ * or a single <a> tag depending on the amount of values.
+ *
+ * @param string $id_field   Redux field ID.
+ * @param string $mod        Link scheme: 'tel' or 'mailto'.
+ * @param string $before_str Optional string before value.
+ * @param string $after_str  Optional string after value.
+ *
+ * @return string Rendered HTML markup or empty string on failure.
+ */
 function rmbt_redux_field_to_ul( $id_field, $mod = 'tel', $before_str = '', $after_str = '' ) {
 	global $rmbt_theme_options;
 
@@ -386,24 +313,38 @@ function rmbt_redux_field_to_ul( $id_field, $mod = 'tel', $before_str = '', $aft
 		$html = '<ul>';
 		foreach ( $arr_numbers as $value ) {
 
-			if ( $mod == 'tel' ) {
+			if ( 'tel' === $mod ) {
 				$html .= '<li><a href="' . $mod . ':' . rmbt_phone_number_clear_redux( $value ) . '">' . $before_str . trim( $value ) . $after_str . '</a></li>';
-			} elseif ( $mod == 'mailto' ) {
+			} elseif ( 'mailto' === $mod ) {
 				$html .= '<li><a href="' . $mod . ':' . $value . '">' . $before_str . trim( $value ) . $after_str . '</a></li>';
 			}
 		}
 
 		$html .= '</ul>';
 		return $html;
-	} elseif ( $mod == 'tel' ) {
+	} elseif ( 'tel' === $mod ) {
 
 			return '<a href="' . $mod . ':' . rmbt_phone_number_clear_redux( $arr_numbers[0] ) . '">' . $before_str . trim( $arr_numbers[0] ) . $after_str . '</a>';
-	} elseif ( $mod == 'mailto' ) {
+	} elseif ( 'mailto' === $mod ) {
 		return '<a href="' . $mod . ':' . $arr_numbers[0] . '">' . $before_str . trim( $arr_numbers[0] ) . $after_str . '</a>';
 	}
 }
 
-
+/**
+ * Outputs Redux repeater field values as a list or single link.
+ *
+ * Supports conditional output based on an enabled flag from another
+ * repeater field and renders values as tel or mailto links.
+ *
+ * @param string $id_field        Redux repeater field ID with values.
+ * @param string $mod             Link scheme: 'tel' or 'mailto'.
+ * @param string $enabled_id      Redux repeater field ID with enable flags.
+ * @param string $enabled_option  Key name of the enable flag.
+ * @param string $before_str      Optional string before value.
+ * @param string $after_str       Optional string after value.
+ *
+ * @return string Rendered HTML markup or empty string.
+ */
 function rmbt_redux_repeater_to_ul( $id_field, $mod = 'tel', $enabled_id = '', $enabled_option = '', $before_str = '', $after_str = '' ) {
 	global $rmbt_theme_options;
 
@@ -433,63 +374,51 @@ function rmbt_redux_repeater_to_ul( $id_field, $mod = 'tel', $enabled_id = '', $
 	}
 }
 
+/**
+ * Recursively searches for files in a directory matching a regex pattern.
+ *
+ * Traverses all subdirectories and collects full file paths
+ * for files whose names match the given regular expression.
+ *
+ * @param string $directory Absolute path to the directory to search in.
+ * @param string $pattern   Regular expression pattern to match filenames.
+ * @param array  $results   (Optional) Array to store found file paths (by reference).
+ *
+ * @return array List of matched file paths.
+ */
 function file_search_recursive( $directory, $pattern, &$results = array() ) {
+
+	if ( ! is_dir( $directory ) || ! is_readable( $directory ) ) {
+		return $results;
+	}
+
 	$files = scandir( $directory );
 
-	foreach ( $files as $key => $value ) {
+	if ( false === $files ) {
+		return $results;
+	}
+
+	foreach ( $files as $value ) {
+
+		if ( '.' === $value || '..' === $value ) {
+			continue;
+		}
+
 		$path = realpath( $directory . DIRECTORY_SEPARATOR . $value );
 
-		if ( ! is_dir( $path ) ) {
-			if ( preg_match( $pattern, $value ) ) {
-				$results[] = $path;
-			}
-		} elseif ( $value != '.' && $value != '..' ) {
+		if ( false === $path ) {
+			continue;
+		}
+
+		if ( is_dir( $path ) ) {
 			file_search_recursive( $path, $pattern, $results );
+			continue;
+		}
+
+		if ( preg_match( $pattern, $value ) ) {
+			$results[] = $path;
 		}
 	}
+
 	return $results;
 }
-
-
-// ==========================    DRAFT   ========================================
-
-
-// function rmbt_redux_get_url($id_field, $custom_default_url = '')
-// {
-// global $rmbt_theme_options;
-
-// if (! class_exists('Redux') || ! isset($rmbt_theme_options[ $id_field ]) || $rmbt_theme_options[ $id_field ] === '') {
-// return esc_url($custom_default_url !== '' ? $custom_default_url : false);
-// }
-
-// if (isset($rmbt_theme_options[ $id_field ])) {
-// if (stripos($rmbt_theme_options[ $id_field ], home_url()) === 0) {
-// return $rmbt_theme_options[ $id_field ];
-// } else {
-// $clear_url = str_replace($_SERVER['SERVER_NAME'] . '/', '', $rmbt_theme_options[ $id_field ]);
-// return esc_url(get_template_directory_uri() . $clear_url);
-// }
-// }
-// }
-
-/**
- * for equipment-categories.php only
- */
-// function get_arr_names_cat_equip()
-// {
-// global $rmbt_theme;
-
-// $arr_redux_fields = array_filter($rmbt_theme, function ($var) {
-// if (str_contains($var, 'equipCatPage') && str_contains($var, '_article-title')) {
-// return $var;
-// }
-// }, ARRAY_FILTER_USE_KEY);
-
-// $arr_name_cat_equip = [];
-// $pater = '/equipCatPage-(.*)?_article/';
-// foreach ($arr_redux_fields as $key => $value) {
-// preg_match($pater, $key, $name_cat_equip);
-// $arr_name_cat_equip[] = $name_cat_equip[1];
-// }
-// return $arr_name_cat_equip;
-// }

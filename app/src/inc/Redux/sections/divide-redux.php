@@ -1,4 +1,10 @@
 <?php
+/**
+ * Divide Redux options.
+ *
+ * @package RMBT_Theme
+ */
+
 defined( 'ABSPATH' ) || exit;
 
 

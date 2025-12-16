@@ -1,6 +1,16 @@
-<div class="controls-container">
+<?php
+/**
+ * Controls container section.
+ *
+ * @package RMBT_Theme
+ */
 
-	<?php get_template_part(
+defined( 'ABSPATH' ) || exit;
+?>
+
+<div class="controls-container">
+	<?php
+	get_template_part(
 		'pages/components/button_nav/button_nav',
 		'null',
 		array(
@@ -9,7 +19,7 @@
 			'href'  => rmbt_get_redux_field( 'rmbt-call_to_action_button-link', 1 ),
 		)
 	);
-?>
+	?>
 
 	<?php
 	get_template_part(
@@ -23,8 +33,4 @@
 		)
 	);
 	?>
-
-
-
-
 </div>

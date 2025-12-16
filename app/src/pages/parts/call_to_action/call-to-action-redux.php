@@ -1,4 +1,9 @@
 <?php
+/**
+ * Call to action Redux options.
+ *
+ * @package RMBT_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,7 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings call to action block site', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'      => 'rmbt-call-to-action-card_section-title',
 				'type'    => 'text',
@@ -25,8 +28,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => __( 'Subtitle of cards block', 'premium-theme-1' ),
 			),
-
-
 			array(
 				'id'           => 'rmbt-call-to-action-bg-img',
 				'type'         => 'media',
@@ -36,13 +37,11 @@ Redux::set_section(
 				'preview_size' => 'full',
 				'remove'       => true,
 			),
-
 			array(
 				'id'    => 'rmbt-call-to-action-bg-img-alt',
 				'type'  => 'text',
 				'title' => __( 'Image description of first card', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'    => 'rmbt-call-to-action-button-cta',
 				'type'  => 'text',
@@ -54,7 +53,6 @@ Redux::set_section(
 				'title'   => __( 'Text of modal window after send form', 'premium-theme-1' ),
 				'default' => wp_kses( '<span>Thank you!</span> Your request has been successfully sent.', 'post' ),
 			),
-
 		),
 	)
 );

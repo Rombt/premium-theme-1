@@ -1,20 +1,28 @@
-<article class="rmbt-blog-posts-card <?php echo ! empty( $args['classes'] ) ? $args['classes'] : ''; ?>">
+<?php
+/**
+ * Post card for blog.
+ *
+ * @package RMBT_Theme
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
+<article class="rmbt-blog-posts-card <?php echo ! empty( $args['classes'] ) ? esc_html( $args['classes'] ) : ''; ?>">
 	<div class="wrap-img rmbt-blog-posts-card__img">
-		<?php echo $args['tag-img']; ?>
+		<?php echo esc_html( $args['tag-img'] ); ?>
 	</div>
-
 	<div class="rmbt-blog-posts-card__content">
-
 		<header>
-			<h3 class='title-block'><?php echo $args['title']; ?></h3>
+			<h3 class='title-block'><?php echo esc_html( $args['title'] ); ?></h3>
 		</header>
 		<div class="rmbt-blog-posts-card__article-body">
 			<div class="subtitle-block rmbt-blog-posts-card__article-text">
-				<?php echo $args['text']; ?>
+				<?php echo esc_html( $args['text'] ); ?>
 			</div>
 		</div>
 		<footer class='text-block'>
-			<?php echo $args['post_date']; ?>
+			<?php echo esc_html( $args['post_date'] ); ?>
 			<?php
 			get_template_part(
 				'pages/components/button_read_more/button_read_more',

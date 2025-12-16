@@ -1,4 +1,9 @@
 <?php
+/**
+ * Single post Redux options.
+ *
+ * @package RMBT_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,14 +16,12 @@ Redux::set_section(
 		'desc'             => esc_html__( 'general', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'fields'           => array(
-
 			array(
 				'id'      => 'rmbt-single-sidebar-switch',
 				'type'    => 'switch',
 				'title'   => esc_html__( 'Sidebar displaying', 'premium-theme-1' ),
 				'default' => true,
 			),
-
 			array(
 				'id'      => 'rmbt-single-sidebar-radio',
 				'type'    => 'radio',
@@ -29,7 +32,6 @@ Redux::set_section(
 				),
 				'default' => '2',
 			),
-
 		),
 	)
 );

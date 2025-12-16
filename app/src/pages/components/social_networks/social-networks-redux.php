@@ -1,4 +1,9 @@
 <?php
+/**
+ * Social networks Redux options.
+ *
+ * @package RMBT_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,7 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings Social networks', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'           => 'rmbt-social-networks-icon_1',
 				'type'         => 'media',
@@ -34,7 +37,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => esc_html__( 'The link of the first icon of the social networks block', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'           => 'rmbt-social-networks-icon_2',
 				'type'         => 'media',
@@ -55,7 +57,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => esc_html__( 'The link of the second icon of the social networks block', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'           => 'rmbt-social-networks-icon_3',
 				'type'         => 'media',
@@ -76,7 +77,6 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => esc_html__( 'The link of the third icon of the social networks block', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'           => 'rmbt-social-networks-icon_4',
 				'type'         => 'media',

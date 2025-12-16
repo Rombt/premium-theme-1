@@ -1,5 +1,11 @@
 <?php
+/**
+ * Page templates.
+ *
+ * @package RMBT_Theme
+ */
 
+defined( 'ABSPATH' ) || exit;
 
 function create_custom_page() {
 

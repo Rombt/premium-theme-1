@@ -1,4 +1,9 @@
 <?php
+/**
+ * Benefit slide Redux options.
+ *
+ * @package RMBT_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -11,9 +16,7 @@ Redux::set_section(
 		'desc'             => esc_html__( 'Settings Benefits Slide Block', 'premium-theme-1' ),
 		'customizer_width' => '450',
 		'subsections'      => true,
-		// 'icon'             => 'el el-home',
 		'fields'           => array(
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-1-start',
 				'type'     => 'accordion',
@@ -21,7 +24,6 @@ Redux::set_section(
 				'indent'   => true,
 				'position' => 'start',
 			),
-
 			array(
 				'id'    => 'rmbt-benefits-slide-block_title_1',
 				'type'  => 'text',
@@ -43,14 +45,12 @@ Redux::set_section(
 				'title'   => esc_html__( 'Link of first slide button', 'premium-theme-1' ),
 				'default' => '#',
 			),
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-1-end',
 				'type'     => 'accordion',
 				'indent'   => false,
 				'position' => 'end',
 			),
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-2-start',
 				'type'     => 'accordion',
@@ -58,7 +58,6 @@ Redux::set_section(
 				'indent'   => true,
 				'position' => 'start',
 			),
-
 			array(
 				'id'    => 'rmbt-benefits-slide-block_title_2',
 				'type'  => 'text',
@@ -74,21 +73,18 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => esc_html__( 'Title of second slide button', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'      => 'rmbt-benefits-slide-block_button-link_2',
 				'type'    => 'text',
 				'title'   => esc_html__( 'Link of second slide button', 'premium-theme-1' ),
 				'default' => '#',
 			),
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-2-end',
 				'type'     => 'accordion',
 				'indent'   => false,
 				'position' => 'end',
 			),
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-3-start',
 				'type'     => 'accordion',
@@ -96,7 +92,6 @@ Redux::set_section(
 				'indent'   => true,
 				'position' => 'start',
 			),
-
 			array(
 				'id'    => 'rmbt-benefits-slide-block_title_3',
 				'type'  => 'text',
@@ -112,21 +107,18 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => esc_html__( 'Title of third slide button', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'      => 'rmbt-benefits-slide-block_button-link_3',
 				'type'    => 'text',
 				'title'   => esc_html__( 'Link of third slide button', 'premium-theme-1' ),
 				'default' => '#',
 			),
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-3-end',
 				'type'     => 'accordion',
 				'indent'   => false,
 				'position' => 'end',
 			),
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-4-start',
 				'type'     => 'accordion',
@@ -134,7 +126,6 @@ Redux::set_section(
 				'indent'   => true,
 				'position' => 'start',
 			),
-
 			array(
 				'id'    => 'rmbt-benefits-slide-block_title_4',
 				'type'  => 'text',
@@ -150,22 +141,18 @@ Redux::set_section(
 				'type'  => 'text',
 				'title' => esc_html__( 'Title of fourth slide button', 'premium-theme-1' ),
 			),
-
 			array(
 				'id'      => 'rmbt-benefits-slide-block_button-link_4',
 				'type'    => 'text',
 				'title'   => esc_html__( 'Link of fourth slide button', 'premium-theme-1' ),
 				'default' => '#',
 			),
-
 			array(
 				'id'       => 'rmbt-benefits-slide-block-4-end',
 				'type'     => 'accordion',
 				'indent'   => false,
 				'position' => 'end',
 			),
-
-
 		),
 	)
 );

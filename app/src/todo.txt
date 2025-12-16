@@ -58,14 +58,16 @@
    Интересные формы
       https://colabs.com.au/
 
+      https://more-nutrition.webflow.io/
+         блок "You deserve the best. You deserve More: Iced Matcha Latte."
+
+      https://18.burocratik.com/?chapter1
+         блок внизу вьюпорта "Take your time"
+
    смену экранов при скролле
       в том числе и показ текста заголовков https://brant-paints.webflow.io/
       https://www.sunhung.net/
-   Ховеры
-      текст пунктов меню иконки
-         https://stiff.madebybuzzworthy.com/
-      текст кнопки уезжает за границу кнопки на его место тот же текст только с другой стороны
-      закрашивающий прямоугольник растёт из одного из углов охватывает текст пункта меню становясь фоном https://www.designrigs.com/dummy-text
+
    Замена стандартным табам
       блок "State of the art sensors" здесь https://www.heimdallpower.com/
    Футер
@@ -87,8 +89,26 @@
       подсветка курсора
    https://www.captionfusion.com/resources/ai-avatar
       анимация текста заголовков при скроле
-   https://www.thefauna.co.uk/work
-      ховер блока "From iconic brands to lesser-known power­houses"
+
+
+   Ховеры
+      https://stiff.madebybuzzworthy.com/
+         текст пунктов меню иконки
+         текст кнопки уезжает за границу кнопки на его место тот же текст только с другой стороны
+      https://www.designrigs.com/dummy-text
+         закрашивающий прямоугольник растёт из одного из углов охватывает текст пункта меню становясь фоном
+      https://www.thefauna.co.uk/work
+         ховер блока "From iconic brands to lesser-known power­houses"
+      https://more-nutrition.webflow.io
+         кнопка в хедере "Shop all"
+         слайдер в блоке "Chunky Flavour"
+      https://morenutrition.co.uk/products/more-protein-iced-matcha-latte?country=GB&shpxid=9a9ac546-be7d-41d1-b2d0-0e58e2adcb2d
+         фиксация фото продукта при скроле
+
+
+
+
+
 
 
 =============================  TODO  =============================

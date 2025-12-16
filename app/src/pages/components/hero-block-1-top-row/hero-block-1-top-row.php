@@ -1,3 +1,13 @@
+<?php
+/**
+ * Hero block 1 top row.
+ *
+ * @package RMBT_Theme
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
 <div class="rmbt-full-width rmbt-hero-block-1-top-row-full-width <?php echo is_front_page() ? '' : 'rmbt-hero-block-1-top-row-is-inner'; ?>">
 	<section class="rmbt-container rmbt-hero-block-1-top-row ">
 		<div class="rmbt-hero-block-1-top-row__row ">

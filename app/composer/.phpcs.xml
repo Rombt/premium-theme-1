@@ -32,4 +32,7 @@
     <exclude-pattern>assets/css/*</exclude-pattern>
     <exclude-pattern>*.js</exclude-pattern>
 
+    <!-- todo найти class-tgm-plugin-activation.php который будет соответствовать требованиям phpcs -->
+    <exclude-pattern>app/src/inc/functions/class-tgm-plugin-activation.php</exclude-pattern>
+
 </ruleset>

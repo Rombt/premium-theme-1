@@ -1,4 +1,9 @@
 <?php
+/**
+ * Redux options.
+ *
+ * @package RMBT_Theme
+ */
 
 defined( 'ABSPATH' ) || exit;
 
@@ -6,7 +11,6 @@ if ( ! class_exists( 'Redux' ) ) {
 	return;
 }
 
-// $opt_name = 'restaurant_site_options';
 $opt_name        = 'rmbt_theme_options';
 $dir             = __DIR__ . DIRECTORY_SEPARATOR;
 $sample_patterns = array();
@@ -142,7 +146,7 @@ Redux::set_args( $opt_name, $args );
 
 
 foreach ( RMBT_PATH_REDUX_SECTIONS as $sections_path ) {
-	$result = file_search_recursive( $sections_path, '/\.redux\.php$/' );
+	$result = file_search_recursive( $sections_path, '/\-redux-options.phpredux\.php$/' );
 	foreach ( $result as $file ) {
 		require_once $file;
 	}

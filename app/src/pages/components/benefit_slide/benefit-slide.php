@@ -1,12 +1,21 @@
+<?php
+/**
+ * Benefit slide section.
+ *
+ * @package RMBT_Theme
+ */
+
+defined( 'ABSPATH' ) || exit;
+?>
+
 <div class="rmbt-benefit-slide-swiper swiper">
 	<div class="swiper-wrapper">
 		<div class="swiper-slide benefit-slide">
 		<h3 class="benefit-slide__title">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_1', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_1', 1 ) ); ?>
 		</h3>
-
 		<div class="benefit-slide__text">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_1', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_1', 1 ) ); ?>
 		</div>
 		<?php
 			get_template_part(
@@ -19,17 +28,14 @@
 				)
 			);
 			?>
-
-
-
 		</div>
 		<div class="swiper-slide benefit-slide">
 		<h3 class="benefit-slide__title">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_2', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_2', 1 ) ); ?>
 		</h3>
 
 		<div class="benefit-slide__text">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_2', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_2', 1 ) ); ?>
 		</div>
 		<?php
 			get_template_part(
@@ -45,11 +51,11 @@
 		</div>
 		<div class="swiper-slide benefit-slide">
 		<h3 class="benefit-slide__title">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_3', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_3', 1 ) ); ?>
 		</h3>
 
 		<div class="benefit-slide__text">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_3', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_3', 1 ) ); ?>
 		</div>
 		<?php
 			get_template_part(
@@ -65,11 +71,11 @@
 		</div>
 		<div class="swiper-slide benefit-slide">
 		<h3 class="benefit-slide__title">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_4', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_title_4', 1 ) ); ?>
 		</h3>
 
 		<div class="benefit-slide__text">
-			<?php echo rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_4', 1 ); ?>
+			<?php echo esc_html( rmbt_get_redux_field( 'rmbt-benefits-slide-block_text_4', 1 ) ); ?>
 		</div>
 		<?php
 			get_template_part(

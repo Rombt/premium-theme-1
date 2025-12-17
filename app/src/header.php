@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 
-	<!-- todo убрать  -->
+	<!-- todo убрать.  -->
 	<?php // get_template_part( 'pages\_templates\components\debug-grid' ); ?>
 
 

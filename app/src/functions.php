@@ -1,4 +1,12 @@
 <?php
+/**
+ * Theme functions.
+ *
+ * @package rmbt
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 
 define( 'RMBT_PATH_THEME', get_template_directory() );
 define( 'RMBT_URL_THEME', esc_url( get_template_directory_uri() ) );
@@ -29,6 +37,11 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require_once get_template_directory() . '/woocommerce/wc-functions-remove.php';
 }
 
+/**
+ * Enqueue theme styles and scripts.
+ *
+ * @return void
+ */
 function rmbt_theme_scripts() {
 
 	wp_enqueue_style( 'swiper-bundle', get_template_directory_uri() . '/assets/styles/libs/swiper-bundle.min.css', array(), '1.0', 'all' );
@@ -40,6 +53,11 @@ function rmbt_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'rmbt_theme_scripts', 20 );
 
+/**
+ * Set up theme defaults and register support for various WordPress features.
+ *
+ * @return void
+ */
 function rmbt_site_setup() {
 
 	add_theme_support( 'custom-logo' );
@@ -71,11 +89,21 @@ function rmbt_site_setup() {
 }
 add_action( 'after_setup_theme', 'rmbt_site_setup' );
 
-function simple_rmbt_theme_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'simple_premium-theme-1_content_width', 640 );
+/**
+ * Set the content width in pixels, based on the theme's design.
+ *
+ * @return void
+ */
+function rmbt_theme_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'premium_theme_1_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'simple_rmbt_theme_content_width', 0 );
+add_action( 'after_setup_theme', 'rmbt_theme_content_width', 0 );
 
+/**
+ * Register required and recommended plugins using TGMPA.
+ *
+ * @return void
+ */
 function rmbt_theme_register_required_plugins() {
 	$plugins = array(
 		array(
@@ -126,6 +154,11 @@ function rmbt_theme_register_required_plugins() {
 }
 add_action( 'tgmpa_register', 'rmbt_theme_register_required_plugins' );
 
+/**
+ * Register widget areas.
+ *
+ * @return void
+ */
 function rmbt_widgets_init() {
 	register_sidebar(
 		array(
@@ -152,7 +185,12 @@ function rmbt_widgets_init() {
 }
 add_action( 'widgets_init', 'rmbt_widgets_init' );
 
-
+/**
+ * Register Customizer settings and controls.
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+ * @return void
+ */
 function theme_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'custom_footer_logo',
@@ -176,9 +214,13 @@ function theme_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'theme_customize_register' );
 
-
+/**
+ * Register custom block styles.
+ *
+ * @return void
+ */
 function premium_theme_1_register_block_styles() {
-	// Кастомный стиль для блока кнопки
+	// Кастомный стиль для блока кнопки.
 	register_block_style(
 		'core/button',
 		array(
@@ -187,7 +229,7 @@ function premium_theme_1_register_block_styles() {
 		)
 	);
 
-	// Кастомный стиль для блока заголовка
+	// Кастомный стиль для блока заголовка.
 	register_block_style(
 		'core/heading',
 		array(
@@ -198,14 +240,17 @@ function premium_theme_1_register_block_styles() {
 }
 add_action( 'init', 'premium_theme_1_register_block_styles' );
 
-
-
+/**
+ * Enable block editor features and register custom block assets.
+ *
+ * @return void
+ */
 function premium_theme_1_block_support() {
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'responsive-embeds' );
 
-	// Пример блока: кнопка
+	// Пример блока: кнопка.
 	register_block_style(
 		'core/button',
 		array(
@@ -214,7 +259,7 @@ function premium_theme_1_block_support() {
 		)
 	);
 
-	// Пример шаблона блока
+	// Пример шаблона блока.
 	register_block_pattern(
 		'premium-theme-1/hero-section',
 		array(
@@ -225,8 +270,6 @@ function premium_theme_1_block_support() {
 	);
 }
 add_action( 'after_setup_theme', 'premium_theme_1_block_support' );
-
-
 
 add_theme_support(
 	'custom-header',
@@ -246,8 +289,6 @@ add_theme_support(
 	)
 );
 
-
-
 add_action(
 	'after_setup_theme',
 	function () {
@@ -256,7 +297,11 @@ add_action(
 );
 
 
-
+/**
+ * Enqueue comment-reply script when needed.
+ *
+ * @return void
+ */
 function premium_theme_1_enqueue_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

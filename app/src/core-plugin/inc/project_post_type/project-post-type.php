@@ -1,7 +1,16 @@
 <?php
+/**
+ * Register Project custom post type.
+ *
+ * @package rmbt
+ */
+
+defined( 'ABSPATH' ) || exit;
 
 /**
+ * Register the "Project" custom post type.
  *
+ * @return void
  */
 function rmbt_project_post_type_init() {
 	$labels = array(

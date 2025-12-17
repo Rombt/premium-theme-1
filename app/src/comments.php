@@ -1,14 +1,35 @@
-<?php if ( post_password_required() ) {
+<?php
+/**
+ * Comments template.
+ *
+ * This file is used to display comments and the comment form.
+ *
+ * @package premium-theme-1
+ */
+
+if ( post_password_required() ) {
 	return;
-} ?>
+}
+?>
 
 <div id="comments" class="comments-area">
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
 			<?php
+			$comments_number = get_comments_number();
+
 			printf(
-				esc_html( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'premium-theme-1' ) ),
-				number_format_i18n( get_comments_number() )
+				esc_html(
+					/* translators: %1$s: number of comments */
+					_nx(
+						'%1$s comment',
+						'%1$s comments',
+						$comments_number,
+						'comments title',
+						'premium-theme-1'
+					)
+				),
+				esc_html( number_format_i18n( $comments_number ) )
 			);
 			?>
 		</h2>

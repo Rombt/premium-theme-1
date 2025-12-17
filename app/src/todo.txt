@@ -113,17 +113,24 @@
 
 =============================  TODO  =============================
 
+   составить максимально полное описание функционала темы
+   из этого описания сформировать маркетинговые материалы для станицы темы на Envato
+   из этого описания сформировать полный и исчерпывающий список всего что необходимо проверить
+      функционал,
+      отображение в шаблонах
+      прочее
+      написание тестов!?
 
-      переписать эту функцию rmbt_get_redux_field() так что бы она отвечала требованиям безопасности Envato
+   переписать эту функцию rmbt_get_redux_field() так что бы она отвечала требованиям безопасности Envato
 
 
-      // выполнение команд в консоли если она не доступна на хостинге
-      // run-wpcli.php
-      define( 'WP_USE_THEMES', false );
-      require_once __DIR__ . '/wp-load.php';
-      if ( php_sapi_name() !== 'cli' ) {
-         echo shell_exec( 'wp search-replace "http://multisite" "http://rombtnet.site" --all-tables' );
-      }
+   // выполнение команд в консоли если она не доступна на хостинге
+   // run-wpcli.php
+   define( 'WP_USE_THEMES', false );
+   require_once __DIR__ . '/wp-load.php';
+   if ( php_sapi_name() !== 'cli' ) {
+      echo shell_exec( 'wp search-replace "http://multisite" "http://rombtnet.site" --all-tables' );
+   }
 
    примеры для блока How We Work
       https://logitic.rstheme.com/logistics/onepage/

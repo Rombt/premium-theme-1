@@ -13,7 +13,7 @@ define( 'RMBT_URL_THEME', esc_url( get_template_directory_uri() ) );
 define( 'RMBT_DIR_TEMPLATE_PARTS', 'pages' );
 
 require_once get_template_directory() . '/inc/functions/class-tgm-plugin-activation.php';
-require_once get_template_directory() . '/inc/functions/general-front.php';
+require_once get_template_directory() . '/inc/functions/helpers.php';
 
 if ( file_exists( get_template_directory() . DIRECTORY_SEPARATOR . RMBT_DIR_TEMPLATE_PARTS . DIRECTORY_SEPARATOR . '_templates' ) ) {
 	require_once get_template_directory() . '/inc/functions/templates-page.php';

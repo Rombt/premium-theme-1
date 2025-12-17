@@ -1,5 +1,23 @@
 <?php
+/**
+ * Handles processing of the application form submissions.
+ *
+ * Contains functions or logic for validating, sanitizing,
+ * and saving submitted form data.
+ *
+ * @package premium-theme-1
+ */
 
+defined( 'ABSPATH' ) || exit;
+
+
+/**
+ * Handle the submission of the Call To Action form.
+ *
+ * Validates, sanitizes, and processes form data.
+ *
+ * @return void
+ */
 function handle_rmbt_call_to_action_form() {
 	global $wpdb;
 
@@ -8,15 +26,20 @@ function handle_rmbt_call_to_action_form() {
 		exit;
 	}
 
-	if ( ! wp_verify_nonce( $_POST['rmbt_call_to_action_form_nonce'], 'rmbt_call_to_action_form' ) ) {
+	if ( ! isset( $_POST['rmbt_call_to_action_form_nonce'] )
+		|| ! wp_verify_nonce(
+			sanitize_text_field( wp_unslash( $_POST['rmbt_call_to_action_form_nonce'] ) ),
+			'rmbt_call_to_action_form'
+		)
+		) {
 		wp_send_json_error( array( 'message' => __( 'Error: Invalid nonce (possible CSRF attack).', 'premium-theme-1' ) ) );
 		exit;
 	}
 
-	$name    = sanitize_text_field( $_POST['name'] );
-	$phone   = sanitize_text_field( $_POST['phone'] );
-	$email   = sanitize_email( $_POST['email'] );
-	$message = sanitize_textarea_field( $_POST['message'] );
+	$name    = sanitize_text_field( wp_unslash( $_POST['name'] ) );
+	$phone   = sanitize_text_field( wp_unslash( $_POST['phone'] ) );
+	$email   = sanitize_email( wp_unslash( $_POST['email'] ) );
+	$message = sanitize_textarea_field( wp_unslash( $_POST['message'] ) );
 
 	$to = get_option( 'admin_email' );
 
@@ -26,11 +49,10 @@ function handle_rmbt_call_to_action_form() {
 	}
 
 	$subject = __( 'New inquiry from the contact form', 'premium-theme-1' );
-
-	$body  = __( 'Name:', 'premium-theme-1' ) . ' ' . esc_html( $name ) . "\r\n";
-	$body .= __( 'Phone:', 'premium-theme-1' ) . ' ' . esc_html( $phone ) . "\r\n";
-	$body .= __( 'Email:', 'premium-theme-1' ) . ' ' . esc_html( $email ) . "\r\n";
-	$body .= __( 'Message:', 'premium-theme-1' ) . "\r\n" . esc_html( $message ) . "\r\n";
+	$body    = __( 'Name:', 'premium-theme-1' ) . ' ' . esc_html( $name ) . "\r\n";
+	$body   .= __( 'Phone:', 'premium-theme-1' ) . ' ' . esc_html( $phone ) . "\r\n";
+	$body   .= __( 'Email:', 'premium-theme-1' ) . ' ' . esc_html( $email ) . "\r\n";
+	$body   .= __( 'Message:', 'premium-theme-1' ) . "\r\n" . esc_html( $message ) . "\r\n";
 
 	$headers = array(
 		'Content-Type: text/plain; charset=UTF-8',
@@ -41,19 +63,20 @@ function handle_rmbt_call_to_action_form() {
 	$mail_sent = wp_mail( $to, $subject, $body, $headers );
 
 	if ( ! $mail_sent ) {
-		error_log( 'Error sending email via wp_mail()' );
 		wp_send_json_error( array( 'message' => __( 'Error: Failed to send email.', 'premium-theme-1' ) ) );
 		exit;
 	}
 
 	$table_name = $wpdb->prefix . 'contact_form_submissions';
-	$inserted   = $wpdb->insert(
+
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery
+	$inserted = $wpdb->insert(
 		$table_name,
 		array(
-			'name'       => $name,
-			'phone'      => $phone,
-			'email'      => $email,
-			'message'    => $message,
+			'name'       => sanitize_text_field( wp_unslash( $_POST['name'] ) ),
+			'phone'      => sanitize_text_field( wp_unslash( $_POST['phone'] ) ),
+			'email'      => sanitize_email( wp_unslash( $_POST['email'] ) ),
+			'message'    => sanitize_textarea_field( wp_unslash( $_POST['message'] ) ),
 			'created_at' => current_time( 'mysql' ),
 		),
 		array( '%s', '%s', '%s', '%s', '%s' )
@@ -67,11 +90,16 @@ function handle_rmbt_call_to_action_form() {
 	wp_send_json_success( array( 'message' => __( 'Data successfully submitted.', 'premium-theme-1' ) ) );
 	wp_die();
 }
-
 add_action( 'admin_post_nopriv_rmbt_call_to_action_form', 'handle_rmbt_call_to_action_form' );
 add_action( 'admin_post_rmbt_call_to_action_form', 'handle_rmbt_call_to_action_form' );
 
-
+/**
+ * Create the contact form submissions table in the database.
+ *
+ * Uses dbDelta to create the table if it doesn't exist.
+ *
+ * @return void
+ */
 function create_contact_form_table() {
 	global $wpdb;
 	$table_name      = $wpdb->prefix . 'contact_form_submissions';
@@ -92,6 +120,11 @@ function create_contact_form_table() {
 }
 register_activation_hook( __FILE__, 'create_contact_form_table' );
 
+/**
+ * Add a menu page in the WordPress admin for contact form submissions.
+ *
+ * @return void
+ */
 function add_contact_form_menu() {
 	add_menu_page(
 		'Contact Form Submissions',
@@ -105,14 +138,47 @@ function add_contact_form_menu() {
 }
 add_action( 'admin_menu', 'add_contact_form_menu' );
 
+/**
+ * Render the Contact Form Submissions admin page.
+ *
+ * Displays a searchable and sortable table of form submissions,
+ * allows exporting to CSV and deleting individual entries.
+ *
+ * @return void
+ */
 function render_contact_form_admin_page() {
 	global $wpdb;
+
+	$search_query = '';
+
+	if ( isset( $_GET['s'], $_GET['_wpnonce'] ) ) {
+		$nonce = sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) );
+
+		if ( wp_verify_nonce( $nonce, 'contact_form_search' ) ) {
+			$search_query = sanitize_text_field( wp_unslash( $_GET['s'] ) );
+		}
+	}
+
 	$table_name    = $wpdb->prefix . 'contact_form_submissions';
-	$search_query  = isset( $_GET['s'] ) ? sanitize_text_field( $_GET['s'] ) : '';
 	$valid_columns = array( 'id', 'name', 'phone', 'email', 'created_at' );
-	$orderby       = isset( $_GET['orderby'] ) && in_array( $_GET['orderby'], $valid_columns, true ) ? $_GET['orderby'] : 'created_at';
-	$order         = isset( $_GET['order'] ) && $_GET['order'] === 'asc' ? 'ASC' : 'DESC';
-	$toggle_order  = $order === 'ASC' ? 'desc' : 'asc';
+
+	$orderby = 'created_at';
+	if ( isset( $_GET['orderby'] ) ) {
+		$orderby_input = sanitize_text_field( wp_unslash( $_GET['orderby'] ) );
+
+		if ( in_array( $orderby_input, $valid_columns, true ) ) {
+			$orderby = $orderby_input;
+		}
+	}
+	$order = 'DESC';
+
+	if ( isset( $_GET['order'] ) ) {
+		$order_input = sanitize_text_field( wp_unslash( $_GET['order'] ) );
+		if ( 'asc' === $order_input ) {
+			$order = 'ASC';
+		}
+	}
+	$toggle_order = 'ASC' === $order ? 'desc' : 'asc';
 
 	echo '<div class="wrap"><h1>' . esc_html__( 'Contact Form Submissions', 'premium-theme-1' ) . '</h1>';
 	echo '<a href="' . esc_url( admin_url( 'admin-post.php?action=export_contact_form_csv' ) ) . '" class="button button-primary" style="margin-bottom: 10px;">' . esc_html__( 'Export to CSV', 'premium-theme-1' ) . '</a>';
@@ -124,7 +190,6 @@ function render_contact_form_admin_page() {
           </form>';
 
 	$query = "SELECT * FROM $table_name";
-
 	if ( ! empty( $search_query ) ) {
 		$query .= $wpdb->prepare(
 			' WHERE name LIKE %s OR phone LIKE %s OR email LIKE %s OR message LIKE %s',
@@ -134,8 +199,9 @@ function render_contact_form_admin_page() {
 			"%$search_query%"
 		);
 	}
-
-	$query  .= " ORDER BY $orderby $order";
+	// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+	$query .= " ORDER BY $orderby $order";
+	// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.DirectDatabaseQuery
 	$results = $wpdb->get_results( $query, OBJECT );
 
 	echo '<table class="widefat fixed rmbt-call-to-action-form-admin">
@@ -150,7 +216,7 @@ function render_contact_form_admin_page() {
 	);
 
 	foreach ( $columns as $column_key => $column_name ) {
-		$arrow = $orderby === $column_key ? ( $order === 'ASC' ? ' ▼' : ' ▲' ) : '';
+		$arrow = $orderby === $column_key ? ( 'ASC' === $order ? ' ▼' : ' ▲' ) : '';
 		echo '<th><a href="?page=contact_form_submissions&orderby=' . esc_attr( $column_key ) . '&order=' . esc_attr( $toggle_order ) . '">' . esc_html( $column_name . $arrow ) . '</a></th>';
 	}
 
@@ -180,6 +246,7 @@ function render_contact_form_admin_page() {
 		$delete_id = intval( $_GET['delete_id'] );
 
 		if ( $delete_id > 0 ) {
+			// phpcs:ignore WordPress.DB.DirectDatabaseQuery
 			$deleted = $wpdb->delete( $table_name, array( 'id' => $delete_id ), array( '%d' ) );
 
 			if ( $deleted ) {
@@ -190,38 +257,44 @@ function render_contact_form_admin_page() {
 	}
 }
 
-
-
-
+/**
+ * Export contact form submissions as a CSV file.
+ *
+ * Checks user capabilities, retrieves all submissions,
+ * and outputs them as a CSV download with proper headers.
+ *
+ * @return void Exits after sending CSV output.
+ */
 function export_contact_form_csv() {
 	global $wpdb;
 
 	if ( ! current_user_can( 'manage_options' ) ) {
-		wp_die( __( 'Error: You do not have permission to export data.', 'premium-theme-1' ) );
+		wp_die( esc_html__( 'Error: You do not have permission to export data.', 'premium-theme-1' ) );
 	}
 
 	$table_name = $wpdb->prefix . 'contact_form_submissions';
-	$results    = $wpdb->get_results( "SELECT * FROM $table_name", ARRAY_A );
+	// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared, WordPress.DB.DirectDatabaseQuery
+	$results = $wpdb->get_results( "SELECT * FROM $table_name", ARRAY_A );
 
 	if ( empty( $results ) ) {
-		wp_die( __( 'No data available for export.', 'premium-theme-1' ) );
+		wp_die( esc_html__( 'No data available for export.', 'premium-theme-1' ) );
 	}
 
 	header( 'Content-Type: text/csv; charset=UTF-8' );
 	header( 'Content-Disposition: attachment; filename="contact_form_submissions.csv"' );
 
-	// BOM для Excel
+	// BOM для Excel.
 	echo "\xEF\xBB\xBF";
 
 	echo implode(
 		';',
 		array(
-			__( 'ID', 'premium-theme-1' ),
-			__( 'Name', 'premium-theme-1' ),
-			__( 'Phone', 'premium-theme-1' ),
-			__( 'Email', 'premium-theme-1' ),
-			__( 'Message', 'premium-theme-1' ),
-			__( 'Date', 'premium-theme-1' ),
+			esc_html__( 'ID', 'premium-theme-1' ),
+			esc_html__( 'Name', 'premium-theme-1' ),
+			esc_html__( 'Phone', 'premium-theme-1' ),
+			esc_html__( 'Email', 'premium-theme-1' ),
+			esc_html__( 'Message', 'premium-theme-1' ),
+			esc_html__( 'Date', 'premium-theme-1' ),
 		)
 	) . "\n";
 
@@ -229,12 +302,12 @@ function export_contact_form_csv() {
 		echo implode(
 			';',
 			array(
-				$row['id'],
-				$row['name'],
-				$row['phone'],
-				$row['email'],
-				$row['message'],
-				$row['created_at'],
+				esc_html( $row['id'] ),
+				esc_html( $row['name'] ),
+				esc_html( $row['phone'] ),
+				esc_html( $row['email'] ),
+				esc_html( $row['message'] ),
+				esc_html( $row['created_at'] ),
 			)
 		) . "\n";
 	}

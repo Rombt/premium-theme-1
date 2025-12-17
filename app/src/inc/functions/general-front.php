@@ -37,7 +37,6 @@ function get_icon_svg( $id, $color = false, $classes = '' ) {
 	return '<svg' . $class_attr . '><use href="' . $href . '"></use></svg>';
 }
 
-
 /**
  * Create a custom WP_Query instance for a given post type and taxonomy query.
  *

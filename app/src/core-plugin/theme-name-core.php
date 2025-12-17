@@ -1,44 +1,45 @@
 <?php
+/**
+ *
+ * Plugin Name: premium-theme-1 core
+ * Plugin URI: #
+ * Description:
+ * Version: 1.0
+ * Author: Rombt
+ * Author URI: #
+ * License: Proprietary
+ * Text Domain: premium-theme-1
+ *
+ * @package premium-theme-1
+ **/
 
-/*
-Plugin Name: premium-theme-1 core
-Plugin URI: #
-Description:
-Version: 1.0
-Author: Rombt
-Author URI: #
-License: Proprietary
-Text Domain: premium-theme-1
-*/
-
-
+defined( 'ABSPATH' ) || exit;
 
 if ( ! function_exists( 'add_action' ) ) {
 	echo 'Hi there!  I\'m just a plugin, not much I can do when called directly.';
 	exit;
 }
 
-// define( RMBT_TEXT_DOMAIN_THEME, 'premium-theme-1' );  //! you must use only chars those allow for url
-
-function rmbt_theme_scripts_admin() {
-	wp_enqueue_style( 'premium-theme-1' . '-admin_main', plugins_url() . '/' . 'premium-theme-1' . '-core/assets/styles/main-style.min.css', array(), '1.0', 'all' );
-	wp_enqueue_script( 'premium-theme-1' . '-admin_core', plugins_url() . '/' . 'premium-theme-1' . '-core/assets/js/admin.main.min.js', array( 'jquery' ), '1.0', true );
-}
-add_action( 'admin_enqueue_scripts', 'rmbt_theme_scripts_admin' );
-
 require_once plugin_dir_path( __FILE__ ) . 'inc/general-admin.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/project_post_type/project_post_type.php';
 require_once plugin_dir_path( __FILE__ ) . 'inc/application_processing_form/application_processing_form.php';
 
-require_once plugin_dir_path( __FILE__ ) . 'inc/demo_content/demo_content_button.php';
-require_once plugin_dir_path( __FILE__ ) . 'inc/demo_content/ajax.php';
-require_once plugin_dir_path( __FILE__ ) . 'inc/demo_content/generate_content_post.php';
+/**
+ * Enqueue admin styles and scripts for the theme core.
+ *
+ * @return void
+ */
+function rmbt_theme_scripts_admin() {
+	wp_enqueue_style( 'premium-theme-1-admin_main', plugins_url() . '/premium-theme-1-core/assets/styles/main-style.min.css', array(), '1.0', 'all' );
+	wp_enqueue_script( 'premium-theme-1-admin_core', plugins_url() . '/premium-theme-1-core/assets/js/admin.main.min.js', array( 'jquery' ), '1.0', true );
+}
+add_action( 'admin_enqueue_scripts', 'rmbt_theme_scripts_admin' );
 
-// require_once plugin_dir_path(__FILE__) . 'inc/ajax.php';
-// require_once plugin_dir_path(__FILE__) . 'inc/gutenberg/index.php';
-// require_once plugin_dir_path(__FILE__) . 'inc/acf.php';
-
-
+/**
+ * Return custom image sizes used in the theme.
+ *
+ * @return array List of image sizes with width, height, and crop settings.
+ */
 function rmbt_get_images_sizes() {
 
 	return array(
@@ -72,6 +73,11 @@ function rmbt_get_images_sizes() {
 }
 add_action( 'plugins_loaded', 'rmbt_register_image_size' );
 
+/**
+ * Register custom image sizes defined by the theme.
+ *
+ * @return void
+ */
 function rmbt_register_image_size() {
 
 	if ( function_exists( 'rmbt_get_images_sizes' ) ) {
@@ -82,19 +88,3 @@ function rmbt_register_image_size() {
 		}
 	}
 }
-
-/**
- * For processing type errors "warning" in blocks try-catch
- */
-function errorWarning( $errno, $errmbt, $errfile, $errline ) {
-	// the code of error  processing must be here if it need you
-	// echo "Ошибка: [$errno] $errmbt в файле $errfile на строке $errline\n";
-	return true;
-	// return false; // прервать обработку ошибки
-}
-set_error_handler( 'errorWarning' );
-
-
-
-// ==============================================================================================
-// ==============================================================================================

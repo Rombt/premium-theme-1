@@ -71,7 +71,7 @@ function rmbt_get_images_sizes() {
 		),
 	);
 }
-add_action( 'plugins_loaded', 'rmbt_register_image_size' );
+
 
 /**
  * Register custom image sizes defined by the theme.
@@ -88,3 +88,4 @@ function rmbt_register_image_size() {
 		}
 	}
 }
+add_action( 'plugins_loaded', 'rmbt_register_image_size' );

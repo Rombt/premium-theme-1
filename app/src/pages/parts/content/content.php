@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 
 get_template_part(
-	'pages/components/post_card-blog/post_card-blog',
+	'pages/components/post_card-blog/post-card-blog',
 	null,
 	array(
 		'title'               => get_the_title(),

@@ -27,7 +27,6 @@ get_header();?>
 					get_sidebar( 'left' );
 				}
 				?>
-
 				<div class="rmbt-single__col rmbt-single-right-col">
 					<?php get_template_part( 'pages/parts/content/content', get_post_type() ); ?>
 					<?php

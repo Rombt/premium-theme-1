@@ -12,10 +12,13 @@ $args = array(
 	'posts_per_page' => 5,
 );
 
-$rmbt_posts = get_posts( $args );
+$query = new WP_Query( $args );
 ?>
 
-<?php if ( ! empty( $rmbt_posts ) ) : ?>
+
+<?php
+if ( $query->have_posts() ) :
+	?>
 	<div class="wrapper-section featured-projects-wrapper-section">
 		<div class="rmbt-full-width rmbt-featured-projects-full-width">
 			<section class="rmbt-featured-projects">
@@ -31,27 +34,27 @@ $rmbt_posts = get_posts( $args );
 					<div class="rmbt-featured-projects-slide-swiper swiper">
 						<div class="swiper-wrapper">
 							<?php
-							foreach ( $rmbt_posts as $rmbt_post ) :
-								setup_postdata( $rmbt_post );
+							while ( $query->have_posts() ) :
+								$query->the_post();
 								?>
 								<div class="swiper-slide rmbt-featured-projects-slide  shadow-box">
 									<a href="<?php echo esc_url( get_permalink() ); ?>">
 										<div class="wrap-img rmbt-featured-projects-slide__img">
-											<?php
-											if ( has_post_thumbnail() ) {
-												the_post_thumbnail( 'medium' );
-											} else {
-												// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-												echo rmbt_redux_img( 'rmbt-coming_soon_img', 'rmbt-coming_soon_img-alt' );
-											}
-											?>
+										<?php
+										if ( has_post_thumbnail() ) {
+											the_post_thumbnail( 'medium' );
+										} else {
+											// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+											echo rmbt_redux_img( 'rmbt-coming_soon_img', 'rmbt-coming_soon_img-alt' );
+										}
+										?>
 										</div>
 									</a>
 									<h2 class="title-block"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-									<div class='subtitle-block'><?php echo esc_url( wp_trim_words( get_the_excerpt(), 10, '  [...]' ) ); ?></div>
+									<div class='subtitle-block'><?php echo esc_html( wp_trim_words( get_the_excerpt(), 10, '  [...]' ) ); ?></div>
 									<?php
 									get_template_part(
-										'pages/components/button_read_more/button_read_more',
+										'pages/components/button_read_more/button-read-more',
 										null,
 										array(
 											'data'    => '',
@@ -63,19 +66,19 @@ $rmbt_posts = get_posts( $args );
 									?>
 								</div>
 								<?php
-							endforeach;
-								wp_reset_postdata();
+							endwhile;
+							wp_reset_postdata();
 							?>
 						</div>
 					</div>
 					<div class="rmbt-featured-projects-slide-swiper__button-next">
 						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo get_icon_svg( 'chevron_1', true );
+									echo get_icon_svg( 'chevron_1', true );
 						?>
 					</div>
 					<div class="rmbt-featured-projects-slide-swiper__button-prev">
 						<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo get_icon_svg( 'chevron_1', true );
+									echo get_icon_svg( 'chevron_1', true );
 						?>
 					</div>
 				</div>
@@ -83,4 +86,4 @@ $rmbt_posts = get_posts( $args );
 		</div>
 	</div>
 
-<?php endif; ?>
+									<?php endif; ?>

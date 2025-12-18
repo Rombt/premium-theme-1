@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 <article class="rmbt-latest-blog-posts-card <?php echo ! empty( $args['classes'] ) ? esc_html( $args['classes'] ) : ''; ?>">
 	<div class="wrap-img hover-img rmbt-latest-blog-posts-card__img">
-		<?php echo esc_html( $args['tag-img'] ); ?>
+		<?php echo wp_kses_post( $args['tag-img'] ); ?>
 	</div>
 	<div class="rmbt-latest-blog-posts-card__content">
 		<header>
@@ -25,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
 			<?php echo esc_html( $args['post_date'] ); ?>
 			<?php
 			get_template_part(
-				'pages/components/button_read_more/button_read_more',
+				'pages/components/button_read_more/button-read-more',
 				null,
 				array(
 					'data'    => '',

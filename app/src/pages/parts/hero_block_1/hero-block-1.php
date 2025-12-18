@@ -29,7 +29,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 
 				<?php
-				get_template_part( 'pages/components/benefit_slide/benefit_slide' );
+				get_template_part( 'pages/components/benefit_slide/benefit-slide' );
 				?>
 
 			</div>
@@ -51,7 +51,7 @@ defined( 'ABSPATH' ) || exit;
 					</div>
 				</div>
 
-				<?php get_template_part( 'pages/components/controls_container/controls_container' ); ?>
+				<?php get_template_part( 'pages/components/controls_container/controls-container' ); ?>
 
 			</div>
 		</div>

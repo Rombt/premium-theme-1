@@ -17,8 +17,8 @@ global $rmbt_theme_options; ?>
 				</div>
 			</div>
 			<section class="rmbt-container rmbt-contacts-page">
-				<h2 class="title-section"><?php echo esc_html( rmbt_get_redux_field( 'rmbt-contacts-page_section-title' ) ); ?></h2>
-				<p class="subtitle-section"><?php echo esc_html( rmbt_get_redux_field( 'rmbt-contacts-page_section-subtitle' ) ); ?></p>
+				<h2 class="title-section"><?php echo wp_kses_post( rmbt_get_redux_field( 'rmbt-contacts-page_section-title' ) ); ?></h2>
+				<p class="subtitle-section"><?php echo wp_kses_post( rmbt_get_redux_field( 'rmbt-contacts-page_section-subtitle' ) ); ?></p>
 				<div class="rmbt-contacts-page__row">
 					<div class="rmbt-contacts-page__col-left">
 						<div class="wrap-img shadow-box rmbt-contacts-page__poster">
@@ -38,7 +38,7 @@ global $rmbt_theme_options; ?>
 						</div>
 					</div>
 					<div class="rmbt-contacts-page__col-right rmbt-contacts">
-						<div class="rmbt-contacts__location"><?php echo esc_html( rmbt_get_redux_field( 'contact_address', 1 ) ); ?></div>
+						<div class="rmbt-contacts__location"><?php echo wp_kses_post( rmbt_get_redux_field( 'contact_address', 1 ) ); ?></div>
 						<div class="rmbt-slide-in-tabs" data-rmbt-tabs-container="rmbt-contacts-tabs">
 							<?php $qty = count( $rmbt_theme_options['rmbt-managers_id'] ); ?>
 							<?php if ( $qty > 0 ) { ?>

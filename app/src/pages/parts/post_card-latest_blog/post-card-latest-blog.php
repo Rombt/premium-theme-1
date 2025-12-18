@@ -56,20 +56,19 @@ if ( 0 !== $rmbt_post_query->post_count ) {
 
 					<div class="rmbt-latest-blog-posts__row">
 						<div class="rmbt-latest-blog-posts__col rmbt-latest-blog-posts-left-col">
-
 							<?php
 							if ( count( $sticky_posts ) > 0 ) {
 								// все закреплённые посты (или только один?).
 								foreach ( $sticky_posts as $rmbt_post ) {
 									setup_postdata( $rmbt_post );
 									get_template_part(
-										'pages/components/post_card-latest_blog/post_card-latest_blog',
+										'pages/components/post_card-latest_blog/post-card-latest-blog',
 										null,
 										array(
-											'title'     => get_the_title(),
+											'title'     => get_the_title( $rmbt_post->ID ),
 											'text'      => wp_trim_words( get_the_excerpt(), 20, '  [...]' ),
-											'tag-img'   => get_the_post_thumbnail(),
-											'link_read_more_href' => get_the_permalink(),
+											'tag-img'   => get_the_post_thumbnail( $rmbt_post->ID ),
+											'link_read_more_href' => get_the_permalink( $rmbt_post->ID ),
 											'post_date' => get_the_date(),
 											'classes'   => 'shadow-box sticky-posts',
 										)
@@ -84,7 +83,7 @@ if ( 0 !== $rmbt_post_query->post_count ) {
 								$first_post = $rmbt_post_query->posts[0];
 								setup_postdata( $first_post );
 								get_template_part(
-									'pages/components/post_card-latest_blog/post_card-latest_blog',
+									'pages/components/post_card-latest_blog/post-card-latest-blog',
 									null,
 									array(
 										'title'     => get_the_title(),
@@ -110,7 +109,7 @@ if ( 0 !== $rmbt_post_query->post_count ) {
 									$rmbt_post_query->the_post();
 
 									get_template_part(
-										'pages/components/post_card-latest_blog/post_card-latest_blog',
+										'pages/components/post_card-latest_blog/post-card-latest-blog',
 										null,
 										array(
 											'title'     => get_the_title(),

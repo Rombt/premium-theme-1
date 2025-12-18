@@ -15,7 +15,7 @@ get_header();?>
 			<?php the_title( '<h1 class="entry-title title-section">', '</h1>' ); ?>
 			<?php if ( isset( $rmbt_theme_options['rmbt-single_page-subtitle'] ) && '' !== $rmbt_theme_options['rmbt-single_page-subtitle'] ) { ?>
 				<p class='subtitle-section'>
-					<?php echo rmbt_get_redux_field( 'rmbt-single_page-subtitle', 1 ); ?>
+					<?php echo esc_html( rmbt_get_redux_field( 'rmbt-single_page-subtitle', 1 ) ); ?>
 				</p>
 			<?php } ?>
 

@@ -144,9 +144,8 @@ Redux::set_args( $opt_name, $args );
  * ---> START SECTIONS
  */
 
-
 foreach ( RMBT_PATH_REDUX_SECTIONS as $sections_path ) {
-	$result = file_search_recursive( $sections_path, '/\-redux-options.phpredux\.php$/' );
+	$result = file_search_recursive( $sections_path, '/\-redux\.php$/' );
 	foreach ( $result as $file ) {
 		require_once $file;
 	}

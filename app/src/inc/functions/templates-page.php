@@ -53,7 +53,7 @@ function create_custom_page() {
 	} else {
 		$existing_page = $query->posts[0];
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions
-		error_log( 'Страница с заголовком "' . $page_title . '" уже существует (ID: ' . $existing_page->ID . ')' );
+		// error_log( 'Страница с заголовком "' . $page_title . '" уже существует (ID: ' . $existing_page->ID . ')' );
 	}
 }
 

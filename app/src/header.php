@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div class="rmbt-page-wrap front-page-wrap">
 			<?php get_template_part( 'pages/parts/header-2/header-2', '0' ); ?>
-			<?php get_template_part( 'pages/parts/hero_block_1/hero_block_1', null ); ?>
+			<?php get_template_part( 'pages/parts/hero_block_1/hero-block-1', null ); ?>
 
 		<?php elseif ( is_page( 'Страница шаблонов' ) ) : ?>
 			<div class="rmbt-page-wrap templates-page-wrap"></div>

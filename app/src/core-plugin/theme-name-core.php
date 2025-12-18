@@ -20,9 +20,9 @@ if ( ! function_exists( 'add_action' ) ) {
 	exit;
 }
 
-require_once plugin_dir_path( __FILE__ ) . 'inc/general-admin.php';
-require_once plugin_dir_path( __FILE__ ) . 'inc/project_post_type/project_post_type.php';
-require_once plugin_dir_path( __FILE__ ) . 'inc/application_processing_form/application_processing_form.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/helpers.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/project_post_type/project-post-type.php';
+require_once plugin_dir_path( __FILE__ ) . 'inc/application_processing_form/application-processing-form.php';
 
 /**
  * Enqueue admin styles and scripts for the theme core.

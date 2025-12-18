@@ -28,7 +28,7 @@ get_header(); ?>
 						<p class='subtitle-section'><?php echo esc_html( rmbt_get_redux_field( 'rmbt-404_text', 1 ) ); ?></p>
 						<?php
 						get_template_part(
-							'pages/components/button_cta/button_cta',
+							'pages/components/button_cta/button-cta',
 							null,
 							array(
 								'title' => rmbt_get_redux_field( 'rmbt-404_button-title', 1 ),

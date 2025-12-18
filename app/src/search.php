@@ -6,7 +6,7 @@
  */
 
 get_header();
-get_template_part( 'template-parts/parts/head_pages' );
+get_template_part( 'template-parts/parts/head-pages' );
 ?>
 
 <main id="primary" class="site-main container-for-wp-blocs">
